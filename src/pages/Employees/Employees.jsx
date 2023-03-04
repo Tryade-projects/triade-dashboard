@@ -7,6 +7,7 @@ console.log(data);
 const Employees = () => {
   return (
     <div>
+      <h1>Salut</h1>
       {data.map((test) => (
         <div>
           <li>{test.name}</li>
