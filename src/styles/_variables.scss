@@ -1,1 +1,32 @@
-$colorOne: #4d44b5;
+/* THEME COLORS */
+$colorPurple: #4d44b5;
+$colorOrange: #fb7d5b;
+$colorYellow: #fcc43e;
+$colorText: #303972;
+$colorGreen: #4cbc9a;
+$colorRed: #4cbc9a;
+$colorBackground: #f3f4ff;
+$colorWhite: #ffffff;
+$colorGrey1: #f5f5f5;
+$colorGrey2: #c1bbeb;
+$colorGrey3: #a098ae;
+
+/* TRANSPARENT COLOR */
+$colorPurple10PerCent: rgba(77, 68, 181, 0.1);
+
+/* GRADIENTS COLORS */
+$colorLinear1: linear-gradient(
+  180deg,
+  rgba(251, 125, 91, 1) 0%,
+  rgba(251, 125, 91, 0) 100%
+);
+$colorLinear2: linear-gradient(
+  180deg,
+  rgba(252, 196, 62, 1) 0%,
+  rgba(252, 196, 62, 0) 100%
+);
+$colorLinear3: linear-gradient(
+  180deg,
+  rgba(77, 68, 181, 1) 0%,
+  rgba(48, 57, 114, 1) 100%
+);
