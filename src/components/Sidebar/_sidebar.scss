@@ -5,7 +5,6 @@
   flex-direction: column;
   height: 100%;
   justify-content: space-around;
-  font-family: Poppins, sans-serif;
 }
 
 .sidebarHeader {
@@ -25,19 +24,43 @@
   justify-content: space-between;
   font-weight: 600;
   font-size: 18px;
+  gap: 8px;
 }
 
 .sidebarLink {
   display: flex;
   align-items: center;
-  justify-content: space-around;
   height: 5rem;
   width: 299px;
   color: $colorGrey2;
   border-radius: 40px 0 0 40px;
+  padding-left: 24px;
+  gap: 24px;
 }
 
 .active {
   background-color: $colorBackground;
   color: $colorPurple;
+}
+
+.buttonClose {
+  font-weight: 600;
+  font-size: 18px;
+  &:hover {
+    color: $colorPurple;
+    background: $colorRed;
+    .powerOff {
+      color: $colorPurple;
+    }
+  }
+}
+
+.sidebarFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $colorWhite;
+  font-size: 14px;
+  gap: 13px;
 }
