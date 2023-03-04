@@ -1,0 +1,37 @@
+[
+  {
+    "avatar": "./src/assets/fake-avatar.svg",
+    "name": "Samanta Willian",
+    "grade": "Sergent-Chef",
+    "date": "March 25, 2021",
+    "phone": "555-2098"
+  },
+  {
+    "avatar": "./src/assets/fake-avatar.svg",
+    "name": "Tony Soap",
+    "grade": "Recrue",
+    "date": "March 25, 2021",
+    "phone": "126-9812"
+  },
+  {
+    "avatar": "./src/assets/fake-avatar.svg",
+    "name": "Karen Hope",
+    "grade": "Commandant",
+    "date": "March 25, 2021",
+    "phone": "987-6540"
+  },
+  {
+    "avatar": "./src/assets/fake-avatar.svg",
+    "name": "Jordan Nico",
+    "grade": "Recrue",
+    "date": "March 25, 2021",
+    "phone": "333-6789"
+  },
+  {
+    "avatar": "./src/assets/fake-avatar.svg",
+    "name": "Nadila Adja",
+    "grade": "Recrue",
+    "date": "March 25, 2021",
+    "phone": "983-9768"
+  }
+]
