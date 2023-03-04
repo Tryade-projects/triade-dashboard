@@ -1,4 +1,43 @@
 .sidebar {
   width: 345px;
   background: $colorPurple;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+  font-family: Poppins, sans-serif;
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 36px;
+  color: $colorWhite;
+  gap: 1rem;
+}
+
+.sidebarMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.sidebarLink {
+  display: flex;
+  align-items: center;
+
+  height: 5rem;
+  width: 18.6875rem;
+  color: $colorGrey2;
+}
+
+.active {
+  background-color: $colorBackground;
+  border-radius: 40% 0 0 40%;
+  color: $colorPurple;
 }

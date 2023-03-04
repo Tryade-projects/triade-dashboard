@@ -13,6 +13,17 @@ ul {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
 #root {
   height: 100vh;
   width: 100vw;
