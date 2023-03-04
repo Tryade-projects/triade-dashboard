@@ -30,14 +30,14 @@
 .sidebarLink {
   display: flex;
   align-items: center;
-
+  justify-content: space-around;
   height: 5rem;
-  width: 18.6875rem;
+  width: 299px;
   color: $colorGrey2;
+  border-radius: 40px 0 0 40px;
 }
 
 .active {
   background-color: $colorBackground;
-  border-radius: 40% 0 0 40%;
   color: $colorPurple;
 }
