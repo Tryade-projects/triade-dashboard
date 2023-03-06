@@ -1,0 +1,59 @@
+header {
+  padding-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-sections {
+  font-size: 36px;
+  color: $colorPurple;
+}
+
+.container-disconnect-profil {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+
+  .disconnect-img {
+    background: $colorWhite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}
+
+.container-info-profil {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  p {
+    color: $colorText;
+  }
+
+  span {
+    font-size: 14px;
+    color: $colorGrey3;
+  }
+
+  .name-status {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .profil-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

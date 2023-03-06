@@ -1,0 +1,21 @@
+.search-bar {
+  width: 350px;
+  display: flex;
+  align-items: center;
+  border-radius: 175px;
+  background: #fff;
+  padding: 14px 32px;
+
+  img {
+    height: 32px;
+    width: 32px;
+  }
+
+  #search {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    margin-left: 15px;
+    width: 100%;
+  }
+}
