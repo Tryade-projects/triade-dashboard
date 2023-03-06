@@ -1,6 +1,7 @@
 import React from "react";
 import disconnect from "../../assets/disconnect.svg";
 import avatar from "../../assets/fake-avatar.svg";
+// import SearchBar from "../SearchBar/SearchBar";
 
 const Header = ({ title }) => {
   return (
