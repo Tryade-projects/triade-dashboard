@@ -30,3 +30,7 @@ $colorLinear3: linear-gradient(
   rgba(77, 68, 181, 1) 0%,
   rgba(48, 57, 114, 1) 100%
 );
+
+:export {
+  colorPurple: $colorPurple;
+}
