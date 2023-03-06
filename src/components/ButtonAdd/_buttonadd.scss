@@ -1,0 +1,15 @@
+.container-button-add {
+  width: 205px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border-radius: 102px;
+  background: $colorPurple;
+  cursor: pointer;
+
+  button {
+    color: $colorWhite;
+    font-size: 18px;
+  }
+}
