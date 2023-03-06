@@ -6,7 +6,6 @@
 @import "../components/Sidebar/sidebar";
 @import "../components/Header/header";
 @import "../components/SearchBar/searchbar";
-@import "../components/ButtonAdd/buttonadd";
 @import "../pages/Login/login/";
 @import "../pages/Home/home";
 @import "../pages/Employees/employees";
@@ -14,3 +13,5 @@
 @import "../pages/Finance/finance";
 @import "../pages/Improvements/improvements";
 @import "../pages/Activities/activities";
+
+@import "../components/DashboardInfos/dashboardInfos";
