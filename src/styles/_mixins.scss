@@ -1,0 +1,9 @@
+@mixin greyText{
+    font-size: 14px;
+    color: $colorGrey3;
+}
+
+@mixin littleTitle{
+    font-size: 24px;
+    color: $colorText;
+}
