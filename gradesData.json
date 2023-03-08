@@ -1,0 +1,193 @@
+[
+  {
+    "id": 1,
+    "ranks": "capitain",
+    "permissions": [
+      "Recrutement",
+      "Finances",
+      "Coffre",
+      "Vestiaire",
+      "Garage",
+      "Armurerie"
+    ],
+    "salary": 153,
+    "color": "#FB7D5B",
+    "label": "capitain"
+  },
+  {
+    "id": 2,
+    "ranks": "lieutenant",
+    "permissions": [
+      "Recrutement",
+      "Finances",
+      "Coffre",
+      "Vestiaire",
+      "Garage",
+      "Armurerie"
+    ],
+    "salary": 66,
+    "color": "#892e24",
+    "name": "lieutenant",
+    "label": "lieutenant"
+  },
+  {
+    "id": 3,
+    "ranks": "sergeant",
+    "permissions": [
+      "Recrutement",
+      "Finances",
+      "Coffre",
+      "Vestiaire",
+      "Garage",
+      "Armurerie"
+    ],
+    "salary": 305,
+    "color": "#b7452a",
+    "name": "sergeant",
+    "label": "sergeant"
+  },
+  {
+    "id": 4,
+    "ranks": "sergent-chef",
+    "permissions": [
+      "Recrutement",
+      "Finances",
+      "Coffre",
+      "Vestiaire",
+      "Garage",
+      "Armurerie"
+    ],
+    "salary": 305,
+    "color": "#b7452a",
+    "name": "sergent-chef",
+    "label": "sergent-chef"
+  },
+  {
+    "id": 5,
+    "ranks": "sergent-major",
+    "permissions": [
+      "Recrutement",
+      "Finances",
+      "Coffre",
+      "Vestiaire",
+      "Garage",
+      "Armurerie"
+    ],
+    "salary": 305,
+    "color": "#b7452a",
+    "name": "sergent-major",
+    "label": "sergent-major"
+  },
+  {
+    "id": 6,
+    "ranks": "sergent-chef-major",
+    "permissions": [
+      "Recrutement",
+      "Finances",
+      "Coffre",
+      "Vestiaire",
+      "Garage",
+      "Armurerie"
+    ],
+    "salary": 305,
+    "color": "#b7452a",
+    "name": "sergent-chef-major",
+    "label": "sergent-chef-major"
+  },
+  {
+    "id": 7,
+    "ranks": "sergent-chef-major",
+    "permissions": [
+      "Recrutement",
+      "Finances",
+      "Coffre",
+      "Vestiaire",
+      "Garage",
+      "Armurerie"
+    ],
+    "salary": 305,
+    "color": "#b7452a",
+    "name": "sergent-chef-major",
+    "label": "sergent-chef-major"
+  },
+  {
+    "id": 8,
+    "ranks": "sergent-chef-major",
+    "permissions": [
+      "Recrutement",
+      "Finances",
+      "Coffre",
+      "Vestiaire",
+      "Garage",
+      "Armurerie"
+    ],
+    "salary": 305,
+    "color": "#b7452a",
+    "name": "sergent-chef-major",
+    "label": "sergent-chef-major"
+  },
+  {
+    "id": 9,
+    "ranks": "sergent-chef-major",
+    "permissions": [
+      "Recrutement",
+      "Finances",
+      "Coffre",
+      "Vestiaire",
+      "Garage",
+      "Armurerie"
+    ],
+    "salary": 305,
+    "color": "#b7452a",
+    "name": "sergent-chef-major",
+    "label": "sergent-chef-major"
+  },
+  {
+    "id": 10,
+    "ranks": "sergent-chef-major",
+    "permissions": [
+      "Recrutement",
+      "Finances",
+      "Coffre",
+      "Vestiaire",
+      "Garage",
+      "Armurerie"
+    ],
+    "salary": 305,
+    "color": "#b7452a",
+    "name": "sergent-chef-major",
+    "label": "sergent-chef-major"
+  },
+  {
+    "id": 11,
+    "ranks": "sergent-chef-major",
+    "permissions": [
+      "Recrutement",
+      "Finances",
+      "Coffre",
+      "Vestiaire",
+      "Garage",
+      "Armurerie"
+    ],
+    "salary": 305,
+    "color": "#b7452a",
+    "name": "sergent-chef-major",
+    "label": "sergent-chef-major"
+  },
+  {
+    "id": 12,
+    "ranks": "sergent-chef-major",
+    "permissions": [
+      "Recrutement",
+      "Finances",
+      "Coffre",
+      "Vestiaire",
+      "Garage",
+      "Armurerie"
+    ],
+    "salary": 305,
+    "color": "#b7452a",
+    "name": "sergent-chef-major",
+    "label": "sergent-chef-major"
+  }
+]
