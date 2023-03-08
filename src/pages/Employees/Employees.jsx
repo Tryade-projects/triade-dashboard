@@ -3,6 +3,7 @@ import data from "../../../fakeData.json";
 import Header from "../../components/Header/Header";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import ButtonAdd from "../../components/ButtonAdd/ButtonAdd";
+import ManageEmployeeDash from "../../components/ManageEmployeeDash/ManageEmployeeDash";
 
 const Employees = () => {
   return (
@@ -12,6 +13,7 @@ const Employees = () => {
         <SearchBar />
         <ButtonAdd />
       </div>
+      <ManageEmployeeDash />
     </main>
   );
 };
