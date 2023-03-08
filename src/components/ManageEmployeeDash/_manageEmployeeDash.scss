@@ -1,0 +1,20 @@
+.container-dashboard-employee {
+  width: 100%;
+  background: $colorWhite;
+  padding: 0 45px;
+  height: 70vh;
+  border-radius: 20px;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  text-align: start;
+}
+
+.t {
+  display: flex;
+  align-items: center;
+}
