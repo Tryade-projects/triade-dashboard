@@ -72,6 +72,11 @@ tbody tr:nth-child(odd) {
       align-items: center;
       justify-content: center;
       cursor: pointer;
+
+      .decrease-img {
+        width: 20px;
+        height: 20px;
+      }
     }
 
     img {

@@ -46,7 +46,7 @@ const ManageEmployeeDash = () => {
                     <img src={trending} alt="" />
                   </div>
                   <div>
-                    <img src={decrease} alt="" />
+                    <img className="decrease-img" src={decrease} alt="" />
                   </div>
                   <div>
                     <img src={fired} alt="" />
