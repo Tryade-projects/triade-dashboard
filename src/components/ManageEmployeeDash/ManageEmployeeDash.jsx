@@ -8,43 +8,45 @@ const ManageEmployeeDash = () => {
 
   return (
     <div className="container-dashboard-employee">
-      <div className="container-info">
-        <table>
-          <thead>
-            <tr>
-              {titleArray.map((t, i) => (
-                <th key={i}>{t}</th>
-              ))}
+      {/* <div className="container-info"> */}
+      <table>
+        <thead>
+          <tr>
+            <th className="semiBold th-name">Nom</th>
+            <th className="semiBold">Grade</th>
+            <th className="semiBold">Date d'emploi</th>
+            <th className="semiBold">Téléphone</th>
+            <th className="semiBold">Actions</th>
+            <th className="semiBold">Plus</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((t) => (
+            <tr key={t.id}>
+              <td>
+                <div className="wrapper-flex-name-avatar">
+                  <div>
+                    <img src={t.avatar} alt="avatar" />
+                  </div>
+                  <p className="bold">{t.name}</p>
+                </div>
+              </td>
+              <td>
+                <p>{t.grade}</p>
+              </td>
+              <td className="td-date regular">{t.date}</td>
+              <td className="td-phone regular">{t.phone}</td>
+              <td>Augmenter</td>
+              <td>Reglage</td>
             </tr>
-          </thead>
-          <tbody>
-            {data.map((t) => (
-              <tr key={t.id}>
-                <td className="t">
-                  <img src={t.avatar} alt="" />
-                  <p>{t.name}</p>
-                </td>
-                <td>{t.grade}</td>
-                <td>{t.date}</td>
-                <td>{t.phone}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <div className="grid-test">
-          {/* {data.map((d) => (
-            <div className="test" key={d.id}>
-              <div>
-                <img src={d.avatar} alt="" />
-                <p>{d.name}</p>
-              </div>
-              <p className="grade">{d.grade}</p>
-              <p className="date">{d.date}</p>
-              <p className="phone">{d.phone}</p>
-            </div>
-          ))} */}
-        </div>
+          ))}
+        </tbody>
+      </table>
+      <div className="footer">
+        <p>Affichage</p>
+        <span>Number</span>
       </div>
+      {/* </div> */}
     </div>
   );
 };
