@@ -57,8 +57,59 @@ tbody tr:nth-child(odd) {
   font-size: 14px;
 }
 
-.footer {
+.td-action {
+  .wrapper-type-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    div {
+      width: 40px;
+      height: 40px;
+      background: $colorGrey1;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.td-more {
+  div {
+    width: 40px;
+    height: 40px;
+    background: $colorGrey1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.footer-dashboard-employee {
   padding: 28px 50px 32px 40px;
   display: flex;
   justify-content: space-between;
+
+  p {
+    color: $colorGrey3;
+    font-size: 14px;
+
+    span {
+      color: $colorText;
+    }
+  }
 }
