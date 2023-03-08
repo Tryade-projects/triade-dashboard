@@ -1,0 +1,16 @@
+.details {
+  border-radius: 20px;
+  overflow: hidden;
+  height: 89%;
+  background-color: $colorWhite;
+}
+
+.detailsTitle {
+  background-color: $colorPurple;
+  color: $colorWhite;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+  font-size: 24px;
+}
