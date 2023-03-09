@@ -16,7 +16,7 @@ tr {
 
 th,
 td {
-  border-bottom: 1px solid $colorGrey3;
+  border-bottom: 1px solid #dbdbdb;
 }
 
 th {
@@ -47,6 +47,26 @@ tbody tr:nth-child(odd) {
   }
 }
 
+.td-grade {
+  p {
+    display: inline;
+    padding: 9px 24px;
+    border-radius: 40px;
+    color: $colorWhite;
+  }
+  .sergent-chef {
+    background: $colorOrange;
+  }
+
+  .commandant {
+    background: $colorGreen;
+  }
+
+  .recrue {
+    background: $colorYellow;
+  }
+}
+
 .td-date {
   color: $colorGrey3;
   font-size: 14px;
@@ -73,10 +93,10 @@ tbody tr:nth-child(odd) {
       justify-content: center;
       cursor: pointer;
 
-      .decrease-img {
-        width: 20px;
-        height: 20px;
-      }
+      // .decrease-img {
+      //   width: 24px;
+      //   height: 24px;
+      // }
     }
 
     img {
@@ -108,6 +128,7 @@ tbody tr:nth-child(odd) {
   padding: 28px 50px 32px 40px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   p {
     color: $colorGrey3;
@@ -116,5 +137,28 @@ tbody tr:nth-child(odd) {
     span {
       color: $colorText;
     }
+  }
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  width: 146px;
+  justify-content: space-between;
+
+  svg {
+    cursor: pointer;
+  }
+
+  div {
+    width: 50px;
+    height: 50px;
+    background: $colorPurple;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $colorWhite;
+    box-shadow: 0px 7px 16px rgba(0, 0, 0, 0.14);
   }
 }

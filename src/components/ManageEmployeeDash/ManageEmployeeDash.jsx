@@ -10,6 +10,19 @@ const ManageEmployeeDash = () => {
 
   titleArray.splice(0, 2);
 
+  const test = (grade) => {
+    switch (grade) {
+      case "Recrue":
+        return "recrue";
+      case "Sergent-Chef":
+        return "sergent-chef";
+      case "Commandant":
+        return "commandant";
+      default:
+        return "";
+    }
+  };
+
   return (
     <div className="container-dashboard-employee">
       {/* <div className="container-info"> */}
@@ -35,8 +48,8 @@ const ManageEmployeeDash = () => {
                   <p className="bold">{t.name}</p>
                 </div>
               </td>
-              <td>
-                <p>{t.grade}</p>
+              <td className="td-grade">
+                <p className={test(t.grade)}>{t.grade}</p>
               </td>
               <td className="td-date regular">{t.date}</td>
               <td className="td-phone regular">{t.phone}</td>
@@ -70,7 +83,33 @@ const ManageEmployeeDash = () => {
           Affichage de <span> {data.length}</span> employés sur
           <span> {data.length}</span>
         </p>
-        <span>Number</span>
+        <div className="pagination">
+          <svg
+            width="14"
+            height="22"
+            viewBox="0 0 14 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11.512 21.176L1.04797 11.736C0.599971 11.352 0.599971 10.648 1.04797 10.264L11.512 0.824027C12.184 0.216027 13.272 0.664026 13.272 1.56003L13.272 20.44C13.272 21.336 12.184 21.784 11.512 21.176Z"
+              fill="#A098AE"
+            />
+          </svg>
+          <div>1</div>
+          <svg
+            width="14"
+            height="22"
+            viewBox="0 0 14 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2.48803 0.823973L12.952 10.264C13.4 10.648 13.4 11.352 12.952 11.736L2.48803 21.176C1.81603 21.784 0.728027 21.336 0.728027 20.44L0.728028 1.55997C0.728028 0.663973 1.81603 0.215973 2.48803 0.823973Z"
+              fill="#A098AE"
+            />
+          </svg>
+        </div>
       </div>
       {/* </div> */}
     </div>
