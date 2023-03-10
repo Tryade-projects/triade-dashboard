@@ -38,5 +38,29 @@
     "grade": "Recrue",
     "date": "March 25, 2021",
     "phone": "983-9768"
+  },
+  {
+    "id": 7,
+    "avatar": "./src/assets/fake-avatar.svg",
+    "name": "Oumaisai",
+    "grade": "Commandant",
+    "date": "March 25, 2021",
+    "phone": "987-6540"
+  },
+  {
+    "id": 8,
+    "avatar": "./src/assets/fake-avatar.svg",
+    "name": "Jordan Nico",
+    "grade": "Recrue",
+    "date": "March 25, 2021",
+    "phone": "333-6789"
+  },
+  {
+    "id": 9,
+    "avatar": "./src/assets/fake-avatar.svg",
+    "name": "Nadila Adja",
+    "grade": "Recrue",
+    "date": "March 25, 2021",
+    "phone": "983-9768"
   }
 ]

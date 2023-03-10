@@ -1,13 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import data from "../../../fakeData.json";
 import gear from "../../assets/gear.svg";
 import trending from "../../assets/trending.svg";
 import decrease from "../../assets/decrease.svg";
 import fired from "../../assets/fired.svg";
+import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 
-const ManageEmployeeDash = () => {
+const INFO_PER_PAGE = 5;
+
+const ManageEmployeeDash = ({ search }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const displayProfil = data.filter((item) => {
+    return item.name.toLowerCase().includes(search.toLowerCase());
+  });
+
+  // Number of page
+  const numberPages = Math.ceil(displayProfil.length / INFO_PER_PAGE);
+
+  // first and last index of posts from the current page
+  const postLastIndex = currentPage * INFO_PER_PAGE;
+  const postFirstIndex = postLastIndex - INFO_PER_PAGE;
+
+  // Keeps only the posts on the page
+  const currentProfils = displayProfil.slice(postFirstIndex, postLastIndex);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   const titleArray = Object.keys(data[0]);
-
   titleArray.splice(0, 2);
 
   const test = (grade) => {
@@ -25,7 +45,6 @@ const ManageEmployeeDash = () => {
 
   return (
     <div className="container-dashboard-employee">
-      {/* <div className="container-info"> */}
       <table>
         <thead>
           <tr>
@@ -38,21 +57,21 @@ const ManageEmployeeDash = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map((t) => (
-            <tr key={t.id}>
+          {currentProfils.map((profil) => (
+            <tr key={profil.id}>
               <td>
                 <div className="wrapper-flex-name-avatar">
                   <div>
-                    <img src={t.avatar} alt="avatar" />
+                    <img src={profil.avatar} alt="avatar" />
                   </div>
-                  <p className="bold">{t.name}</p>
+                  <p className="bold">{profil.name}</p>
                 </div>
               </td>
               <td className="td-grade">
-                <p className={test(t.grade)}>{t.grade}</p>
+                <p className={test(profil.grade)}>{profil.grade}</p>
               </td>
-              <td className="td-date regular">{t.date}</td>
-              <td className="td-phone regular">{t.phone}</td>
+              <td className="td-date regular">{profil.date}</td>
+              <td className="td-phone regular">{profil.phone}</td>
               <td className="td-action">
                 <div className="wrapper-type-actions">
                   <div>
@@ -79,39 +98,14 @@ const ManageEmployeeDash = () => {
         </tbody>
       </table>
       <div className="footer-dashboard-employee">
-        <p>
-          Affichage de <span> {data.length}</span> employés sur
-          <span> {data.length}</span>
-        </p>
-        <div className="pagination">
-          <svg
-            width="14"
-            height="22"
-            viewBox="0 0 14 22"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M11.512 21.176L1.04797 11.736C0.599971 11.352 0.599971 10.648 1.04797 10.264L11.512 0.824027C12.184 0.216027 13.272 0.664026 13.272 1.56003L13.272 20.44C13.272 21.336 12.184 21.784 11.512 21.176Z"
-              fill="#A098AE"
-            />
-          </svg>
-          <div>1</div>
-          <svg
-            width="14"
-            height="22"
-            viewBox="0 0 14 22"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M2.48803 0.823973L12.952 10.264C13.4 10.648 13.4 11.352 12.952 11.736L2.48803 21.176C1.81603 21.784 0.728027 21.336 0.728027 20.44L0.728028 1.55997C0.728028 0.663973 1.81603 0.215973 2.48803 0.823973Z"
-              fill="#A098AE"
-            />
-          </svg>
-        </div>
+        <PaginationEmployee
+          infoPerPage={INFO_PER_PAGE}
+          numberOfPages={numberPages}
+          totalOfInfo={data.length}
+          paginate={paginate}
+          currentPage={currentPage}
+        />
       </div>
-      {/* </div> */}
     </div>
   );
 };

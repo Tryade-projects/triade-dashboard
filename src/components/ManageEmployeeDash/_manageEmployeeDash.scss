@@ -92,11 +92,6 @@ tbody tr:nth-child(odd) {
       align-items: center;
       justify-content: center;
       cursor: pointer;
-
-      // .decrease-img {
-      //   width: 24px;
-      //   height: 24px;
-      // }
     }
 
     img {
@@ -129,36 +124,4 @@ tbody tr:nth-child(odd) {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  p {
-    color: $colorGrey3;
-    font-size: 14px;
-
-    span {
-      color: $colorText;
-    }
-  }
-}
-
-.pagination {
-  display: flex;
-  align-items: center;
-  width: 146px;
-  justify-content: space-between;
-
-  svg {
-    cursor: pointer;
-  }
-
-  div {
-    width: 50px;
-    height: 50px;
-    background: $colorPurple;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $colorWhite;
-    box-shadow: 0px 7px 16px rgba(0, 0, 0, 0.14);
-  }
 }
