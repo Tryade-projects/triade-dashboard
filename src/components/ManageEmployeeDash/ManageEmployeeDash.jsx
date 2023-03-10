@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import data from "../../../fakeData.json";
 import gear from "../../assets/gear.svg";
 import trending from "../../assets/trending.svg";
@@ -10,6 +10,10 @@ const INFO_PER_PAGE = 5;
 
 const ManageEmployeeDash = ({ search }) => {
   const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [search]);
 
   const displayProfil = data.filter((item) => {
     return item.name.toLowerCase().includes(search.toLowerCase());
