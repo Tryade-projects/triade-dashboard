@@ -31,6 +31,18 @@ const ManageEmployeeDash = ({ search }) => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  const previousPage = () => {
+    if (currentPage !== 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const nextPage = () => {
+    if (currentPage !== numberPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
   const titleArray = Object.keys(data[0]);
   titleArray.splice(0, 2);
 
@@ -103,11 +115,13 @@ const ManageEmployeeDash = ({ search }) => {
       </table>
       <div className="footer-dashboard-employee">
         <PaginationEmployee
-          infoPerPage={INFO_PER_PAGE}
+          infoPerPage={currentProfils.length}
           numberOfPages={numberPages}
           totalOfInfo={data.length}
           paginate={paginate}
           currentPage={currentPage}
+          nextPage={nextPage}
+          previousPage={previousPage}
         />
       </div>
     </div>

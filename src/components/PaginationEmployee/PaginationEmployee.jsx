@@ -6,6 +6,8 @@ const PaginationEmployee = ({
   paginate,
   infoPerPage,
   currentPage,
+  nextPage,
+  previousPage,
 }) => {
   // List of pages
   const pageNumbers = Array.from(Array(numberOfPages).keys(), (n) => n + 1);
@@ -18,6 +20,7 @@ const PaginationEmployee = ({
       </p>
       <div className="container-pagination">
         <svg
+          onClick={previousPage}
           className="left-arrow"
           width="14"
           height="22"
@@ -42,6 +45,7 @@ const PaginationEmployee = ({
           ))}
         </ul>
         <svg
+          onClick={nextPage}
           className="right-arrow"
           width="14"
           height="22"
