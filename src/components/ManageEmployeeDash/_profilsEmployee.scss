@@ -1,0 +1,87 @@
+.th-name {
+  padding-left: 40px;
+}
+
+.wrapper-flex-name-avatar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-left: 40px;
+
+  p {
+    color: $colorText;
+    font-size: 18px;
+  }
+}
+
+.td-grade {
+  p {
+    display: inline;
+    padding: 9px 24px;
+    border-radius: 40px;
+    color: $colorWhite;
+  }
+  .sergent-chef {
+    background: $colorOrange;
+  }
+
+  .commandant {
+    background: $colorGreen;
+  }
+
+  .recrue {
+    background: $colorYellow;
+  }
+}
+
+.td-date {
+  color: $colorGrey3;
+  font-size: 14px;
+}
+
+.td-phone {
+  color: $colorText;
+  font-size: 14px;
+}
+
+.td-action {
+  .wrapper-type-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    div {
+      width: 40px;
+      height: 40px;
+      background: $colorGrey1;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.td-more {
+  div {
+    width: 40px;
+    height: 40px;
+    background: $colorGrey1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
