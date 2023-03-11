@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import data from "../../../fakeData.json";
-
 import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 import ProfilsEmployee from "./ProfilsEmployee";
 
@@ -41,9 +40,6 @@ const ManageEmployeeDash = ({ search }) => {
     }
   };
 
-  const titleArray = Object.keys(data[0]);
-  titleArray.splice(0, 2);
-
   return (
     <div className="container-dashboard-employee">
       <table>
@@ -58,7 +54,9 @@ const ManageEmployeeDash = ({ search }) => {
           </tr>
         </thead>
         <tbody>
-          <ProfilsEmployee profils={currentProfils} />
+          {currentProfils.map((profil) => (
+            <ProfilsEmployee {...profil} key={profil.id} />
+          ))}
         </tbody>
       </table>
       <div className="footer-dashboard-employee">
