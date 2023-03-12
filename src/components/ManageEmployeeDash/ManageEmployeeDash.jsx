@@ -7,11 +7,12 @@ import { usePagination } from "./usePagination";
 const INFO_PER_PAGE = 5;
 
 const ManageEmployeeDash = ({ search }) => {
-  const displayProfil = data.filter((item) => {
+  const displayProfilFiltered = data.filter((item) => {
     return item.name.toLowerCase().includes(search.toLowerCase());
   });
 
-  const numberPages = Math.ceil(displayProfil.length / INFO_PER_PAGE);
+  //total numbers of page
+  const numberPages = Math.ceil(displayProfilFiltered.length / INFO_PER_PAGE);
 
   const defaultPage = 1;
 
@@ -29,7 +30,10 @@ const ManageEmployeeDash = ({ search }) => {
     setCurrentPage(defaultPage);
   }, [search]);
 
-  const currentProfils = displayProfil.slice(postFirstIndex, postLastIndex);
+  const currentProfils = displayProfilFiltered.slice(
+    postFirstIndex,
+    postLastIndex,
+  );
 
   return (
     <div className="container-dashboard-employee">
