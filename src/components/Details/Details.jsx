@@ -1,16 +1,12 @@
 import React from "react";
-// import GradeDetailsForm from "../GradeDetailsForm/GradeDetailsForm";
-// import EmployeeDetailsForm from "../EmployeeDetailsForm/EmployeeDetailsForm";
+import RanksForm from "../RanksForm/RanksForm";
+import EmployeeDetailsForm from "../EmployeeDetailsForm/EmployeeDetailsForm";
 
 const Details = ({ title }) => {
   return (
     <section className="details">
       <h2 className="detailsTitle">{title}</h2>
-      {/* {title === "Ajouter un Employé" ? (
-        <EmployeeDetailsForm />
-      ) : (
-        <GradeDetailsForm />
-      )} */}
+      {title === "Ajouter un Employé" ? <EmployeeDetailsForm /> : <RanksForm />}
     </section>
   );
 };

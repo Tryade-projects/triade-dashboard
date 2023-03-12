@@ -1,0 +1,19 @@
+.containerRanks {
+  display: flex;
+  flex-direction: column;
+}
+
+.rank {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rankPermissions {
+  text-align: center;
+}
+
+.rankSalary {
+  white-space: nowrap;
+}

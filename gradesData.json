@@ -1,193 +1,146 @@
 [
   {
-    "id": 1,
-    "ranks": "capitain",
+    "_id": "29ed632d-e3be-4083-be90-cfafdbd2e6c1",
+    "ranks": "Training",
     "permissions": [
-      "Recrutement",
       "Finances",
-      "Coffre",
-      "Vestiaire",
-      "Garage",
-      "Armurerie"
+      "Gestion des vestiaires"
     ],
-    "salary": 153,
-    "color": "#FB7D5B",
-    "label": "capitain"
+    "salary": "$227.27",
+    "color": "#19927e",
+    "name": "faucibus",
+    "label": "porttitor"
   },
   {
-    "id": 2,
-    "ranks": "lieutenant",
+    "_id": "72e2d369-70e3-4e1a-b83d-1394adbdb31a",
+    "ranks": "Support",
     "permissions": [
-      "Recrutement",
       "Finances",
-      "Coffre",
-      "Vestiaire",
-      "Garage",
-      "Armurerie"
+      "Gestion des vestiaires"
     ],
-    "salary": 66,
-    "color": "#892e24",
-    "name": "lieutenant",
-    "label": "lieutenant"
+    "salary": "$285.27",
+    "color": "#d64c7d",
+    "name": "nonummy",
+    "label": "aliquam"
   },
   {
-    "id": 3,
-    "ranks": "sergeant",
+    "_id": "9828c145-5908-4d22-95f4-b4760cd4c055",
+    "ranks": "Services",
     "permissions": [
-      "Recrutement",
       "Finances",
-      "Coffre",
-      "Vestiaire",
-      "Garage",
-      "Armurerie"
+      "Gestion des vestiaires"
     ],
-    "salary": 305,
-    "color": "#b7452a",
-    "name": "sergeant",
-    "label": "sergeant"
+    "salary": "$140.41",
+    "color": "#4b867b",
+    "name": "suscipit",
+    "label": "ornare"
   },
   {
-    "id": 4,
-    "ranks": "sergent-chef",
+    "_id": "8e76c1e6-0313-4a7b-8f1a-8af88dff1a20",
+    "ranks": "Legal",
     "permissions": [
-      "Recrutement",
       "Finances",
-      "Coffre",
-      "Vestiaire",
-      "Garage",
-      "Armurerie"
+      "Gestion des vestiaires"
     ],
-    "salary": 305,
-    "color": "#b7452a",
-    "name": "sergent-chef",
-    "label": "sergent-chef"
+    "salary": "$297.58",
+    "color": "#dceafb",
+    "name": "lobortis",
+    "label": "purus"
   },
   {
-    "id": 5,
-    "ranks": "sergent-major",
+    "_id": "81973c84-c22b-4a4e-a466-21788cd12b34",
+    "ranks": "Research and Development",
     "permissions": [
-      "Recrutement",
       "Finances",
-      "Coffre",
-      "Vestiaire",
-      "Garage",
-      "Armurerie"
+      "Gestion des vestiaires"
     ],
-    "salary": 305,
-    "color": "#b7452a",
-    "name": "sergent-major",
-    "label": "sergent-major"
+    "salary": "$354.83",
+    "color": "#b0f8cc",
+    "name": "in",
+    "label": "ante"
   },
   {
-    "id": 6,
-    "ranks": "sergent-chef-major",
+    "_id": "0987f1b3-d4d8-40a7-b003-c8e9c46c7884",
+    "ranks": "Marketing",
     "permissions": [
-      "Recrutement",
       "Finances",
-      "Coffre",
-      "Vestiaire",
-      "Garage",
-      "Armurerie"
+      "Gestion des vestiaires"
     ],
-    "salary": 305,
-    "color": "#b7452a",
-    "name": "sergent-chef-major",
-    "label": "sergent-chef-major"
+    "salary": "$89.88",
+    "color": "#468960",
+    "name": "turpis",
+    "label": "cursus"
   },
   {
-    "id": 7,
-    "ranks": "sergent-chef-major",
+    "_id": "5626fcd8-c315-44d8-8589-ffe0f8332434",
+    "ranks": "Services",
     "permissions": [
-      "Recrutement",
       "Finances",
-      "Coffre",
-      "Vestiaire",
-      "Garage",
-      "Armurerie"
+      "Gestion des vestiaires"
     ],
-    "salary": 305,
-    "color": "#b7452a",
-    "name": "sergent-chef-major",
-    "label": "sergent-chef-major"
+    "salary": "$111.43",
+    "color": "#65bc49",
+    "name": "pede",
+    "label": "iaculis"
   },
   {
-    "id": 8,
-    "ranks": "sergent-chef-major",
+    "_id": "61afc99f-11c9-4247-b0d6-7c5f3d777f8f",
+    "ranks": "Engineering",
     "permissions": [
-      "Recrutement",
       "Finances",
-      "Coffre",
-      "Vestiaire",
-      "Garage",
-      "Armurerie"
+      "Gestion des vestiaires"
     ],
-    "salary": 305,
-    "color": "#b7452a",
-    "name": "sergent-chef-major",
-    "label": "sergent-chef-major"
+    "salary": "$277.85",
+    "color": "#e962ba",
+    "name": "aliquam",
+    "label": "maecenas"
   },
   {
-    "id": 9,
-    "ranks": "sergent-chef-major",
+    "_id": "6ff857e2-bfa4-487c-b6e6-9e2c62924279",
+    "ranks": "Research and Development",
     "permissions": [
-      "Recrutement",
       "Finances",
-      "Coffre",
-      "Vestiaire",
-      "Garage",
-      "Armurerie"
+      "Gestion des vestiaires"
     ],
-    "salary": 305,
-    "color": "#b7452a",
-    "name": "sergent-chef-major",
-    "label": "sergent-chef-major"
+    "salary": "$171.34",
+    "color": "#529b21",
+    "name": "at",
+    "label": "primis"
   },
   {
-    "id": 10,
-    "ranks": "sergent-chef-major",
+    "_id": "99b3bb15-f1ae-4e61-ba34-c7102c499bc2",
+    "ranks": "Human Resources",
     "permissions": [
-      "Recrutement",
       "Finances",
-      "Coffre",
-      "Vestiaire",
-      "Garage",
-      "Armurerie"
+      "Gestion des vestiaires"
     ],
-    "salary": 305,
-    "color": "#b7452a",
-    "name": "sergent-chef-major",
-    "label": "sergent-chef-major"
+    "salary": "$273.01",
+    "color": "#f2b019",
+    "name": "justo",
+    "label": "commodo"
   },
   {
-    "id": 11,
-    "ranks": "sergent-chef-major",
+    "_id": "5c2409c7-9c3d-458b-87e8-f9856ebb2e0c",
+    "ranks": "Research and Development",
     "permissions": [
-      "Recrutement",
       "Finances",
-      "Coffre",
-      "Vestiaire",
-      "Garage",
-      "Armurerie"
+      "Gestion des vestiaires"
     ],
-    "salary": 305,
-    "color": "#b7452a",
-    "name": "sergent-chef-major",
-    "label": "sergent-chef-major"
+    "salary": "$125.21",
+    "color": "#ff7331",
+    "name": "semper",
+    "label": "mauris"
   },
   {
-    "id": 12,
-    "ranks": "sergent-chef-major",
+    "_id": "d060bbc7-a43d-42b3-a551-aa0bb55776a9",
+    "ranks": "Human Resources",
     "permissions": [
-      "Recrutement",
       "Finances",
-      "Coffre",
-      "Vestiaire",
-      "Garage",
-      "Armurerie"
+      "Gestion des vestiaires"
     ],
-    "salary": 305,
-    "color": "#b7452a",
-    "name": "sergent-chef-major",
-    "label": "sergent-chef-major"
+    "salary": "$260.89",
+    "color": "#56ee1f",
+    "name": "ligula",
+    "label": "vestibulum"
   }
 ]
