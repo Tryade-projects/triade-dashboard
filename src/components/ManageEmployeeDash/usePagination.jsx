@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-export const usePagination = (infoPerPosts, search, numberPages) => {
-  const [currentPage, setCurrentPage] = useState(1);
-
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [search]);
+export const usePagination = (defaultPage, infoPerPosts, numberPages) => {
+  const [currentPage, setCurrentPage] = useState(defaultPage);
 
   const postLastIndex = currentPage * infoPerPosts;
   const postFirstIndex = postLastIndex - infoPerPosts;
@@ -22,6 +18,8 @@ export const usePagination = (infoPerPosts, search, numberPages) => {
     }
   };
 
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return {
     currentPage,
     setCurrentPage,
@@ -29,5 +27,6 @@ export const usePagination = (infoPerPosts, search, numberPages) => {
     nextPage,
     postLastIndex,
     postFirstIndex,
+    paginate,
   };
 };

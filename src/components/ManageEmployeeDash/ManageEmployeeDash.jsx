@@ -13,6 +13,8 @@ const ManageEmployeeDash = ({ search }) => {
 
   const numberPages = Math.ceil(displayProfil.length / INFO_PER_PAGE);
 
+  const defaultPage = 1;
+
   const {
     currentPage,
     setCurrentPage,
@@ -20,11 +22,14 @@ const ManageEmployeeDash = ({ search }) => {
     postLastIndex,
     nextPage,
     previousPage,
-  } = usePagination(INFO_PER_PAGE, search, numberPages);
+    paginate,
+  } = usePagination(defaultPage, INFO_PER_PAGE, numberPages);
+
+  useEffect(() => {
+    setCurrentPage(defaultPage);
+  }, [search]);
 
   const currentProfils = displayProfil.slice(postFirstIndex, postLastIndex);
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className="container-dashboard-employee">
