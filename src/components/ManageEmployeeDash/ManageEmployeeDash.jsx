@@ -28,14 +28,8 @@ const ManageEmployeeDash = ({ search }) => {
   return (
     <div className="container-dashboard-employee">
       <table>
-        <thead>
-          <HeaderTable />
-        </thead>
-        <tbody>
-          {currentProfils.map((profil) => (
-            <BodyTable {...profil} key={profil.id} />
-          ))}
-        </tbody>
+        <HeaderTable />
+        <BodyTable profils={currentProfils} />
       </table>
       <div className="footer-dashboard-employee">
         <PaginationEmployee
