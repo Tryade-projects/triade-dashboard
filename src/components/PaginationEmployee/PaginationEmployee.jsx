@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const PaginationEmployee = ({
   numberOfPages,
@@ -10,7 +10,7 @@ const PaginationEmployee = ({
   previousPage,
 }) => {
   // List of pages
-  const pageNumbers = Array.from(Array(numberOfPages).keys(), (n) => n + 1);
+  const countPages = Array.from(Array(numberOfPages).keys(), (n) => n + 1);
 
   return (
     <>
@@ -34,7 +34,7 @@ const PaginationEmployee = ({
           />
         </svg>
         <ul className="pagination">
-          {pageNumbers.map((page) => (
+          {countPages.map((page) => (
             <li
               className={currentPage === page ? "active" : ""}
               onClick={() => paginate(page)}
