@@ -9,7 +9,10 @@ const INFO_PER_PAGE = 5;
 
 const ManageEmployeeDash = ({ search }) => {
   const displayProfilFiltered = data.filter((item) => {
-    return item.name.toLowerCase().includes(search.toLowerCase());
+    return (
+      item.name.toLowerCase().includes(search.toLowerCase()) ||
+      item.grade.toLowerCase().includes(search.toLowerCase())
+    );
   });
 
   const numberPages = Math.ceil(displayProfilFiltered.length / INFO_PER_PAGE);
