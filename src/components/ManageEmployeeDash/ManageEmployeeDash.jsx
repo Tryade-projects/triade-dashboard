@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import data from "../../../fakeData.json";
 import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
-import ProfilsEmployee from "./ProfilsEmployee";
+import BodyTable from "./componentsEmployee/BodyTable";
 import { usePagination, useIndexRange } from "./usePagination";
+import HeaderTable from "./componentsEmployee/HeaderTable";
 
 const INFO_PER_PAGE = 5;
 
@@ -28,18 +29,11 @@ const ManageEmployeeDash = ({ search }) => {
     <div className="container-dashboard-employee">
       <table>
         <thead>
-          <tr>
-            <th className="semiBold th-name">Nom</th>
-            <th className="semiBold">Grade</th>
-            <th className="semiBold">Date d'emploi</th>
-            <th className="semiBold">Téléphone</th>
-            <th className="semiBold">Actions</th>
-            <th className="semiBold">Plus</th>
-          </tr>
+          <HeaderTable />
         </thead>
         <tbody>
           {currentProfils.map((profil) => (
-            <ProfilsEmployee {...profil} key={profil.id} />
+            <BodyTable {...profil} key={profil.id} />
           ))}
         </tbody>
       </table>

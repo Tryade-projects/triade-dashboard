@@ -1,8 +1,8 @@
 import React from "react";
-import gear from "../../assets/gear.svg";
-import trending from "../../assets/trending.svg";
-import decrease from "../../assets/decrease.svg";
-import fired from "../../assets/fired.svg";
+import gear from "../../../assets/gear.svg";
+import trending from "../../../assets/trending.svg";
+import decrease from "../../../assets/decrease.svg";
+import fired from "../../../assets/fired.svg";
 
 const ProfilsEmployee = ({ avatar, name, grade, date, phone }) => {
   const test = (grade) => {

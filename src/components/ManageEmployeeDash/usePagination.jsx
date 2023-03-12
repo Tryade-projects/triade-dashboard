@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const usePagination = (numberPages, defaultPage) => {
+export const usePagination = (numberPages, defaultPage = 1) => {
   const [currentPage, setCurrentPage] = useState(defaultPage);
 
   const previousPage = () => {
