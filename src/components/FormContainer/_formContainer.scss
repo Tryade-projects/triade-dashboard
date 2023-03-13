@@ -1,11 +1,13 @@
-.details {
+.formContainer {
   border-radius: 20px;
   overflow: hidden;
   height: 89%;
   background-color: $colorWhite;
+  display: flex;
+  flex-direction: column;
 }
 
-.detailsTitle {
+.formContainerTitle {
   background-color: $colorPurple;
   color: $colorWhite;
   height: 55px;
