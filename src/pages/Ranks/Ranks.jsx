@@ -18,7 +18,6 @@ const Ranks = () => {
 
   useEffect(() => {
     fetchData("/gradesData.json").then((data) => setRanks(data));
-    console.log(ranks);
   }, []);
   return (
     <main className="main">

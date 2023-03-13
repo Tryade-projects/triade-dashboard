@@ -9,6 +9,7 @@ import Ranks from "./pages/Ranks/Ranks";
 import Finance from "./pages/Finance/Finance";
 import Improvements from "./pages/Improvements/Improvements";
 import Activities from "./pages/Activities/Activities";
+import AddEmployee from "./components/addEmployee/AddEmployee";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/employees" element={<Employees />} />
+          <Route path="/employees/add_employee" element={<AddEmployee />} />
           <Route path="/ranks/*" element={<Ranks />} />
           <Route path="/finance" element={<Finance />} />
           <Route path="/improvements" element={<Improvements />} />
