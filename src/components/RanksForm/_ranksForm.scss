@@ -4,7 +4,7 @@
   grid-template-rows: 20% 20% 20% 1fr;
   grid-template-columns: repeat(4, 19.7%);
   color: $colorText;
-  padding: 4.4% 7%;
+  padding: 3% 7% 6% 7%;
   gap: 7%;
 }
 
@@ -21,6 +21,15 @@
   border: 1px solid $colorGrey2;
   font-size: 14px;
 }
+
+.input:focus-visible:valid {
+  outline-color: $colorGrey2;
+}
+
+.input:focus-visible:invalid {
+  outline-color: $colorRed;
+}
+
 .formGroup {
   display: flex;
   flex-direction: column;
@@ -53,7 +62,9 @@
   height: 100%;
   font-size: 14px;
   font-weight: 500;
+  border-radius: 5px;
   gap: 2%;
+  padding: 2%;
 }
 
 .salaryWrapper {
@@ -61,10 +72,12 @@
   grid-row-end: 3;
   grid-column-start: 3;
   grid-column-end: 5;
+  justify-content: flex-start;
 }
 
 .colorWrapper {
   grid-area: 3 / 3 / 4 / 5;
+  justify-content: flex-start;
 }
 
 .inputColorWrapper {
@@ -101,4 +114,9 @@
   grid-row-end: 5;
   grid-column-start: 3;
   grid-column-end: 5;
+  display: flex;
+  // disposez en bas a droite de son container
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 40px;
 }

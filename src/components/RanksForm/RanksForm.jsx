@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Checkbox from "../Checkbox/Checkbox";
 import { RanksContext } from "../../pages/Ranks/Ranks";
+import ButtonForm from "../ButtonForm/ButtonForm";
 import { v4 as uuidv4 } from "uuid";
 
 const RanksForm = () => {
@@ -23,7 +24,6 @@ const RanksForm = () => {
   const navigate = useNavigate();
 
   const { ranks, setRanks } = useContext(RanksContext);
-  console.log(ranks);
 
   /**
    *
@@ -95,15 +95,25 @@ const RanksForm = () => {
   };
 
   const onSubmit = (event) => {
-    console.log("submit");
     event.preventDefault();
+
+    const verifIfOnePermissionIsChecked = Object.values(permissions).some(
+      (value) => value,
+    );
+
+    if (!verifIfOnePermissionIsChecked) {
+      alert("Veuillez sélectionner au moins une permission");
+      return;
+    }
+
     const permissionsArray = convertPermissionsToArray(permissions);
+
+    const gradeNameToLowerCase = gradeName.toLowerCase();
 
     const newGrade = {
       _id: uuidv4(),
-      name: gradeName,
+      name: gradeNameToLowerCase,
       label: gradeLabel,
-      ranks: gradeLabel,
       permissions: permissionsArray,
       salary,
       color,
@@ -112,7 +122,6 @@ const RanksForm = () => {
     localStorage.setItem("ranks", JSON.stringify([...ranks, newGrade]));
     setRanks([...ranks, newGrade]);
     navigate("/ranks");
-    console.log(ranks);
   };
 
   const onCancel = (event) => {
@@ -122,12 +131,12 @@ const RanksForm = () => {
 
   return (
     <form className="detailsForm" onSubmit={onSubmit}>
-      <div className="formGroup gradeNameWrapper">
+      <div className={"formGroup gradeNameWrapper"}>
         <label className="label" htmlFor="gradeName">
           Nom (minuscules) *
         </label>
         <input
-          className="input"
+          className={`input`}
           type="text"
           name="gradeName"
           id="gradeName"
@@ -135,6 +144,7 @@ const RanksForm = () => {
           onChange={(event) => {
             setGradeName(event.target.value);
           }}
+          aria-required
           required
         />
       </div>
@@ -143,7 +153,7 @@ const RanksForm = () => {
           Label (Nom d'affichage) *
         </label>
         <input
-          className="input"
+          className={`input`}
           type="text"
           name="gradeLabel"
           id="gradeLabel"
@@ -151,6 +161,7 @@ const RanksForm = () => {
           onChange={(event) => {
             setGradeLabel(event.target.value);
           }}
+          aria-required
           required
         />
       </div>
@@ -214,7 +225,7 @@ const RanksForm = () => {
           Salaires *
         </label>
         <input
-          className="input"
+          className={`input`}
           type="number"
           name="salary"
           id="salary"
@@ -222,7 +233,9 @@ const RanksForm = () => {
           onChange={(event) => {
             setSalary(Number(event.target.value));
           }}
+          aria-required
           required
+          max={250}
         />
       </div>
 
@@ -247,12 +260,17 @@ const RanksForm = () => {
       </div>
 
       <div className="buttonFormWrapper">
-        <button type="button" className="buttonForm" onClick={onCancel}>
-          Annuler
-        </button>
-        <button type="submit" className="buttonForm">
-          Valider
-        </button>
+        <ButtonForm
+          text="Annuler"
+          type="button"
+          onClick={onCancel}
+          className="colorPurple backWhite"
+        />
+        <ButtonForm
+          text="Valider"
+          type="submit"
+          className="colorWhite backPurple"
+        />
       </div>
     </form>
   );

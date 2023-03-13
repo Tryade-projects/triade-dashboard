@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "../Header/Header";
-import Details from "../Details/Details";
+import FormContainer from "../FormContainer/FormContainer";
 
 const RanksAdd = () => {
   return (
     <>
       <Header title="Ajouter un Grade" />
-      <Details title="Details du Grade" />
+      <FormContainer title="Details du Grade" />
     </>
   );
 };

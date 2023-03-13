@@ -2,13 +2,13 @@ import React from "react";
 import RanksForm from "../RanksForm/RanksForm";
 import EmployeeDetailsForm from "../EmployeeDetailsForm/EmployeeDetailsForm";
 
-const Details = ({ title }) => {
+const FormContainer = ({ title }) => {
   return (
-    <section className="details">
-      <h2 className="detailsTitle">{title}</h2>
+    <section className="formContainer">
+      <h2 className="formContainerTitle">{title}</h2>
       {title === "Ajouter un Employé" ? <EmployeeDetailsForm /> : <RanksForm />}
     </section>
   );
 };
 
-export default Details;
+export default FormContainer;
