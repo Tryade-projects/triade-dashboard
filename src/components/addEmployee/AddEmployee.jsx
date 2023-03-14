@@ -1,8 +1,11 @@
 import React from "react";
 import Details from "../Details/Details";
 import Header from "../Header/Header";
+import { useLocation } from "react-router-dom";
 
 const addEmployee = () => {
+  const { state } = useLocation();
+  console.log(state);
   return (
     <main className="main">
       <Header title={"Ajouter un Employé"} />
