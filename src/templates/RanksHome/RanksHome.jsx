@@ -50,15 +50,21 @@ const RanksHome = ({ ranks }) => {
       </div>
 
       <div className="containerRanks">
-        {ranks.map((rank) => (
-          <div className="rank" key={rank._id}>
-            <div className="rankName" style={{ backgroundColor: rank.color }}>
-              {rank.label}
+        {ranks.length > 1 ? (
+          ranks.map((rank) => (
+            <div className="rank" key={rank._id}>
+              <div className="rankName" style={{ backgroundColor: rank.color }}>
+                {rank.label}
+              </div>
+              <div className="rankPermissions">
+                {rank.permissions?.join(", ")}
+              </div>
+              <div className="rankSalary">$ {rank.salary}</div>
             </div>
-            <div className="rankPermissions">{rank.permissions.join(", ")}</div>
-            <div className="rankSalary">$ {rank.salary}</div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <h2>Aucun grade</h2>
+        )}
       </div>
     </div>
   );

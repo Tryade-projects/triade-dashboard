@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Checkbox from "../Checkbox/Checkbox";
-import { RanksContext } from "../../pages/Ranks/Ranks";
+import { RanksContext } from "../../App";
 import ButtonForm from "../ButtonForm/ButtonForm";
 import { v4 as uuidv4 } from "uuid";
 
