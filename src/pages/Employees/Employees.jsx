@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useLocation, Route, Routes } from "react-router-dom";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
 import EmployeesHome from "../../templates/EmployeesHome/EmployeesHome";
 import EmployeeAdd from "../../templates/EmployeeAdd/EmployeeAdd";
 
@@ -10,7 +10,7 @@ const Employees = ({ employees }) => {
     <main className="main">
       <Routes>
         <Route path="/*" element={<EmployeesHome employees={employees} />} />
-        <Route path="/addEmployee" element={<EmployeeAdd />} />
+        <Route path="/employee/add" element={<EmployeeAdd />} />
       </Routes>
     </main>
   );

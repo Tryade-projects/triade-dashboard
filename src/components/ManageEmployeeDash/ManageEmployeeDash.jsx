@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useEffect } from "react";
+import data from "../../../fakeData.json";
 import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 import BodyTable from "./componentsEmployee/BodyTable";
 import { usePagination, useIndexRange } from "../../utils/usePagination";
 import HeaderTable from "./componentsEmployee/HeaderTable";
-
+import { useSliceTille } from "./useSliceTille";
 const INFO_PER_PAGE = 5;
 
-const ManageEmployeeDash = ({ search, employees }) => {
-  const displayProfilFiltered = employees.filter((item) => {
+const ManageEmployeeDash = ({ search }) => {
+  const displayProfilFiltered = data.filter((item) => {
     return (
       item.name.toLowerCase().includes(search.toLowerCase()) ||
       item.grade.toLowerCase().includes(search.toLowerCase())
@@ -16,6 +16,8 @@ const ManageEmployeeDash = ({ search, employees }) => {
   });
 
   const numberPages = Math.ceil(displayProfilFiltered.length / INFO_PER_PAGE);
+
+  const { titlesArray } = useSliceTille(data, 2, 6);
 
   const { currentPage, setCurrentPage, nextPage, previousPage, paginate } =
     usePagination(numberPages, 1);
@@ -31,14 +33,14 @@ const ManageEmployeeDash = ({ search, employees }) => {
   return (
     <div className="container-dashboard-employee">
       <table>
-        <HeaderTable />
+        <HeaderTable titles={titlesArray} />
         <BodyTable profils={currentProfils} />
       </table>
       <div className="footer-dashboard-employee">
         <PaginationEmployee
           infoPerPage={currentProfils.length}
           numberOfPages={numberPages}
-          totalOfInfo={employees.length}
+          totalOfInfo={data.length}
           paginate={paginate}
           currentPage={currentPage}
           nextPage={nextPage}
