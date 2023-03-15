@@ -1,5 +1,33 @@
+@import "../../../styles/variables";
+
 .form {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4fr);
+  column-gap: 100px;
   height: 100%;
+
+  label {
+    color: $colorText;
+    padding-bottom: 15px;
+  }
+
+  input {
+    max-width: 490px;
+    width: 90%;
+    border: 1px solid $colorGrey2;
+    border-radius: 5px;
+    height: 48px;
+    padding-left: 15px;
+    outline: none;
+  }
+}
+
+.wrapperDateBorn {
+  display: flex;
+  gap: 10%;
+
+  input {
+    width: 40%;
+  }
 }
