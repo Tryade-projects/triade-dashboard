@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import data from "../../../fakeData.json";
+import employee from "../../../fakeData.json";
 import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 import BodyTable from "./componentsEmployee/BodyTable";
 import { usePagination, useIndexRange } from "../../utils/usePagination";
@@ -8,15 +8,8 @@ import filteredData from "../../utils/filteredData";
 
 const INFO_PER_PAGE = 5;
 
-const ManageEmployeeDash = ({ search, employees }) => {
-  // const displayProfilFiltered = employees.filter((item) => {
-  //   return (
-  //     item.name.toLowerCase().includes(search.toLowerCase()) ||
-  //     item.grade.toLowerCase().includes(search.toLowerCase())
-  //   );
-  // });
-
-  const displayProfilFiltered = filteredData(employees, search, [
+const ManageEmployeeDash = ({ search }) => {
+  const displayProfilFiltered = filteredData(employee, search, [
     "name",
     "grade",
   ]);
@@ -44,7 +37,7 @@ const ManageEmployeeDash = ({ search, employees }) => {
         <PaginationEmployee
           infoPerPage={currentProfils.length}
           numberOfPages={numberPages}
-          totalOfInfo={data.length}
+          totalOfInfo={employee.length}
           paginate={paginate}
           currentPage={currentPage}
           nextPage={nextPage}

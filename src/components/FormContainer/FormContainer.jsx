@@ -6,7 +6,7 @@ const FormContainer = ({ title }) => {
   return (
     <section className="formContainer">
       <h2 className="formContainerTitle">{title}</h2>
-      {title === "Ajouter un Employé" ? <EmployeeDetailsForm /> : <RanksForm />}
+      {title === "Détails Employé" ? <EmployeeDetailsForm /> : <RanksForm />}
     </section>
   );
 };
