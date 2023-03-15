@@ -50,7 +50,7 @@ const RanksHome = ({ ranks }) => {
       </div>
 
       <div className="containerRanks">
-        {ranks.length > 1 ? (
+        {ranks.length > 0 ? (
           ranks.map((rank) => (
             <div className="rank" key={rank._id}>
               <div className="rankName" style={{ backgroundColor: rank.color }}>

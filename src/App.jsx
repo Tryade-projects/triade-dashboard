@@ -38,7 +38,7 @@ function App() {
     fetchData("/fakeData.json").then((data) => {
       setEmployees(data);
     });
-  }, [ranks, employees]);
+  }, []);
   console.log(ranks);
   return (
     <div className="app">
