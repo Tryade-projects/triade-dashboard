@@ -4,16 +4,22 @@ import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 import BodyTable from "./componentsEmployee/BodyTable";
 import { usePagination, useIndexRange } from "./usePagination";
 import HeaderTable from "./componentsEmployee/HeaderTable";
+import filteredData from "../../utils/filteredData";
 
 const INFO_PER_PAGE = 5;
 
 const ManageEmployeeDash = ({ search, employees }) => {
-  const displayProfilFiltered = employees.filter((item) => {
-    return (
-      item.name.toLowerCase().includes(search.toLowerCase()) ||
-      item.grade.toLowerCase().includes(search.toLowerCase())
-    );
-  });
+  // const displayProfilFiltered = employees.filter((item) => {
+  //   return (
+  //     item.name.toLowerCase().includes(search.toLowerCase()) ||
+  //     item.grade.toLowerCase().includes(search.toLowerCase())
+  //   );
+  // });
+
+  const displayProfilFiltered = filteredData(employees, search, [
+    "name",
+    "grade",
+  ]);
 
   const numberPages = Math.ceil(displayProfilFiltered.length / INFO_PER_PAGE);
 

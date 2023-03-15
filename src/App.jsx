@@ -20,7 +20,7 @@ export const EmployeesContext = createContext({
 });
 
 export const RanksContext = createContext({
-  ranks: [],
+  ranks: [{}],
   setRanks: (_array) => {},
 });
 
