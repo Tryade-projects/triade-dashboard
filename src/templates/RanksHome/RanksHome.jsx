@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import ButtonAdd from "../../components/ButtonAdd/ButtonAdd";
+import ManageDashGrades from "../../components/ManageGradesDash/ManageDashGrades";
 
 /**
  *
@@ -37,36 +38,18 @@ import ButtonAdd from "../../components/ButtonAdd/ButtonAdd";
  * @returns {JSX.Element}
  */
 const RanksHome = ({ ranks }) => {
-  console.log(ranks);
+  const [search, setSearch] = useState("");
   return (
-    <div className="ranksHome">
-      <Header title="Grades" />
-
+    <>
+      <Header title={"Grades"} />
       <div className="container-search-add">
-        <SearchBar />
+        <SearchBar search={search} setSearch={setSearch} />
         <Link to="/ranks/addRank" className="flex">
           <ButtonAdd />
         </Link>
       </div>
-
-      <div className="containerRanks">
-        {ranks.length > 1 ? (
-          ranks.map((rank) => (
-            <div className="rank" key={rank._id}>
-              <div className="rankName" style={{ backgroundColor: rank.color }}>
-                {rank.label}
-              </div>
-              <div className="rankPermissions">
-                {rank.permissions?.join(", ")}
-              </div>
-              <div className="rankSalary">$ {rank.salary}</div>
-            </div>
-          ))
-        ) : (
-          <h2>Aucun grade</h2>
-        )}
-      </div>
-    </div>
+      <ManageDashGrades search={search} />
+    </>
   );
 };
 
