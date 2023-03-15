@@ -39,7 +39,6 @@ function App() {
       setEmployees(data);
     });
   }, []);
-  console.log(ranks);
   return (
     <div className="app">
       <RanksContext.Provider value={{ ranks, setRanks }}>
@@ -48,10 +47,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/home" element={<Home />} />
-            <Route
-              path="/employees/*"
-              element={<Employees employees={employees} />}
-            />
+            <Route path="/employees/*" element={<Employees />} />
             <Route path="/ranks/*" element={<Ranks ranks={ranks} />} />
             <Route path="/finance" element={<Finance />} />
             <Route path="/improvements" element={<Improvements />} />

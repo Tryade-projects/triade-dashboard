@@ -1,7 +1,3 @@
-.th-name {
-  padding-left: 40px;
-}
-
 .wrapper-flex-name-avatar {
   display: flex;
   align-items: center;
@@ -12,6 +8,10 @@
     color: $colorText;
     font-size: 18px;
   }
+}
+
+.th-name {
+  padding-left: 40px;
 }
 
 .td-grade {

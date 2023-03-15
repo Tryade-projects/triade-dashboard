@@ -6,6 +6,7 @@ import ButtonAdd from "../../components/ButtonAdd/ButtonAdd";
 import ButtonForm from "../../components/ButtonForm/ButtonForm";
 import ReactModal from "react-modal";
 import filteredData from "../../utils/filteredData";
+import ManageDashGrades from "../../components/ManageGradesDash/ManageDashGrades";
 import { RanksContext } from "../../App";
 
 const customStyles = {
@@ -141,14 +142,6 @@ const RanksHome = () => {
         </div>
       </ReactModal>
       <Header title="Grades" />
-
-      <div className="container-search-add">
-        <SearchBar search={search} setSearch={setSearch} />
-        <Link to="/ranks/addRank" className="flex">
-          <ButtonAdd />
-        </Link>
-      </div>
-
       <div className="containerRanks">
         {filteredRanks.length > 0 ? (
           filteredRanks.map((rank, i, ranks) => (
@@ -179,5 +172,21 @@ const RanksHome = () => {
     </div>
   );
 };
+
+// const RanksHome = ({ ranks }) => {
+//   const [search, setSearch] = useState("");
+//   return (
+//     <>
+//       <Header title={"Grades"} />
+//       <div className="container-search-add">
+//         <SearchBar search={search} setSearch={setSearch} />
+//         <Link to="/ranks/addRank" className="flex">
+//           <ButtonAdd />
+//         </Link>
+//       </div>
+//       <ManageDashGrades search={search} />
+//     </>
+//   );
+// };
 
 export default RanksHome;
