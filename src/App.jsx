@@ -47,7 +47,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/employees/*" element={<Employees />} />
+            <Route
+              path="/employees/*"
+              element={<Employees employees={employees} />}
+            />
             <Route path="/ranks/*" element={<Ranks ranks={ranks} />} />
             <Route path="/finance" element={<Finance />} />
             <Route path="/improvements" element={<Improvements />} />
