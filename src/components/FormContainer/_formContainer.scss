@@ -1,0 +1,18 @@
+.formContainer {
+  border-radius: 20px;
+  overflow: hidden;
+  height: 89%;
+  background-color: $colorWhite;
+  display: flex;
+  flex-direction: column;
+}
+
+.formContainerTitle {
+  background-color: $colorPurple;
+  color: $colorWhite;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+  font-size: 24px;
+}

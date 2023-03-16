@@ -62,4 +62,9 @@ button {
 
 .main {
   padding: 40px 40px;
+  max-height: 100vh;
+}
+
+.flex {
+  display: flex;
 }

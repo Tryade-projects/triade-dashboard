@@ -1,0 +1,55 @@
+.containerRanks {
+  display: flex;
+  flex-direction: column;
+}
+
+.rank {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rankPermissions {
+  text-align: center;
+}
+
+.rankSalary {
+  white-space: nowrap;
+}
+
+/* MODAL */
+
+.modalTitle {
+  background-color: $colorPurple;
+  color: $colorWhite;
+  font-size: 24px;
+  padding-left: 20px;
+  height: $modalTitleHeight;
+  display: flex;
+  align-items: center;
+}
+
+.modalContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: calc(100% - $modalTitleHeight);
+  padding: 0 20px;
+  color: $colorText;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalButton {
+  width: 30%;
+  color: $colorPurple;
+}
+
+.modalButtonValid {
+  color: $colorWhite;
+  background-color: $colorPurple;
+}

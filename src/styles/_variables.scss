@@ -11,6 +11,8 @@ $colorGrey1: #f5f5f5;
 $colorGrey2: #c1bbeb;
 $colorGrey3: #a098ae;
 
+$colorCheckbox: #363b64;
+
 /* TRANSPARENT COLOR */
 $colorPurple10PerCent: rgba(77, 68, 181, 0.1);
 
@@ -31,6 +33,132 @@ $colorLinear3: linear-gradient(
   rgba(48, 57, 114, 1) 100%
 );
 
-:export {
-  colorPurple: $colorPurple;
+$modalTitleHeight: 50px;
+
+.colorPurple {
+  color: $colorPurple;
+}
+
+.colorOrange {
+  color: $colorOrange;
+}
+
+.colorYellow {
+  color: $colorYellow;
+}
+
+.colorText {
+  color: $colorText;
+}
+
+.colorGreen {
+  color: $colorGreen;
+}
+
+.colorRed {
+  color: $colorRed;
+}
+
+.colorBackground {
+  color: $colorBackground;
+}
+
+.colorWhite {
+  color: $colorWhite;
+}
+
+.colorGrey1 {
+  color: $colorGrey1;
+}
+
+.colorGrey2 {
+  color: $colorGrey2;
+}
+
+.colorGrey3 {
+  color: $colorGrey3;
+}
+
+.colorCheckbox {
+  color: $colorCheckbox;
+}
+
+.colorPurple10PerCent {
+  color: $colorPurple10PerCent;
+}
+
+.colorLinear1 {
+  color: $colorLinear1;
+}
+
+.colorLinear2 {
+  color: $colorLinear2;
+}
+
+.colorLinear3 {
+  color: $colorLinear3;
+}
+
+.backPurple {
+  background-color: $colorPurple;
+}
+
+.backOrange {
+  background-color: $colorOrange;
+}
+
+.backYellow {
+  background-color: $colorYellow;
+}
+
+.backText {
+  background-color: $colorText;
+}
+
+.backGreen {
+  background-color: $colorGreen;
+}
+
+.backRed {
+  background-color: $colorRed;
+}
+
+.backBackground {
+  background-color: $colorBackground;
+}
+
+.backWhite {
+  background-color: $colorWhite;
+}
+
+.backGrey1 {
+  background-color: $colorGrey1;
+}
+
+.backGrey2 {
+  background-color: $colorGrey2;
+}
+
+.backGrey3 {
+  background-color: $colorGrey3;
+}
+
+.backCheckbox {
+  background-color: $colorCheckbox;
+}
+
+.backPurple10PerCent {
+  background-color: $colorPurple10PerCent;
+}
+
+.backLinear1 {
+  background-color: $colorLinear1;
+}
+
+.backLinear2 {
+  background-color: $colorLinear2;
+}
+
+.backLinear3 {
+  background-color: $colorLinear3;
 }
