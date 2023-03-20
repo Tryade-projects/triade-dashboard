@@ -1,6 +1,6 @@
 import React from "react";
 import RanksForm from "../RanksForm/RanksForm";
-import EmployeeDetailsForm from "../EmployeeDetailsForm/EmployeeDetailsForm";
+import EmployeeDetailsForm from "../EmployeeDetailsForm/EmployeeForm";
 
 const FormContainer = ({ title }) => {
   return (

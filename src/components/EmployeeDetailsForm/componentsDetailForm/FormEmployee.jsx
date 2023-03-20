@@ -27,6 +27,7 @@ const FormEmployee = () => {
 
   const onSubmit = (data) => {
     const newEmployee = {
+      id: Date.now(),
       firstName: data.firstName,
       lastName: data.lastName,
       address: data.address,
@@ -34,6 +35,7 @@ const FormEmployee = () => {
       mail: data.mail,
       phone: data.phone,
       place: data.place,
+      information: data.informations,
     };
     setInfoEmployee((employee) => [...employee, newEmployee]);
   };
