@@ -1,0 +1,33 @@
+.shortEmployeeList{
+    padding: 5% 0;
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    //Container for one employee
+    >div{
+        display: flex;
+        justify-content: space-between;
+        //Titles
+        >:nth-child(2){
+            flex-grow: 1;
+            font-size: 14px;
+            margin-left: 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            //Name title
+            :first-child{
+                color: $colorText;
+                font-weight: 600;
+            }
+            //Grade title
+            :nth-child(2){
+                color: $colorGrey3;
+                font-weight: 400;
+                flex-grow: 1;
+            }
+        }
+    }
+}

@@ -6,8 +6,6 @@
     padding: 20px;
     background-color: $colorWhite;
     border-radius: 20px;
-    max-width: 1030px;
-    min-width: 915px;
 
 }
 
@@ -17,18 +15,30 @@
     display: flex;
     align-items: center;
     column-gap: 10px;
-    // background-color: red;
+    .formatIcon{
+        width: 4vw;
+        height: 4vw;
+        img{
+            width: 2.5vw;
+            height: 2.5vw;
+        }
+    }
+
     h3{
-        font-size: 18px;
+        font-size: 0.9vw;
         font-weight: 400;
-        // background-color: blue;
+        @media screen and (max-width:1500px) {
+            font-size: 0.7vw;
+        }
+
     }
     h2{
-        font-size: 36px;
+        font-size: 1.5vw;
         font-weight: 700;
         color: $colorText;
-        height: 54px;
-        // background-color: pink;
+        @media screen and (max-width:1500px) {
+            font-size: 1.2vw;
+        }
     }
 
 }

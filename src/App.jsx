@@ -46,7 +46,7 @@ function App() {
           <Sidebar />
           <Routes>
             <Route path="/" element={<Login />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/home" element={<Home employees={employees} />} />
             <Route
               path="/employees/*"
               element={<Employees employees={employees} />}

@@ -1,0 +1,9 @@
+//class for the home dashboard container 
+.mainDashboard main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    column-gap: 42px;
+    >section{width: 70%;}
+    aside{width: 30%;}
+}

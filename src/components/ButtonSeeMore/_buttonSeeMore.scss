@@ -1,0 +1,12 @@
+.buttonSeeMore{
+    width: 100%;
+    button{
+        border-radius: 40px;
+        background-color: $colorBackground;
+        width: 100%;
+        padding: 5% 0;
+        color: $colorPurple;
+        font-size: 18px;
+        font-weight: 600;
+    }
+}
