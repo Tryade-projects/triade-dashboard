@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const getInitialValue = (key, defaultValue) => {
+export const getInitialValue = (key, defaultValue) => {
   const storedItem = localStorage.getItem(key);
   if (!storedItem) return defaultValue;
 

@@ -22,10 +22,6 @@
     padding-left: 15px;
     outline: none;
   }
-
-  div:nth-child(7) {
-    align-self: flex-end;
-  }
 }
 
 .wrapperDateBorn {
@@ -39,7 +35,7 @@
 
 textarea {
   width: 100%;
-  height: 175px;
+  height: 90px;
   border: 1px solid $colorGrey2;
   border-radius: 5px;
   resize: none;
@@ -48,9 +44,9 @@ textarea {
 }
 
 .wrapperButton {
-  justify-self: flex-end;
-  align-self: flex-end;
-
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 35px;
   button:nth-child(1) {
     margin-right: 40px;
   }
@@ -64,4 +60,56 @@ textarea {
 .errors {
   color: red;
   font-size: 14px;
+}
+
+.select {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-top: solid 10px $colorGrey3;
+    border-left: solid 10px transparent;
+    border-right: solid 10px transparent;
+  }
+
+  input {
+    color: $colorGrey3;
+    cursor: pointer;
+  }
+}
+
+.options {
+  position: relative;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid $colorGrey2;
+  color: $colorGrey3;
+  visibility: hidden;
+  height: 142px;
+
+  &.active {
+    visibility: visible;
+  }
+}
+
+.options .option {
+  cursor: pointer;
+  padding: 5px 15px;
+  &:hover {
+    background: $colorPurple10PerCent;
+  }
+}
+
+.triangle {
+  width: 10px;
+  height: 10px;
+  border-top: solid 10px $colorGrey3;
+  border-left: solid 10px transparent;
+  border-right: solid 10px transparent;
 }

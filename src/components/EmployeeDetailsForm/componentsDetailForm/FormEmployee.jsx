@@ -9,7 +9,17 @@ import { useStickyState } from "../../../utils/useStickyState";
 const NAME_KEY = "employee";
 
 const FormEmployee = () => {
-  const [infoEmployee, setInfoEmployee] = useStickyState(NAME_KEY, []);
+  const [infoEmployee, setInfoEmployee] = useStickyState(NAME_KEY, {});
+  const [ranks, setRanks] = useState("Recrue");
+  const [displayRanks, setDisplayRanks] = useState(false);
+
+  const handleDisplayRanks = () => {
+    setDisplayRanks((current) => !current);
+  };
+
+  const handleRanks = (rank) => {
+    setRanks(rank);
+  };
 
   const errorMessage = "Champs requis";
 
@@ -34,10 +44,11 @@ const FormEmployee = () => {
       birth: data.birth,
       mail: data.mail,
       phone: data.phone,
+      rank: data.rank,
       place: data.place,
       information: data.informations,
     };
-    setInfoEmployee((employee) => [...employee, newEmployee]);
+    setInfoEmployee(newEmployee);
   };
 
   return (
@@ -129,7 +140,7 @@ const FormEmployee = () => {
         </label>
         <input
           id="mail"
-          type="text"
+          type="email"
           placeholder="william@mail.com"
           {...register("mail", {
             required: errorMessage,
@@ -166,6 +177,33 @@ const FormEmployee = () => {
         />
       </div>
       <div>
+        <label className="semiBold">Grades *</label>
+        <div className={styles.select} onClick={handleDisplayRanks}>
+          <input value={ranks} readOnly {...register("rank")} />
+        </div>
+        <ul
+          className={
+            displayRanks ? `${styles.active} ${styles.options}` : styles.options
+          }
+        >
+          <li className={styles.option}>Recrue</li>
+          <li onClick={() => handleRanks("Agent")} className={styles.option}>
+            Agent
+          </li>
+          <li onClick={() => handleRanks("Chef")} className={styles.option}>
+            Chef
+          </li>
+          <li
+            onClick={() => handleRanks("Commandant")}
+            className={styles.option}
+          >
+            Commandant
+          </li>
+          {/* <li className={styles.option}>Commandant</li>
+          <li className={styles.option}>Commandant</li> */}
+        </ul>
+      </div>
+      <div>
         <label className="semiBold" htmlFor="information">
           Informations
         </label>
@@ -175,19 +213,19 @@ const FormEmployee = () => {
           cols="30"
           rows="10"
         />
-      </div>
-      <div className={styles.wrapperButton}>
-        <ButtonForm
-          text="Annuler"
-          type="button"
-          className="colorPurple backWhite"
-          onClick={onCancel}
-        />
-        <ButtonForm
-          text="Valider"
-          type="submit"
-          className="colorWhite backPurple"
-        />
+        <div className={styles.wrapperButton}>
+          <ButtonForm
+            text="Annuler"
+            type="button"
+            className="colorPurple backWhite"
+            onClick={onCancel}
+          />
+          <ButtonForm
+            text="Valider"
+            type="submit"
+            className="colorWhite backPurple"
+          />
+        </div>
       </div>
     </form>
   );

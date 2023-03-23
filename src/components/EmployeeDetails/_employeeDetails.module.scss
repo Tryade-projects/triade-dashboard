@@ -12,52 +12,52 @@
   padding: 32px 42px 62px 32px;
 }
 
-.cover {
-  position: absolute;
-  height: 140px;
+.wrapperNameRank {
+  padding-top: 24px;
+  padding-bottom: 40px;
+
+  p {
+    color: $colorText;
+    font-size: 32px;
+  }
+
+  span {
+    color: $colorGrey3;
+    font-size: 18px;
+  }
 }
 
-.wrapperAvatar {
+.test {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: flex-end;
-  .avatar {
-    position: relative;
-    width: 200px;
-    height: 200px;
+  padding-bottom: 40px;
 
-    svg {
-      width: 100%;
-      height: 100%;
-
-      circle {
-        stroke: $colorWhite;
-      }
-    }
-
-    img {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 88%;
+  div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    color: $colorText;
+    font-size: 18px;
+    div {
+      height: 40px;
+      width: 40px;
+      background: #000;
+      border-radius: 50%;
     }
   }
 }
 
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+.informations {
+  p:nth-child(1) {
+    color: $colorText;
+    font-size: 24px;
+    padding-bottom: 16px;
+  }
 
-  div {
-    width: 40px;
-    height: 40px;
-    background: $colorGrey1;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+  p:nth-child(2) {
+    color: $colorText;
+    font-size: 18px;
   }
 }
