@@ -180,6 +180,7 @@ const FormEmployee = () => {
         <label className="semiBold">Grades *</label>
         <div className={styles.select} onClick={handleDisplayRanks}>
           <input value={ranks} readOnly {...register("rank")} />
+          <div className={styles.triangle}></div>
         </div>
         <ul
           className={
@@ -199,8 +200,8 @@ const FormEmployee = () => {
           >
             Commandant
           </li>
-          {/* <li className={styles.option}>Commandant</li>
-          <li className={styles.option}>Commandant</li> */}
+          <li className={styles.option}>Commandant</li>
+          <li className={styles.option}>Commandant</li>
         </ul>
       </div>
       <div>

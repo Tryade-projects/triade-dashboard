@@ -41,6 +41,17 @@ textarea {
   resize: none;
   outline: none;
   padding: 15px 14px;
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $colorGrey2;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $colorPurple;
+    border-radius: 10px;
+  }
 }
 
 .wrapperButton {
@@ -65,22 +76,12 @@ textarea {
 .select {
   position: relative;
 
-  &::after {
-    content: "";
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 10px;
-    height: 10px;
-    border-top: solid 10px $colorGrey3;
-    border-left: solid 10px transparent;
-    border-right: solid 10px transparent;
-  }
-
   input {
     color: $colorGrey3;
     cursor: pointer;
+    &::selection {
+      background: none;
+    }
   }
 }
 
@@ -92,9 +93,24 @@ textarea {
   color: $colorGrey3;
   visibility: hidden;
   height: 142px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $colorGrey2;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $colorPurple;
+    border-radius: 10px;
+  }
 
   &.active {
     visibility: visible;
+    ~ .triangle {
+      transform: rotate(180deg);
+    }
   }
 }
 
@@ -107,9 +123,14 @@ textarea {
 }
 
 .triangle {
-  width: 10px;
-  height: 10px;
-  border-top: solid 10px $colorGrey3;
-  border-left: solid 10px transparent;
-  border-right: solid 10px transparent;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  height: 0;
+  width: 0;
+  border-top: 10px solid $colorGrey3;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  transition: transform 0.3s ease;
 }
