@@ -7,6 +7,13 @@ import Label from "../../Label/Label";
 import ButtonActions from "../../ButtonActions/ButtonActions";
 import ReactModal from "react-modal";
 import ButtonForm from "../../ButtonForm/ButtonForm";
+import {
+  increaseElm,
+  decreaseElm,
+  deleteElm,
+  findNextElm,
+} from "../../../utils/arrayManager";
+import { Link } from "react-router-dom";
 
 const customStyles = {
   content: {
@@ -38,11 +45,7 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
   });
   console.log(currentRanks);
 
-  const increaseRanks = () => {
-    console.log("increase");
-  };
-
-  const decreaseRanks = () => {
+  const decreaseRanks = (rank) => {
     console.log("decrease");
   };
 
@@ -52,28 +55,6 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
 
   const closeModal = () => {
     setIsOpen(false);
-  };
-
-  const deleteRank = (id) => {
-    // Récupérer les données actuelles de localStorage
-    const currentData = JSON.parse(localStorage.getItem("ranks") || "[]");
-
-    // Filtrer l'objet de données pour supprimer l'élément avec l'ID donné
-    const updatedData = currentData.filter((rank) => rank._id !== id);
-
-    // Mettre à jour les données de localStorage
-    localStorage.setItem("ranks", JSON.stringify(updatedData));
-
-    // Mettre à jour l'état React et fermer le modal
-    setRanks(updatedData);
-    closeModal();
-  };
-
-  const findNextRanks = (rank) => {
-    const currentData = JSON.parse(localStorage.getItem("ranks") || "[]");
-    const currentRankIndex = currentData.findIndex((r) => r._id === rank._id);
-    const nextRank = currentData[currentRankIndex + 1];
-    return nextRank;
   };
 
   return (
@@ -107,14 +88,17 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
             />
             <ButtonForm
               type="button"
-              onClick={() => deleteRank(currentRank._id)}
+              onClick={() => {
+                setRanks(deleteElm(currentRank, "ranks"));
+                closeModal();
+              }}
               className="modalButton modalButtonValid"
               text="Valider"
             />
           </div>
         </div>
       </ReactModal>
-      {currentRanks.map((rank, i, ranks) => (
+      {currentRanks.map((rank) => (
         <tr key={rank._id}>
           <td className="th-name">
             <Label backgroundColor={rank.color} text={rank.label} />
@@ -124,19 +108,19 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
             <p>{rank.permissions.join(", ")}</p>
           </td>
 
-          <td>{rank.salary}</td>
+          <td>'$ '{rank.salary}</td>
 
           <td className="td-action">
-            <div className="wrapper-type-actions">
+            <div className="buttonsActionsWrapper">
               <ButtonActions
                 icon={trending}
                 alt="Augmente le grade"
-                onClick={increaseRanks}
+                onClick={() => setRanks(increaseElm(rank, "ranks"))}
               />
               <ButtonActions
                 icon={decrease}
                 alt="Diminue le grade"
-                onClick={decreaseRanks}
+                onClick={() => setRanks(decreaseElm(rank, "ranks"))}
               />
               <ButtonActions
                 icon={deleteIcon}
@@ -144,15 +128,17 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
                 onClick={() => {
                   openModal();
                   setCurrentRank(rank);
-                  setNextRank(findNextRanks(rank));
+                  setNextRank(findNextElm(rank, "ranks"));
                 }}
               />
             </div>
           </td>
           <td className="td-more">
-            <div>
-              <img src={gear} alt="Paramètres" />
-            </div>
+            <Link to={`/ranks/rank/${rank._id}`} className="flex">
+              <div>
+                <img src={gear} alt="Paramètres" />
+              </div>
+            </Link>
           </td>
         </tr>
       ))}

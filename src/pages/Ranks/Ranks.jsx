@@ -8,7 +8,8 @@ const Ranks = () => {
     <main className="main">
       <Routes>
         <Route path="/*" element={<RanksHome />} />
-        <Route path="/addRank" element={<RankAdd />} />
+        <Route path="/rank/add" element={<RankAdd />} />
+        <Route path="/rank/:rankId" element={<RankAdd />} />
       </Routes>
     </main>
   );
