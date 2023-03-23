@@ -35,13 +35,11 @@ const RanksForm = () => {
   const navigate = useNavigate();
 
   const { rankId } = useParams();
-  console.log(rankId);
 
   const { ranks, setRanks } = useContext(RanksContext);
 
   useEffect(() => {
     const rank = ranks.find((rank) => rank._id === rankId);
-    console.log(rank);
     if (rank) {
       setGradeName(rank.name);
       setGradeLabel(rank.label);
@@ -67,7 +65,6 @@ const RanksForm = () => {
    * @return {void}
    */
   const handleCheckbox = (event) => {
-    console.log(typeof event.target);
     const { name, checked } = event.target;
 
     setPermissions((prevState) => ({
@@ -121,7 +118,6 @@ const RanksForm = () => {
     Object.keys(permissionLabels).forEach((key) => {
       permissionsObject[key] = permissionsArray.includes(permissionLabels[key]);
     });
-    console.log(permissionLabels);
     return permissionsObject;
   };
 
@@ -166,7 +162,6 @@ const RanksForm = () => {
       salary,
       color,
     };
-    console.log(newGrade);
     localStorage.setItem("ranks", JSON.stringify([...ranks, newGrade]));
     setRanks([...ranks, newGrade]);
     navigate("/ranks");

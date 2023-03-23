@@ -43,11 +43,6 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
   const [nextRank, setNextRank] = useState({
     label: "",
   });
-  console.log(currentRanks);
-
-  const decreaseRanks = (rank) => {
-    console.log("decrease");
-  };
 
   const openModal = () => {
     setIsOpen(true);
