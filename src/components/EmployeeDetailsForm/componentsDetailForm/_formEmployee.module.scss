@@ -1,0 +1,136 @@
+@import "../../../styles/variables";
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4fr);
+  column-gap: 100px;
+  row-gap: 25px;
+  height: 100%;
+
+  label {
+    color: $colorText;
+    padding-bottom: 15px;
+    font-size: 18px;
+  }
+
+  input {
+    width: 100%;
+    border: 1px solid $colorGrey2;
+    border-radius: 5px;
+    height: 48px;
+    padding-left: 15px;
+    outline: none;
+  }
+}
+
+.wrapperDateBorn {
+  display: flex;
+  gap: 10%;
+
+  input {
+    width: 45%;
+  }
+}
+
+textarea {
+  width: 100%;
+  height: 90px;
+  border: 1px solid $colorGrey2;
+  border-radius: 5px;
+  resize: none;
+  outline: none;
+  padding: 15px 14px;
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $colorGrey2;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $colorPurple;
+    border-radius: 10px;
+  }
+}
+
+.wrapperButton {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 35px;
+  button:nth-child(1) {
+    margin-right: 40px;
+  }
+}
+
+.wrapperErrorsBirthPlace {
+  display: flex;
+  justify-content: space-between;
+}
+
+.errors {
+  color: red;
+  font-size: 14px;
+}
+
+.select {
+  position: relative;
+
+  input {
+    color: $colorGrey3;
+    cursor: pointer;
+    &::selection {
+      background: none;
+    }
+  }
+}
+
+.options {
+  position: relative;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid $colorGrey2;
+  color: $colorGrey3;
+  visibility: hidden;
+  height: 142px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $colorGrey2;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $colorPurple;
+    border-radius: 10px;
+  }
+
+  &.active {
+    visibility: visible;
+    ~ .triangle {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.options .option {
+  cursor: pointer;
+  padding: 5px 15px;
+  &:hover {
+    background: $colorPurple10PerCent;
+  }
+}
+
+.triangle {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  height: 0;
+  width: 0;
+  border-top: 10px solid $colorGrey3;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  transition: transform 0.3s ease;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import ButtonTransaction from "../../ButtonActions/ButtonActions";
 import gear from "../../../assets/gear.svg";
 import trending from "../../../assets/trending.svg";
 import decrease from "../../../assets/decrease.svg";
@@ -39,20 +40,17 @@ const BodyTable = ({ profils }) => {
 
           <td className="td-action">
             <div className="wrapper-type-actions">
-              <div>
-                <img src={trending} alt="" />
-              </div>
-              <div>
-                <img className="decrease-img" src={decrease} alt="" />
-              </div>
-              <div>
-                <img src={fired} alt="" />
-              </div>
+              <ButtonTransaction icon={trending} alt={"image pour augmenter"} />
+              <ButtonTransaction icon={decrease} alt={"image pour diminuer"} />
+              <ButtonTransaction icon={fired} alt={"image pour virer"} />
             </div>
           </td>
           <td className="td-more">
             <div>
-              <img src={gear} alt="image de réglage pour avoir plus d'accès" />
+              <ButtonTransaction
+                icon={gear}
+                alt={"image de réglage pour avoir plus d'accès"}
+              />
             </div>
           </td>
         </tr>
