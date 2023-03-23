@@ -103,7 +103,7 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
             <p>{rank.permissions.join(", ")}</p>
           </td>
 
-          <td>'$ '{rank.salary}</td>
+          <td>$ {rank.salary}</td>
 
           <td className="td-action">
             <div className="buttonsActionsWrapper">
