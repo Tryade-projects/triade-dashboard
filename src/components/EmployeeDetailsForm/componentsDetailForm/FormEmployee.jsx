@@ -4,21 +4,24 @@ import ButtonForm from "../../ButtonForm/ButtonForm";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import ErrorMessageFormEmployee from "./ErrorMessageFormEmployee.jsx";
-import { useStickyState } from "../../../utils/useStickyState";
+import { useStickyState, getInitialValue } from "../../../utils/useStickyState";
 
 const NAME_KEY = "employee";
 
 const FormEmployee = () => {
   const [infoEmployee, setInfoEmployee] = useStickyState(NAME_KEY, []);
-  const [ranks, setRanks] = useState("Recrue");
-  const [displayRanks, setDisplayRanks] = useState(false);
+  const [ranksLocalStorage, setRanksLocalStorage] = useState(() =>
+    getInitialValue("ranks", []),
+  );
+  const [displayRank, setDisplayRank] = useState("Recrue");
+  const [diplayDropdown, setDisplayDropdown] = useState(false);
 
   const handleDisplayRanks = () => {
-    setDisplayRanks((current) => !current);
+    setDisplayDropdown((current) => !current);
   };
 
   const handleRanks = (rank) => {
-    setRanks(rank);
+    setDisplayRank(rank);
   };
 
   const errorMessage = "Champs requis";
@@ -180,29 +183,25 @@ const FormEmployee = () => {
       <div>
         <label className="semiBold">Grades *</label>
         <div className={styles.select} onClick={handleDisplayRanks}>
-          <input value={ranks} readOnly {...register("rank")} />
+          <input value={displayRank} readOnly {...register("rank")} />
           <div className={styles.triangle}></div>
         </div>
         <ul
           className={
-            displayRanks ? `${styles.active} ${styles.options}` : styles.options
+            diplayDropdown
+              ? `${styles.active} ${styles.options}`
+              : styles.options
           }
         >
-          <li className={styles.option}>Recrue</li>
-          <li onClick={() => handleRanks("Agent")} className={styles.option}>
-            Agent
-          </li>
-          <li onClick={() => handleRanks("Chef")} className={styles.option}>
-            Chef
-          </li>
-          <li
-            onClick={() => handleRanks("Commandant")}
-            className={styles.option}
-          >
-            Commandant
-          </li>
-          <li className={styles.option}>Commandant</li>
-          <li className={styles.option}>Commandant</li>
+          {ranksLocalStorage.map((rank) => (
+            <li
+              onClick={() => handleRanks(rank.name)}
+              className={styles.option}
+              key={rank._id}
+            >
+              {rank.name}
+            </li>
+          ))}
         </ul>
       </div>
       <div>
