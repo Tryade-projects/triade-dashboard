@@ -9,7 +9,7 @@ import { useStickyState } from "../../../utils/useStickyState";
 const NAME_KEY = "employee";
 
 const FormEmployee = () => {
-  const [infoEmployee, setInfoEmployee] = useStickyState(NAME_KEY, {});
+  const [infoEmployee, setInfoEmployee] = useStickyState(NAME_KEY, []);
   const [ranks, setRanks] = useState("Recrue");
   const [displayRanks, setDisplayRanks] = useState(false);
 
@@ -47,8 +47,9 @@ const FormEmployee = () => {
       rank: data.rank,
       place: data.place,
       information: data.informations,
+      employee_at: "March 25, 2021",
     };
-    setInfoEmployee(newEmployee);
+    setInfoEmployee((employee) => [...employee, newEmployee]);
   };
 
   return (
