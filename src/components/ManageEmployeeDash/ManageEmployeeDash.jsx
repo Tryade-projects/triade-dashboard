@@ -9,8 +9,13 @@ import { getInitialValue } from "../../utils/useStickyState";
 const INFO_PER_PAGE = 5;
 
 const ManageEmployeeDash = ({ search }) => {
-  const [emloy, setemploy] = useState(() => getInitialValue("employee", []));
-  const displayProfilFiltered = filteredData(emloy, search, ["name", "grade"]);
+  const [employees, setemployees] = useState(() =>
+    getInitialValue("employee", []),
+  );
+  const displayProfilFiltered = filteredData(employees, search, [
+    "name",
+    "grade",
+  ]);
 
   const numberPages = Math.ceil(displayProfilFiltered.length / INFO_PER_PAGE);
 
@@ -35,7 +40,7 @@ const ManageEmployeeDash = ({ search }) => {
         <PaginationEmployee
           infoPerPage={currentProfils.length}
           numberOfPages={numberPages}
-          totalOfInfo={emloy.length}
+          totalOfInfo={employees.length}
           paginate={paginate}
           currentPage={currentPage}
           nextPage={nextPage}
