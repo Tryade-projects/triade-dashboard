@@ -1,6 +1,7 @@
 @import "./fonts";
-@import "./settings";
 @import "./keyframes";
+@import "./mixins";
+@import "./settings";
 @import "./variables";
 
 @import "../components/Sidebar/sidebar";
@@ -18,11 +19,21 @@
 @import "../templates/RankAdd/rankAdd";
 @import "../components/FormatIcon/formatIcon";
 @import "../components/DashboardInfos/dashboardInfos";
+@import "../components/DashboardCharts/dashboardCharts";
 @import "../components/ButtonAdd/buttonadd";
 @import "../components/FormContainer/formContainer";
 @import "../components/PaginationEmployee/paginationEmployee";
 @import "../components/ManageEmployeeDash/manageEmployeeDash";
 @import "../components/ManageEmployeeDash/componentsEmployee/profilsEmployee";
+@import "../components/ManageRanksDash/manageRanksDash";
 @import "../components/RanksForm/ranksForm";
 @import "../components/Checkbox/checkbox";
 @import "../components/ButtonForm/buttonForm";
+@import "../components/Label/label";
+@import "../components/ButtonActions/buttonActions";
+@import "../components/ShortEmployeeListContainer/shortEmployeeListContainer";
+@import "../components/ShortEmployeeListHeader/shortEmployeeListHeader";
+@import "../components/RoundButtonAdd/roundButtonAdd";
+@import "../components/ButtonSeeMore/buttonSeeMore";
+@import "../components/ShortEmployeeList/shortEmployeeList";
+@import "../components/RoundButtonEmployee/roundButtonEmployee";

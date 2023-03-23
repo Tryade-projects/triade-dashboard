@@ -1,0 +1,12 @@
+.labelComponent {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 0 24px;
+  border-radius: 40px;
+  color: $colorWhite;
+  // no wrap
+  white-space: nowrap;
+}

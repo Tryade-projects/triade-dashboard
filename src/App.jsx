@@ -46,9 +46,12 @@ function App() {
           <Sidebar />
           <Routes>
             <Route path="/" element={<Login />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/employees/*" element={<Employees />} />
-            <Route path="/ranks/*" element={<Ranks ranks={ranks} />} />
+            <Route path="/home" element={<Home employees={employees} />} />
+            <Route
+              path="/employees/*"
+              element={<Employees employees={employees} />}
+            />
+            <Route path="/ranks/*" element={<Ranks />} />
             <Route path="/finance" element={<Finance />} />
             <Route path="/improvements" element={<Improvements />} />
             <Route path="/activities" element={<Activities />} />

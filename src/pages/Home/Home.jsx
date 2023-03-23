@@ -1,12 +1,23 @@
 import React from "react";
 import Header from "../../components/Header/Header";
 import DashboardInfos from "../../components/DashboardInfos/DashboardInfos";
+import DashboardCharts from "../../components/DashboardCharts/DashboardCharts";
+import ShortEmployeeListContainer from "../../components/ShortEmployeeListContainer/ShortEmployeeListContainer";
 
-const Home = () => {
+const Home = ({employees}) => {
   return (
-    <div className="main">
+    //Adding the mainDashboard class to not disturb the other main container
+    <div className="main mainDashboard">
       <Header title={"Tableau de bord"} />
-      <DashboardInfos/>
+      <main>
+        <section>
+          <DashboardInfos employees={employees}/>
+          <DashboardCharts />
+        </section>
+        <aside>
+          <ShortEmployeeListContainer employees={employees} />
+        </aside>
+      </main>
     </div>
   );
 };

@@ -1,0 +1,46 @@
+.dashboardInfos{
+    width: 100%;
+    height: 172px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: $colorWhite;
+    border-radius: 20px;
+
+}
+
+.dashboardInfos>div{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    .formatIcon{
+        width: 4vw;
+        height: 4vw;
+        img{
+            width: 2.5vw;
+            height: 2.5vw;
+        }
+    }
+
+    h3{
+        font-size: 0.9vw;
+        font-weight: 400;
+        @media screen and (max-width:1500px) {
+            font-size: 0.7vw;
+        }
+
+    }
+    h2{
+        font-size: 1.5vw;
+        font-weight: 700;
+        color: $colorText;
+        @media screen and (max-width:1500px) {
+            font-size: 1.2vw;
+        }
+    }
+
+}
+
+

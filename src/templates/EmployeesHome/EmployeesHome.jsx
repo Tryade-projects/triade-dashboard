@@ -5,7 +5,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import ButtonAdd from "../../components/ButtonAdd/ButtonAdd";
 import ManageEmployeeDash from "../../components/ManageEmployeeDash/ManageEmployeeDash";
 
-const EmployeesHome = () => {
+const EmployeesHome = ({ employees }) => {
   const [search, setSearch] = useState("");
   return (
     <>
@@ -16,7 +16,7 @@ const EmployeesHome = () => {
           <ButtonAdd />
         </Link>
       </div>
-      <ManageEmployeeDash search={search} />
+      <ManageEmployeeDash search={search} employees={employees} />
     </>
   );
 };
