@@ -1,6 +1,6 @@
 import React from "react";
 
-const HeaderTableGrade = () => {
+const HeaderTableRanks = () => {
   return (
     <thead>
       <tr>
@@ -14,4 +14,4 @@ const HeaderTableGrade = () => {
   );
 };
 
-export default HeaderTableGrade;
+export default HeaderTableRanks;

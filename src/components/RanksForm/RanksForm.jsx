@@ -1,9 +1,20 @@
-import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useContext, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import Checkbox from "../Checkbox/Checkbox";
 import { RanksContext } from "../../App";
 import ButtonForm from "../ButtonForm/ButtonForm";
 import { v4 as uuidv4 } from "uuid";
+
+const permissionLabels = {
+  finance: "Finances",
+  recruit: "Recrutement",
+  chest: "Coffres",
+  cloakrooms: "Vestiaires",
+  cloakroomsManagement: "Gestion des vestiaires",
+  garage: "Garage",
+  garageManagement: "Gestion du garage",
+  armory: "Armurerie",
+};
 
 const RanksForm = () => {
   const [gradeName, setGradeName] = useState("");
@@ -18,12 +29,27 @@ const RanksForm = () => {
     garageManagement: false,
     armory: false,
   });
-  const [salary, setSalary] = useState(0);
+  const [salary, setSalary] = useState("");
   const [color, setColor] = useState("#FCC43E");
 
   const navigate = useNavigate();
 
+  const { rankId } = useParams();
+  console.log(rankId);
+
   const { ranks, setRanks } = useContext(RanksContext);
+
+  useEffect(() => {
+    const rank = ranks.find((rank) => rank._id === rankId);
+    console.log(rank);
+    if (rank) {
+      setGradeName(rank.name);
+      setGradeLabel(rank.label);
+      setPermissions(convertArrayToPermissions(rank.permissions));
+      setSalary(rank.salary);
+      setColor(rank.color);
+    }
+  }, [rankId, ranks]);
 
   /**
    *
@@ -78,20 +104,25 @@ const RanksForm = () => {
    * @return {array} - Array containing the permissions labels
    */
   const convertPermissionsToArray = (permissions) => {
-    const permissionLabels = {
-      finance: "Finances",
-      recruit: "Recrutement",
-      chest: "Coffres",
-      cloakrooms: "Vestiaires",
-      cloakroomsManagement: "Gestion des vestiaires",
-      garage: "Garage",
-      garageManagement: "Gestion du garage",
-      armory: "Armurerie",
-    };
-
     return Object.entries(permissions)
       .filter(([key, value]) => value)
       .map(([key, _]) => permissionLabels[key]);
+  };
+
+  /**
+   * It takes an array of permission labels and returns an object with the same labels as keys and true
+   * as values
+   * @param {array} permissionsArray
+   * @returns {object} An object with the keys of the permissionLabels object and the values of the
+   * permissionsArray.
+   */
+  const convertArrayToPermissions = (permissionsArray) => {
+    const permissionsObject = {};
+    Object.keys(permissionLabels).forEach((key) => {
+      permissionsObject[key] = permissionsArray.includes(permissionLabels[key]);
+    });
+    console.log(permissionLabels);
+    return permissionsObject;
   };
 
   const onSubmit = (event) => {
@@ -109,6 +140,23 @@ const RanksForm = () => {
     const permissionsArray = convertPermissionsToArray(permissions);
 
     const gradeNameToLowerCase = gradeName.toLowerCase();
+
+    if (rankId) {
+      const rankIndex = ranks.findIndex((rank) => rank._id === rankId);
+      const newRanks = [...ranks];
+      newRanks[rankIndex] = {
+        _id: rankId,
+        name: gradeNameToLowerCase,
+        label: gradeLabel,
+        permissions: permissionsArray,
+        salary,
+        color,
+      };
+      localStorage.setItem("ranks", JSON.stringify(newRanks));
+      setRanks(newRanks);
+      navigate("/ranks");
+      return;
+    }
 
     const newGrade = {
       _id: uuidv4(),
@@ -136,6 +184,7 @@ const RanksForm = () => {
           Nom (minuscules) *
         </label>
         <input
+          value={gradeName}
           className={`input`}
           type="text"
           name="gradeName"
@@ -153,6 +202,7 @@ const RanksForm = () => {
           Label (Nom d'affichage) *
         </label>
         <input
+          value={gradeLabel}
           className={`input`}
           type="text"
           name="gradeLabel"
@@ -225,13 +275,14 @@ const RanksForm = () => {
           Salaires *
         </label>
         <input
+          value={salary}
           className={`input`}
           type="number"
           name="salary"
           id="salary"
           placeholder="250 ($)"
           onChange={(event) => {
-            setSalary(Number(event.target.value));
+            setSalary(event.target.value);
           }}
           aria-required
           required

@@ -15,7 +15,8 @@ const PaginationEmployee = ({
   return (
     <>
       <p className="footer-info-employee">
-        Affichage de <span> {infoPerPage}</span> employés sur
+        Affichage de <span> {infoPerPage}</span>{" "}
+        {infoPerPage === 0 ? "grade" : "grades"} sur
         <span> {totalOfInfo}</span>
       </p>
       <div className="container-pagination">

@@ -1,0 +1,23 @@
+.containerDashBoardRanks {
+  font-size: 14px;
+}
+
+th,
+td {
+  overflow: hidden;
+  padding-left: 0.5rem;
+}
+
+tr {
+  overflow: hidden;
+
+  p {
+    overflow-y: auto;
+    max-height: 85px;
+  }
+}
+
+.buttonsActionsWrapper {
+  display: flex;
+  gap: 16px;
+}
