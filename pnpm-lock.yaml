@@ -11,10 +11,7 @@ specifiers:
   react: ^18.2.0
   react-apexcharts: ^1.4.0
   react-dom: ^18.2.0
-<<<<<<< HEAD
-  react-hook-form: ^7.43.5
-=======
->>>>>>> master
+  react-hook-form: ^7.43.7
   react-modal: ^3.16.1
   react-router-dom: ^6.9.0
   sass: ^1.59.3
@@ -27,10 +24,7 @@ dependencies:
   react: 18.2.0
   react-apexcharts: 1.4.0_cbhe6kbz4fn4qz2xv4h7x6rhii
   react-dom: 18.2.0_react@18.2.0
-<<<<<<< HEAD
-  react-hook-form: 7.43.5_react@18.2.0
-=======
->>>>>>> master
+  react-hook-form: 7.43.7_react@18.2.0
   react-modal: 3.16.1_biqbaboplfbrettd7655fr4n2y
   react-router-dom: 6.9.0_biqbaboplfbrettd7655fr4n2y
   uuid: 9.0.0
@@ -40,15 +34,9 @@ devDependencies:
   '@types/react-dom': 18.0.11
   '@vitejs/plugin-react': 3.1.0_vite@4.2.1
   eslint: 8.36.0
-<<<<<<< HEAD
-  prettier: 2.8.4
-  sass: 1.59.3
-  vite: 4.1.4_sass@1.59.3
-=======
   prettier: 2.8.6
   sass: 1.59.3
   vite: 4.2.1_sass@1.59.3
->>>>>>> master
 
 packages:
 
@@ -632,11 +620,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.19.6_@babel+core@7.21.3
       magic-string: 0.27.0
       react-refresh: 0.14.0
-<<<<<<< HEAD
-      vite: 4.1.4_sass@1.59.3
-=======
       vite: 4.2.1_sass@1.59.3
->>>>>>> master
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -734,13 +718,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-<<<<<<< HEAD
-      caniuse-lite: 1.0.30001466
-      electron-to-chromium: 1.4.330
-=======
       caniuse-lite: 1.0.30001469
       electron-to-chromium: 1.4.337
->>>>>>> master
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10_browserslist@4.21.5
     dev: true
@@ -851,13 +830,8 @@ packages:
       esutils: 2.0.3
     dev: true
 
-<<<<<<< HEAD
-  /electron-to-chromium/1.4.330:
-    resolution: {integrity: sha512-PqyefhybrVdjAJ45HaPLtuVaehiSw7C3ya0aad+rvmV53IVyXmYRk3pwIOb2TxTDTnmgQdn46NjMMaysx79/6Q==}
-=======
   /electron-to-chromium/1.4.337:
     resolution: {integrity: sha512-W8gdzXG86mVPoc56eM8YA+QiLxaAxJ8cmDjxZgfhLLWVvZQxyA918w5tX2JEWApZta45T1/sYcmFHTsTOUE3nw==}
->>>>>>> master
     dev: true
 
   /esbuild/0.17.12:
@@ -1443,9 +1417,8 @@ packages:
       scheduler: 0.23.0
     dev: false
 
-<<<<<<< HEAD
-  /react-hook-form/7.43.5_react@18.2.0:
-    resolution: {integrity: sha512-YcaXhuFHoOPipu5pC7ckxrLrialiOcU91pKu8P+isAcXZyMgByUK9PkI9j5fENO4+6XU5PwWXRGMIFlk9u9UBQ==}
+  /react-hook-form/7.43.7_react@18.2.0:
+    resolution: {integrity: sha512-38yehQkQQ5uufaPKFScs7jhLE8n3+LG9H/BZfFAiBL2+7piDmw/BrdNJV4irzMaPnWZGhmGLHVICHXNVGIuXZg==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18
@@ -1453,8 +1426,6 @@ packages:
       react: 18.2.0
     dev: false
 
-=======
->>>>>>> master
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: false
@@ -1733,13 +1704,8 @@ packages:
     hasBin: true
     dev: false
 
-<<<<<<< HEAD
-  /vite/4.1.4_sass@1.59.3:
-    resolution: {integrity: sha512-3knk/HsbSTKEin43zHu7jTwYWv81f8kgAL99G5NWBcA1LKvtvcVAC4JjBH1arBunO9kQka+1oGbrMKOjk4ZrBg==}
-=======
   /vite/4.2.1_sass@1.59.3:
     resolution: {integrity: sha512-7MKhqdy0ISo4wnvwtqZkjke6XN4taqQ2TBaTccLIpOKv7Vp2h4Y+NpmWCnGDeSvvn45KxvWgGyb0MkHvY1vgbg==}
->>>>>>> master
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -1766,11 +1732,7 @@ packages:
       esbuild: 0.17.12
       postcss: 8.4.21
       resolve: 1.22.1
-<<<<<<< HEAD
-      rollup: 3.19.1
-=======
       rollup: 3.20.1
->>>>>>> master
       sass: 1.59.3
     optionalDependencies:
       fsevents: 2.3.2

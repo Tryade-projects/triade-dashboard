@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./_formEmployee.module.scss";
 import ButtonForm from "../../ButtonForm/ButtonForm";
 import { useNavigate } from "react-router-dom";
