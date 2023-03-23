@@ -1,18 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 import BodyTable from "./componentsEmployee/BodyTable";
 import { usePagination, useIndexRange } from "../../utils/usePagination";
 import HeaderTable from "./componentsEmployee/HeaderTable";
 import filteredData from "../../utils/filteredData";
+import { getInitialValue } from "../../utils/useStickyState";
 
 const INFO_PER_PAGE = 5;
 
-const ManageEmployeeDash = ({ search, employees }) => {
-  console.log(employees);
-  const displayProfilFiltered = filteredData(employees, search, [
-    "name",
-    "grade",
-  ]);
+const ManageEmployeeDash = ({ search }) => {
+  const [emloy, setemploy] = useState(() => getInitialValue("employee", []));
+  const displayProfilFiltered = filteredData(emloy, search, ["name", "grade"]);
 
   const numberPages = Math.ceil(displayProfilFiltered.length / INFO_PER_PAGE);
 
@@ -37,7 +35,7 @@ const ManageEmployeeDash = ({ search, employees }) => {
         <PaginationEmployee
           infoPerPage={currentProfils.length}
           numberOfPages={numberPages}
-          totalOfInfo={employees.length}
+          totalOfInfo={emloy.length}
           paginate={paginate}
           currentPage={currentPage}
           nextPage={nextPage}
