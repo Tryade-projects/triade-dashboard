@@ -23,7 +23,7 @@ const BodyTable = ({ profils }) => {
           </td>
 
           <td className="td-grade">
-            <p>{profil.rank}</p>
+            <p style={{ background: profil.colorRank }}>{profil.rank}</p>
           </td>
 
           <td className="td-date regular">{profil.employee_at}</td>
