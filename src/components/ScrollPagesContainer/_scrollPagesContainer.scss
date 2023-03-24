@@ -1,0 +1,72 @@
+.scrollPagesContainer {
+    overflow-y: scroll;
+    height: 83vh;
+    padding-right: 1%;
+    padding-top: 1%;
+    //
+    transform: translate3d(0px, 0px, 0px);
+    transition: all 700ms ease;
+    .financePages {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        article {
+            background-color: $colorWhite;
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+        }
+    }
+
+    //First Page
+    >:first-child{
+        justify-content: space-around;
+        row-gap: 3.70vh;
+        section:first-child {
+            display: flex;
+            justify-content: space-between;
+            column-gap: 2%;
+            height: 15.92vh;
+        }
+        section:nth-child(2) {
+            flex-grow: 1;
+            height: 44.35vh;
+        }
+    }
+
+    //Second Page
+    >:nth-child(2){
+
+        >section{
+            display: flex;
+            flex-direction: row;
+            column-gap: 2.08vw;
+            height: 80.53vh;
+            article{
+            }
+            >:first-child{
+            }
+            >:nth-child(2){
+            }
+        }
+    }
+    
+
+
+}
+
+
+/* Global */
+div::-webkit-scrollbar {
+    width: 8px;
+    background-color: $colorPurple10PerCent;
+    border-radius: 8px;
+}
+
+/* Ascenseur */
+div::-webkit-scrollbar-thumb {
+    background: $colorGrey2;
+    border-radius: 8px;
+}

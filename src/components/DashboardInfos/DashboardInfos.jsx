@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import FormatIcon from "../../components/FormatIcon/FormatIcon";
-import Finance from "../../../src/assets/finance.svg";
+import FormatIcon from "../FormatIcon/FormatIcon";
+import finance from "../../../src/assets/finance.svg";
 import stock from "../../../src/assets/stock.svg";
 import Car from "../../../src/assets/Car.svg";
 import teacher from "../../../src/assets/studentWhite.svg";
@@ -9,7 +9,7 @@ import teacher from "../../../src/assets/studentWhite.svg";
 const DashboardInfos = ({employees}) => {
 
   //Datas of the dashboard, except employee
-  const [stockData, setStockData] = useState(0);
+  const [stockData, setStockData] = useState(20);
   const [financeData, setFinancekData] = useState(2);
   const [carData, setCarkData] = useState(0);
 
@@ -56,7 +56,7 @@ const DashboardInfos = ({employees}) => {
       <div>
         <div>
           {/* insérer variable $colorYellow */}
-          <FormatIcon background="#FCC43E" image={Finance} />
+          <FormatIcon background="#FCC43E" image={finance} />
         </div>
         <div>
           <h3>Argent</h3>
