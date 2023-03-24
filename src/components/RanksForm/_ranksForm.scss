@@ -1,7 +1,7 @@
 .detailsForm {
   display: grid;
   height: calc(100% - 55px);
-  grid-template-rows: 20% 20% 20% 1fr;
+  grid-template-rows: 22% 22% 25% 1fr;
   grid-template-columns: repeat(4, 19.7%);
   color: $colorText;
   padding: 3% 7% 6% 7%;
@@ -34,7 +34,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  position: relative;
   height: 100%;
   gap: 1rem;
 }
@@ -53,13 +53,15 @@
 
 .checkboxGroupWrapper {
   grid-area: 2 / 1 / 4 / 3;
+  height: 100%;
+  justify-content: flex-start;
 }
 
 .checkboxGroup {
   display: grid;
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: 59% 39%;
-  height: 100%;
+  height: 85%;
   font-size: 14px;
   font-weight: 500;
   border-radius: 5px;
@@ -73,6 +75,7 @@
   grid-column-start: 3;
   grid-column-end: 5;
   justify-content: flex-start;
+  height: 80%;
 }
 
 .colorWrapper {
@@ -119,4 +122,11 @@
   justify-content: flex-end;
   align-items: flex-end;
   gap: 40px;
+}
+
+.errorRanksForm {
+  position: absolute;
+  bottom: 0;
+  font-size: 0.875rem;
+  color: $colorRed;
 }

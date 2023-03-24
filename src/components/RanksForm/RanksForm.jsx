@@ -34,6 +34,13 @@ const RanksForm = () => {
     color: "#FCC43E",
   });
 
+  const [errors, setErrors] = useState({
+    name: false,
+    label: false,
+    salary: false,
+    permissions: false,
+  });
+
   const navigate = useNavigate();
 
   const { rankId } = useParams();
@@ -71,7 +78,10 @@ const RanksForm = () => {
    */
   const handleCheckbox = (event) => {
     const { name, checked } = event.target;
-
+    setErrors({
+      ...errors,
+      permissions: false,
+    });
     setRank((current) => ({
       ...current,
       permissions: {
@@ -136,8 +146,16 @@ const RanksForm = () => {
       (value) => value,
     );
 
-    if (!verifIfOnePermissionIsChecked) {
-      alert("Veuillez sélectionner au moins une permission");
+    console.log(rank.name.length > 0);
+    const errorsInput = {
+      name: rank.name.length === 0,
+      label: rank.label.length === 0,
+      salary: rank.salary.length === 0,
+      permissions: !verifIfOnePermissionIsChecked,
+    };
+
+    if (Object.values(errorsInput).some((value) => value)) {
+      setErrors(errorsInput);
       return;
     }
 
@@ -194,14 +212,22 @@ const RanksForm = () => {
           id="gradeName"
           placeholder="lieutenant"
           onChange={(event) => {
+            if (event.target.value.length > 0 && errors.name === true) {
+              setErrors((current) => ({
+                ...current,
+                name: false,
+              }));
+            }
             setRank((current) => ({
               ...current,
               name: event.target.value,
             }));
           }}
           aria-required
-          required
         />
+        {errors.name && (
+          <p className="errorRanksForm">Veuillez renseigner le nom du grade</p>
+        )}
       </div>
       <div className="formGroup gradeLabelWrapper">
         <label className="label" htmlFor="gradeLabel">
@@ -215,18 +241,29 @@ const RanksForm = () => {
           id="gradeLabel"
           placeholder="Lieutenant-Chef"
           onChange={(event) => {
+            if (event.target.value.length > 0 && errors.label === true) {
+              setErrors((current) => ({
+                ...current,
+                label: false,
+              }));
+            }
             setRank((current) => ({
               ...current,
               label: event.target.value,
             }));
           }}
           aria-required
-          required
         />
+        {errors.label && (
+          <p className="errorRanksForm">
+            Veuillez renseigner le label du grade
+          </p>
+        )}
       </div>
 
       <div className="formGroup checkboxGroupWrapper">
         <label className="label">Permissions *</label>
+
         <div className="checkboxGroup">
           <Checkbox
             label="Accès aux finances de l'entreprise"
@@ -277,6 +314,11 @@ const RanksForm = () => {
             name="armory"
           />
         </div>
+        {errors.permissions && (
+          <p className="errorRanksForm">
+            Veuillez sélectionner au moins une permission
+          </p>
+        )}
       </div>
 
       <div className="formGroup salaryWrapper">
@@ -291,15 +333,25 @@ const RanksForm = () => {
           id="salary"
           placeholder="250 ($)"
           onChange={(event) => {
+            if (event.target.value.length > 0 && errors.salary === true) {
+              setErrors((current) => ({
+                ...current,
+                salary: false,
+              }));
+            }
             setRank((current) => ({
               ...current,
               salary: event.target.value,
             }));
           }}
           aria-required
-          required
           max={250}
         />
+        {errors.salary && (
+          <p className="errorRanksForm">
+            Veuillez renseigner le salaire du grade
+          </p>
+        )}
       </div>
 
       <div className="formGroup colorWrapper">
