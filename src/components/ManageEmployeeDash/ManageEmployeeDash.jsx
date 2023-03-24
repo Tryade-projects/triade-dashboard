@@ -10,7 +10,7 @@ const INFO_PER_PAGE = 5;
 
 const ManageEmployeeDash = ({ search }) => {
   const [employees, setemployees] = useState(() =>
-    getInitialValue("employee", []),
+    getInitialValue("employees", []),
   );
   const displayProfilFiltered = filteredData(employees, search, [
     "name",
