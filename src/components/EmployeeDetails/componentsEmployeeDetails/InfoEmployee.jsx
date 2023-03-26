@@ -43,7 +43,9 @@ const InfoEmployee = ({ profil }) => {
       <div className={styles.informations}>
         <p className="bold">Informations :</p>
 
-        <p className="regular">Aucune informations enregistrés</p>
+        <p className="regular">
+          {profil.informations ?? "Aucune informations enregistrés"}
+        </p>
       </div>
     </>
   );
