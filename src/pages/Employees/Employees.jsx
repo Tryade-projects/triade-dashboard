@@ -10,7 +10,7 @@ const Employees = ({ employees }) => {
       <Routes>
         <Route path="/*" element={<EmployeesHome employees={employees} />} />
         <Route path="/employee/add" element={<EmployeeAdd />} />
-        <Route path="/employee/detail" element={<EmployeeDetail />} />
+        <Route path="/employee/detail/:id" element={<EmployeeDetail />} />
       </Routes>
     </main>
   );

@@ -1,9 +1,11 @@
 import React from "react";
+import ButtonTransaction from "../../ButtonActions/ButtonActions";
 import styles from "./_wrapperAvatarActions.module.scss";
 import avatar from "../../../assets/fake-avatar.svg";
 import trending from "../../../assets/trending.svg";
 import decrease from "../../../assets/decrease.svg";
 import fired from "../../../assets/fired.svg";
+import gear from "../../../assets/gear.svg";
 
 const WrapperAvatarActions = () => {
   return (
@@ -16,13 +18,16 @@ const WrapperAvatarActions = () => {
       </div>
       <div className={styles.actions}>
         <div>
-          <img src={trending} alt="" />
+          <ButtonTransaction icon={trending} alt={"image pour augmenter"} />
         </div>
         <div>
-          <img src={decrease} alt="" />
+          <ButtonTransaction icon={decrease} alt={"image pour diminuer"} />
         </div>
         <div>
-          <img src={fired} alt="" />
+          <ButtonTransaction icon={fired} alt={"image pour virer"} />
+        </div>
+        <div>
+          <ButtonTransaction icon={gear} alt={"image pour virer"} />
         </div>
       </div>
     </div>

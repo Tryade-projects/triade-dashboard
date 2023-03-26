@@ -1,5 +1,6 @@
 import React from "react";
 import ButtonTransaction from "../../ButtonActions/ButtonActions";
+import { Link } from "react-router-dom";
 import gear from "../../../assets/gear.svg";
 import trending from "../../../assets/trending.svg";
 import decrease from "../../../assets/decrease.svg";
@@ -37,12 +38,14 @@ const BodyTable = ({ profils }) => {
             </div>
           </td>
           <td className="td-more">
-            <div>
-              <ButtonTransaction
-                icon={gear}
-                alt={"image de réglage pour avoir plus d'accès"}
-              />
-            </div>
+            <Link to={`employee/detail/${profil.id}`} state={profil}>
+              <div>
+                <ButtonTransaction
+                  icon={gear}
+                  alt={"image de réglage pour avoir plus d'accès"}
+                />
+              </div>
+            </Link>
           </td>
         </tr>
       ))}
