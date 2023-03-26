@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import ButtonTransaction from "../../ButtonActions/ButtonActions";
 import styles from "./_wrapperAvatarActions.module.scss";
 import avatar from "../../../assets/fake-avatar.svg";
@@ -7,7 +8,7 @@ import decrease from "../../../assets/decrease.svg";
 import fired from "../../../assets/fired.svg";
 import gear from "../../../assets/gear.svg";
 
-const WrapperAvatarActions = () => {
+const WrapperAvatarActions = ({ playerId }) => {
   return (
     <div className={styles.wrapperAvatar}>
       <div className={styles.avatar}>
@@ -27,7 +28,9 @@ const WrapperAvatarActions = () => {
           <ButtonTransaction icon={fired} alt={"image pour virer"} />
         </div>
         <div>
-          <ButtonTransaction icon={gear} alt={"image pour virer"} />
+          <Link to="/employees/employee/add" state={playerId}>
+            <ButtonTransaction icon={gear} alt={"image pour virer"} />
+          </Link>
         </div>
       </div>
     </div>
