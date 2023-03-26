@@ -60,7 +60,7 @@ const FormEmployee = () => {
       employee_at: "March 25, 2021",
     };
     setInfoEmployee((employee) => [...employee, newEmployee]);
-    // navigate("/employees");
+    setTimeout(() => navigate("/employees"), 0);
   };
 
   return (
@@ -212,9 +212,11 @@ const FormEmployee = () => {
         />
       </div>
       <div>
-        <label className="semiBold" htmlFor="information">
-          Informations
-        </label>
+        <LabelForm
+          className={"semiBold"}
+          label={"Informations"}
+          htmlFor={"information"}
+        />
         <textarea
           {...register("informations")}
           id="information"
