@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styles from "./_formEmployee.module.scss";
 import ButtonForm from "../../ButtonForm/ButtonForm";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import ErrorMessageFormEmployee from "./ErrorMessageFormEmployee.jsx";
-import { useStickyState, getInitialValue } from "../../../utils/useStickyState";
+import { useStickyState } from "../../../utils/useStickyState";
 import LabelForm from "./LabelForm";
 import InputForm from "./InputForm";
 import { v4 as uuidv4 } from "uuid";
@@ -12,6 +12,12 @@ import { v4 as uuidv4 } from "uuid";
 const NAME_KEY = "employees";
 
 const FormEmployee = () => {
+  // const { state } = useLocation();
+  // const profil = state || [];
+  // const [t, setT] = useState(() => getInitialValue("employees", []));
+  // const finde = t.find((f) => f.id === profil);
+  // console.log(finde);
+
   const {
     register,
     handleSubmit,
@@ -19,9 +25,7 @@ const FormEmployee = () => {
   } = useForm();
 
   const [infoEmployee, setInfoEmployee] = useStickyState(NAME_KEY, []);
-  const [ranksLocalStorage, setRanksLocalStorage] = useState(() =>
-    getInitialValue("ranks", []),
-  );
+  const [ranksLocalStorage, setRanksLocalStorage] = useStickyState("ranks", []);
   const [displayRank, setDisplayRank] = useState("Recrue");
   const [colorRank, setColorRank] = useState("");
 
@@ -73,6 +77,7 @@ const FormEmployee = () => {
         id={"firstName"}
         type={"text"}
         name={"firstName"}
+        // value={finde.firstName}
         register={register}
         errors={errors}
         validationSchema={{ required: errorMessage }}

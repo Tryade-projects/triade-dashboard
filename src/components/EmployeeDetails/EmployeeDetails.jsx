@@ -12,10 +12,12 @@ const EmployeeDetails = () => {
 
   return (
     <div className={styles.container}>
-      <Cover />
-      <div className={styles.body}>
-        <WrapperAvatarActions />
-        <InfoEmployee profil={profil} />
+      <div>
+        <Cover />
+        <div className={styles.body}>
+          <WrapperAvatarActions playerId={profil.id} />
+          <InfoEmployee profil={profil} />
+        </div>
       </div>
     </div>
   );
