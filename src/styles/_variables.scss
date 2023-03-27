@@ -35,6 +35,10 @@ $colorLinear3: linear-gradient(
 
 $modalTitleHeight: 50px;
 
+/* Font-size */
+$titleSize: calc(0.1vw + 0.1vh + 2rem); // 2rem = 32px
+$subTitleSize: calc(0.1vw + 0.1vh + 1rem); // 1rem = 16px
+
 .colorPurple {
   color: $colorPurple;
 }
