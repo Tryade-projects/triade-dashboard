@@ -1,10 +1,10 @@
 .sidebar {
-  width: 345px;
   background: $colorPurple;
   display: flex;
   flex-direction: column;
   height: 100%;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 5%;
 }
 
 .sidebarHeader {
@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 36px;
+  font-size: $titleSize;
   color: $colorWhite;
   gap: 1rem;
 }
@@ -23,15 +23,16 @@
   align-items: flex-end;
   justify-content: space-between;
   font-weight: 600;
-  font-size: 18px;
+  font-size: $subTitleSize;
   gap: 8px;
+  height: 69%;
 }
 
 .sidebarLink {
   display: flex;
   align-items: center;
   height: 5rem;
-  width: 299px;
+  width: 86%;
   color: $colorGrey2;
   border-radius: 40px 0 0 40px;
   padding-left: 24px;
