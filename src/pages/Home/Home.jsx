@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../components/Header/Header";
 import DashboardInfos from "../../components/DashboardInfos/DashboardInfos";
-import DashboardCharts from "../../components/DashboardCharts/DashboardCharts";
+import DashboardCharts from "../../components/charts/DashboardCharts/DashboardCharts";
 import ShortEmployeeListContainer from "../../components/ShortEmployeeListContainer/ShortEmployeeListContainer";
 
 const Home = ({employees}) => {
@@ -11,11 +11,11 @@ const Home = ({employees}) => {
       <Header title={"Tableau de bord"} />
       <main>
         <section>
-          <DashboardInfos employees={employees}/>
+          <DashboardInfos />
           <DashboardCharts />
         </section>
         <aside>
-          <ShortEmployeeListContainer employees={employees} />
+          <ShortEmployeeListContainer />
         </aside>
       </main>
     </div>

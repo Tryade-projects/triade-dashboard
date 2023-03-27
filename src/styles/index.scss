@@ -19,7 +19,8 @@
 @import "../templates/RankAdd/rankAdd";
 @import "../components/FormatIcon/formatIcon";
 @import "../components/DashboardInfos/dashboardInfos";
-@import "../components/DashboardCharts/dashboardCharts";
+@import "../components/charts/DashboardCharts/dashboardCharts";
+@import "../components/charts/SmallChart/smallChart";
 @import "../components/ButtonAdd/buttonadd";
 @import "../components/FormContainer/formContainer";
 @import "../components/PaginationEmployee/paginationEmployee";
@@ -37,3 +38,11 @@
 @import "../components/ButtonSeeMore/buttonSeeMore";
 @import "../components/ShortEmployeeList/shortEmployeeList";
 @import "../components/RoundButtonEmployee/roundButtonEmployee";
+@import "../components/StatsData/statsData";
+@import "../components/charts/DashboardDailyCharts/dashboardDailyCharts";
+@import "../components/ScrollPagesContainer/scrollPagesContainer";
+@import "../components/FinanceEmployeesDatas/financeEmployeesDatas";
+@import "../components/FinanceStockDatas/financeStockDatas";
+@import "../components/FinanceFortuneDatas/financeFortuneDatas";
+@import "../components/ScrollableComponent/scrollableComponent";
+

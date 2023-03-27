@@ -3,7 +3,19 @@
     color: $colorGrey3;
 }
 
+@mixin greyTitle{
+    font-size: 18px;
+    color: $colorGrey3;
+    font-weight: 400;
+}
+
 @mixin littleTitle{
     font-size: 24px;
+    color: $colorText;
+}
+
+@mixin datasTitle{
+    font-size: 36px;
+    font-weight: 700;
     color: $colorText;
 }
