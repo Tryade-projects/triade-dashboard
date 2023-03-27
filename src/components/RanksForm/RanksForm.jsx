@@ -17,20 +17,29 @@ const permissionLabels = {
 };
 
 const RanksForm = () => {
-  const [gradeName, setGradeName] = useState("");
-  const [gradeLabel, setGradeLabel] = useState("");
-  const [permissions, setPermissions] = useState({
-    finance: false,
-    recruit: false,
-    chest: false,
-    cloakrooms: false,
-    cloakroomsManagement: false,
-    garage: false,
-    garageManagement: false,
-    armory: false,
+  const [rank, setRank] = useState({
+    name: "",
+    label: "",
+    permissions: {
+      finance: false,
+      recruit: false,
+      chest: false,
+      cloakrooms: false,
+      cloakroomsManagement: false,
+      garage: false,
+      garageManagement: false,
+      armory: false,
+    },
+    salary: "",
+    color: "#FCC43E",
   });
-  const [salary, setSalary] = useState("");
-  const [color, setColor] = useState("#FCC43E");
+
+  const [errors, setErrors] = useState({
+    name: false,
+    label: false,
+    salary: false,
+    permissions: false,
+  });
 
   const navigate = useNavigate();
 
@@ -39,13 +48,16 @@ const RanksForm = () => {
   const { ranks, setRanks } = useContext(RanksContext);
 
   useEffect(() => {
+    /** @type {object} */
     const rank = ranks.find((rank) => rank._id === rankId);
     if (rank) {
-      setGradeName(rank.name);
-      setGradeLabel(rank.label);
-      setPermissions(convertArrayToPermissions(rank.permissions));
-      setSalary(rank.salary);
-      setColor(rank.color);
+      setRank({
+        name: rank.name,
+        label: rank.label,
+        permissions: convertArrayToPermissions(rank.permissions),
+        salary: rank.salary,
+        color: rank.color,
+      });
     }
   }, [rankId, ranks]);
 
@@ -66,10 +78,16 @@ const RanksForm = () => {
    */
   const handleCheckbox = (event) => {
     const { name, checked } = event.target;
-
-    setPermissions((prevState) => ({
-      ...prevState,
-      [name]: checked,
+    setErrors({
+      ...errors,
+      permissions: false,
+    });
+    setRank((current) => ({
+      ...current,
+      permissions: {
+        ...current.permissions,
+        [name]: checked,
+      },
     }));
   };
 
@@ -124,29 +142,37 @@ const RanksForm = () => {
   const onSubmit = (event) => {
     event.preventDefault();
 
-    const verifIfOnePermissionIsChecked = Object.values(permissions).some(
+    const verifIfOnePermissionIsChecked = Object.values(rank.permissions).some(
       (value) => value,
     );
 
-    if (!verifIfOnePermissionIsChecked) {
-      alert("Veuillez sélectionner au moins une permission");
+    console.log(rank.name.length > 0);
+    const errorsInput = {
+      name: rank.name.length === 0,
+      label: rank.label.length === 0,
+      salary: rank.salary.length === 0,
+      permissions: !verifIfOnePermissionIsChecked,
+    };
+
+    if (Object.values(errorsInput).some((value) => value)) {
+      setErrors(errorsInput);
       return;
     }
 
-    const permissionsArray = convertPermissionsToArray(permissions);
+    const permissionsArray = convertPermissionsToArray(rank.permissions);
 
-    const gradeNameToLowerCase = gradeName.toLowerCase();
+    const rankNameToLowerCase = rank.name.toLowerCase();
 
     if (rankId) {
       const rankIndex = ranks.findIndex((rank) => rank._id === rankId);
       const newRanks = [...ranks];
       newRanks[rankIndex] = {
         _id: rankId,
-        name: gradeNameToLowerCase,
-        label: gradeLabel,
+        name: rankNameToLowerCase,
+        label: rank.label,
         permissions: permissionsArray,
-        salary,
-        color,
+        salary: rank.salary,
+        color: rank.color,
       };
       localStorage.setItem("ranks", JSON.stringify(newRanks));
       setRanks(newRanks);
@@ -156,11 +182,11 @@ const RanksForm = () => {
 
     const newGrade = {
       _id: uuidv4(),
-      name: gradeNameToLowerCase,
-      label: gradeLabel,
+      name: rankNameToLowerCase,
+      label: rank.label,
       permissions: permissionsArray,
-      salary,
-      color,
+      salary: rank.salary,
+      color: rank.color,
     };
     localStorage.setItem("ranks", JSON.stringify([...ranks, newGrade]));
     setRanks([...ranks, newGrade]);
@@ -179,90 +205,120 @@ const RanksForm = () => {
           Nom (minuscules) *
         </label>
         <input
-          value={gradeName}
+          value={rank.name}
           className={`input`}
           type="text"
           name="gradeName"
           id="gradeName"
           placeholder="lieutenant"
           onChange={(event) => {
-            setGradeName(event.target.value);
+            if (event.target.value.length > 0 && errors.name === true) {
+              setErrors((current) => ({
+                ...current,
+                name: false,
+              }));
+            }
+            setRank((current) => ({
+              ...current,
+              name: event.target.value,
+            }));
           }}
           aria-required
-          required
         />
+        {errors.name && (
+          <p className="errorRanksForm">Veuillez renseigner le nom du grade</p>
+        )}
       </div>
       <div className="formGroup gradeLabelWrapper">
         <label className="label" htmlFor="gradeLabel">
           Label (Nom d'affichage) *
         </label>
         <input
-          value={gradeLabel}
+          value={rank.label}
           className={`input`}
           type="text"
           name="gradeLabel"
           id="gradeLabel"
           placeholder="Lieutenant-Chef"
           onChange={(event) => {
-            setGradeLabel(event.target.value);
+            if (event.target.value.length > 0 && errors.label === true) {
+              setErrors((current) => ({
+                ...current,
+                label: false,
+              }));
+            }
+            setRank((current) => ({
+              ...current,
+              label: event.target.value,
+            }));
           }}
           aria-required
-          required
         />
+        {errors.label && (
+          <p className="errorRanksForm">
+            Veuillez renseigner le label du grade
+          </p>
+        )}
       </div>
 
       <div className="formGroup checkboxGroupWrapper">
         <label className="label">Permissions *</label>
+
         <div className="checkboxGroup">
           <Checkbox
             label="Accès aux finances de l'entreprise"
-            value={permissions.finance}
+            value={rank.permissions.finance}
             onChange={handleCheckbox}
             name="finance"
           />
           <Checkbox
             label="Possibilité de recruter"
-            value={permissions.recruit}
+            value={rank.permissions.recruit}
             onChange={handleCheckbox}
             name="recruit"
           />
           <Checkbox
             label="Accès aux coffres"
-            value={permissions.chest}
+            value={rank.permissions.chest}
             onChange={handleCheckbox}
             name="chest"
           />
           <Checkbox
             label="Accès aux vestiaires"
-            value={permissions.cloakrooms}
+            value={rank.permissions.cloakrooms}
             onChange={handleCheckbox}
             name="cloakrooms"
           />
           <Checkbox
             label="Possibilités de gérer les vestiaires"
-            value={permissions.cloakroomsManagement}
+            value={rank.permissions.cloakroomsManagement}
             onChange={handleCheckbox}
             name="cloakroomsManagement"
           />
           <Checkbox
             label="Accès aux garages"
-            value={permissions.garage}
+            value={rank.permissions.garage}
             onChange={handleCheckbox}
             name="garage"
           />
           <Checkbox
             label="Possibilités de gérer les garages"
-            value={permissions.garageManagement}
+            value={rank.permissions.garageManagement}
             onChange={handleCheckbox}
             name="garageManagement"
           />
           <Checkbox
             label="Accès à l'armurerie"
-            value={permissions.armory}
+            value={rank.permissions.armory}
             onChange={handleCheckbox}
             name="armory"
           />
         </div>
+        {errors.permissions && (
+          <p className="errorRanksForm">
+            Veuillez sélectionner au moins une permission
+          </p>
+        )}
       </div>
 
       <div className="formGroup salaryWrapper">
@@ -270,19 +326,32 @@ const RanksForm = () => {
           Salaires *
         </label>
         <input
-          value={salary}
+          value={rank.salary}
           className={`input`}
           type="number"
           name="salary"
           id="salary"
           placeholder="250 ($)"
           onChange={(event) => {
-            setSalary(event.target.value);
+            if (event.target.value.length > 0 && errors.salary === true) {
+              setErrors((current) => ({
+                ...current,
+                salary: false,
+              }));
+            }
+            setRank((current) => ({
+              ...current,
+              salary: event.target.value,
+            }));
           }}
           aria-required
-          required
           max={250}
         />
+        {errors.salary && (
+          <p className="errorRanksForm">
+            Veuillez renseigner le salaire du grade
+          </p>
+        )}
       </div>
 
       <div className="formGroup colorWrapper">
@@ -296,12 +365,15 @@ const RanksForm = () => {
             id="color"
             placeholder="#FCC43E"
             onChange={(event) => {
-              setColor(event.target.value);
+              setRank((current) => ({
+                ...current,
+                color: event.target.value,
+              }));
             }}
-            value={color}
+            value={rank.color}
             className="inputColor"
           />
-          <span>{color}</span>
+          <span>{rank.color}</span>
         </div>
       </div>
 
