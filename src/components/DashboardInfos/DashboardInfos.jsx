@@ -19,9 +19,9 @@ const DashboardInfos = ({ employees }) => {
 
   //Datas of the dashboard
   const [employeesData, setEmployeesData] = useState(0);
-  const [oldEmployeesData, setOldEmployeesData] = useState(1);
+  const [oldEmployeesData, setOldEmployeesData] = useState(12);
   const [stockData, setStockData] = useState(200);
-  const [oldStockData, setOldStockData] = useState(20);
+  const [oldStockData, setOldStockData] = useState(120);
   const [fortuneData, setFortuneData] = useState(400);
   const [oldFortuneData, setOldFortuneData] = useState(200);
   const [carData, setCarData] = useState(46);

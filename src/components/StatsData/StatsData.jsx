@@ -9,13 +9,13 @@ const StatsData = ({ oldData, nowData }) => {
     if (nowData < oldData) {
         data = ((nowData - oldData) / oldData) * 100
         data = Math.round(data)
-        textResponse = <p><span style={{color: 'red'}}>{data}%</span> de moins (heb.)</p>;
+        textResponse = <p className="responseDatas"><span style={{color: '#ff4550'}}>{data}%</span> de moins (heb.)</p>;
         return textResponse
         
     } else if (nowData > oldData) {
         data = ((nowData - oldData) / oldData) * 100
         data = Math.round(data)
-        textResponse = <p><span style={{color: 'green'}}>+{data}%</span> de plus (heb.)</p>;
+        textResponse = <p className="responseDatas"><span style={{color: '#4cbc9a'}}>+{data}%</span> de plus (heb.)</p>;
         return textResponse
         
     } else {
@@ -24,7 +24,7 @@ const StatsData = ({ oldData, nowData }) => {
 
 
     return (
-        <div>
+        <div className="statsData">
             {textResponse}
         </div>
     )
