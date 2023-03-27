@@ -4,6 +4,15 @@
   gap: 16px;
   padding-left: 40px;
 
+  div {
+    width: 48px;
+    height: 48px;
+
+    img {
+      width: 100%;
+    }
+  }
+
   p {
     color: $colorText;
     font-size: 18px;
@@ -20,17 +29,6 @@
     padding: 9px 24px;
     border-radius: 40px;
     color: $colorWhite;
-  }
-  .sergent-chef {
-    background: $colorOrange;
-  }
-
-  .commandant {
-    background: $colorGreen;
-  }
-
-  .recrue {
-    background: $colorYellow;
   }
 }
 

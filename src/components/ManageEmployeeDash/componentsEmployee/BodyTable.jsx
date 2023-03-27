@@ -4,20 +4,9 @@ import gear from "../../../assets/gear.svg";
 import trending from "../../../assets/trending.svg";
 import decrease from "../../../assets/decrease.svg";
 import fired from "../../../assets/fired.svg";
+import avatar from "../../../assets/fake-avatar.svg";
 
 const BodyTable = ({ profils }) => {
-  const classNameGrade = (grade) => {
-    switch (grade) {
-      case "Recrue":
-        return "recrue";
-      case "Sergent-Chef":
-        return "sergent-chef";
-      case "Commandant":
-        return "commandant";
-      default:
-        return "";
-    }
-  };
   return (
     <tbody>
       {profils.map((profil) => (
@@ -25,17 +14,19 @@ const BodyTable = ({ profils }) => {
           <td>
             <div className="wrapper-flex-name-avatar">
               <div>
-                <img src={profil.avatar} alt="avatar" />
+                <img src={avatar} alt="avatar" />
               </div>
-              <p className="bold">{profil.name}</p>
+              <p className="bold">
+                {profil.firstName} {profil.lastName}
+              </p>
             </div>
           </td>
 
           <td className="td-grade">
-            <p className={classNameGrade(profil.grade)}>{profil.grade}</p>
+            <p>{profil.rank}</p>
           </td>
 
-          <td className="td-date regular">{profil.date}</td>
+          <td className="td-date regular">{profil.employee_at}</td>
           <td className="td-phone regular">{profil.phone} </td>
 
           <td className="td-action">
