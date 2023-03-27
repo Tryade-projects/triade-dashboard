@@ -1,0 +1,67 @@
+.financePages {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 4.54vh;
+
+
+    article {
+        background-color: $colorWhite;
+        border-radius: 20px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+//First Page
+div#page1 {
+    section:first-child {
+        display: flex;
+        justify-content: space-between;
+        column-gap: 1.87vw;
+        >:last-child {
+            width: 31.64vw;
+        }
+        article {
+            width: 16.97vw;
+            height: 19.52vh;
+            max-height: 150px;
+        }
+    }
+
+    section:nth-child(2) {
+        flex-grow: 1;
+    }
+}
+
+
+//Second Page
+>:nth-child(2) {
+    >section {
+        display: flex;
+        flex-direction: row;
+        column-gap: 2.08vw;
+
+        // article {}
+
+        // >:first-child {}
+
+        // >:nth-child(2) {}
+    }
+}
+
+
+/* Global */
+div::-webkit-scrollbar {
+    width: 8px;
+    background-color: $colorPurple10PerCent;
+    border-radius: 8px;
+}
+
+/* Ascenseur */
+div::-webkit-scrollbar-thumb {
+    background: $colorGrey2;
+    border-radius: 8px;
+}

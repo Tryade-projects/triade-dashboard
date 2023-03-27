@@ -1,0 +1,13 @@
+.financeEmployeesDatas{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 1.40vw;
+    h3{
+        @include greyTitle;
+    }
+    h2{
+        @include datasTitle;
+    }
+}

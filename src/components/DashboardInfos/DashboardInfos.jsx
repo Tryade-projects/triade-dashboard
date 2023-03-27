@@ -1,36 +1,70 @@
 import React, { useState, useEffect } from 'react'
-import FormatIcon from "../../components/FormatIcon/FormatIcon";
-import Finance from "../../../src/assets/finance.svg";
+import FormatIcon from "../FormatIcon/FormatIcon";
+import finance from "../../../src/assets/finance.svg";
 import stock from "../../../src/assets/stock.svg";
 import Car from "../../../src/assets/Car.svg";
 import teacher from "../../../src/assets/studentWhite.svg";
+import { useStickyState } from '../../utils/useStickyState';
+
+/**
+ *  In this component we declaring the datas for dashboard infos. 
+ *  It store in Localstorage and then use in Finance component.
+
+ * @param {*} param0 
+ * @returns 
+ */
 
 
-const DashboardInfos = ({employees}) => {
+const DashboardInfos = ({ employees }) => {
 
-  //Datas of the dashboard, except employee
-  const [stockData, setStockData] = useState(0);
-  const [financeData, setFinancekData] = useState(2);
-  const [carData, setCarkData] = useState(0);
+  
+  //Datas of the dashboard
 
-  useEffect(() => {
-    localStorage.setItem('stockData', stockData);
-  }, [stockData]);
+  
+  // const [employees, setEmployees] = useStickyState("employees", employees.length) 
+  // const [oldEmployees, setOldEmployees] = useStickyState("oldEmployees", []) 
+  const [employeesData, setEmployeesData] = useState(0);
+  const [oldEmployeesData, setOldEmployeesData] = useState(12);
+  const [stockData, setStockData] = useStickyState("stockData", 100);
+  const [oldStockData, setOldStockData] = useStickyState("oldStockData", 80);
+  const [fortuneData, setFortuneData] = useStickyState("fortuneData", 60);
+  const [oldFortuneData, setOldFortuneData] = useStickyState("oldFortuneData", 180);
+  const [carData, setCarData] = useStickyState("carData", 18);
 
-  useEffect(() => {
-    localStorage.setItem('financeData', financeData);
-  }, [financeData]);
 
-  useEffect(() => {
-    localStorage.setItem('carData', carData);
-  }, [carData]);
+    // const [stockData, setStockData] = useState(200);
+  // const [oldStockData, setOldStockData] = useState(120);
+  // const [fortuneData, setFortuneData] = useState(400);
+  // const [oldFortuneData, setOldFortuneData] = useState(200);
+  // const [carData, setCarData] = useState(46);
+
+  // useEffect(() => {
+  //   if (employees && Array.isArray(employees)) {
+  //     setEmployeesData(employees.length);
+  //   }
+  // }, [employees]);
+
+
+  // const setLocalStorage = (key, value) => {
+  //   useEffect(() => {
+  //     localStorage.setItem(key, value);
+  //   }, [value]);
+  // }
+  // setLocalStorage('employeesData', employeesData);
+  // setLocalStorage('oldEmployeesData', oldEmployeesData);
+  // // setLocalStorage('stockData', stockData);
+  // setLocalStorage('oldStockData', oldStockData);
+  // setLocalStorage('fortuneData', fortuneData);
+  // setLocalStorage('oldFortuneData', oldFortuneData);
+  // setLocalStorage('carData', carData);
+
 
 
 
 
   return (
     <section className='dashboardInfos'>
-      
+
       <div>
         <div>
           {/* insérer variable $colorPurple */}
@@ -38,7 +72,7 @@ const DashboardInfos = ({employees}) => {
         </div>
         <div>
           <h3>Employés</h3>
-          <h2>{employees.length}</h2>
+          <h2>{employeesData}</h2>
         </div>
       </div>
 
@@ -52,15 +86,15 @@ const DashboardInfos = ({employees}) => {
           <h2>{stockData}Kg</h2>
         </div>
       </div>
-      
+
       <div>
         <div>
           {/* insérer variable $colorYellow */}
-          <FormatIcon background="#FCC43E" image={Finance} />
+          <FormatIcon background="#FCC43E" image={finance} />
         </div>
         <div>
           <h3>Argent</h3>
-          <h2>{financeData}K</h2>
+          <h2>{fortuneData}K</h2>
         </div>
       </div>
 

@@ -1,0 +1,11 @@
+.smallChart{
+    height: 140px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    >div{
+        height: calc(100% + 20px);
+    }
+}
+
+
