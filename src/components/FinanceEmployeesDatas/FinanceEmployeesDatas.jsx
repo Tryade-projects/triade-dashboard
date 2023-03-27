@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import FormatIcon from "../FormatIcon/FormatIcon"
 import StatsData from "../StatsData/StatsData"
 import studentWhite from "../../assets/studentWhite.svg"
@@ -15,7 +15,24 @@ import studentWhite from "../../assets/studentWhite.svg"
  */
 
 
-const FinanceEmployeesDatas = (employees) => {
+const FinanceEmployeesDatas = () => {
+
+  const [employeesData, setEmployeesData] = useState([]);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setEmployeesData(JSON.parse(localStorage.getItem('employeesData')));
+    }
+  }, []);
+
+  const [oldEmployeesData, setOldEmployeesData] = useState([]);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setOldEmployeesData(JSON.parse(localStorage.getItem('oldEmployeesData')));
+    }
+  }, []);
+
+  console.log(oldEmployeesData);
+
 
   return (
     <div className="financeEmployeesDatas">
@@ -25,8 +42,8 @@ const FinanceEmployeesDatas = (employees) => {
       </div>
       <div>
         <h3>Employés</h3>
-        <h2>{employees.length}</h2>
-        <StatsData />
+        <h2>{employeesData}</h2>
+        <StatsData oldData = {oldEmployeesData} nowData = {employeesData} />
       </div>
     </div>
 

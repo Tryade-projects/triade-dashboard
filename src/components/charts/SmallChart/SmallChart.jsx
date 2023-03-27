@@ -3,7 +3,6 @@ import Chart from "react-apexcharts";
 
 //Apexcharts series Datas for every months
 var expensesDatas = [0, 0, 55, 30, 0, 0, 0, 98, 130, 120, 410, 310]
-var gainDatas = [0, 0, 64, 42, 76, 98, 145, 65, 124, 43, 45, 87]
 
 //labels colors
 const firstLabelsColor = '#A098AE'
@@ -16,13 +15,6 @@ function getTheMonth() {
   let todayMonth = todayDateFormat.getMonth();
   return todayMonth;
 }
-
-function changelabelsColor() {
-  let value = getTheMonth();
-  listLabelColor.splice(value, 1, secondLabelColor)
-  return listLabelColor
-}
-
 
 //ApexCharts
 class DashboardCharts extends Component {

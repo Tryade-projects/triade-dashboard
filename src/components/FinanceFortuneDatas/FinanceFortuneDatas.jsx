@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import FormatIcon from "../FormatIcon/FormatIcon";
 import StatsData from "../StatsData/StatsData";
 import SmallChart from "../charts/SmallChart/SmallChart"
@@ -18,24 +18,34 @@ import finance from "../../assets/finance.svg"
 
 const FinanceFortuneDatas = () => {
 
-    const [financeData, setFinanceData] = useState([]);
+    const [fortuneData, setFortuneData] = useState([]);
     useEffect(() => {
         if (typeof window !== 'undefined') {
-            setFinanceData(JSON.parse(localStorage.getItem('financeData')));
+            setFortuneData(JSON.parse(localStorage.getItem('fortuneData')));
         }
     }, []);
+
+    const [oldFortuneData, setOldFortuneData] = useState([]);
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setOldFortuneData(JSON.parse(localStorage.getItem('oldFortuneData')));
+        }
+    }, []);
+
 
 
     return (
         <div className="financeFortuneDatas">
             <div>
-                {/* insérer variable $colorYellow */}
-                <FormatIcon background="#FCC43E" image={finance} />
-            </div>
-            <div>
-                <h3>Argent</h3>
-                <h2>${financeData}</h2>
-                <StatsData />
+                <div>
+                    {/* insérer variable $colorYellow */}
+                    <FormatIcon background="#FCC43E" image={finance} />
+                </div>
+                <div>
+                    <h3>Argent</h3>
+                    <h2>${fortuneData}</h2>
+                    <StatsData oldData={oldFortuneData} nowData={fortuneData} />
+                </div>
             </div>
             <div>
                 <SmallChart />

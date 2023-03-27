@@ -22,6 +22,13 @@ const FinanceStockDatas = () => {
       setStockData(JSON.parse(localStorage.getItem('stockData')));
     }
   }, []);
+ 
+  const [oldSstockData, setOldStockData] = useState([]);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setOldStockData(JSON.parse(localStorage.getItem('oldStockData')));
+    }
+  }, []);
 
   return (
     <div className="financeStockDatas">
@@ -32,7 +39,7 @@ const FinanceStockDatas = () => {
       <div>
         <h3>Stock</h3>
         <h2>{stockData}Kg</h2>
-        <StatsData />
+        <StatsData oldData = {oldSstockData} nowData = {stockData}/>
       </div>
     </div>
 

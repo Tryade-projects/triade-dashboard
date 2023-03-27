@@ -1,60 +1,55 @@
-.scrollPagesContainer {
-    overflow-y: scroll;
-    height: 83vh;
-    padding-right: 1%;
-    padding-top: 1%;
-    //
-    transform: translate3d(0px, 0px, 0px);
-    transition: all 700ms ease;
-    .financePages {
-        height: 100%;
+.financePages {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 4.54vh;
+
+
+    article {
+        background-color: $colorWhite;
+        border-radius: 20px;
+        padding: 20px;
         display: flex;
-        flex-direction: column;
+        align-items: center;
+    }
+}
+
+//First Page
+div#page1 {
+    section:first-child {
+        display: flex;
+        justify-content: space-between;
+        column-gap: 1.87vw;
+        >:last-child {
+            width: 31.64vw;
+        }
         article {
-            background-color: $colorWhite;
-            border-radius: 20px;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            flex-grow: 1;
+            width: 16.97vw;
+            height: 19.52vh;
+            max-height: 150px;
         }
     }
 
-    //First Page
-    >:first-child{
-        justify-content: space-around;
-        row-gap: 3.70vh;
-        section:first-child {
-            display: flex;
-            justify-content: space-between;
-            column-gap: 2%;
-            height: 15.92vh;
-        }
-        section:nth-child(2) {
-            flex-grow: 1;
-            height: 44.35vh;
-        }
+    section:nth-child(2) {
+        flex-grow: 1;
     }
+}
 
-    //Second Page
-    >:nth-child(2){
 
-        >section{
-            display: flex;
-            flex-direction: row;
-            column-gap: 2.08vw;
-            height: 80.53vh;
-            article{
-            }
-            >:first-child{
-            }
-            >:nth-child(2){
-            }
-        }
+//Second Page
+>:nth-child(2) {
+    >section {
+        display: flex;
+        flex-direction: row;
+        column-gap: 2.08vw;
+
+        // article {}
+
+        // >:first-child {}
+
+        // >:nth-child(2) {}
     }
-    
-
-
 }
 
 

@@ -11,7 +11,7 @@ import ScrollPagesContainer from "../../components/ScrollPagesContainer/ScrollPa
  * @returns {JSX.Element}
  */
 
-const Finance = ({ employees }) => {
+const Finance = () => {
 
 
   return (
@@ -19,7 +19,7 @@ const Finance = ({ employees }) => {
       <Header title={"Finances"} />
       <main>
         
-        <ScrollPagesContainer employees={employees} />
+        <ScrollPagesContainer />
 
       </main>
     </div>

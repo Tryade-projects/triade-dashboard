@@ -5,32 +5,54 @@ import stock from "../../../src/assets/stock.svg";
 import Car from "../../../src/assets/Car.svg";
 import teacher from "../../../src/assets/studentWhite.svg";
 
+/**
+ *  In this component we declaring the datas for dashboard infos. 
+ *  It store in Localstorage and then use in Finance component.
 
-const DashboardInfos = ({employees}) => {
+ * @param {*} param0 
+ * @returns 
+ */
 
-  //Datas of the dashboard, except employee
-  const [stockData, setStockData] = useState(20);
-  const [financeData, setFinancekData] = useState(2);
-  const [carData, setCarkData] = useState(0);
+
+const DashboardInfos = ({ employees }) => {
+
+
+  //Datas of the dashboard
+  const [employeesData, setEmployeesData] = useState(0);
+  const [oldEmployeesData, setOldEmployeesData] = useState(1);
+  const [stockData, setStockData] = useState(200);
+  const [oldStockData, setOldStockData] = useState(20);
+  const [fortuneData, setFortuneData] = useState(400);
+  const [oldFortuneData, setOldFortuneData] = useState(200);
+  const [carData, setCarData] = useState(46);
 
   useEffect(() => {
-    localStorage.setItem('stockData', stockData);
-  }, [stockData]);
+    if (employees && Array.isArray(employees)) {
+      setEmployeesData(employees.length);
+    }
+  }, [employees]);
 
-  useEffect(() => {
-    localStorage.setItem('financeData', financeData);
-  }, [financeData]);
 
-  useEffect(() => {
-    localStorage.setItem('carData', carData);
-  }, [carData]);
+  const setLocalStorage = (key, value) => {
+    useEffect(() => {
+      localStorage.setItem(key, value);
+    }, [value]);
+  }
+  setLocalStorage('employeesData', employeesData);
+  setLocalStorage('oldEmployeesData', oldEmployeesData);
+  setLocalStorage('stockData', stockData);
+  setLocalStorage('oldStockData', oldStockData);
+  setLocalStorage('fortuneData', fortuneData);
+  setLocalStorage('oldFortuneData', oldFortuneData);
+  setLocalStorage('carData', carData);
+
 
 
 
 
   return (
     <section className='dashboardInfos'>
-      
+
       <div>
         <div>
           {/* insérer variable $colorPurple */}
@@ -38,7 +60,7 @@ const DashboardInfos = ({employees}) => {
         </div>
         <div>
           <h3>Employés</h3>
-          <h2>{employees.length}</h2>
+          <h2>{employeesData}</h2>
         </div>
       </div>
 
@@ -52,7 +74,7 @@ const DashboardInfos = ({employees}) => {
           <h2>{stockData}Kg</h2>
         </div>
       </div>
-      
+
       <div>
         <div>
           {/* insérer variable $colorYellow */}
@@ -60,7 +82,7 @@ const DashboardInfos = ({employees}) => {
         </div>
         <div>
           <h3>Argent</h3>
-          <h2>{financeData}K</h2>
+          <h2>{fortuneData}K</h2>
         </div>
       </div>
 
