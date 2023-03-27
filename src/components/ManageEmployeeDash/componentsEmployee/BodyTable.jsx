@@ -24,11 +24,7 @@ const BodyTable = ({ profils }) => {
           </td>
 
           <td className="td-grade">
-<<<<<<< HEAD
-            <p>{profil.rank}</p>
-=======
             <p style={{ background: profil.colorRank }}>{profil.rank}</p>
->>>>>>> employee_detail
           </td>
 
           <td className="td-date regular">{profil.employee_at}</td>

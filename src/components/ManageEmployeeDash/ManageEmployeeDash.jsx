@@ -38,7 +38,7 @@ const ManageEmployeeDash = ({ search }) => {
         <PaginationEmployee
           infoPerPage={currentProfils.length}
           numberOfPages={numberPages}
-          totalOfInfo={emloy.length}
+          totalOfInfo={employees.length}
           paginate={paginate}
           currentPage={currentPage}
           nextPage={nextPage}

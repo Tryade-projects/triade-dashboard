@@ -12,11 +12,6 @@ import { v4 as uuidv4 } from "uuid";
 const NAME_KEY = "employees";
 
 const FormEmployee = () => {
-<<<<<<< HEAD
-  const [infoEmployee, setInfoEmployee] = useStickyState(NAME_KEY, []);
-  const [ranks, setRanks] = useState("Recrue");
-  const [displayRanks, setDisplayRanks] = useState(false);
-=======
   // const { state } = useLocation();
   // const profil = state || [];
   // const [t, setT] = useState(() => getInitialValue("employees", []));
@@ -35,7 +30,6 @@ const FormEmployee = () => {
   const [colorRank, setColorRank] = useState("");
 
   const [diplayDropdown, setDisplayDropdown] = useState(false);
->>>>>>> employee_detail
 
   const handleDisplayRanks = () => {
     setDisplayDropdown((current) => !current);
@@ -70,10 +64,7 @@ const FormEmployee = () => {
       employee_at: "March 25, 2021",
     };
     setInfoEmployee((employee) => [...employee, newEmployee]);
-<<<<<<< HEAD
-=======
     setTimeout(() => navigate("/employees"), 0);
->>>>>>> employee_detail
   };
 
   return (
