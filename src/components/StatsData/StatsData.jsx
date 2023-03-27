@@ -19,7 +19,7 @@ const StatsData = ({ oldData, nowData }) => {
         return textResponse
         
     } else {
-        textResponse = <p><span>+{data}%</span> de plus (heb.)</p>;
+        textResponse = <p className="responseDatas"><span>+{data}%</span> de plus (heb.)</p>;
     }
 
 

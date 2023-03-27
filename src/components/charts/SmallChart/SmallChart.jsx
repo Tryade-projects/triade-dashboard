@@ -1,18 +1,34 @@
   import React, { Component } from 'react';
   import Chart from "react-apexcharts";
 
-  //Apexcharts series Datas for every months
-  var expensesDatas = [0, 0, 55, 30, 0, 0, 0, 98, 130, 120, 410, 310, 241, 313]
-
-  //labels colors
-  const firstLabelsColor = '#A098AE'
-
-  function getTheMonth() {
-    let today = Date.now();
-    let todayDateFormat = new Date(today);
-    let todayMonth = todayDateFormat.getMonth();
-    return todayMonth;
+  function generateWeeksArray() {
+    const weeks = [];
+    const currentYear = new Date().getFullYear();
+    const firstDayOfYear = new Date(currentYear, 0, 1);
+    const daysOffset = firstDayOfYear.getDay() == 0 ? -6 : 1 - firstDayOfYear.getDay();
+    const firstMondayOfYear = new Date(currentYear, 0, 1 + daysOffset);
+    for (let i = 0; i < 52; i++) {
+      const mondayOfTheWeek = new Date(firstMondayOfYear);
+      mondayOfTheWeek.setDate(mondayOfTheWeek.getDate() + (i * 7));
+      const weekNumber = i + 1;
+      weeks.push(weekNumber);
+    }
+    return weeks;
   }
+
+  function generateExpensesData(nbrOfWeeks) {
+    let expensesData = [];
+    for (let i = 0; i < nbrOfWeeks; i++) {
+      expensesData.push(0);
+    }
+    return expensesData;
+  }
+
+
+  //Apexcharts series Datas for every weeks
+  //The position of each data correspond with the num of the week
+  let nbrOfWeekInTheYear = generateWeeksArray().length;
+  let expensesDatas = generateExpensesData(nbrOfWeekInTheYear); //Ajouter ensuite les valeurs actuelles stocké dans un array
 
   //ApexCharts
   class DashboardCharts extends Component {
@@ -68,7 +84,7 @@
           },
 
           xaxis: {
-            categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec","1", "2 "],
+            categories: generateWeeksArray(),
   
 
             axisBorder: { show: false },

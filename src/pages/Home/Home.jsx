@@ -11,11 +11,11 @@ const Home = ({employees}) => {
       <Header title={"Tableau de bord"} />
       <main>
         <section>
-          <DashboardInfos employees={employees}/>
+          <DashboardInfos />
           <DashboardCharts />
         </section>
         <aside>
-          <ShortEmployeeListContainer employees={employees} />
+          <ShortEmployeeListContainer />
         </aside>
       </main>
     </div>

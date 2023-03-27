@@ -31,8 +31,6 @@ const FinanceEmployeesDatas = () => {
     }
   }, []);
 
-  console.log(oldEmployeesData);
-
 
   return (
     <div className="financeEmployeesDatas">

@@ -4,6 +4,7 @@ import finance from "../../../src/assets/finance.svg";
 import stock from "../../../src/assets/stock.svg";
 import Car from "../../../src/assets/Car.svg";
 import teacher from "../../../src/assets/studentWhite.svg";
+import { useStickyState } from '../../utils/useStickyState';
 
 /**
  *  In this component we declaring the datas for dashboard infos. 
@@ -16,35 +17,46 @@ import teacher from "../../../src/assets/studentWhite.svg";
 
 const DashboardInfos = ({ employees }) => {
 
-
+  
   //Datas of the dashboard
+
+  
+  // const [employees, setEmployees] = useStickyState("employees", employees.length) 
+  // const [oldEmployees, setOldEmployees] = useStickyState("oldEmployees", []) 
   const [employeesData, setEmployeesData] = useState(0);
   const [oldEmployeesData, setOldEmployeesData] = useState(12);
-  const [stockData, setStockData] = useState(200);
-  const [oldStockData, setOldStockData] = useState(120);
-  const [fortuneData, setFortuneData] = useState(400);
-  const [oldFortuneData, setOldFortuneData] = useState(200);
-  const [carData, setCarData] = useState(46);
-
-  useEffect(() => {
-    if (employees && Array.isArray(employees)) {
-      setEmployeesData(employees.length);
-    }
-  }, [employees]);
+  const [stockData, setStockData] = useStickyState("stockData", 100);
+  const [oldStockData, setOldStockData] = useStickyState("oldStockData", 80);
+  const [fortuneData, setFortuneData] = useStickyState("fortuneData", 60);
+  const [oldFortuneData, setOldFortuneData] = useStickyState("oldFortuneData", 180);
+  const [carData, setCarData] = useStickyState("carData", 18);
 
 
-  const setLocalStorage = (key, value) => {
-    useEffect(() => {
-      localStorage.setItem(key, value);
-    }, [value]);
-  }
-  setLocalStorage('employeesData', employeesData);
-  setLocalStorage('oldEmployeesData', oldEmployeesData);
-  setLocalStorage('stockData', stockData);
-  setLocalStorage('oldStockData', oldStockData);
-  setLocalStorage('fortuneData', fortuneData);
-  setLocalStorage('oldFortuneData', oldFortuneData);
-  setLocalStorage('carData', carData);
+    // const [stockData, setStockData] = useState(200);
+  // const [oldStockData, setOldStockData] = useState(120);
+  // const [fortuneData, setFortuneData] = useState(400);
+  // const [oldFortuneData, setOldFortuneData] = useState(200);
+  // const [carData, setCarData] = useState(46);
+
+  // useEffect(() => {
+  //   if (employees && Array.isArray(employees)) {
+  //     setEmployeesData(employees.length);
+  //   }
+  // }, [employees]);
+
+
+  // const setLocalStorage = (key, value) => {
+  //   useEffect(() => {
+  //     localStorage.setItem(key, value);
+  //   }, [value]);
+  // }
+  // setLocalStorage('employeesData', employeesData);
+  // setLocalStorage('oldEmployeesData', oldEmployeesData);
+  // // setLocalStorage('stockData', stockData);
+  // setLocalStorage('oldStockData', oldStockData);
+  // setLocalStorage('fortuneData', fortuneData);
+  // setLocalStorage('oldFortuneData', oldFortuneData);
+  // setLocalStorage('carData', carData);
 
 
 
