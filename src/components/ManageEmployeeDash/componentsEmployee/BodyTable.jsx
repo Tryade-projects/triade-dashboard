@@ -1,5 +1,6 @@
 import React from "react";
 import ButtonTransaction from "../../ButtonActions/ButtonActions";
+import { Link } from "react-router-dom";
 import gear from "../../../assets/gear.svg";
 import trending from "../../../assets/trending.svg";
 import decrease from "../../../assets/decrease.svg";
@@ -23,7 +24,11 @@ const BodyTable = ({ profils }) => {
           </td>
 
           <td className="td-grade">
+<<<<<<< HEAD
             <p>{profil.rank}</p>
+=======
+            <p style={{ background: profil.colorRank }}>{profil.rank}</p>
+>>>>>>> employee_detail
           </td>
 
           <td className="td-date regular">{profil.employee_at}</td>
@@ -37,12 +42,14 @@ const BodyTable = ({ profils }) => {
             </div>
           </td>
           <td className="td-more">
-            <div>
-              <ButtonTransaction
-                icon={gear}
-                alt={"image de réglage pour avoir plus d'accès"}
-              />
-            </div>
+            <Link to={`employee/detail/${profil.id}`} state={profil}>
+              <div>
+                <ButtonTransaction
+                  icon={gear}
+                  alt={"image de réglage pour avoir plus d'accès"}
+                />
+              </div>
+            </Link>
           </td>
         </tr>
       ))}

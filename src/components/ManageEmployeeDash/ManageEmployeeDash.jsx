@@ -4,13 +4,16 @@ import BodyTable from "./componentsEmployee/BodyTable";
 import { usePagination, useIndexRange } from "../../utils/usePagination";
 import HeaderTable from "./componentsEmployee/HeaderTable";
 import filteredData from "../../utils/filteredData";
-import { getInitialValue } from "../../utils/useStickyState";
+import { useStickyState } from "../../utils/useStickyState";
 
 const INFO_PER_PAGE = 5;
 
 const ManageEmployeeDash = ({ search }) => {
-  const [emloy, setemploy] = useState(() => getInitialValue("employee", []));
-  const displayProfilFiltered = filteredData(emloy, search, ["name", "grade"]);
+  const [employees, setemployees] = useStickyState("employees", []);
+  const displayProfilFiltered = filteredData(employees, search, [
+    "name",
+    "grade",
+  ]);
 
   const numberPages = Math.ceil(displayProfilFiltered.length / INFO_PER_PAGE);
 

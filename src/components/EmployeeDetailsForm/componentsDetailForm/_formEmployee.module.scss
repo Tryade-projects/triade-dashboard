@@ -92,7 +92,7 @@ textarea {
   border: 1px solid $colorGrey2;
   color: $colorGrey3;
   visibility: hidden;
-  height: 142px;
+  max-height: 142px;
   overflow-y: scroll;
   &::-webkit-scrollbar {
     width: 3px;

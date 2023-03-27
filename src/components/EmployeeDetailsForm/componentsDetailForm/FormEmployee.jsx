@@ -1,33 +1,52 @@
 import React, { useState } from "react";
 import styles from "./_formEmployee.module.scss";
 import ButtonForm from "../../ButtonForm/ButtonForm";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import ErrorMessageFormEmployee from "./ErrorMessageFormEmployee.jsx";
 import { useStickyState } from "../../../utils/useStickyState";
+import LabelForm from "./LabelForm";
+import InputForm from "./InputForm";
+import { v4 as uuidv4 } from "uuid";
 
-const NAME_KEY = "employee";
+const NAME_KEY = "employees";
 
 const FormEmployee = () => {
+<<<<<<< HEAD
   const [infoEmployee, setInfoEmployee] = useStickyState(NAME_KEY, []);
   const [ranks, setRanks] = useState("Recrue");
   const [displayRanks, setDisplayRanks] = useState(false);
-
-  const handleDisplayRanks = () => {
-    setDisplayRanks((current) => !current);
-  };
-
-  const handleRanks = (rank) => {
-    setRanks(rank);
-  };
-
-  const errorMessage = "Champs requis";
+=======
+  // const { state } = useLocation();
+  // const profil = state || [];
+  // const [t, setT] = useState(() => getInitialValue("employees", []));
+  // const finde = t.find((f) => f.id === profil);
+  // console.log(finde);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const [infoEmployee, setInfoEmployee] = useStickyState(NAME_KEY, []);
+  const [ranksLocalStorage, setRanksLocalStorage] = useStickyState("ranks", []);
+  const [displayRank, setDisplayRank] = useState("Recrue");
+  const [colorRank, setColorRank] = useState("");
+
+  const [diplayDropdown, setDisplayDropdown] = useState(false);
+>>>>>>> employee_detail
+
+  const handleDisplayRanks = () => {
+    setDisplayDropdown((current) => !current);
+  };
+
+  const handleRanks = (rank) => {
+    setDisplayRank(rank.name);
+    setColorRank(rank.color);
+  };
+
+  const errorMessage = "Champs requis";
 
   const navigate = useNavigate();
 
@@ -37,7 +56,7 @@ const FormEmployee = () => {
 
   const onSubmit = (data) => {
     const newEmployee = {
-      id: Date.now(),
+      id: uuidv4(),
       firstName: data.firstName,
       lastName: data.lastName,
       address: data.address,
@@ -45,49 +64,53 @@ const FormEmployee = () => {
       mail: data.mail,
       phone: data.phone,
       rank: data.rank,
+      colorRank: colorRank,
       place: data.place,
       information: data.informations,
       employee_at: "March 25, 2021",
     };
     setInfoEmployee((employee) => [...employee, newEmployee]);
+<<<<<<< HEAD
+=======
+    setTimeout(() => navigate("/employees"), 0);
+>>>>>>> employee_detail
   };
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+      <InputForm
+        label={"Prénom *"}
+        htmlFor={"firstName"}
+        className={"semiBold"}
+        placeholder={"Samantha"}
+        id={"firstName"}
+        type={"text"}
+        name={"firstName"}
+        // value={finde.firstName}
+        register={register}
+        errors={errors}
+        validationSchema={{ required: errorMessage }}
+        styleErrors={styles.errors}
+      />
+      <InputForm
+        label={"Nom *"}
+        htmlFor={"lastName"}
+        className={"semiBold"}
+        placeholder={"William"}
+        id={"lastName"}
+        type={"text"}
+        name={"lastName"}
+        register={register}
+        errors={errors}
+        validationSchema={{ required: errorMessage }}
+        styleErrors={styles.errors}
+      />
       <div>
-        <label className="semiBold" htmlFor="first-name">
-          Prénom *
-        </label>
-        <input
-          id="first-name"
-          type="text"
-          placeholder="Samantha"
-          {...register("firstName", { required: errorMessage })}
+        <LabelForm
+          className={"semiBold"}
+          htmlFor={"date-place-born"}
+          label={"Date et Lieu de Naissance *"}
         />
-        <ErrorMessageFormEmployee
-          message={errors.firstName?.message}
-          style={styles.errors}
-        />
-      </div>
-      <div>
-        <label className="semiBold" htmlFor="last-name">
-          Nom *
-        </label>
-        <input
-          id="last-name"
-          type="text"
-          placeholder="William"
-          {...register("lastName", { required: errorMessage })}
-        />
-        <ErrorMessageFormEmployee
-          message={errors.lastName?.message}
-          style={styles.errors}
-        />
-      </div>
-      <div>
-        <label className="semiBold" htmlFor="date-place-born">
-          Date et Lieu de Naissance *
-        </label>
         <div className={styles.wrapperDateBorn}>
           <input
             id="date-place-born"
@@ -101,7 +124,6 @@ const FormEmployee = () => {
               },
             })}
           />
-
           <input
             id="date-place-born"
             type="text"
@@ -120,95 +142,95 @@ const FormEmployee = () => {
           />
         </div>
       </div>
+      <InputForm
+        label={"Adresse *"}
+        htmlFor={"address"}
+        className={"semiBold"}
+        placeholder={"856 Hilton Street"}
+        id={"address"}
+        type={"text"}
+        name={"address"}
+        register={register}
+        errors={errors}
+        validationSchema={{ required: errorMessage }}
+        styleErrors={styles.errors}
+      />
+      <InputForm
+        label={"Email *"}
+        htmlFor={"mail"}
+        className={"semiBold"}
+        placeholder={"william@email.fr"}
+        id={"mail"}
+        type={"text"}
+        name={"mail"}
+        register={register}
+        errors={errors}
+        validationSchema={{
+          required: errorMessage,
+          pattern: {
+            value: /^([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/,
+            message: "L'adresse mail n'est pas valide",
+          },
+        }}
+        styleErrors={styles.errors}
+      />
+      <InputForm
+        label={"Phone *"}
+        htmlFor={"phone"}
+        className={"semiBold"}
+        placeholder={"555-1345"}
+        id={"phone"}
+        type={"text"}
+        name={"phone"}
+        register={register}
+        errors={errors}
+        validationSchema={{
+          required: errorMessage,
+          pattern: {
+            value: /^\d{3}-\d{4}$/,
+            message: "Le numéro n'est pas valide",
+          },
+        }}
+        styleErrors={styles.errors}
+      />
       <div>
-        <label className="semiBold" htmlFor="address">
-          Adresse *
-        </label>
-        <input
-          id="address"
-          type="text"
-          placeholder="856 Hilton Street"
-          {...register("address", { required: errorMessage })}
-        />
-        <ErrorMessageFormEmployee
-          message={errors.address?.message}
-          style={styles.errors}
-        />
-      </div>
-      <div>
-        <label className="semiBold" htmlFor="mail">
-          Email *
-        </label>
-        <input
-          id="mail"
-          type="email"
-          placeholder="william@mail.com"
-          {...register("mail", {
-            required: errorMessage,
-            pattern: {
-              value: /^([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/,
-              message: "L'adresse mail n'est pas valide",
-            },
-          })}
-        />
-        <ErrorMessageFormEmployee
-          message={errors.mail?.message}
-          style={styles.errors}
-        />
-      </div>
-      <div>
-        <label className="semiBold" htmlFor="phone">
-          Phone *
-        </label>
-        <input
-          id="phone"
-          type="text"
-          placeholder="555-1345"
-          {...register("phone", {
-            required: errorMessage,
-            pattern: {
-              value: /^\d{3}-\d{4}$/,
-              message: "Le numéro n'est pas valide",
-            },
-          })}
-        />
-        <ErrorMessageFormEmployee
-          message={errors.phone?.message}
-          style={styles.errors}
-        />
-      </div>
-      <div>
-        <label className="semiBold">Grades *</label>
+        <LabelForm className={"semiBold"} label={"Grades *"} />
         <div className={styles.select} onClick={handleDisplayRanks}>
-          <input value={ranks} readOnly {...register("rank")} />
+          <input
+            value={displayRank}
+            readOnly
+            {...register("rank", { required: errorMessage })}
+          />
           <div className={styles.triangle}></div>
         </div>
         <ul
           className={
-            displayRanks ? `${styles.active} ${styles.options}` : styles.options
+            diplayDropdown
+              ? `${styles.active} ${styles.options}`
+              : styles.options
           }
         >
-          <li className={styles.option}>Recrue</li>
-          <li onClick={() => handleRanks("Agent")} className={styles.option}>
-            Agent
-          </li>
-          <li onClick={() => handleRanks("Chef")} className={styles.option}>
-            Chef
-          </li>
-          <li
-            onClick={() => handleRanks("Commandant")}
-            className={styles.option}
-          >
-            Commandant
-          </li>
-          <li className={styles.option}>Commandant</li>
-          <li className={styles.option}>Commandant</li>
+          {ranksLocalStorage.map((rank) => (
+            <li
+              onClick={() => handleRanks(rank)}
+              className={styles.option}
+              key={rank._id}
+            >
+              {rank.name}
+            </li>
+          ))}
         </ul>
+        <ErrorMessageFormEmployee
+          message={errors.rank?.message}
+          style={styles.errors}
+        />
       </div>
       <div>
-        <label className="semiBold" htmlFor="information">
-          Informations
-        </label>
+        <LabelForm
+          className={"semiBold"}
+          label={"Informations"}
+          htmlFor={"information"}
+        />
         <textarea
           {...register("informations")}
           id="information"
