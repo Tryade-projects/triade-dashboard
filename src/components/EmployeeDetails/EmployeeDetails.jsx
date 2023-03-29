@@ -15,7 +15,7 @@ const EmployeeDetails = () => {
       <div>
         <Cover />
         <div className={styles.body}>
-          <WrapperAvatarActions playerId={profil.id} />
+          <WrapperAvatarActions profil={profil} />
           <InfoEmployee profil={profil} />
         </div>
       </div>
