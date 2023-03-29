@@ -8,7 +8,7 @@ import decrease from "../../../assets/decrease.svg";
 import fired from "../../../assets/fired.svg";
 import gear from "../../../assets/gear.svg";
 
-const WrapperAvatarActions = ({ playerId }) => {
+const WrapperAvatarActions = ({ profil }) => {
   return (
     <div className={styles.wrapperAvatar}>
       <div className={styles.avatar}>
@@ -28,8 +28,8 @@ const WrapperAvatarActions = ({ playerId }) => {
           <ButtonTransaction icon={fired} alt={"image pour virer"} />
         </div>
         <div>
-          <Link to="/employees/employee/add" state={playerId}>
-            <ButtonTransaction icon={gear} alt={"image pour virer"} />
+          <Link to={`/employees/employee/add/${profil.id}`} state={profil}>
+            <ButtonTransaction icon={gear} alt={"image pour paramétrer"} />
           </Link>
         </div>
       </div>

@@ -12,11 +12,9 @@ import { v4 as uuidv4 } from "uuid";
 const NAME_KEY = "employees";
 
 const FormEmployee = () => {
-  // const { state } = useLocation();
-  // const profil = state || [];
-  // const [t, setT] = useState(() => getInitialValue("employees", []));
-  // const finde = t.find((f) => f.id === profil);
-  // console.log(finde);
+  const { state } = useLocation();
+
+  const profilId = state || [];
 
   const {
     register,
@@ -24,7 +22,7 @@ const FormEmployee = () => {
     formState: { errors },
   } = useForm();
 
-  const [infoEmployee, setInfoEmployee] = useStickyState(NAME_KEY, []);
+  const [employees, setEmployees] = useStickyState(NAME_KEY, []);
   const [ranksLocalStorage, setRanksLocalStorage] = useStickyState("ranks", []);
   const [displayRank, setDisplayRank] = useState("Recrue");
   const [colorRank, setColorRank] = useState("");
@@ -57,19 +55,34 @@ const FormEmployee = () => {
       birth: data.birth,
       mail: data.mail,
       phone: data.phone,
-      rank: data.rank,
+      rank: displayRank,
       colorRank: colorRank,
       place: data.place,
       information: data.informations,
       employee_at: "March 25, 2021",
     };
-    setInfoEmployee((employee) => [...employee, newEmployee]);
+
+    if (state) {
+      const changeProfil = employees.map((employee) => {
+        if (employee.id === profilId.id) {
+          return {
+            ...newEmployee,
+            id: profilId.id,
+          };
+        }
+        return employee;
+      });
+      setEmployees(changeProfil);
+    } else {
+      setEmployees((employee) => [...employee, newEmployee]);
+    }
     setTimeout(() => navigate("/employees"), 0);
   };
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <InputForm
+        defaultValue={profilId?.firstName}
         label={"Prénom *"}
         htmlFor={"firstName"}
         className={"semiBold"}
@@ -77,13 +90,13 @@ const FormEmployee = () => {
         id={"firstName"}
         type={"text"}
         name={"firstName"}
-        // value={finde.firstName}
         register={register}
         errors={errors}
         validationSchema={{ required: errorMessage }}
         styleErrors={styles.errors}
       />
       <InputForm
+        defaultValue={profilId?.lastName}
         label={"Nom *"}
         htmlFor={"lastName"}
         className={"semiBold"}
@@ -104,6 +117,7 @@ const FormEmployee = () => {
         />
         <div className={styles.wrapperDateBorn}>
           <input
+            defaultValue={profilId?.birth}
             id="date-place-born"
             type="text"
             placeholder="24/02/1997"
@@ -116,6 +130,7 @@ const FormEmployee = () => {
             })}
           />
           <input
+            defaultValue={profilId?.place}
             id="date-place-born"
             type="text"
             placeholder="Jakarta"
@@ -134,6 +149,7 @@ const FormEmployee = () => {
         </div>
       </div>
       <InputForm
+        defaultValue={profilId?.address}
         label={"Adresse *"}
         htmlFor={"address"}
         className={"semiBold"}
@@ -147,6 +163,7 @@ const FormEmployee = () => {
         styleErrors={styles.errors}
       />
       <InputForm
+        defaultValue={profilId?.mail}
         label={"Email *"}
         htmlFor={"mail"}
         className={"semiBold"}
@@ -166,6 +183,7 @@ const FormEmployee = () => {
         styleErrors={styles.errors}
       />
       <InputForm
+        defaultValue={profilId?.phone}
         label={"Phone *"}
         htmlFor={"phone"}
         className={"semiBold"}
@@ -187,11 +205,7 @@ const FormEmployee = () => {
       <div>
         <LabelForm className={"semiBold"} label={"Grades *"} />
         <div className={styles.select} onClick={handleDisplayRanks}>
-          <input
-            value={displayRank}
-            readOnly
-            {...register("rank", { required: errorMessage })}
-          />
+          <input value={displayRank} readOnly />
           <div className={styles.triangle}></div>
         </div>
         <ul
