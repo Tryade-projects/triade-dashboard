@@ -13,11 +13,15 @@ const EmployeeDetails = () => {
 
   return (
     <div className={styles.container}>
-      <Cover />
-      <div className={styles.body}>
-        <WrapperAvatarActions profil={profil} />
-        <InfoEmployee profil={profil} />
+      <div className={styles.test}>
+        <Cover />
+        <div className={styles.body}>
+          <WrapperAvatarActions profil={profil} />
+          <InfoEmployee profil={profil} />
+        </div>
       </div>
+      <div className={styles.t}></div>
+      {/* <ShortEmployeeListContainer /> */}
     </div>
   );
 };
