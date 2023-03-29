@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import FinanceEmployeeDatas from "../FinanceEmployeesDatas/FinanceEmployeesDatas";
 import FinanceFortuneDatas from "../FinanceFortuneDatas/FinanceFortuneDatas";
 import FinanceStockDatas from "../FinanceStockDatas/FinanceStockDatas";
 import DashboardDailyCharts from "../charts/DashboardDailyCharts/DashboardDailyCharts";
 import ScrollableComponent from "../ScrollableComponent/ScrollableComponent";
+import ArticleContainer from "../ArticleContainer/ArticleContainer";
 
 
 /**
@@ -42,14 +43,14 @@ const ScrollPagesContainer = () => {
           </section>
 
           <section>
-            <DashboardDailyCharts />
+            <ArticleContainer title="Analyse financière" contain={ <DashboardDailyCharts />} />
           </section>
         </div>
 
         <div className="financePages" id="page2">
           <section>
-            <article>First</article>
-            <article>Second</article>
+            <ArticleContainer title = "Argent rapporté" />
+            <ArticleContainer title = "Dépenses" />
           </section>
         </div>
       </ScrollableComponent>

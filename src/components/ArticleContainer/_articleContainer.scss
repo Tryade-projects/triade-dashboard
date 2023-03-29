@@ -1,0 +1,13 @@
+.articleContainer{
+    position: relative;
+    background-color: $colorWhite;
+    border-radius: 20px;
+    padding: 25px;
+    padding-top: 60px;
+    h2{
+        position: absolute;
+        top: 22px;
+        left: 30px;
+        @include littleTitle;
+    }
+}

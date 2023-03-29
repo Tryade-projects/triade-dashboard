@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    row-gap: 4.54vh;
+    row-gap: 1.74vh;
 
 
     article {
@@ -27,7 +27,6 @@ div#page1 {
         article {
             width: 16.97vw;
             height: 19.52vh;
-            max-height: 150px;
         }
     }
 
@@ -38,17 +37,20 @@ div#page1 {
 
 
 //Second Page
->:nth-child(2) {
+div#page2 {
     >section {
         display: flex;
         flex-direction: row;
         column-gap: 2.08vw;
-
-        // article {}
-
-        // >:first-child {}
-
-        // >:nth-child(2) {}
+        article{
+            height: 79.77vh;
+        }
+        >:first-child {
+            width: 39.70vw;
+        }
+        >:nth-child(2) {
+            width: 27.56vw;
+        }
     }
 }
 
