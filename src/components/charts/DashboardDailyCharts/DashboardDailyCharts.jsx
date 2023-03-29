@@ -50,6 +50,9 @@ function processNewData(newData) {
 
   });
 
+  categories.reverse(); // Inverser l'ordre des catégories
+
+
   return {
     categories: categories,
     series: [
