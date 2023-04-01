@@ -9,7 +9,7 @@ import { useStickyState } from "../../utils/useStickyState";
 const INFO_PER_PAGE = 5;
 
 const ManageEmployeeDash = ({ search }) => {
-  const [employees, setemployees] = useStickyState("employees", []);
+  const [employees, setEmployees] = useStickyState("employees", []);
   const displayProfilFiltered = filteredData(employees, search, [
     "name",
     "grade",
@@ -32,7 +32,7 @@ const ManageEmployeeDash = ({ search }) => {
     <div className="container-dashboard-employee">
       <table>
         <HeaderTable />
-        <BodyTable profils={currentProfils} />
+        <BodyTable profils={currentProfils} setEmployees={setEmployees} />
       </table>
       <div className="footer-dashboard-employee">
         <PaginationEmployee

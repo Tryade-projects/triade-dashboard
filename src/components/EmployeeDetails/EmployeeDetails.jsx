@@ -20,8 +20,9 @@ const EmployeeDetails = () => {
           <InfoEmployee profil={profil} />
         </div>
       </div>
-      <div className={styles.t}></div>
-      {/* <ShortEmployeeListContainer /> */}
+      <div className={styles.t}>
+        <ShortEmployeeListContainer />
+      </div>
     </div>
   );
 };
