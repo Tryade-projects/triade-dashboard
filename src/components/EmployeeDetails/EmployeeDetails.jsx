@@ -4,6 +4,7 @@ import Cover from "./componentsEmployeeDetails/Cover";
 import WrapperAvatarActions from "./componentsEmployeeDetails/WrapperAvatarActions";
 import InfoEmployee from "./componentsEmployeeDetails/InfoEmployee";
 import { useLocation } from "react-router-dom";
+import ShortEmployeeListContainer from "../ShortEmployeeListContainer/ShortEmployeeListContainer";
 
 const EmployeeDetails = () => {
   const { state } = useLocation();
@@ -14,13 +15,15 @@ const EmployeeDetails = () => {
     <div className={styles.container}>
       <div>
         <Cover />
-        <div className={styles.body}>
-          <WrapperAvatarActions playerId={profil.id} />
-          <InfoEmployee profil={profil} />
-        </div>
+        <WrapperAvatarActions playerId={profil.id} />
       </div>
+      <div className={styles.two}>
+        <ShortEmployeeListContainer />
+      </div>
+
     </div>
   );
 };
+
 
 export default EmployeeDetails;

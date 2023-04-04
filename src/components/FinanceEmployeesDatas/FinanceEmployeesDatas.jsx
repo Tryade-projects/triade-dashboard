@@ -31,7 +31,6 @@ const FinanceEmployeesDatas = () => {
     }
   }, []);
 
-
   return (
     <div className="financeEmployeesDatas">
       <div>
@@ -40,7 +39,7 @@ const FinanceEmployeesDatas = () => {
       </div>
       <div>
         <h3>Employés</h3>
-        <h2>{employeesData}</h2>
+        <h2>{employeesData.length}</h2>
         <StatsData oldData = {oldEmployeesData} nowData = {employeesData} />
       </div>
     </div>

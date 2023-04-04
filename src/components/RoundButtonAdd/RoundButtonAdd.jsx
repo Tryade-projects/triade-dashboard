@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 const RoundButtonAdd = () => {
   return (
-    <Link to="/EmployeeAdd">
+    <Link to="/employees/employee/add">
       <button className="roundButtonAdd">
         +
       </button>

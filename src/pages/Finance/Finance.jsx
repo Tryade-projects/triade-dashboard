@@ -6,7 +6,7 @@ import ScrollPagesContainer from "../../components/ScrollPagesContainer/ScrollPa
 /**
  * 
  * @param {object} props
- * @param {object[]} employees An array of all employees
+ * @param {object[]} props.employees An array of all employees
  * 
  * @returns {JSX.Element}
  */

@@ -1,90 +1,101 @@
 [
   {
     "id": 1,
-    "avatar": "./src/assets/fake-avatar.svg",
-    "name": "Samanta Willian",
-    "grade": "Sergent-Chef",
-    "date": "March 25, 2021",
-    "phone": "555-2098"
+    "image": "./src/assets/fake-avatar.svg",
+    "name": "Alice Lacroix",
+    "grades": {
+      "logo":"src/assets/trendingWhite.svg",
+      "grade": "Caporal"
+    },
+    "date": "April 10, 2021",
+    "phone": "555-1234"
   },
   {
     "id": 2,
-    "avatar": "./src/assets/fake-avatar.svg",
-    "name": "Tony Soap",
-    "grade": "Recrue",
-    "date": "March 25, 2021",
-    "phone": "126-9812"
+    "image": "./src/assets/fake-avatar.svg",
+    "name": "Marc-André Beauchamp",
+    "grade": "Soldat",
+    "date": "April 12, 2021",
+    "phone": "126-4567"
   },
   {
     "id": 3,
-    "avatar": "./src/assets/fake-avatar.svg",
-    "name": "Karen Hope",
-    "grade": "Commandant",
-    "date": "March 25, 2021",
-    "phone": "987-6540"
+    "image": "./src/assets/fake-avatar.svg",
+    "name": "Sophie Tremblay",
+    "grade": "Lieutenant",
+    "date": "April 9, 2021",
+    "phone": "514-7890"
   },
   {
     "id": 4,
-    "avatar": "./src/assets/fake-avatar.svg",
-    "name": "Jordan Nico",
-    "grade": "Recrue",
-    "date": "March 25, 2021",
-    "phone": "333-6789"
+    "image": "./src/assets/fake-avatar.svg",
+    "name": "Maxime Dubois",
+    "grade": "Caporal-Chef",
+    "date": "April 11, 2021",
+    "phone": "450-5678"
   },
   {
     "id": 5,
-    "avatar": "./src/assets/fake-avatar.svg",
-    "name": "Nadila Adja",
-    "grade": "Recrue",
-    "date": "March 25, 2021",
-    "phone": "983-9768"
+    "image": "./src/assets/fake-avatar.svg",
+    "name": "Julie Lachance",
+    "grade": "Adjudant",
+    "date": "April 10, 2021",
+    "phone": "819-2345"
+  },
+  {
+    "id": 6,
+    "image": "./src/assets/fake-avatar.svg",
+    "name": "François Legault",
+    "grade": "Colonel",
+    "date": "April 12, 2021",
+    "phone": "418-9012"
   },
   {
     "id": 7,
-    "avatar": "./src/assets/fake-avatar.svg",
-    "name": "Oumaisai",
-    "grade": "Commandant",
-    "date": "March 25, 2021",
-    "phone": "987-6540"
+    "image": "./src/assets/fake-avatar.svg",
+    "name": "Philippe Couillard",
+    "grade": "Général",
+    "date": "April 9, 2021",
+    "phone": "514-7890"
   },
   {
     "id": 8,
-    "avatar": "./src/assets/fake-avatar.svg",
-    "name": "Jordan Nico",
-    "grade": "Recrue",
-    "date": "March 25, 2021",
-    "phone": "333-6789"
+    "image": "./src/assets/fake-avatar.svg",
+    "name": "John Smith",
+    "grade": "Captain",
+    "date": "April 11, 2021",
+    "phone": "450-5678"
   },
   {
-    "id": 21,
-    "avatar": "./src/assets/fake-avatar.svg",
-    "name": "Nadila Adja",
-    "grade": "Recrue",
-    "date": "March 25, 2021",
-    "phone": "983-9768"
+    "id": 9,
+    "image": "./src/assets/fake-avatar.svg",
+    "name": "Jennifer Lee",
+    "grade": "Private",
+    "date": "April 10, 2021",
+    "phone": "819-2345"
   },
   {
-    "id": 17,
-    "avatar": "./src/assets/fake-avatar.svg",
-    "name": "Oumaisai",
-    "grade": "Commandant",
-    "date": "March 25, 2021",
-    "phone": "987-6540"
+    "id": 10,
+    "image": "./src/assets/fake-avatar.svg",
+    "name": "Robert Johnson",
+    "grade": "Sergeant",
+    "date": "April 12, 2021",
+    "phone": "418-9012"
   },
   {
-    "id": 18,
-    "avatar": "./src/assets/fake-avatar.svg",
-    "name": "Jordan Nico",
-    "grade": "Recrue",
-    "date": "March 25, 2021",
-    "phone": "333-6789"
+    "id": 11,
+    "image": "./src/assets/fake-avatar.svg",
+    "name": "Emily Thompson",
+    "grade": "Corporal",
+    "date": "April 9, 2021",
+    "phone": "514-7890"
   },
   {
-    "id": 19,
-    "avatar": "./src/assets/fake-avatar.svg",
-    "name": "Nadila Adja",
-    "grade": "Recrue",
-    "date": "March 25, 2021",
-    "phone": "983-9768"
+    "id": 12,
+    "image": "./src/assets/fake-avatar.svg",
+    "name": "William Davis",
+    "grade": "Lance Corporal",
+    "date": "April 11, 2021",
+    "phone": "450-5678"
   }
 ]

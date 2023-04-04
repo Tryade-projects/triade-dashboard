@@ -2,12 +2,19 @@
 
 .container {
   position: relative;
-  width: 70%;
-  height: calc(947px - 180px);
+  width: 100%;
+  // height: calc(947px - 180px);
+  height: 78.43vh;
   background: $colorWhite;
-  border-radius: 20px;
+  background-color: blue;
+}
+.two{
+  width: 30%;
+  background-color: red!important;
+  height: 100%;
 }
 
 .body {
   padding: 32px 42px 62px 32px;
+  width: 100%;
 }
