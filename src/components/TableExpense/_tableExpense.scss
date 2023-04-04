@@ -1,0 +1,58 @@
+// The boards of the second finance page
+#financePage2 {
+    div.tableContainer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        .tableExpense {
+            height: 59.20vh;
+            margin-top: 70px;
+            margin-bottom: 50px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            tr {
+                border-left: none;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+
+                th,
+                td {
+                    border-bottom: none !important;
+                    padding: 0!important;
+                }
+                .tableExpenseColSpan{
+                    display: flex;
+                    flex-direction: column;
+                    margin: 0 3.28vw 0 0.75vw;
+                    :first-child{
+                        @include idTitle  
+                    }
+                    :last-child{
+                        @include greyText
+                    }
+                }
+                .tableExpenseLastCell{
+                    flex-grow: 1;
+                    text-align: right;
+                }
+                .tableExpenseAmount{
+                    text-align: left;
+                    flex-grow: 1;
+                    @include idTitle
+                }
+            }
+        }
+    }
+
+    div.footer-dashboard-employee {
+        padding: 0;
+        align-self: flex-end;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+}

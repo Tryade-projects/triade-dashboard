@@ -2,23 +2,13 @@
 
 .container {
   position: relative;
-  height: calc(947px - 180px);
-  display: flex;
-  justify-content: space-between;
-}
-
-.test {
   width: 70%;
+  height: calc(947px - 180px);
   background: $colorWhite;
   border-radius: 20px;
 }
 
-.t {
-  background: #000;
-  width: 20%;
-  height: 100%;
-}
-
 .body {
   padding: 32px 42px 62px 32px;
+  width: 100%;
 }

@@ -1,14 +1,15 @@
 .shortEmployeeList{
-    padding: 5% 0;
+    padding: 10% 0;
     flex-grow: 2;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
 
     //Container for one employee
     >div{
         display: flex;
         justify-content: space-between;
+        height: 20%;
         //Titles
         >:nth-child(2){
             flex-grow: 1;

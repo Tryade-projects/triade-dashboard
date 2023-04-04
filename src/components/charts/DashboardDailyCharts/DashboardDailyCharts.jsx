@@ -21,12 +21,12 @@ const newData = [
   [1679353200, 45, 65],
   [1679439600, 65, 65],
   [1679526000, 140, 65],
-  [1679612400, 130, 85],
-  [1679698800, 260, 65],
+  [1679612400, 130, 185],
+  [1679698800, 60, 225],
   [1679785200, 260, 65],
   [1679868000, 210, 150],
-  [1679954400, 289, 120]
-]
+  [moment().unix(), 20, 0]
+];
 
 moment.locale('fr'); 
 
@@ -36,21 +36,25 @@ function processNewData(newData) {
   const dailyGainDatas = [];
   const categories = [];
 
-  newData.forEach((data) => {
-    const timestamp = data[0];
-    const expense = data[1];
-    const gain = data[2];
-
-    const date = moment.unix(timestamp);
+  const today = moment.unix(newData[newData.length - 1][0]);
+  for (let i = 0; i < 14; i++) {
+    const date = today.clone().subtract(i, 'days');
     const day = date.format("ddd").replace(/\./g, '');
-
-    categories.push(day);
-    dailyExpensesDatas.push(expense);
-    dailyGainDatas.push(gain);
-
-  });
-
-  categories.reverse(); // Inverser l'ordre des catégories
+    const data = newData.find((item) => {
+      return moment.unix(item[0]).isSame(date, 'day');
+    });
+    if (data) {
+      const expense = data[1];
+      const gain = data[2];
+      categories.unshift(day);
+      dailyExpensesDatas.unshift(expense);
+      dailyGainDatas.unshift(gain);
+    } else {
+      categories.unshift(day);
+      dailyExpensesDatas.unshift(0);
+      dailyGainDatas.unshift(0);
+    }
+  }
 
 
   return {
