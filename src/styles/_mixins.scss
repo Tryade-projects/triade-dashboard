@@ -19,3 +19,9 @@
     font-weight: 700;
     color: $colorText;
 }
+
+@mixin idTitle{
+    font-size: 18px;
+    font-weight: 600;
+    color: $colorCheckbox;
+}

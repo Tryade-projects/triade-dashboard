@@ -1,11 +1,13 @@
 /* THEME COLORS */
 $colorPurple: #4d44b5;
+$colorPurpleHover:darken($colorPurple, 10%);
 $colorOrange: #fb7d5b;
 $colorYellow: #fcc43e;
 $colorText: #303972;
 $colorGreen: #4cbc9a;
 $colorRed: #ff4550;
 $colorBackground: #f3f4ff;
+$colorBackgroundHover:darken($colorBackground, 2%);
 $colorWhite: #ffffff;
 $colorGrey1: #f5f5f5;
 $colorGrey2: #c1bbeb;

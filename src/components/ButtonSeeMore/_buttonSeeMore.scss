@@ -1,5 +1,6 @@
 .buttonSeeMore{
     width: 100%;
+
     button{
         border-radius: 40px;
         background-color: $colorBackground;
@@ -8,5 +9,8 @@
         color: $colorPurple;
         font-size: 18px;
         font-weight: 600;
+    }
+    button:hover{
+        background-color: $colorBackgroundHover;
     }
 }

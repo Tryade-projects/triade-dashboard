@@ -25,31 +25,6 @@ const DashboardInfos = () => {
   const [oldFortuneData, setOldFortuneData] = useStickyState("oldFortuneData",180,);
   const [carData, setCarData] = useStickyState("carData", 18);
 
-  // const [stockData, setStockData] = useState(200);
-  // const [oldStockData, setOldStockData] = useState(120);
-  // const [fortuneData, setFortuneData] = useState(400);
-  // const [oldFortuneData, setOldFortuneData] = useState(200);
-  // const [carData, setCarData] = useState(46);
-
-  // useEffect(() => {
-  //   if (employees && Array.isArray(employees)) {
-  //     setEmployeesData(employees.length);
-  //   }
-  // }, [employees]);
-
-  // const setLocalStorage = (key, value) => {
-  //   useEffect(() => {
-  //     localStorage.setItem(key, value);
-  //   }, [value]);
-  // }
-  // setLocalStorage('employeesData', employeesData);
-  // setLocalStorage('oldEmployeesData', oldEmployeesData);
-  // // setLocalStorage('stockData', stockData);
-  // setLocalStorage('oldStockData', oldStockData);
-  // setLocalStorage('fortuneData', fortuneData);
-  // setLocalStorage('oldFortuneData', oldFortuneData);
-  // setLocalStorage('carData', carData);
-
   return (
     <section className="dashboardInfos">
       <div>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 
 const ShortEmployeeList = ({ employees }) => {
-
+    console.log(employees);
     //Séectionner les 5 premiers résultats
     employees = employees.slice(0, 5)
 
@@ -16,8 +16,8 @@ const ShortEmployeeList = ({ employees }) => {
                         <img src={employee.avatar} alt="" />
                     </div>
                     <div>
-                        <p>{employee.name}</p>
-                        <p>{employee.grade}</p>
+                        <p>{employee.firstName} {employee.lastName}</p>
+                        <p>{employee.rank}</p>
                     </div>
                     <div>
 
