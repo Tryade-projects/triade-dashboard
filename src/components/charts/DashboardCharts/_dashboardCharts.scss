@@ -104,15 +104,16 @@
     }
 
     //The marker of the seriess
-    .apexcharts-series-markers circle {
+    .apexcharts-area-series .apexcharts-series .apexcharts-series-markers circle{
         fill: white;
         stroke-width: 4px;
+    }
+    
+    .apexcharts-area-series .apexcharts-series:nth-child(1) .apexcharts-series-markers circle{
         stroke: #FCC43E;
     }
-
-    #SvgjsG1153 circle {
-        fill: white;
-        stroke-width: 4px;
+    
+    .apexcharts-area-series .apexcharts-series:nth-child(2) .apexcharts-series-markers circle{
         stroke: #FB7D5B;
     }
 

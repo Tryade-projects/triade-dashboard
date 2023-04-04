@@ -14,20 +14,15 @@ import { useStickyState } from "../../utils/useStickyState";
  * @returns 
  */
 
-const DashboardInfos = ({ employees }) => {
+const DashboardInfos = () => {
   //Datas of the dashboard
 
-  // const [employees, setEmployees] = useStickyState("employees", []);
-  // const [oldEmployees, setOldEmployees] = useStickyState("oldEmployees", [])
-  const [employeesData, setEmployeesData] = useState(0);
-  const [oldEmployeesData, setOldEmployeesData] = useState(12);
+  const [employeesData, setEmployeesData] = useStickyState("employeesData", []); //Obtenir une seule valeur
+  const [oldEmployeesData, setOldEmployeesData] = useStickyState("oldEmployeesData", []) //Obtenir une seule valeur
   const [stockData, setStockData] = useStickyState("stockData", 100);
   const [oldStockData, setOldStockData] = useStickyState("oldStockData", 80);
   const [fortuneData, setFortuneData] = useStickyState("fortuneData", 60);
-  const [oldFortuneData, setOldFortuneData] = useStickyState(
-    "oldFortuneData",
-    180,
-  );
+  const [oldFortuneData, setOldFortuneData] = useStickyState("oldFortuneData",180,);
   const [carData, setCarData] = useStickyState("carData", 18);
 
   // const [stockData, setStockData] = useState(200);
@@ -64,7 +59,7 @@ const DashboardInfos = ({ employees }) => {
         </div>
         <div>
           <h3>Employés</h3>
-          <h2>{employeesData}</h2>
+          <h2>{employeesData.length}</h2>
         </div>
       </div>
 
