@@ -346,6 +346,7 @@ const RanksForm = () => {
           }}
           aria-required
           max={250}
+          min={0}
         />
         {errors.salary && (
           <p className="errorRanksForm">
