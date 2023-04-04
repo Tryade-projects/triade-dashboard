@@ -75,7 +75,6 @@
   grid-column-start: 3;
   grid-column-end: 5;
   justify-content: flex-start;
-  height: 80%;
 }
 
 .colorWrapper {
@@ -125,8 +124,12 @@
 }
 
 .errorRanksForm {
-  position: absolute;
-  bottom: 0;
+  // position: relative;
+  // bottom: 0;
   font-size: 0.875rem;
   color: $colorRed;
+}
+
+.hidden {
+  opacity: 0;
 }
