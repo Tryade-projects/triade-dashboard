@@ -1,12 +1,12 @@
 import React from "react";
-import FormatIcon from "../../components/FormatIcon/FormatIcon";
-import StudentWhite from "../../assets/studentWhite.svg";
+import Header from "../../components/Header/Header";
 
 const Activities = () => {
   return (
-    <div>
-      <FormatIcon background="#4D44B5" image={StudentWhite} />
-    </div>
+    <main className="main">
+      <Header title={"Activité"} />
+      <section className="activitiesWrapper"></section>
+    </main>
   );
 };
 
