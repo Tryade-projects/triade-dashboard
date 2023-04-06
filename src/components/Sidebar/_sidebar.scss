@@ -24,19 +24,19 @@
   justify-content: space-between;
   font-weight: 600;
   font-size: $subTitleSize;
-  gap: 8px;
+  // gap: 8px;
   height: 69%;
 }
 
 .sidebarLink {
   display: flex;
   align-items: center;
-  height: 5rem;
+  height: 13%;
   width: 86%;
   color: $colorGrey2;
   border-radius: 40px 0 0 40px;
-  padding-left: 24px;
-  gap: 24px;
+  padding-left: 6.9%;
+  gap: 6.9%;
 }
 
 .active {

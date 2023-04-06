@@ -198,6 +198,10 @@ const RanksForm = () => {
     navigate("/ranks");
   };
 
+  const errorHidden = (error) => {
+    return error ? "errorRanksForm" : "errorRanksForm hidden";
+  };
+
   return (
     <form className="detailsForm" onSubmit={onSubmit}>
       <div className={"formGroup gradeNameWrapper"}>
@@ -225,9 +229,9 @@ const RanksForm = () => {
           }}
           aria-required
         />
-        {errors.name && (
-          <p className="errorRanksForm">Veuillez renseigner le nom du grade</p>
-        )}
+        <p className={errorHidden(errors.name)}>
+          Veuillez renseigner le nom du grade
+        </p>
       </div>
       <div className="formGroup gradeLabelWrapper">
         <label className="label" htmlFor="gradeLabel">
@@ -254,11 +258,10 @@ const RanksForm = () => {
           }}
           aria-required
         />
-        {errors.label && (
-          <p className="errorRanksForm">
-            Veuillez renseigner le label du grade
-          </p>
-        )}
+
+        <p className={errorHidden(errors.label)}>
+          Veuillez renseigner le label du grade
+        </p>
       </div>
 
       <div className="formGroup checkboxGroupWrapper">
@@ -314,11 +317,10 @@ const RanksForm = () => {
             name="armory"
           />
         </div>
-        {errors.permissions && (
-          <p className="errorRanksForm">
-            Veuillez sélectionner au moins une permission
-          </p>
-        )}
+
+        <p className={errorHidden(errors.permissions)}>
+          Veuillez sélectionner au moins une permission
+        </p>
       </div>
 
       <div className="formGroup salaryWrapper">
@@ -346,12 +348,12 @@ const RanksForm = () => {
           }}
           aria-required
           max={250}
+          min={0}
         />
-        {errors.salary && (
-          <p className="errorRanksForm">
-            Veuillez renseigner le salaire du grade
-          </p>
-        )}
+
+        <p className={errorHidden(errors.salary)}>
+          Veuillez renseigner le salaire du grade
+        </p>
       </div>
 
       <div className="formGroup colorWrapper">
