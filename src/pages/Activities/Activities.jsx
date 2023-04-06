@@ -5,7 +5,7 @@ import { fetchData } from "../../utils/fetchData";
 const Activities = () => {
   const [activities, setActivities] = useState([]);
   useEffect(() => {
-    fetchData("/activitiesData.jso").then((data) => {
+    fetchData("/activitiesData.json").then((data) => {
       setActivities(data);
     });
   }, []);
