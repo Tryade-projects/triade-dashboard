@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
+import { fetchData } from "../../utils/fetchData";
 
 const Activities = () => {
+  const [activities, setActivities] = useState([]);
+  useEffect(() => {
+    fetchData("/activitiesData.jso").then((data) => {
+      setActivities(data);
+    });
+  }, []);
+  console.log(activities);
+
   return (
     <main className="main">
       <Header title={"Activité"} />
