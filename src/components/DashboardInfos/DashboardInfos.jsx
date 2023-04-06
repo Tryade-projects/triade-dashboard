@@ -18,12 +18,14 @@ const DashboardInfos = () => {
   //Datas of the dashboard
 
   const [employeesData, setEmployeesData] = useStickyState("employeesData", []); //Obtenir une seule valeur
-  const [oldEmployeesData, setOldEmployeesData] = useStickyState("oldEmployeesData", []) //Obtenir une seule valeur
-  const [stockData, setStockData] = useStickyState("stockData", 100);
-  const [oldStockData, setOldStockData] = useStickyState("oldStockData", 80);
+  const [oldEmployeesData, setOldEmployeesData] = useStickyState("oldEmployeesData", 2) //Obtenir une seule valeur
+  const [stockData, setStockData] = useStickyState("stockData", 1000);
+  const [oldStockData, setOldStockData] = useStickyState("oldStockData", 10);
   const [fortuneData, setFortuneData] = useStickyState("fortuneData", 60);
   const [oldFortuneData, setOldFortuneData] = useStickyState("oldFortuneData",180,);
   const [carData, setCarData] = useStickyState("carData", 18);
+  const [employees, setEmployees]= useStickyState("employees", [])
+
 
   return (
     <section className="dashboardInfos">
@@ -34,7 +36,7 @@ const DashboardInfos = () => {
         </div>
         <div>
           <h3>Employés</h3>
-          <h2>{employeesData.length}</h2>
+          <h2>{employees.length}</h2>
         </div>
       </div>
 

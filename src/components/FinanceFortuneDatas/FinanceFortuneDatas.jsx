@@ -3,6 +3,8 @@ import FormatIcon from "../FormatIcon/FormatIcon";
 import StatsData from "../StatsData/StatsData";
 import SmallChart from "../charts/SmallChart/SmallChart"
 import finance from "../../assets/finance.svg"
+import { useStickyState } from "../../utils/useStickyState";
+
 
 /**
  * 
@@ -18,21 +20,8 @@ import finance from "../../assets/finance.svg"
 
 const FinanceFortuneDatas = () => {
 
-    const [fortuneData, setFortuneData] = useState([]);
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            setFortuneData(JSON.parse(localStorage.getItem('fortuneData')));
-        }
-    }, []);
-
-    const [oldFortuneData, setOldFortuneData] = useState([]);
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            setOldFortuneData(JSON.parse(localStorage.getItem('oldFortuneData')));
-        }
-    }, []);
-
-
+    const [fortuneData, setFortuneData] = useStickyState("fortuneData", []);
+    const [oldFortuneData, setOldFortuneData]= useStickyState("oldFortuneData", [])
 
     return (
         <div className="financeFortuneDatas">

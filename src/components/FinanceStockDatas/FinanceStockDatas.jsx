@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import FormatIcon from "../FormatIcon/FormatIcon"
 import StatsData from "../StatsData/StatsData"
 import stock from "../../assets/stock.svg"
+import { useStickyState } from "../../utils/useStickyState";
+
 
 /**
  * 
@@ -16,19 +18,8 @@ import stock from "../../assets/stock.svg"
 
 const FinanceStockDatas = () => {
 
-  const [stockData, setStockData] = useState([]);
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setStockData(JSON.parse(localStorage.getItem('stockData')));
-    }
-  }, []);
- 
-  const [oldSstockData, setOldStockData] = useState([]);
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setOldStockData(JSON.parse(localStorage.getItem('oldStockData')));
-    }
-  }, []);
+  const [stockData, setStockData] = useStickyState("stockData",0);
+  const [oldStockData, setOldStockData]= useStickyState("oldStockData",0)
 
   return (
     <div className="financeStockDatas">
@@ -39,7 +30,7 @@ const FinanceStockDatas = () => {
       <div>
         <h3>Stock</h3>
         <h2>{stockData}Kg</h2>
-        <StatsData oldData = {oldSstockData} nowData = {stockData}/>
+        <StatsData oldData = {oldStockData} nowData = {stockData}/>
       </div>
     </div>
 

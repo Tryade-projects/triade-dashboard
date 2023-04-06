@@ -6,8 +6,10 @@ import ScrollableComponent from "../ScrollableComponent/ScrollableComponent";
 import FinanceStockDatas from "../FinanceStockDatas/FinanceStockDatas";
 import ArticleContainer from "../ArticleContainer/ArticleContainer";
 import fakeDataExpense from "../../../fakeDatasExpense.json";
-import fakeData from "../../../fakeData.json";
 import TableExpense from "../TableExpense/TableExpense";
+import TableGain from "../TableGain/TableGain";
+import fakeGain from "../../../fakeGain.json";
+
 
 
 /**
@@ -49,7 +51,7 @@ const ScrollPagesContainer = () => {
         <section>
           <ArticleContainer
             title="Argent rapportés"
-            // contain={<Table fichier={fakeData} infoPerPage={infoPerPage} />}
+            contain={<TableGain fichier={fakeGain} infoPerPage={infoPerPage} />}
           />
 
           <ArticleContainer

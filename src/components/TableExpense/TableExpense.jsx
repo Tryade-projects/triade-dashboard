@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { usePagination, useIndexRange } from "../../utils/usePagination";
-import moment from "moment"; // importer moment.js
+import moment from "moment";
 import fakeDataExpense from "../../../fakeDatasExpense.json";
 import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 import FormatIcon from "../FormatIcon/FormatIcon";
@@ -8,7 +8,6 @@ import FormatIcon from "../FormatIcon/FormatIcon";
 const infoPerPage = 6;
 
 const TableExpense = (props) => {
-
   const fichierJson = props.fichier;
 
   const numberPages = Math.ceil(fichierJson.length / infoPerPage);
@@ -30,46 +29,76 @@ const TableExpense = (props) => {
       // créer les lignes en utilisant les valeurs correspondantes
       const currentProfils = fichierJson.slice(firstIndex, lastIndex);
       setRows(
-        currentProfils.map((obj) => {
-          return Object.entries(obj).map(([key, value]) => {
-            if (key === "logo" && value.endsWith(".svg")) {
-              return <td key={key}><FormatIcon background="#FF4550" image={value} /></td>;
-            } else if (typeof value === "object" && value !== null) {
-              return (
-                <td className="tableExpenseColSpan" colSpan="2" key={key}>
-                  <p>{value.id}</p>
-                  <p>{moment(value.date).format("DD MMMM YYYY, hh:mm A")}</p> {/* convertir le timestamp en date avec moment.js */}
-                </td>
-              );
-            } else if (key === "finish") {
-              if (value === true) {
-                return <td style={{color:"#4CBC9A", width:"4.40vw"}} className="tableExpenseLastCell" key={key}>
-                  <span>Terminé</span >
-                </td>
-              } else {
-                return <td  style={{color:"#FCC43E", width:"4.40vw"}} className="tableExpenseLastCell" key={key}>
-                  <span>En attente</span >
-                </td>
-              }
-            } else if (key === "amount"){
-              return <td className="tableExpenseAmount">${value}</td>
-            } else {
-              return <td key={key}>{value}</td>;
-            }
-          });
+        currentProfils.map((obj, indexObj) => {
+          return (
+            <tr key={indexObj}>
+              {Object.entries(obj).map(([key, value], index) => {
+                if (key === "logo" && value.endsWith(".svg")) {
+                  return (
+                    <td key={index}>
+                      <FormatIcon background="#FF4550" image={value} />
+                    </td>
+                  );
+                } else if (typeof value === "object" && value !== null) {
+                  return (
+                    <td className="tableExpenseColSpan" colSpan="2" key={index}>
+                      <p>{value.id}</p>
+                      <p>
+                        {moment(value.date).format("DD MMMM YYYY, hh:mm A")}
+                      </p>
+                    </td>
+                  );
+                } else if (key === "finish") {
+                  if (value === true) {
+                    return (
+                      <td
+                        style={{
+                          color: "#4CBC9A",
+                          width: "4.40vw",
+                          fontWeight: "600",
+                        }}
+                        className="tableExpenseLastCell"
+                        key={index}
+                      >
+                        <span>Terminé</span>
+                      </td>
+                    );
+                  } else {
+                    return (
+                      <td
+                        style={{
+                          color: "#FCC43E",
+                          width: "4.40vw",
+                          fontWeight: "600",
+                        }}
+                        className="tableExpenseLastCell"
+                        key={index}
+                      >
+                        <span>En attente</span>
+                      </td>
+                    );
+                  }
+                } else if (key === "amount") {
+                  return (
+                    <td className="tableExpenseAmount" key={index}>
+                      ${value}
+                    </td>
+                  );
+                } else {
+                  return <td key={index}>{value}</td>;
+                }
+              })}
+            </tr>
+          );
         })
       );
     }
-  }, [firstIndex, lastIndex]);
+  }, [fichierJson, firstIndex, lastIndex]);
 
   return (
     <div className="tableContainer">
       <table className="tableExpense">
-        <tbody>
-          {rows.map((r, k) => (
-            <tr key={k}>{r}</tr>
-          ))}
-        </tbody>
+        <tbody>{rows}</tbody>
       </table>
       <div className="footer-dashboard-employee">
         <PaginationEmployee
