@@ -35,7 +35,7 @@ button {
 
 .app {
   display: grid;
-  grid-template-columns: 18% 1fr;
+  grid-template-columns: minmax(345px, 18%) 1fr;
   height: 100%;
   width: 100%;
   background-color: #f3f4ff;
