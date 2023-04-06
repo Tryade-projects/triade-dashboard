@@ -28,9 +28,28 @@ const Activities = () => {
   return (
     <main className="main">
       <Header title={"Activité"} />
-      <section className="activitiesWrapper">
-        <div className="activitiesAndNav"></div>
-        <div className="activitiesPagination">
+      <article className="activitiesWrapper">
+        <section className="activitiesListAndNavWrapper">
+          <section className="activitiesListWrapper"></section>
+          <nav className="activitiesNavWrapper">
+            <button type="button" className="activitiesNavButton semiBold">
+              Tout
+            </button>
+            <button type="button" className="activitiesNavButton semiBold">
+              Stockage
+            </button>
+            <button type="button" className="activitiesNavButton semiBold">
+              Factures
+            </button>
+            <button type="button" className="activitiesNavButton semiBold">
+              Service
+            </button>
+            <button type="button" className="activitiesNavButton semiBold">
+              Garage
+            </button>
+          </nav>
+        </section>
+        <section className="activitiesPagination">
           <PaginationEmployee
             infoPerPage={currentActivities.length}
             numberOfPages={numberPages}
@@ -41,8 +60,8 @@ const Activities = () => {
             previousPage={previousPage}
             itemName={"activitée"}
           />
-        </div>
-      </section>
+        </section>
+      </article>
     </main>
   );
 };
