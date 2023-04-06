@@ -43,6 +43,7 @@ const ManageRanksDash = ({ search }) => {
           currentPage={currentPage}
           nextPage={nextPage}
           previousPage={previousPage}
+          itemName={"grade"}
         />
       </div>
     </div>

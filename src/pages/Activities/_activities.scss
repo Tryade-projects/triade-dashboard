@@ -1,4 +1,13 @@
 .activitiesWrapper {
   display: flex;
   height: 100%;
+  justify-content: center;
+}
+
+.activitiesPagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 7.38%;
+  width: 95.25%;
 }

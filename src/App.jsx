@@ -55,7 +55,7 @@ function App() {
               path="/finance"
               element={<Finance employees={employees} />}
             />
-            <Route path="/ranks/*" element={<Ranks />} />
+
             <Route path="/finance" element={<Finance />} />
             <Route path="/improvements" element={<Improvements />} />
             <Route path="/activities" element={<Activities />} />
