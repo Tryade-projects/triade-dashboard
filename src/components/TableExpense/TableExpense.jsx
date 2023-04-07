@@ -5,29 +5,49 @@ import fakeDataExpense from "../../../fakeDatasExpense.json";
 import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 import FormatIcon from "../FormatIcon/FormatIcon";
 
-const infoPerPage = 6;
-
+/**
+ * TableExpense component displays a table of expenses
+ * 
+ * @param {object} props - Component props
+ * @param {array}  props.fichier - List of expenses (from JSON file or API)
+ * 
+ * @returns {JSX.Element} - Rendered component
+ */
 const TableExpense = (props) => {
-  const fichierJson = props.fichier;
+   
+  //number of expenses per page
+  const infoPerPage = 6;
 
-  const numberPages = Math.ceil(fichierJson.length / infoPerPage);
+   //calculate number of pages based on number of expenses and number of expenses per page
+  const numberPages = Math.ceil(props.fichier.length / infoPerPage);
 
+   //set up custom pagination hooks
   const { currentPage, setCurrentPage, nextPage, previousPage, paginate } =
     usePagination(numberPages, 1);
 
+   // set up state for rows of expense data in table
   const [rows, setRows] = useState([]);
 
-  useEffect(() => {
+  
+  // set current page to 1 on first render
+    useEffect(() => {
     setCurrentPage(1);
   }, []);
 
-  const { firstIndex, lastIndex } = useIndexRange(currentPage, infoPerPage);
-  const currentProfils = fichierJson.slice(firstIndex, lastIndex);
+  
+  // use custom hook to calculate first and last index of current page's expenses in list
+    const { firstIndex, lastIndex } = useIndexRange(currentPage, infoPerPage);
 
-  useEffect(() => {
-    if (fichierJson && fichierJson.length > 0) {
-      // créer les lignes en utilisant les valeurs correspondantes
-      const currentProfils = fichierJson.slice(firstIndex, lastIndex);
+  
+  // slice list of expenses for current page to pass down to PaginationEmployee component
+    const currentProfils = props.fichier.slice(firstIndex, lastIndex);
+
+  
+  // set up rows of expense data for table based on current page of expenses
+    useEffect(() => {
+    if (props.fichier && props.fichier.length > 0) {
+      // create rows of expense data based on corresponding values
+      const currentProfils = props.fichier.slice(firstIndex, lastIndex);
       setRows(
         currentProfils.map((obj, indexObj) => {
           return (
@@ -93,7 +113,7 @@ const TableExpense = (props) => {
         })
       );
     }
-  }, [fichierJson, firstIndex, lastIndex]);
+  }, [props.fichier, firstIndex, lastIndex]);
 
   return (
     <div className="tableContainer">

@@ -15,7 +15,6 @@ import fakeGain from "../../../fakeGain.json";
 /**
  * 
  * @param {object} props
- * @param {object[]} props.employees An array of all employees
  * 
  * @returns {JSX.Element}
  */
