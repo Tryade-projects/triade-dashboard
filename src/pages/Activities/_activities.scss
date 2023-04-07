@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   background-color: $colorWhite;
+  padding: 1% 2% 3% 2%;
 }
 
 .activitiesListAndNavWrapper {
@@ -12,33 +13,13 @@
 
   height: 100%;
   width: 100%;
-  width: 95%;
 }
 
 .activitiesListWrapper {
   display: flex;
   flex-direction: column;
-  height: 92.62%;
-  width: 61.22%;
-}
-
-.activitiesNavWrapper {
-  display: flex;
-  height: 9.34%;
-  width: 38.78%;
-  justify-content: space-between;
-  border-bottom: 2px solid $colorGrey2;
-  padding: 0 2%;
-}
-
-.activitiesNavButton {
-  display: flex;
+  // height: 92.62%;
   width: 100%;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  color: $colorGrey3;
-  padding: 0 4%;
 }
 
 .activitiesPagination {
@@ -46,5 +27,5 @@
   justify-content: space-between;
   align-items: center;
   height: 7.38%;
-  width: 95%;
+  width: 100%;
 }
