@@ -43,15 +43,6 @@
                         position: relative;
                         @include idTitle
                     }
-                    // p::before{
-                    //     content: "Grade";
-                    //     // position: absolute;
-                    //     @include greyText;
-                    //     font-weight: 400;
-                    //     width: 100%;
-                    //     height: 20px;
-
-                    // }
                 }
                 .tableGainGain{
                     @include idTitle;
