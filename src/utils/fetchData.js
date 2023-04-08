@@ -3,7 +3,17 @@ export const fetchData = async (url) => {
     const response = await fetch(url);
     const data = await response.json();
     return data;
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    if (error.response) {
+      // Erreur de réponse HTTP
+      console.log("Erreur de réponse HTTP:", error.response.status);
+    } else if (error.request) {
+      // Erreur de demande
+      console.log("Erreur de demande:", error.request);
+    } else {
+      // Erreur générale
+      console.log("Erreur:", error.message);
+    }
+    return error;
   }
 };

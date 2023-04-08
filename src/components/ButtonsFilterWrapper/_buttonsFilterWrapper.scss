@@ -1,0 +1,24 @@
+.buttonsFilterWrapper {
+  display: flex;
+  height: 9.34%;
+  width: 100%;
+
+  justify-content: space-between;
+  border-bottom: 2px solid $colorGrey2;
+  padding: 0 2%;
+  margin-top: 1%;
+  .active {
+    color: $colorPurple;
+    border-bottom: 2px solid $colorPurple;
+    background-color: transparent;
+  }
+}
+
+.buttonFilter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: $colorGrey3;
+  padding: 0 4%;
+}

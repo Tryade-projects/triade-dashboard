@@ -1,0 +1,68 @@
+[
+  {
+    "activityId": "36ed632d-e3be-4083-be90-cfafdbd2e6c1",
+    "employee": "Karen Hope",
+    "date": "2023-04-06",
+    "hours": "11:00",
+    "category": "Stockage",
+    "element": "Hamburger",
+    "quantity": -10,
+    "color": "orange",
+    "state": null
+  },
+  {
+    "activityId": "36ed632d-e3be-4083-be90-cfafdbd2e6c2",
+    "employee": "Capitaine Price",
+    "date": "2023-04-06",
+    "hours": "10:00",
+    "category": "Factures",
+    "element": "$",
+    "quantity": 2500,
+    "color": "red",
+    "state": null
+  },
+  {
+    "activityId": "36ed632d-e3be-4083-be90-cfafdbd2e6c3",
+    "employee": "Tony Soap",
+    "date": "2023-04-06",
+    "hours": "09:00",
+    "category": "Garage",
+    "element": "Police Vigero",
+    "quantity": 1,
+    "color": "green",
+    "state": "start"
+  },
+  {
+    "activityId": "36ed632d-e3be-4083-be90-cfafdbd2e6c4",
+    "employee": "Benjamin Epps",
+    "date": "2023-04-06",
+    "hours": "08:00",
+    "category": "Service",
+    "element": null,
+    "quantity": null,
+    "color": "yellow",
+    "state": "start"
+  },
+  {
+    "activityId": "36ed632d-e3be-4083-be90-cfafdbd2e6c5",
+    "employee": "Johnny Ahmad",
+    "date": "2023-04-05",
+    "hours": "18:00",
+    "category": "Service",
+    "element": null,
+    "quantity": null,
+    "color": "yellow",
+    "state": "stop"
+  },
+  {
+    "activityId": "36ed632d-e3be-4083-be90-cfafdbd2e6c6",
+    "employee": "Nadila Adja",
+    "date": "2023-04-05",
+    "hours": "14:00",
+    "category": "Factures",
+    "element": "$",
+    "quantity": 500,
+    "color": "red",
+    "state": null
+  }
+]
