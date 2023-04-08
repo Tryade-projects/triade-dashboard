@@ -52,7 +52,7 @@ const Activities = () => {
   const displaySeparator = (i, activities) => {
     if (i === 0 || activities[i].date !== activities[i - 1].date) {
       return (
-        <h2 className="separator">{calcDiffDaysDays(activities[i].date)}</h2>
+        <h2 className="separator">{calcDiffOfDays(activities[i].date)}</h2>
       );
     }
     return null;
@@ -63,7 +63,7 @@ const Activities = () => {
    * @param {string} date - Date of the activity
    * @returns {string} - Return a string with the difference between the date and today
    */
-  const calcDiffDaysDays = (date) => {
+  const calcDiffOfDays = (date) => {
     const today = new Date();
     const activityDate = new Date(date);
     const diffTime = Math.abs(Number(today) - Number(activityDate));
