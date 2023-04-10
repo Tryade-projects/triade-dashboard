@@ -2,21 +2,24 @@
 
 .container {
   position: relative;
-  width: 70%;
+  display: flex;
+  justify-content: space-between;
   height: calc(947px - 180px);
+  border-radius: 20px;
+}
+
+.firstContainer {
+  width: 70%;
   background: $colorWhite;
   border-radius: 20px;
 }
 
-<<<<<<< HEAD
-=======
-.t {
-  width: 25%;
-  height: 100%;
+.info {
+  padding: 32px 42px 62px 32px;
+  background: $colorWhite;
 }
 
->>>>>>> update_dashboard
-.body {
-  padding: 32px 42px 62px 32px;
-  width: 100%;
+.showEmployee {
+  width: 25%;
+  height: 100%;
 }
