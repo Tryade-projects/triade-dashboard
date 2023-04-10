@@ -8,7 +8,7 @@ const ModalActions = ({
   span,
   modalIsOpen,
   setIsOpen,
-  handleFired,
+  handleClick,
 }) => {
   const closeModal = () => {
     setIsOpen(false);
@@ -56,7 +56,7 @@ const ModalActions = ({
           />
           <ButtonForm
             type="button"
-            onClick={handleFired}
+            onClick={handleClick}
             className="modalButton modalButtonValid"
             text="Valider"
           />

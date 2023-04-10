@@ -41,7 +41,7 @@ const BodyTable = ({ profils, setEmployees }) => {
         span={`${firedProfil.firstName} ${firedProfil.lastName}  `}
         modalIsOpen={modalIsOpen}
         setIsOpen={setIsOpen}
-        handleFired={handleFired}
+        handleClick={handleFired}
       />
       {profils.map((profil) => (
         <tr key={profil.id}>
