@@ -34,7 +34,8 @@ button {
 
 .app {
   display: grid;
-  grid-template-columns: minmax(345px, 18%) 1fr;
+  // grid-template-columns: minmax(345px, 18%) 1fr;
+  grid-template-columns: 16.17vw 73.82vw;
   height: 100%;
   width: 100%;
   background-color: #f3f4ff;
@@ -44,7 +45,7 @@ button {
 }
 
 .main {
-  padding: 40px 40px;
+  padding: 40px 2.34vw;
   max-height: 100vh;
   display: flex;
   flex-direction: column;

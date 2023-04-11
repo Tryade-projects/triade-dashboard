@@ -1,9 +1,17 @@
 //class for the home dashboard container 
 .mainDashboard main{
+    width: 69.04vw;
+    height: 78.43vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     column-gap: 42px;
-    >section{width: 70%;}
+    >section{
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        height: 78.43vh;
+        row-gap:4.54vh;
+    }
     aside{width: 30%;}
 }

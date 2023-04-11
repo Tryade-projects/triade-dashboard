@@ -1,0 +1,29 @@
+[
+    {
+        "id":1,
+        "image":"",
+        "title":"Amélioration du stockage",
+        "level":1,
+        "capacity":"500kg",
+        "category":"stockage"
+
+    },
+    {
+        "id":2,
+        "image":"",
+        "title":"Amélioration du personnel",
+        "level":1,
+        "capacity":"900kg",
+        "category":"personnel"
+
+    },
+    {
+        "id":3,
+        "image":"",
+        "title":"Amélioration du garage",
+        "level":1,
+        "capacity":"600kg",
+        "category":"garage"
+
+    }
+]
