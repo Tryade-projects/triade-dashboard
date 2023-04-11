@@ -1,13 +1,38 @@
-.articleContainer{
+.articleContainer {
     position: relative;
     background-color: $colorWhite;
     border-radius: 20px;
     padding: 25px;
     padding-top: 60px;
-    h2{
+
+    .divTitle {
         position: absolute;
         top: 22px;
-        left: 30px;
-        @include littleTitle;
+        left: 25px;
+        display: flex;
+        width: calc(100% - 50px);
+        height: 6.69vh;
+        justify-content: space-between;
+
+        h2 {
+            @include littleTitle;
+        }
+
+        >div {
+            width: 17.43vw;
+            height: 100%;
+            margin-right: 2.90vw;
+            align-self: baseline;
+
+            nav {
+                height: 100%;
+                margin-top: 0;
+            }
+
+        }
+    }
+
+    .contain {
+        width: 100%;
     }
 }

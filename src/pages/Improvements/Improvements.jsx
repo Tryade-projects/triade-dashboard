@@ -32,13 +32,12 @@ const Improvements = () => {
   return (
     <main className='main mainImprovements'>
       <Header title="Améliorations" />
-      {/* <ArticleContainer title="Améliorations"  /> */}
-      {improvements.map((improvement) => (
-        <div>{improvement.category}</div>
-      ))}
-      <div className='contain'>
-        <ButtonsFilterWrapper labels={improvementsLabels} category={category} setCategory={setCategory} />
-      </div>
+      <ArticleContainer title="Améliorations" 
+                        titleContain={<ButtonsFilterWrapper labels={improvementsLabels} category={category} setCategory={setCategory} />} 
+                        contain={improvements.map((improvement) => (
+                          <div>{improvement.category}</div>
+                        ))}
+       />
     </main >
   )
 };
