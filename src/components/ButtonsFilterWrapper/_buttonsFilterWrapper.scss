@@ -1,12 +1,12 @@
 .buttonsFilterWrapper {
   display: flex;
-  height: 9.34%;
+  height: 3.5625rem;
   width: 100%;
 
   justify-content: space-between;
   border-bottom: 2px solid $colorGrey2;
   padding: 0 2%;
-  margin-top: 1%;
+
   .active {
     color: $colorPurple;
     border-bottom: 2px solid $colorPurple;

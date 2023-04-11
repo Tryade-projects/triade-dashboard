@@ -10,7 +10,7 @@
 
 .activitiesListAndNavWrapper {
   display: flex;
-
+  padding: 1%;
   height: 100%;
   width: 100%;
 }
@@ -20,6 +20,133 @@
   flex-direction: column;
   // height: 92.62%;
   width: 100%;
+
+  /*-- GENERAL STYLES
+    ------------------------------*/
+  .timeline {
+    line-height: 1.4em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      line-height: inherit;
+    }
+  }
+
+  /*----- TIMELINE ITEM -----*/
+
+  .timelineItem {
+    padding-left: 2.0625rem;
+    position: relative;
+    height: 60px;
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  /*----- TIMELINE INFO -----*/
+
+  .timelineInfo {
+    font-size: 14px;
+    font-weight: 400;
+
+    margin: 0 0 0.5em 0;
+    color: $colorGrey3;
+  }
+  /*----- TIMELINE MARKER -----*/
+
+  .timelineMarker {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1.625rem;
+    &:before {
+      background: $colorWhite;
+      border: 3px solid transparent;
+      border-radius: 100%;
+      border: 4px solid $colorPurple;
+      content: "";
+      display: block;
+      height: 15px;
+      position: absolute;
+      top: 4px;
+      left: 0;
+      width: 15px;
+      transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+      z-index: 2;
+    }
+    &:after {
+      content: "";
+      width: 3px;
+      background: #ccd5db;
+      display: block;
+      position: absolute;
+      top: 0.625rem;
+      bottom: -0.3125rem;
+      left: 6px;
+    }
+    .timelineItem:last-child &:after {
+      content: none;
+    }
+  }
+  .timelineItem:not(.period):hover .timeline-marker:before {
+    background: transparent;
+    border: 3px solid peru;
+  }
+
+  .timelineMarkerWithoutAfter {
+    &:after {
+      content: none;
+    }
+  }
+
+  /*----- TIMELINE PERIOD -----*/
+
+  .period {
+    padding: 0;
+    .timeline-info {
+      display: none;
+    }
+    .timelineMarker {
+      &:before {
+        background: transparent;
+        content: "";
+        width: 15px;
+        height: auto;
+        border: none;
+        border-radius: 0;
+        top: 0;
+        bottom: 30px;
+        position: absolute;
+        border-top: 3px solid #ccd5db;
+        border-bottom: 3px solid #ccd5db;
+      }
+      &:after {
+        content: "";
+        height: 32px;
+        top: auto;
+      }
+    }
+    .timelineContent {
+      padding: 40px 0 70px;
+    }
+  }
+}
+
+.timelineTitle {
+  margin: 0;
+  height: 3.5625rem;
+  display: flex;
+  align-items: center;
+  color: $colorText;
+  font-size: 1.125rem;
 }
 
 .activitiesPagination {

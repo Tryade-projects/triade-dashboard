@@ -52,9 +52,10 @@ const Activities = () => {
   const displaySeparator = (i, activities) => {
     const dateOfActivity = new Date(activities[i].timestamp * 1000);
     const dateOfLastActivity = new Date(activities[i - 1]?.timestamp * 1000);
-
     if (i === 0 || dateOfActivity.getDay() !== dateOfLastActivity.getDay()) {
-      return <h2 className="separator">{calcDiffOfDays(dateOfActivity)}</h2>;
+      return (
+        <h2 className="timelineTitle">{calcDiffOfDays(dateOfActivity)}</h2>
+      );
     }
     return null;
   };
@@ -67,7 +68,7 @@ const Activities = () => {
   const calcDiffOfDays = (dateOfActivity) => {
     const today = new Date();
     const diff = Math.abs(today.getTime() - dateOfActivity.getTime());
-    const diffDays = Math.ceil(diff / (1000 * 3600 * 24));
+    const diffDays = Math.round(diff / (1000 * 3600 * 24));
     if (diffDays === 0) {
       return "Aujourd'hui";
     } else if (diffDays === 1) {
@@ -77,23 +78,90 @@ const Activities = () => {
     }
   };
 
+  /**
+   *  Display a timeline marker after the activity if the date of the activity is the same as the next activity
+   * @param {number} i - Index of the activity
+   * @param {Array} activities - Array of activities
+   * @returns {Boolean} - Return true if the activity is not the last of the array and if the date of the activity is the same as the next activity
+   */
+  const displayTimelineMarkerAfter = (i, activities) => {
+    const dateOfActivity = new Date(activities[i].timestamp * 1000);
+    const dateOfNextActivity = new Date(activities[i + 1]?.timestamp * 1000);
+    if (
+      i === activities.length - 1 ||
+      dateOfActivity.getDay() !== dateOfNextActivity.getDay()
+    ) {
+      return false;
+    }
+    return true;
+  };
+
+  const formatDateForDisplay = (timestamp) => {
+    const date = new Date(timestamp * 1000);
+    /**
+     * @type {Intl.DateTimeFormatOptions}
+     */
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+    };
+    return (
+      date
+        .toLocaleDateString("fr-FR", options)
+        // First letter to uppercase
+        .replace(/^\w/, (c) => c.toUpperCase())
+    );
+  };
+
+  const displayTimelineContent = (activity) => {
+    if (activity.category === "Stockage") {
+      const interaction_type = activity.interactio_type ? "ajouté" : "retiré";
+      return `${activity.employee} a ${interaction_type} x${activity.quantity} ${activity.element} du ${activity.category}`;
+    }
+    if (activity.category === "Factures") {
+      const interaction_type = activity.interaction_type ? "facturé" : "payé";
+      return `${activity.employee} a ${interaction_type} ${
+        activity.quantity + activity.element
+      }`;
+    }
+    if (activity.category === "Service") {
+      const interaction_type = activity.interaction_type ? "pris" : "arrêté";
+      return `${activity.employee} a ${interaction_type} son ${activity.category}`;
+    }
+    if (activity.category === "Garage") {
+      const interaction_type = activity.interaction_type ? "sorti" : "rentré";
+      return `${activity.employee} a ${interaction_type} une ${activity.element} du ${activity.category}`;
+    }
+  };
+
   return (
     <main className="main">
       <Header title={"Activité"} />
       <article className="activitiesWrapper">
         <section className="activitiesListAndNavWrapper">
           <section className="activitiesListWrapper">
-            <ul className="activitiesList">
+            <ul className="timeline">
               {currentActivities.map((activity, i, activities) => (
-                <li className="activity" key={activity.activityId}>
+                <li key={activity.activityId}>
                   {displaySeparator(i, activities)}
-                  <div className="activityInfo">
-                    <p className="activityDate">{activity.timestamp}</p>
-                    <p className="activityEmployee">{activity.employee}</p>
-                    <p className="activityCategory">{activity.category}</p>
-                  </div>
-                  <div className="activityStatus">
-                    <p className="activityStatusText">{activity.status}</p>
+                  <div className="timelineItem">
+                    <p className="timelineInfo">
+                      {formatDateForDisplay(activity.timestamp)}
+                    </p>
+                    <div
+                      className={
+                        displayTimelineMarkerAfter(i, activities)
+                          ? "timelineMarker"
+                          : "timelineMarker timelineMarkerWithoutAfter"
+                      }
+                    ></div>
+                    <div className="timelineContent">
+                      <p>{displayTimelineContent(activity)}</p>
+                    </div>
                   </div>
                 </li>
               ))}
