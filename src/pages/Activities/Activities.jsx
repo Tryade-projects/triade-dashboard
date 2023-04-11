@@ -50,30 +50,30 @@ const Activities = () => {
    * @returns {JSX.Element | null} - Return a JSX element if the activity is the first of the day or if the date is different from the previous activity
    */
   const displaySeparator = (i, activities) => {
-    if (i === 0 || activities[i].date !== activities[i - 1].date) {
-      return (
-        <h2 className="separator">{calcDiffOfDays(activities[i].date)}</h2>
-      );
+    const dateOfActivity = new Date(activities[i].timestamp * 1000);
+    const dateOfLastActivity = new Date(activities[i - 1]?.timestamp * 1000);
+
+    if (i === 0 || dateOfActivity.getDay() !== dateOfLastActivity.getDay()) {
+      return <h2 className="separator">{calcDiffOfDays(dateOfActivity)}</h2>;
     }
     return null;
   };
 
   /**
-   *  Calculate the difference between the date and today
-   * @param {string} date - Date of the activity
+   *  Calculate the difference between the date of activity and today
+   * @param {Date} dateOfActivity -  Date of the activity
    * @returns {string} - Return a string with the difference between the date and today
    */
-  const calcDiffOfDays = (date) => {
+  const calcDiffOfDays = (dateOfActivity) => {
     const today = new Date();
-    const activityDate = new Date(date);
-    const diffTime = Math.abs(Number(today) - Number(activityDate));
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const diff = Math.abs(today.getTime() - dateOfActivity.getTime());
+    const diffDays = Math.ceil(diff / (1000 * 3600 * 24));
     if (diffDays === 0) {
       return "Aujourd'hui";
     } else if (diffDays === 1) {
       return "Hier";
     } else {
-      return `il y a ${diffDays} jours`;
+      return `Il y a ${diffDays} jours`;
     }
   };
 
@@ -88,7 +88,7 @@ const Activities = () => {
                 <li className="activity" key={activity.activityId}>
                   {displaySeparator(i, activities)}
                   <div className="activityInfo">
-                    <p className="activityDate">{activity.date}</p>
+                    <p className="activityDate">{activity.timestamp}</p>
                     <p className="activityEmployee">{activity.employee}</p>
                     <p className="activityCategory">{activity.category}</p>
                   </div>

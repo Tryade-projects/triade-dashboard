@@ -13,18 +13,18 @@ const EmployeeDetails = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.test}>
+      <div className={styles.firstContainer}>
         <Cover />
-        <div className={styles.body}>
+        <div className={styles.info}>
           <WrapperAvatarActions profil={profil} />
           <InfoEmployee profil={profil} />
         </div>
       </div>
-      <div className={styles.t}></div>
-      {/* <ShortEmployeeListContainer /> */}
+      <div className={styles.showEmployee}>
+        <ShortEmployeeListContainer />
+      </div>
     </div>
   );
 };
-
 
 export default EmployeeDetails;
