@@ -2,67 +2,71 @@
   {
     "activityId": "36ed632d-e3be-4083-be90-cfafdbd2e6c1",
     "employee": "Karen Hope",
-    "date": "2023-04-06",
-    "hours": "11:00",
+    "timestamp": 1680778800,
     "category": "Stockage",
     "element": "Hamburger",
-    "quantity": -10,
+    "quantity": 10,
     "color": "orange",
-    "state": null
+    "interaction_type": false
   },
   {
     "activityId": "36ed632d-e3be-4083-be90-cfafdbd2e6c2",
     "employee": "Capitaine Price",
-    "date": "2023-04-06",
-    "hours": "10:00",
+    "timestamp": 1680775200,
     "category": "Factures",
     "element": "$",
     "quantity": 2500,
     "color": "red",
-    "state": null
+    "interaction_type": true
   },
   {
     "activityId": "36ed632d-e3be-4083-be90-cfafdbd2e6c3",
     "employee": "Tony Soap",
-    "date": "2023-04-06",
-    "hours": "09:00",
+    "timestamp": 1680771600,
     "category": "Garage",
     "element": "Police Vigero",
     "quantity": 1,
     "color": "green",
-    "state": "start"
+    "interaction_type": true
   },
   {
     "activityId": "36ed632d-e3be-4083-be90-cfafdbd2e6c4",
     "employee": "Benjamin Epps",
-    "date": "2023-04-06",
-    "hours": "08:00",
+    "timestamp": 1680768000,
     "category": "Service",
     "element": null,
     "quantity": null,
     "color": "yellow",
-    "state": "start"
+    "interaction_type": true
   },
   {
     "activityId": "36ed632d-e3be-4083-be90-cfafdbd2e6c5",
     "employee": "Johnny Ahmad",
-    "date": "2023-04-05",
-    "hours": "18:00",
+    "timestamp": 1680717600,
     "category": "Service",
     "element": null,
     "quantity": null,
     "color": "yellow",
-    "state": "stop"
+    "interaction_type": false
   },
   {
     "activityId": "36ed632d-e3be-4083-be90-cfafdbd2e6c6",
     "employee": "Nadila Adja",
-    "date": "2023-04-05",
-    "hours": "14:00",
+    "timestamp": 1680703200,
     "category": "Factures",
     "element": "$",
     "quantity": 500,
     "color": "red",
-    "state": null
+    "interaction_type": true
+  },
+  {
+    "activityId": "36ed632d-e3be-4083-be90-cfafdbd2e6c7",
+    "employee": "Bertrand Cow",
+    "timestamp": 1680650233,
+    "category": "Factures",
+    "element": "$",
+    "quantity": 100,
+    "color": "red",
+    "interaction_type": false
   }
 ]
