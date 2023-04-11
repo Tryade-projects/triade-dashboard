@@ -2,7 +2,7 @@
   {
     "activityId": "36ed632d-e3be-4083-be90-cfafdbd2e6c1",
     "employee": "Karen Hope",
-    "timestamp": "2023-04-06T11:00:00.000Z",
+    "timestamp": 1680778800,
     "category": "Stockage",
     "element": "Hamburger",
     "quantity": 10,
@@ -12,7 +12,7 @@
   {
     "activityId": "36ed632d-e3be-4083-be90-cfafdbd2e6c2",
     "employee": "Capitaine Price",
-    "timestamp": "2023-04-06T10:00:00.000Z",
+    "timestamp": 1680775200,
     "category": "Factures",
     "element": "$",
     "quantity": 2500,
@@ -22,7 +22,7 @@
   {
     "activityId": "36ed632d-e3be-4083-be90-cfafdbd2e6c3",
     "employee": "Tony Soap",
-    "timestamp": "2023-04-06T09:00:00.000Z",
+    "timestamp": 1680771600,
     "category": "Garage",
     "element": "Police Vigero",
     "quantity": 1,
@@ -32,7 +32,7 @@
   {
     "activityId": "36ed632d-e3be-4083-be90-cfafdbd2e6c4",
     "employee": "Benjamin Epps",
-    "timestamp": "2023-04-06T08:00:00.000Z",
+    "timestamp": 1680768000,
     "category": "Service",
     "element": null,
     "quantity": null,
@@ -42,7 +42,7 @@
   {
     "activityId": "36ed632d-e3be-4083-be90-cfafdbd2e6c5",
     "employee": "Johnny Ahmad",
-    "timestamp": "2023-04-05T18:00:00.000Z",
+    "timestamp": 1680717600,
     "category": "Service",
     "element": null,
     "quantity": null,
@@ -52,11 +52,21 @@
   {
     "activityId": "36ed632d-e3be-4083-be90-cfafdbd2e6c6",
     "employee": "Nadila Adja",
-    "timestamp": "2023-04-05T14:00:00.000Z",
+    "timestamp": 1680703200,
     "category": "Factures",
     "element": "$",
     "quantity": 500,
     "color": "red",
     "interaction_type": true
+  },
+  {
+    "activityId": "36ed632d-e3be-4083-be90-cfafdbd2e6c7",
+    "employee": "Bertrand Cow",
+    "timestamp": 1680650233,
+    "category": "Factures",
+    "element": "$",
+    "quantity": 100,
+    "color": "red",
+    "interaction_type": false
   }
 ]
