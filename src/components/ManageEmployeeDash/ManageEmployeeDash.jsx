@@ -43,6 +43,7 @@ const ManageEmployeeDash = ({ search }) => {
           currentPage={currentPage}
           nextPage={nextPage}
           previousPage={previousPage}
+          itemName={"employé"}
         />
       </div>
     </div>
