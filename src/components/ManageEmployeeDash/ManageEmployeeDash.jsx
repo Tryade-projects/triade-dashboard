@@ -11,14 +11,15 @@ const INFO_PER_PAGE = 5;
 const ManageEmployeeDash = ({ search }) => {
   const [employees, setEmployees] = useStickyState("employees", []);
   const displayProfilFiltered = filteredData(employees, search, [
-    "name",
-    "grade",
+    "firstName",
+    "ranks",
+    "lastName",
   ]);
 
   const numberPages = Math.ceil(displayProfilFiltered.length / INFO_PER_PAGE);
 
   const { currentPage, setCurrentPage, nextPage, previousPage, paginate } =
-    usePagination(numberPages, 1);
+    usePagination(numberPages);
 
   useEffect(() => {
     setCurrentPage(1);
