@@ -1,0 +1,11 @@
+.buttonBuy{
+    width: 7.31vw;
+    height: 6.81vh;
+    background-color: $colorPurple;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    @include greyTitle;
+    color: $colorWhite;
+
+}

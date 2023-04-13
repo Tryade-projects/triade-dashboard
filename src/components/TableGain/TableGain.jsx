@@ -80,7 +80,7 @@ const TableGain = (props) => {
           currentPage={currentPage}
           nextPage={nextPage}
           previousPage={previousPage}
-          itemName="donnée"
+          itemName="gain"
         />
       </div>
     </div>

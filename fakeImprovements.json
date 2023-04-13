@@ -11,6 +11,33 @@
     {
         "id":2,
         "image":"",
+        "title":"Amélioration du stockage",
+        "level":2,
+        "capacity":"750kg",
+        "category":"stockage"
+
+    },
+    {
+        "id":3,
+        "image":"",
+        "title":"Amélioration du stockage",
+        "level":3,
+        "capacity":"1000kg",
+        "category":"stockage"
+
+    },
+    {
+        "id":4,
+        "image":"",
+        "title":"Amélioration du stockage",
+        "level":4,
+        "capacity":"1250kg",
+        "category":"stockage"
+
+    },
+    {
+        "id":2,
+        "image":"",
         "title":"Amélioration du personnel",
         "level":1,
         "capacity":"900kg",
@@ -23,6 +50,24 @@
         "title":"Amélioration du garage",
         "level":1,
         "capacity":"600kg",
+        "category":"garage"
+
+    },
+    {
+        "id":4,
+        "image":"",
+        "title":"Amélioration du garage",
+        "level":2,
+        "capacity":"1200kg",
+        "category":"garage"
+
+    },
+    {
+        "id":5,
+        "image":"",
+        "title":"Amélioration du garage",
+        "level":3,
+        "capacity":"1800kg",
         "category":"garage"
 
     }
