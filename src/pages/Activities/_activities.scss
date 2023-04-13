@@ -6,11 +6,12 @@
   align-items: center;
   background-color: $colorWhite;
   padding: 1% 2% 3% 2%;
+  border-radius: 20px;
 }
 
 .activitiesListAndNavWrapper {
   display: flex;
-
+  padding: 1%;
   height: 100%;
   width: 100%;
 }
@@ -19,7 +20,102 @@
   display: flex;
   flex-direction: column;
   // height: 92.62%;
-  width: 100%;
+  width: 120%;
+
+  /*-- GENERAL STYLES
+    ------------------------------*/
+  .timeline {
+    line-height: 1.4em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4.3%;
+  }
+
+  /*----- TIMELINE ITEM -----*/
+
+  .timelineItem {
+    padding-left: 2.0625rem;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  /*----- TIMELINE INFO -----*/
+
+  .timelineInfo {
+    font-size: 14px;
+    font-weight: 400;
+
+    color: $colorGrey3;
+  }
+  /*----- TIMELINE MARKER -----*/
+
+  .timelineMarker {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1.625rem;
+    &:before {
+      background: $colorWhite;
+      border: 3px solid transparent;
+      border-radius: 100%;
+      border: 4px solid $colorPurple;
+      content: "";
+      display: block;
+      height: 15px;
+      position: absolute;
+      top: 4px;
+      left: 0;
+      width: 15px;
+      transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+      z-index: 2;
+    }
+    &:after {
+      content: "";
+      width: 3px;
+      background: #ccd5db;
+      display: block;
+      position: absolute;
+      top: 0.625rem;
+      bottom: -0.3125rem;
+      left: 6px;
+      height: 150%;
+    }
+    .timelineItem:last-child &:after {
+      content: none;
+    }
+  }
+  .timelineItem:not(.period):hover .timeline-marker:before {
+    background: transparent;
+    border: 3px solid peru;
+  }
+
+  .timelineMarkerWithoutAfter {
+    &:after {
+      content: none;
+    }
+  }
+}
+
+.timelineTitle {
+  margin: 0;
+  height: 3.5625rem;
+  display: flex;
+  align-items: center;
+  color: $colorText;
+  font-size: 1.125rem;
+  margin-bottom: 1.7%;
 }
 
 .activitiesPagination {
@@ -28,4 +124,26 @@
   align-items: center;
   height: 7.38%;
   width: 100%;
+}
+
+.timelineContent {
+  color: $colorText;
+  font-size: 1.125rem;
+  white-space: nowrap;
+  line-height: 1.6875rem;
+}
+
+.categoryColor {
+  &Stockage {
+    color: $colorOrange;
+  }
+  &Factures {
+    color: $colorRed;
+  }
+  &Service {
+    color: $colorYellow;
+  }
+  &Garage {
+    color: $colorGreen;
+  }
 }
