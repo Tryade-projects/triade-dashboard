@@ -14,6 +14,7 @@
   .left-arrow,
   .right-arrow {
     cursor: pointer;
+    @include transitionOutHover;
   }
 
   .left-arrow {
@@ -22,6 +23,11 @@
 
   .right-arrow {
     margin-left: 16px;
+  }
+
+  .left-arrow path:hover, .right-arrow path:hover{
+    fill: $colorGrey3Darken;
+    @include transitionInHover;
   }
 
   .pagination {
@@ -40,7 +46,13 @@
       justify-content: center;
       cursor: pointer;
       border: 2px solid $colorGrey3;
-      transition: all 0.3s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      
+    }
+    li:hover{
+      @include transitionInHover;
+      border-color: $colorPurpleLight;
+      color: $colorPurple;
     }
 
     li.active {

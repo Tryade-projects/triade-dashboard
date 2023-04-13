@@ -246,7 +246,7 @@ const FormEmployee = () => {
           <ButtonForm
             text="Annuler"
             type="button"
-            className="colorPurple backWhite"
+            className="colorPurple backWhite backButtonCancelHover"
             onClick={onCancel}
           />
           <ButtonForm

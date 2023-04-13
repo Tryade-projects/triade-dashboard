@@ -1,17 +1,21 @@
 /* THEME COLORS */
 $colorPurple: #4d44b5;
-$colorPurpleHover: darken($colorPurple, 10%);
+$colorPurpleHover: darken($colorPurple, 13%);
+$colorPurpleLight: lighten($colorPurple, 14%);
 $colorOrange: #fb7d5b;
 $colorYellow: #fcc43e;
 $colorText: #303972;
 $colorGreen: #4cbc9a;
 $colorRed: #ff4550;
+$colorRedHover:lighten($colorRed, 5%);
 $colorBackground: #f3f4ff;
 $colorBackgroundHover: darken($colorBackground, 2%);
 $colorWhite: #ffffff;
+$colorWhiteHover: darken($colorWhite, 3%);
 $colorGrey1: #f5f5f5;
 $colorGrey2: #c1bbeb;
 $colorGrey3: #a098ae;
+$colorGrey3Darken: darken($colorGrey3, 10%);
 
 $colorCheckbox: #363b64;
 
@@ -107,6 +111,14 @@ $subTitleSize: calc(0.2vw + 0.2vh + 0.9rem); // 1rem = 16px
 
 .backPurple {
   background-color: $colorPurple;
+  transition: all ease-out .2s;
+
+}
+
+.backPurple:hover{
+  background-color: $colorPurpleHover;
+  transition: all ease-in .2s;
+
 }
 
 .backOrange {
@@ -135,6 +147,7 @@ $subTitleSize: calc(0.2vw + 0.2vh + 0.9rem); // 1rem = 16px
 
 .backWhite {
   background-color: $colorWhite;
+  transition: all ease-out .2s;
 }
 
 .backGrey1 {
@@ -167,4 +180,9 @@ $subTitleSize: calc(0.2vw + 0.2vh + 0.9rem); // 1rem = 16px
 
 .backLinear3 {
   background-color: $colorLinear3;
+}
+
+.backButtonCancelHover:hover{
+  border-color: $colorRedHover;
+  transition: all ease-in .2s;
 }
