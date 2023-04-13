@@ -21,8 +21,10 @@
   font-size: 14px;
   color: $colorGrey3;
   padding: 0 4%;
+  @include transitionOutHover;
 }
 
 .buttonFilter:hover{
+  @include transitionInHover;
   color: $colorPurple;
 }
