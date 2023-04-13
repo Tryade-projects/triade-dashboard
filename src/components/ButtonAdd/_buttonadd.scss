@@ -7,9 +7,16 @@
   border-radius: 102px;
   background: $colorPurple;
   cursor: pointer;
-  
+  @include transitionOutHover;
+
   button {
     color: $colorWhite;
     font-size: 18px;
   }
+
+}
+
+.container-button-add:hover {
+  background-color: $colorPurpleHover;
+  @include transitionInHover;
 }

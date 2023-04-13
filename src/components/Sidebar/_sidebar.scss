@@ -49,10 +49,10 @@
   font-weight: 600;
   font-size: 18px;
   &:hover {
-    color: $colorPurple;
+    color: $colorWhite;
     background: $colorRed;
     .powerOff {
-      color: $colorPurple;
+      fill: $colorWhite;
     }
   }
 }
