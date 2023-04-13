@@ -5,13 +5,25 @@ export const usePagination = (numberPages, defaultPage = 1) => {
 
   const previousPage = () => {
     if (currentPage !== 1) {
-      setCurrentPage(currentPage - 1);
+      setCurrentPage((prev) => prev - 1);
+    }
+  };
+
+  const previousMinusThree = () => {
+    if (currentPage !== 1) {
+      setCurrentPage((prev) => Math.max(1, prev - 3));
     }
   };
 
   const nextPage = () => {
     if (currentPage !== numberPages) {
-      setCurrentPage(currentPage + 1);
+      setCurrentPage((prev) => prev + 1);
+    }
+  };
+
+  const nextPlusThree = () => {
+    if (currentPage !== numberPages) {
+      setCurrentPage((next) => Math.min(numberPages, next + 3));
     }
   };
 
@@ -23,6 +35,8 @@ export const usePagination = (numberPages, defaultPage = 1) => {
     previousPage,
     nextPage,
     paginate,
+    nextPlusThree,
+    previousMinusThree,
   };
 };
 

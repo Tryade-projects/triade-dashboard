@@ -9,11 +9,13 @@ import React from "react";
  * @returns {JSX.Element}
  */
 
-const ArticleContainer = ({title, contain}) => {
+const ArticleContainer = ({title, contain, titleContain}) => {
   return (
     <article className="articleContainer">
-        <h2>{title}</h2>
-        {contain}
+        <div className="divTitle">
+          <h2>{title}</h2>
+          <div>{titleContain}</div></div>
+        <div className="contain">{contain}</div>
     </article>
   );
 };

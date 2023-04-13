@@ -14,6 +14,10 @@
     color: $colorText;
 }
 
+// @mixin titleImprovement{
+//     font-size: 24px;
+// }
+
 @mixin datasTitle{
     font-size: 36px;
     font-weight: 700;
@@ -24,4 +28,12 @@
     font-size: 18px;
     font-weight: 600;
     color: $colorCheckbox;
+}
+
+@mixin transitionInHover{
+    transition: all ease-in .2s;
+}
+
+@mixin transitionOutHover{
+    transition: all ease-out .2s;
 }

@@ -8,17 +8,17 @@ const PaginationEmployee = ({
   currentPage,
   nextPage,
   previousPage,
-  itemName // Nouvelle propriété
-
+  itemName,
 }) => {
-  // List of pages
   const countPages = Array.from(Array(numberOfPages).keys(), (n) => n + 1);
+  const threePages = countPages.slice(currentPage - 1, currentPage + 2);
 
   return (
     <>
       <p className="footer-info-employee">
         Affichage de <span>{infoPerPage}</span>{" "}
-        {infoPerPage === 0 ? itemName : `${itemName}s`} sur <span>{totalOfInfo}</span>
+        {infoPerPage === 0 ? itemName : `${itemName}s`} sur{" "}
+        <span>{totalOfInfo}</span>
       </p>
       <div className="container-pagination">
         <svg
@@ -36,7 +36,7 @@ const PaginationEmployee = ({
           />
         </svg>
         <ul className="pagination">
-          {countPages.map((page) => (
+          {threePages.map((page) => (
             <li
               className={currentPage === page ? "active" : ""}
               onClick={() => paginate(page)}

@@ -78,7 +78,7 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
             <ButtonForm
               type="button"
               onClick={closeModal}
-              className="modalButton"
+              className="modalButton backButtonCancelHover"
               text="Annuler"
             />
             <ButtonForm

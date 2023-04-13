@@ -51,13 +51,13 @@ const ModalActions = ({
           <ButtonForm
             type="button"
             onClick={closeModal}
-            className="modalButton"
+            className="modalButton colorPurple backWhite backButtonCancelHover"
             text="Annuler"
           />
           <ButtonForm
             type="button"
             onClick={handleClick}
-            className="modalButton modalButtonValid"
+            className="modalButton modalButtonValid colorWhite backPurple"
             text="Valider"
           />
         </div>
