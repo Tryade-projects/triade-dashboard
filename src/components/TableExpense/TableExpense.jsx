@@ -129,7 +129,7 @@ const TableExpense = (props) => {
           currentPage={currentPage}
           nextPage={nextPage}
           previousPage={previousPage}
-          itemName="donnée"
+          itemName="dépense"
         />
       </div>
     </div>
