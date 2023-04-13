@@ -10,7 +10,6 @@ const PaginationEmployee = ({
   previousPage,
   itemName,
 }) => {
-  // List of pages
   const countPages = Array.from(Array(numberOfPages).keys(), (n) => n + 1);
   const threePages = countPages.slice(currentPage - 1, currentPage + 2);
 
