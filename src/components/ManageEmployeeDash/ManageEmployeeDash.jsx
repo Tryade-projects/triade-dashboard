@@ -6,20 +6,27 @@ import HeaderTable from "./componentsEmployee/HeaderTable";
 import filteredData from "../../utils/filteredData";
 import { useStickyState } from "../../utils/useStickyState";
 
-const INFO_PER_PAGE = 5;
+const INFO_PER_PAGE = 1;
 
 const ManageEmployeeDash = ({ search }) => {
   const [employees, setEmployees] = useStickyState("employees", []);
   const displayProfilFiltered = filteredData(employees, search, [
     "firstName",
-    "ranks",
+    "rank",
     "lastName",
   ]);
 
   const numberPages = Math.ceil(displayProfilFiltered.length / INFO_PER_PAGE);
 
-  const { currentPage, setCurrentPage, nextPage, previousPage, paginate } =
-    usePagination(numberPages);
+  const {
+    currentPage,
+    setCurrentPage,
+    nextPage,
+    previousPage,
+    paginate,
+    nextPlusThree,
+    previousMinusThree,
+  } = usePagination(numberPages);
 
   useEffect(() => {
     setCurrentPage(1);
