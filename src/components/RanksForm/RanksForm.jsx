@@ -384,7 +384,7 @@ const RanksForm = () => {
           text="Annuler"
           type="button"
           onClick={onCancel}
-          className="colorPurple backWhite"
+          className="colorPurple backWhite backButtonCancelHover"
         />
         <ButtonForm
           text="Valider"
