@@ -6,6 +6,7 @@
   align-items: center;
   background-color: $colorWhite;
   padding: 1% 2% 3% 2%;
+  border-radius: 20px;
 }
 
 .activitiesListAndNavWrapper {
@@ -19,7 +20,7 @@
   display: flex;
   flex-direction: column;
   // height: 92.62%;
-  width: 100%;
+  width: 120%;
 
   /*-- GENERAL STYLES
     ------------------------------*/
@@ -29,14 +30,10 @@
     margin: 0;
     padding: 0;
     width: 100%;
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      line-height: inherit;
-    }
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4.3%;
   }
 
   /*----- TIMELINE ITEM -----*/
@@ -44,7 +41,10 @@
   .timelineItem {
     padding-left: 2.0625rem;
     position: relative;
-    height: 60px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
     &:last-child {
       padding-bottom: 0;
     }
@@ -56,7 +56,6 @@
     font-size: 14px;
     font-weight: 400;
 
-    margin: 0 0 0.5em 0;
     color: $colorGrey3;
   }
   /*----- TIMELINE MARKER -----*/
@@ -91,6 +90,7 @@
       top: 0.625rem;
       bottom: -0.3125rem;
       left: 6px;
+      height: 150%;
     }
     .timelineItem:last-child &:after {
       content: none;
@@ -106,38 +106,6 @@
       content: none;
     }
   }
-
-  /*----- TIMELINE PERIOD -----*/
-
-  .period {
-    padding: 0;
-    .timeline-info {
-      display: none;
-    }
-    .timelineMarker {
-      &:before {
-        background: transparent;
-        content: "";
-        width: 15px;
-        height: auto;
-        border: none;
-        border-radius: 0;
-        top: 0;
-        bottom: 30px;
-        position: absolute;
-        border-top: 3px solid #ccd5db;
-        border-bottom: 3px solid #ccd5db;
-      }
-      &:after {
-        content: "";
-        height: 32px;
-        top: auto;
-      }
-    }
-    .timelineContent {
-      padding: 40px 0 70px;
-    }
-  }
 }
 
 .timelineTitle {
@@ -147,6 +115,7 @@
   align-items: center;
   color: $colorText;
   font-size: 1.125rem;
+  margin-bottom: 1.7%;
 }
 
 .activitiesPagination {
@@ -155,4 +124,26 @@
   align-items: center;
   height: 7.38%;
   width: 100%;
+}
+
+.timelineContent {
+  color: $colorText;
+  font-size: 1.125rem;
+  white-space: nowrap;
+  line-height: 1.6875rem;
+}
+
+.categoryColor {
+  &Stockage {
+    color: $colorOrange;
+  }
+  &Factures {
+    color: $colorRed;
+  }
+  &Service {
+    color: $colorYellow;
+  }
+  &Garage {
+    color: $colorGreen;
+  }
 }

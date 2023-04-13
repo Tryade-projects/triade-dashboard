@@ -16,6 +16,7 @@ const Activities = () => {
     "Service",
     "Garage",
   ];
+
   const [activities, setActivities] = useState([]);
   const [category, setCategory] = useState("Tout");
 
@@ -41,7 +42,7 @@ const Activities = () => {
   const { firstIndex, lastIndex } = useIndexRange(currentPage, INFO_PER_PAGE);
 
   const currentActivities = activities.slice(firstIndex, lastIndex);
-  console.log(activities);
+  console.log({ activities });
 
   /**
    * Display a separator if the activity is the first of the day or if the date is different from the previous activity
@@ -61,13 +62,13 @@ const Activities = () => {
   };
 
   /**
-   *  Calculate the difference between the date of activity and today
-   * @param {Date} dateOfActivity -  Date of the activity
+   *  Calculate the difference between the date and today
+   * @param {Date} date -  Date to compare
    * @returns {string} - Return a string with the difference between the date and today
    */
-  const calcDiffOfDays = (dateOfActivity) => {
+  const calcDiffOfDays = (date) => {
     const today = new Date();
-    const diff = Math.abs(today.getTime() - dateOfActivity.getTime());
+    const diff = Math.abs(today.getTime() - date.getTime());
     const diffDays = Math.round(diff / (1000 * 3600 * 24));
     if (diffDays === 0) {
       return "Aujourd'hui";
@@ -96,6 +97,11 @@ const Activities = () => {
     return true;
   };
 
+  /**
+   *  Display a timeline marker before the activity if the date of the activity is the same as the previous activity
+   * @param {number} timestamp - Timestamp of the activity
+   * @returns - Return a string with the date of the activity
+   */
   const formatDateForDisplay = (timestamp) => {
     const date = new Date(timestamp * 1000);
     /**
@@ -120,21 +126,51 @@ const Activities = () => {
   const displayTimelineContent = (activity) => {
     if (activity.category === "Stockage") {
       const interaction_type = activity.interactio_type ? "ajouté" : "retiré";
-      return `${activity.employee} a ${interaction_type} x${activity.quantity} ${activity.element} du ${activity.category}`;
+      return (
+        <p>
+          <span className="bold">{activity.employee}</span> a {interaction_type}{" "}
+          {activity.quantity} {activity.element} du{" "}
+          <span className={`semiBold categoryColor` + activity.category}>
+            {activity.category}
+          </span>
+        </p>
+      );
     }
     if (activity.category === "Factures") {
       const interaction_type = activity.interaction_type ? "facturé" : "payé";
-      return `${activity.employee} a ${interaction_type} ${
-        activity.quantity + activity.element
-      }`;
+      return (
+        <p>
+          <span className="bold">{activity.employee}</span> a{" "}
+          <span className={`semiBold categoryColor` + activity.category}>
+            {interaction_type}
+          </span>{" "}
+          {activity.quantity + activity.element}
+        </p>
+      );
     }
     if (activity.category === "Service") {
       const interaction_type = activity.interaction_type ? "pris" : "arrêté";
-      return `${activity.employee} a ${interaction_type} son ${activity.category}`;
+      return (
+        <p>
+          <span className="bold">{activity.employee}</span> a {interaction_type}{" "}
+          son{" "}
+          <span className={`semiBold categoryColor` + activity.category}>
+            {activity.category}
+          </span>
+        </p>
+      );
     }
     if (activity.category === "Garage") {
       const interaction_type = activity.interaction_type ? "sorti" : "rentré";
-      return `${activity.employee} a ${interaction_type} une ${activity.element} du ${activity.category}`;
+      return (
+        <p>
+          <span className="bold">{activity.employee}</span> a {interaction_type}{" "}
+          une {activity.element} du{" "}
+          <span className={`semiBold categoryColor` + activity.category}>
+            {activity.category}
+          </span>
+        </p>
+      );
     }
   };
 
@@ -146,24 +182,28 @@ const Activities = () => {
           <section className="activitiesListWrapper">
             <ul className="timeline">
               {currentActivities.map((activity, i, activities) => (
-                <li key={activity.activityId}>
+                <div key={activity.activityId}>
                   {displaySeparator(i, activities)}
-                  <div className="timelineItem">
-                    <p className="timelineInfo">
-                      {formatDateForDisplay(activity.timestamp)}
-                    </p>
-                    <div
-                      className={
-                        displayTimelineMarkerAfter(i, activities)
-                          ? "timelineMarker"
-                          : "timelineMarker timelineMarkerWithoutAfter"
-                      }
-                    ></div>
-                    <div className="timelineContent">
-                      <p>{displayTimelineContent(activity)}</p>
-                    </div>
+                  <div className="timelineItemWrapper">
+                    <li>
+                      <div className="timelineItem">
+                        <p className="timelineInfo">
+                          {formatDateForDisplay(activity.timestamp)}
+                        </p>
+                        <div
+                          className={
+                            displayTimelineMarkerAfter(i, activities)
+                              ? "timelineMarker"
+                              : "timelineMarker timelineMarkerWithoutAfter"
+                          }
+                        ></div>
+                        <div className="timelineContent">
+                          {displayTimelineContent(activity)}
+                        </div>
+                      </div>
+                    </li>
                   </div>
-                </li>
+                </div>
               ))}
             </ul>
           </section>
