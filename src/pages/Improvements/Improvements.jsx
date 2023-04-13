@@ -35,7 +35,7 @@ const Improvements = () => {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, []);
+  }, [category]);
 
   useEffect(() => {
 
