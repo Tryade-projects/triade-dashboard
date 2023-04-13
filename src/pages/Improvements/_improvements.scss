@@ -1,7 +1,70 @@
-.mainImprovements{
+.mainImprovements {
 
-    .articleContainer{
-        // width: 69.14vw;
+    .articleContainer {
+        width: 69.14vw;
         height: 78.43vh;
+
+        
+        .contain {
+            margin-top: calc(12.48vh - 60px);
+            
+            .mainContain{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 54.93vh;
+                flex-grow: 1;
+                row-gap: 3.363vh;
+            }
+
+            .footer-dashboard-employee{
+                height: 6.12vh;
+                padding: 0;
+            }
+
+            
+            .improvementContainMap {
+                display: flex;
+                align-items: center;
+                row-gap: 2px;
+                justify-content: space-between;
+                div{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .improvementImage {
+                    width: 15.89vh;
+                    height: 15.89vh;
+                    border-radius: 18px;
+                    background-color: $colorGrey2;
+                    margin-right: 2.34vw;
+                }
+                div div img{
+                    margin-right: 1vw;
+                }
+                .improvementStar{
+                    margin-right: 0.37vw;
+                }
+
+                .flexColumn {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: baseline;
+                }
+                h2 {
+                    @include littleTitle;
+                }
+                h4 {
+                    @include greyTitle
+                }
+                .flexGrow2{
+                    flex-grow: 2;
+                }
+                
+            }
+        }
     }
 }
+
