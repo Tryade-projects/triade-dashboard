@@ -18,6 +18,7 @@ const Activities = () => {
   ];
 
   const [activities, setActivities] = useState([]);
+
   const [category, setCategory] = useState("Tout");
 
   const numberPages = Math.ceil(activities.length / INFO_PER_PAGE);
@@ -66,10 +67,14 @@ const Activities = () => {
    * @param {Date} date -  Date to compare
    * @returns {string} - Return a string with the difference between the date and today
    */
-  const calcDiffOfDays = (date) => {
-    const today = new Date();
-    const diff = Math.abs(today.getTime() - date.getTime());
-    const diffDays = Math.round(diff / (1000 * 3600 * 24));
+  function calcDiffOfDays(date) {
+    const uneJournee = 1000 * 60 * 60 * 24; // Nombre de millisecondes dans une journée
+    const aujourdHui = new Date(); // Date d'aujourd'hui
+    const dateParam = new Date(date); // Date passée en paramètre
+    const differenceMs = Math.abs(
+      dateParam.setHours(0, 0, 0, 0) - aujourdHui.setHours(0, 0, 0, 0),
+    ); // Différence en millisecondes entre les deux dates à minuit
+    const diffDays = Math.floor(differenceMs / uneJournee); // Différence en jours arrondie à l'entier inférieur
     if (diffDays === 0) {
       return "Aujourd'hui";
     } else if (diffDays === 1) {
@@ -77,7 +82,7 @@ const Activities = () => {
     } else {
       return `Il y a ${diffDays} jours`;
     }
-  };
+  }
 
   /**
    *  Display a timeline marker after the activity if the date of the activity is the same as the next activity
