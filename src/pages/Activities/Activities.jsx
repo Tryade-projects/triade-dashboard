@@ -18,7 +18,6 @@ const Activities = () => {
   ];
 
   const [activities, setActivities] = useState([]);
-
   const [category, setCategory] = useState("Tout");
 
   const numberPages = Math.ceil(activities.length / INFO_PER_PAGE);
@@ -130,7 +129,7 @@ const Activities = () => {
 
   const displayTimelineContent = (activity) => {
     if (activity.category === "Stockage") {
-      const interaction_type = activity.interactio_type ? "ajouté" : "retiré";
+      const interaction_type = activity.interaction_type ? "ajouté" : "retiré";
       return (
         <p>
           <span className="bold">{activity.employee}</span> a {interaction_type}{" "}
@@ -184,34 +183,33 @@ const Activities = () => {
       <Header title={"Activité"} />
       <article className="activitiesWrapper">
         <section className="activitiesListAndNavWrapper">
-          <section className="activitiesListWrapper">
-            <ul className="timeline">
-              {currentActivities.map((activity, i, activities) => (
-                <div key={activity.activityId}>
-                  {displaySeparator(i, activities)}
-                  <div className="timelineItemWrapper">
-                    <li>
-                      <div className="timelineItem">
-                        <p className="timelineInfo">
-                          {formatDateForDisplay(activity.timestamp)}
-                        </p>
-                        <div
-                          className={
-                            displayTimelineMarkerAfter(i, activities)
-                              ? "timelineMarker"
-                              : "timelineMarker timelineMarkerWithoutAfter"
-                          }
-                        ></div>
-                        <div className="timelineContent">
-                          {displayTimelineContent(activity)}
-                        </div>
-                      </div>
-                    </li>
+          <ul className="timeline activitiesListWrapper">
+            {currentActivities.map((activity, i, activities) => (
+              <div
+                key={activity.activityId}
+                className="timelineItemAndSeparatorWrapper"
+              >
+                {displaySeparator(i, activities)}
+                <li className="timelineItemWrapper">
+                  <div className="timelineItem">
+                    <p className="timelineInfo">
+                      {formatDateForDisplay(activity.timestamp)}
+                    </p>
+                    <div
+                      className={
+                        displayTimelineMarkerAfter(i, activities)
+                          ? "timelineMarker"
+                          : "timelineMarker timelineMarkerWithoutAfter"
+                      }
+                    ></div>
+                    <div className="timelineContent">
+                      {displayTimelineContent(activity)}
+                    </div>
                   </div>
-                </div>
-              ))}
-            </ul>
-          </section>
+                </li>
+              </div>
+            ))}
+          </ul>
           <ButtonsFilterWrapper
             labels={activitiesLabels}
             category={category}
