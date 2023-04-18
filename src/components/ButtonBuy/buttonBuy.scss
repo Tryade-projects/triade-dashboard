@@ -7,5 +7,21 @@
     justify-content: center;
     @include greyTitle;
     color: $colorWhite;
+    @include transitionInHover;
+    cursor: pointer;
+}
 
+.buttonBuy:hover{
+    background-color: $colorPurpleHover;
+    @include transitionOutHover
+}
+
+.notSelectable
+{
+    background-color: $colorGrey3;
+    color: $colorTextNotSelecatble;
+    cursor:default;
+}
+.notSelectable:hover{
+    background-color: $colorGrey3;
 }

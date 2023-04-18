@@ -1,0 +1,16 @@
+{
+    "improvement": [
+        {
+            "actualLvlImprovementStockage": 1,
+            "actualLvlImprovementPersonnel":0,
+            "actualLvlImprovementGarage":2
+        }
+    ],
+    "actualCapacity":[
+        {
+            "actualStockageCapacity":"250",
+            "actualPersonnelCapacity":"10",
+            "actualGarageCapactiy":"5"
+        }
+    ]
+}
