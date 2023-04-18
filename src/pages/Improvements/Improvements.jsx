@@ -64,6 +64,21 @@ const Improvements = () => {
     return companyData.improvement[0][`actualLvlImprovement${category}`];
   }
   
+  function getActualCapacity(category){
+    return companyData.actualCapacity[0][`actual${category}`] ;
+  }
+
+  function percentageOfimprovement(category, capacityData){
+    let actualValue = companyData.actualCapacity[0][`actual${category}`];
+    console.log(capacityData);
+    if(capacityData>actualValue){
+      let data = ((capacityData - actualValue) / actualValue) * 100;
+      data = Math.round(data);
+      return "+" + data + "%";
+    }
+  }
+
+
 
 
 
@@ -100,8 +115,8 @@ const Improvements = () => {
                   <div className='flexGrow2'>
                     <div><img src={arrow} alt="" /></div>
                     <div className='flexColumn'>
-                      <h2>{improvement.capacity}</h2>
-                      <h4>Capacité</h4>
+                      <h2>{percentageOfimprovement(category, improvement.capacityData)}</h2>
+                      <h4>Actuel: {getActualCapacity(category)}</h4>
                     </div>
                   </div>
                   {/* Render the ButtonBuy component and pass in relevant props */}

@@ -8,9 +8,9 @@
     ],
     "actualCapacity":[
         {
-            "actualStockageCapacity":"250",
-            "actualPersonnelCapacity":"10",
-            "actualGarageCapactiy":"5"
+            "actualStockage":500,
+            "actualPersonnel":10,
+            "actualGarage":6
         }
     ]
 }

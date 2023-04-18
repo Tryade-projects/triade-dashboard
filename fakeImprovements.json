@@ -5,6 +5,7 @@
         "title":"Amélioration du stockage",
         "level":1,
         "capacity":"500kg",
+        "capacityData":500,
         "category":"stockage"
 
     },
@@ -14,6 +15,7 @@
         "title":"Amélioration du stockage",
         "level":2,
         "capacity":"750kg",
+        "capacityData":750,
         "category":"stockage"
 
     },
@@ -23,6 +25,7 @@
         "title":"Amélioration du stockage",
         "level":3,
         "capacity":"1000kg",
+        "capacityData":1000,
         "category":"stockage"
 
     },
@@ -32,7 +35,18 @@
         "title":"Amélioration du stockage",
         "level":4,
         "capacity":"1250kg",
+        "capacityData":1250,
         "category":"stockage"
+
+    },
+    {
+        "id":1,
+        "image":"",
+        "title":"Amélioration du personnel",
+        "level":1,
+        "capacity":"15",
+        "capacityData":15,
+        "category":"personnel"
 
     },
     {
@@ -40,34 +54,38 @@
         "image":"",
         "title":"Amélioration du personnel",
         "level":1,
-        "capacity":"900kg",
+        "capacity":"20",
+        "capacityData":20,
         "category":"personnel"
+
+    },
+    {
+        "id":1,
+        "image":"",
+        "title":"Amélioration du garage",
+        "level":1,
+        "capacity":"4",
+        "capacityData":4,
+        "category":"garage"
+
+    },
+    {
+        "id":2,
+        "image":"",
+        "title":"Amélioration du garage",
+        "level":2,
+        "capacity":"6",
+        "capacityData":6,
+        "category":"garage"
 
     },
     {
         "id":3,
         "image":"",
         "title":"Amélioration du garage",
-        "level":1,
-        "capacity":"600kg",
-        "category":"garage"
-
-    },
-    {
-        "id":4,
-        "image":"",
-        "title":"Amélioration du garage",
-        "level":2,
-        "capacity":"1200kg",
-        "category":"garage"
-
-    },
-    {
-        "id":5,
-        "image":"",
-        "title":"Amélioration du garage",
         "level":3,
-        "capacity":"1800kg",
+        "capacity":"7",
+        "capacityData":7,
         "category":"garage"
 
     }
