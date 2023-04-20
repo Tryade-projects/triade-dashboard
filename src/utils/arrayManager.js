@@ -78,4 +78,47 @@ const findNextElm = (elm, category) => {
   return nextElm;
 };
 
-export { increaseElm, decreaseElm, deleteElm, findNextElm };
+/**
+ * Modifies the value of the array key in the local storage
+ * @param {string} keyOfLocalStorage - the key of the array in the local storage
+ * @param {string} keyAtChecked - the key that was checked
+ * @param {string} valueDeleted - the value that was deleted
+ * @param {object} keysWithValue - the object that contains the keys and the values to be updated
+ * 
+
+ * @returns {void} - Modify the local storage
+ */
+const modifyArrayInLocalStorage = (
+  keyOfLocalStorage,
+  keyAtChecked,
+  valueDeleted,
+  keysWithValue,
+) => {
+  console.log({ keyOfLocalStorage, keyAtChecked, valueDeleted, keysWithValue });
+  const currentData = JSON.parse(
+    localStorage.getItem(keyOfLocalStorage) || "[]",
+  );
+  console.log({ currentData });
+  const updatedData = currentData.map((elm) => {
+    if (elm[keyAtChecked] === valueDeleted) {
+      const updatedElm = { ...elm };
+      Object.keys(keysWithValue).forEach((key) => {
+        updatedElm[key] = keysWithValue[key];
+      });
+      return updatedElm;
+    }
+    return elm;
+  });
+
+  console.log({ updatedData });
+  // Mettre à jour les données de localStorage
+  localStorage.setItem(keyOfLocalStorage, JSON.stringify(updatedData));
+};
+
+export {
+  increaseElm,
+  decreaseElm,
+  deleteElm,
+  findNextElm,
+  modifyArrayInLocalStorage,
+};

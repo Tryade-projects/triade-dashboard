@@ -8,6 +8,7 @@ import { useStickyState } from "../../../utils/useStickyState";
 import LabelForm from "./LabelForm";
 import InputForm from "./InputForm";
 import { v4 as uuidv4 } from "uuid";
+import { firstLetterUpperCase } from "../../../utils/stringManager";
 
 const NAME_KEY = "employees";
 
@@ -34,7 +35,7 @@ const FormEmployee = () => {
   };
 
   const handleRanks = (rank) => {
-    setDisplayRank(rank.name);
+    setDisplayRank(rank.label);
     setColorRank(rank.color);
   };
 
@@ -56,7 +57,7 @@ const FormEmployee = () => {
       mail: data.mail,
       phone: data.phone,
       rank: displayRank,
-      colorRank: colorRank,
+      color: colorRank,
       place: data.place,
       information: data.informations,
       employee_at: "March 25, 2021",
@@ -221,7 +222,7 @@ const FormEmployee = () => {
               className={styles.option}
               key={rank._id}
             >
-              {rank.name}
+              {rank.label}
             </li>
           ))}
         </ul>

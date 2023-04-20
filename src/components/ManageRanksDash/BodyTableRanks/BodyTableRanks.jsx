@@ -12,6 +12,7 @@ import {
   decreaseElm,
   deleteElm,
   findNextElm,
+  modifyArrayInLocalStorage,
 } from "../../../utils/arrayManager";
 import { Link } from "react-router-dom";
 
@@ -42,6 +43,7 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
   });
   const [nextRank, setNextRank] = useState({
     label: "",
+    color: "",
   });
 
   const openModal = () => {
@@ -85,6 +87,12 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
               type="button"
               onClick={() => {
                 setRanks(deleteElm(currentRank, "ranks"));
+                modifyArrayInLocalStorage(
+                  "employees",
+                  "rank",
+                  currentRank.label,
+                  { rank: nextRank.label, color: nextRank.color },
+                );
                 closeModal();
               }}
               className="modalButton modalButtonValid"
