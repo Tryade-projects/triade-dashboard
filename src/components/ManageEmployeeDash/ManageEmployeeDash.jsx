@@ -1,57 +1,50 @@
 import React, { useEffect, useState } from "react";
-import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 import BodyTable from "./componentsEmployee/BodyTable";
-import { usePagination, useIndexRange } from "../../utils/usePagination";
+import { usePagination } from "../../utils/usePagination";
 import HeaderTable from "./componentsEmployee/HeaderTable";
 import filteredData from "../../utils/filteredData";
 import { useStickyState } from "../../utils/useStickyState";
+import { Pagination } from "@mui/material";
 
-const INFO_PER_PAGE = 1;
+const INFO_PER_PAGE = 2;
 
 const ManageEmployeeDash = ({ search }) => {
   const [employees, setEmployees] = useStickyState("employees", []);
+  let [page, setPage] = useState(1);
   const displayProfilFiltered = filteredData(employees, search, [
     "firstName",
     "rank",
     "lastName",
   ]);
 
-  const numberPages = Math.ceil(displayProfilFiltered.length / INFO_PER_PAGE);
-
-  const {
-    currentPage,
-    setCurrentPage,
-    nextPage,
-    previousPage,
-    paginate,
-    nextPlusThree,
-    previousMinusThree,
-  } = usePagination(numberPages);
-
+  const _DATA = usePagination(displayProfilFiltered, INFO_PER_PAGE);
+  console.log();
   useEffect(() => {
-    setCurrentPage(1);
+    _DATA.setCurrentPage(1);
   }, [search]);
-
-  const { firstIndex, lastIndex } = useIndexRange(currentPage, INFO_PER_PAGE);
-
-  const currentProfils = displayProfilFiltered.slice(firstIndex, lastIndex);
+  const handleChange = (event, page) => {
+    setPage(page);
+    _DATA.jump(page);
+  };
 
   return (
     <div className="container-dashboard-employee">
       <table>
         <HeaderTable />
-        <BodyTable profils={currentProfils} setEmployees={setEmployees} />
+        <BodyTable profils={_DATA.currentData()} setEmployees={setEmployees} />
       </table>
       <div className="footer-dashboard-employee">
-        <PaginationEmployee
-          infoPerPage={currentProfils.length}
-          numberOfPages={numberPages}
-          totalOfInfo={employees.length}
-          paginate={paginate}
-          currentPage={currentPage}
-          nextPage={nextPage}
-          previousPage={previousPage}
-          itemName={"employé"}
+        <p className="footer-info-employee">
+          Affichage de <span>{_DATA.currentData().length}</span>{" "}
+          {_DATA.currentData().length === 0 ? "employé" : `employés`} sur
+          <span> {employees.length}</span>
+        </p>
+        <Pagination
+          count={_DATA.numberPages}
+          size="large"
+          page={page}
+          onChange={handleChange}
+          sx={{}}
         />
       </div>
     </div>

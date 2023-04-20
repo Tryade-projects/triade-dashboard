@@ -1,4 +1,5 @@
 import React from "react";
+import { Pagination } from "@mui/material";
 
 const PaginationEmployee = ({
   numberOfPages,
@@ -11,7 +12,6 @@ const PaginationEmployee = ({
   itemName,
 }) => {
   const countPages = Array.from(Array(numberOfPages).keys(), (n) => n + 1);
-  const threePages = countPages.slice(currentPage - 1, currentPage + 2);
 
   return (
     <>
@@ -20,8 +20,14 @@ const PaginationEmployee = ({
         {infoPerPage === 0 ? itemName : `${itemName}s`} sur{" "}
         <span>{totalOfInfo}</span>
       </p>
-      <div className="container-pagination">
-        <svg
+      {/* <div className="container-pagination"> */}
+      <Pagination
+        count={numberOfPages}
+        color="secondary"
+        size="large"
+        onChange={(e) => paginate(parseInt(e.target.textContent))}
+      />
+      {/* <svg
           onClick={previousPage}
           className="left-arrow"
           width="14"
@@ -59,8 +65,8 @@ const PaginationEmployee = ({
             d="M2.48803 0.823973L12.952 10.264C13.4 10.648 13.4 11.352 12.952 11.736L2.48803 21.176C1.81603 21.784 0.728027 21.336 0.728027 20.44L0.728028 1.55997C0.728028 0.663973 1.81603 0.215973 2.48803 0.823973Z"
             fill="#A098AE"
           />
-        </svg>
-      </div>
+        </svg> */}
+      {/* </div> */}
     </>
   );
 };

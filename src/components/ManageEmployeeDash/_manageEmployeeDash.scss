@@ -37,3 +37,39 @@ tbody tr:nth-child(odd) {
   justify-content: space-between;
   align-items: center;
 }
+
+.footer-info-employee {
+  color: $colorGrey3;
+  font-size: 14px;
+
+  span {
+    color: $colorText;
+  }
+}
+
+.MuiPagination-root .MuiButtonBase-root {
+  background: white;
+  color: #a098ae;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #a098ae;
+}
+
+.MuiPagination-root .MuiButtonBase-root:hover {
+  background: none;
+}
+
+.MuiPagination-root .MuiButtonBase-root:active {
+  background: none;
+}
+
+.MuiPagination-root .MuiButtonBase-root.Mui-selected {
+  background: #4d44b5;
+  color: white;
+  border: none;
+}
+
+.MuiPagination-root .MuiButtonBase-root.Mui-selected:hover {
+  background: #4d44b5;
+}
