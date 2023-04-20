@@ -6,7 +6,7 @@ import filteredData from "../../utils/filteredData";
 import { useStickyState } from "../../utils/useStickyState";
 import { Pagination } from "@mui/material";
 
-const INFO_PER_PAGE = 2;
+const INFO_PER_PAGE = 1;
 
 const ManageEmployeeDash = ({ search }) => {
   const [employees, setEmployees] = useStickyState("employees", []);
@@ -44,7 +44,7 @@ const ManageEmployeeDash = ({ search }) => {
           size="large"
           page={page}
           onChange={handleChange}
-          sx={{}}
+          boundaryCount={1}
         />
       </div>
     </div>
