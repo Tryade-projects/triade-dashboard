@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ReactModal from "react-modal";
 import ButtonForm from "../ButtonForm/ButtonForm";
 
-const ModalActions = ({
+const   ModalActions = ({
   confirmText,
   action,
   span,
@@ -40,11 +40,19 @@ const ModalActions = ({
     >
       <h2 className="modalTitle">Confirmer l'action</h2>
       <div className="modalContainer">
-        <p>
+        {span === "amélioration" ? (
+          <p>
+          Voulez vous vraiment <span className="colorGreen">{action} </span> 
+           cette <span className="bold">{span}</span> pour votre entreprise
+          ?
+        </p>
+        ) : (<p>
           Voulez vous vraiment <span className="colorRed">{action}</span>
           <span></span> <span className="bold">{span}</span> de votre entreprise
           ?
-        </p>
+        </p>)
+        }
+        
         <p>Cette action sera irréversible.</p>
         <p>{confirmText}</p>
         <div className="modalButtons">
