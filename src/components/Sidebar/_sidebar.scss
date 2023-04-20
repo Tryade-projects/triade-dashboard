@@ -48,11 +48,14 @@
 .buttonClose {
   font-weight: 600;
   font-size: 18px;
+  @include transitionOutHover;
   &:hover {
-    color: $colorWhite;
-    background: $colorRed;
+    color: $colorRed;
+    background: $colorWhite;
+    @include transitionInHover;
     .powerOff {
-      fill: $colorWhite;
+      fill: $colorRed;
+      @include transitionInHover;
     }
   }
 }

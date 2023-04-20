@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import Logo from "../../assets/logo.svg";
-import PowerOff from "../../assets/power-off.png";
+import PowerOff from "../../assets/power-off.svg";
 
 const colorPurple = "#4d44b5";
 const colorGray2 = "#c1bbeb";
@@ -137,13 +137,14 @@ const Sidebar = () => {
         </NavLink>
 
         <button type="button" className="sidebarLink buttonClose">
-          <img
-            src={PowerOff}
-            alt="déconnexion"
-            width={40}
-            height={40}
-            className="powerOff"
-          />
+          <svg width="40" height="40" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g>
+              <path className="powerOff" d="M28,49C16.4,49,7,39.6,7,28c0-6.7,3.3-13.1,8.7-17c0.9-0.6,2.1-0.4,2.8,0.5c0.6,0.9,0.4,2.1-0.5,2.8C13.7,17.4,11,22.6,11,28c0,9.4,7.6,17,17,17c9.4,0,17-7.6,17-17c0-5.4-2.6-10.6-7-13.8c-0.9-0.6-1.1-1.9-0.4-2.8c0.6-0.9,1.9-1.1,2.8-0.4c5.4,3.9,8.7,10.3,8.7,17C49,39.6,39.6,49,28,49z" 
+                    fill={colorGray2} />
+              <path className="powerOff" d="M28,27.5L28,27.5c-1.2,0-2.2-1-2.2-2.2V9.2C25.8,8,26.8,7,28,7h0c1.2,0,2.2,1,2.2,2.2v16.1C30.2,26.5,29.2,27.5,28,27.5z" 
+                    fill={colorGray2} />
+            </g>
+          </svg>
           <span className="titleLink">Fermer</span>
         </button>
       </div>
