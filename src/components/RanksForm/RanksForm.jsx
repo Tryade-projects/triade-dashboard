@@ -4,6 +4,7 @@ import Checkbox from "../Checkbox/Checkbox";
 import { RanksContext } from "../../App";
 import ButtonForm from "../ButtonForm/ButtonForm";
 import { v4 as uuidv4 } from "uuid";
+import { firstLetterUpperCase } from "../../utils/stringManager";
 
 const permissionLabels = {
   finance: "Finances",
@@ -169,7 +170,7 @@ const RanksForm = () => {
       newRanks[rankIndex] = {
         _id: rankId,
         name: rankNameToLowerCase,
-        label: rank.label,
+        label: firstLetterUpperCase(rank.label),
         permissions: permissionsArray,
         salary: rank.salary,
         color: rank.color,
@@ -183,7 +184,7 @@ const RanksForm = () => {
     const newGrade = {
       _id: uuidv4(),
       name: rankNameToLowerCase,
-      label: rank.label,
+      label: firstLetterUpperCase(rank.label),
       permissions: permissionsArray,
       salary: rank.salary,
       color: rank.color,
