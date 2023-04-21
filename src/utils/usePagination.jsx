@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export const usePagination = (data, INFO_PER_PAGE) => {
   const [currentPage, setCurrentPage] = useState(1);
+  let [page, setPage] = useState(1);
 
   const numberPages = Math.ceil(data.length / INFO_PER_PAGE);
 
@@ -48,6 +49,8 @@ export const usePagination = (data, INFO_PER_PAGE) => {
     nextPage,
     jump,
     currentData,
+    page,
+    setPage,
   };
 };
 
