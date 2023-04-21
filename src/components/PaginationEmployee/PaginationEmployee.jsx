@@ -15,10 +15,9 @@ const PaginationEmployee = (props) => {
       </p>
       <Pagination
         count={props.data.numberPages}
-        size="large"
         page={props.data.page}
         onChange={handleChange}
-        boundaryCount={1}
+        siblingCount={0}
       />
     </div>
   );
