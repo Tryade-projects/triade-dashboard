@@ -5,8 +5,7 @@ import FormatIcon from "../FormatIcon/FormatIcon";
 import { useStickyState } from "../../utils/useStickyState";
 import user from "../../assets/User.svg";
 
-//nombre d'états de gains par page
-const infoPerPage = 5;
+
 
 /**
  * Component représentant le tableau de données de gain de l'employé
@@ -14,11 +13,15 @@ const infoPerPage = 5;
  * @param {array} props.fichier - Les données de gain déclarées par les employés
  * @returns {JSX.Element} - Le composant du tableau de gains
  */
+
+
 const TableGain = (props) => {
+  //number of gain per page
+  const infoPerPage = 5;
 
   const fichierJson = props.fichier;
   const numberPages = Math.ceil(fichierJson.length / infoPerPage);
-  
+
   //Utilisation du hook de pagination
   const { currentPage, setCurrentPage, nextPage, previousPage, paginate } =
     usePagination(numberPages, 1);
@@ -49,8 +52,8 @@ const TableGain = (props) => {
               <td className="tableGainRank">
                 <FormatIcon image={user} background={employee.colorRank} />
                 <div>
-                <p>Grade</p>
-                <p>{employee.rank}</p>
+                  <p>Grade</p>
+                  <p>{employee.rank}</p>
                 </div>
               </td>
               <td className="tableGainGain">$ {obj.gain}</td>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { usePagination } from "../../utils/usePagination";
+import { usePagination, useIndexRange } from "../../utils/usePagination";
 import moment from "moment";
 import fakeDataExpense from "../../../fakeDatasExpense.json";
 import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
@@ -13,6 +13,8 @@ import FormatIcon from "../FormatIcon/FormatIcon";
  *
  * @returns {JSX.Element} - Rendered component
  */
+
+
 const TableExpense = (props) => {
   //number of expenses per page
   const infoPerPage = 6;
