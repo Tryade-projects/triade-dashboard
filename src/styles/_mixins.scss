@@ -3,6 +3,13 @@
     color: $colorGrey3;
 }
 
+@mixin headerTableTitle{
+    font-size: 14px;
+    color: $colorText;
+    font-weight: 600;
+    line-height: 21px;
+}
+
 @mixin greyTitle{
     font-size: 18px;
     color: $colorGrey3;

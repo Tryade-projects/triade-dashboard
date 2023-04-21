@@ -103,18 +103,18 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
       </ReactModal>
       {currentRanks.map((rank) => (
         <tr key={rank._id}>
-          <td className="th-name">
+          <td className="thNameGrade">
             <Label backgroundColor={rank.color} text={rank.label} />
           </td>
 
-          <td>
+          <td className="tdPermission">
             <p>{rank.permissions.join(", ")}</p>
           </td>
 
-          <td>$ {rank.salary}</td>
+          <td className="tdSalary">$ {rank.salary}</td>
 
-          <td className="td-action">
-            <div className="buttonsActionsWrapper">
+          <td className="tdAction">
+            <div className="buttonsActionsWrapper wrapper-type-actions">
               <ButtonActions
                 icon={trending}
                 alt="Augmente le grade"
@@ -136,7 +136,7 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
               />
             </div>
           </td>
-          <td className="td-more">
+          <td className="tdMore">
             <Link to={`/ranks/rank/${rank._id}`} className="flex">
               <div>
                 <img src={gear} alt="Paramètres" />

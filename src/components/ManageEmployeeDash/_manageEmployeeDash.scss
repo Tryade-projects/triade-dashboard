@@ -1,41 +1,107 @@
 .container-dashboard-employee {
   width: 100%;
+  height: 67.08vh;
   background: $colorWhite;
   border-radius: 20px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  overflow: hidden;
-}
-
-tr {
-  height: 85px;
-}
-
-th,
-td {
-  border-bottom: 1px solid #dbdbdb;
-}
-
-th {
-  text-align: start;
-  color: $colorText;
-  font-size: 16px;
-  padding-top: 34px;
-  padding-bottom: 26px;
-}
-
-tbody tr:nth-child(odd) {
-  border-left: 5px solid $colorPurple;
-}
-
-.footer-dashboard-employee {
-  padding: 28px 50px 32px 40px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+
+  table {
+    width: 100%;
+    height: 57.50vh;
+    border-collapse: collapse;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    thead{
+      height: 9.19vh;
+      tr{
+        height: 100%;
+        th{
+          text-align: left;
+          color: red;
+          @include headerTableTitle
+        }
+      }
+    }
+
+    tbody{
+      height: 48.694vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      tr {
+        height:9.648vh;
+        padding-left:2.906vw;
+        &:nth-child(odd){
+          border-left: 5px solid $colorPurple;
+          padding-left: calc(2.906vw - 5px);
+        }
+
+      }
+    }
+  }
+
+  tr{
+    border-bottom: 1px solid #dbdbdb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    td{
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+    }
+
+
+    .tdAction, .thHeaderACtion{
+      width: 7.50vw;
+      justify-content: space-between;
+      column-gap: 0.75vw;
+      margin-right: 4.5vw;
+    }
+
+    .tdMore, th:last-child{
+      width: 1.875vw;
+      min-width: 40px;
+      margin-right: 2.296vw;
+      justify-content: center;
+        a{
+        width: 60px;
+      }
+    }
+    /*Only for manageEmployeeDash*/
+    .tdPhone, .thHeaderPhone{
+      width: 4.687vw;
+      margin-right: 6.328vw;
+    }
+    .tdDate, .thHeaderDate{
+      width: 7vw;
+      margin-right: 4.687vw;
+    }
+    .tdGrade, .thHeaderGrade{
+      width: 12vw;
+    }
+    .tdName, .thHeaderName{
+      flex-grow: 2;
+    }
+    .thFirstHeader{
+      margin-left: 2.906vw;
+    }
+
+
+    /*End of only for manaEmployeeDash*/
+  }
+  
+  .footer-dashboard-employee {
+    padding: 1.702vh 2.109vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 9.19vh;
+  }
 }
 
 .footer-info-employee {
