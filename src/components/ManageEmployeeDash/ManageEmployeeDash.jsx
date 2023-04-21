@@ -6,7 +6,7 @@ import HeaderTable from "./componentsEmployee/HeaderTable";
 import filteredData from "../../utils/filteredData";
 import { useStickyState } from "../../utils/useStickyState";
 
-const INFO_PER_PAGE = 1;
+const INFO_PER_PAGE = 5;
 
 const ManageEmployeeDash = ({ search }) => {
   const [employees, setEmployees] = useStickyState("employees", []);

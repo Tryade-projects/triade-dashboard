@@ -1,23 +1,22 @@
 .containerDashBoardRanks {
   font-size: 14px;
-}
-
-th,
-td {
-  overflow: hidden;
-  padding-left: 0.5rem;
-}
-
-tr {
-  overflow: hidden;
-
-  p {
-    overflow-y: auto;
-    max-height: 85px;
+  .thNameGrade, .thHeaderNameGrade{
+    width: 16.406vw;
   }
+  .tdPermission, .thHeaderPermission{
+    flex-grow: 1;
+    width: 1px;
+  }
+  .tdSalary, .thHeaderSalary{
+    width: 4.687vw;
+    margin-right: 6vw;
+  }
+
+  .tdAction div button:last-child img{
+    width: 18px;
+    height: 18px;
+  }
+  
 }
 
-.buttonsActionsWrapper {
-  display: flex;
-  gap: 16px;
-}
+

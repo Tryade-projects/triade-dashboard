@@ -45,7 +45,7 @@ const BodyTable = ({ profils, setEmployees }) => {
       />
       {profils.map((profil) => (
         <tr key={profil.id}>
-          <td>
+          <td className="tdName">
             <div className="wrapper-flex-name-avatar">
               <div>
                 <img src={avatar} alt="avatar" />
@@ -56,14 +56,14 @@ const BodyTable = ({ profils, setEmployees }) => {
             </div>
           </td>
 
-          <td className="td-grade">
+          <td className="tdGrade">
             <p style={{ background: profil.colorRank }}>{profil.rank}</p>
           </td>
 
-          <td className="td-date regular">{profil.employee_at}</td>
-          <td className="td-phone regular">{profil.phone} </td>
+          <td className="tdDate regular">{profil.employee_at}</td>
+          <td className="tdPhone regular">{profil.phone} </td>
 
-          <td className="td-action">
+          <td className="tdAction">
             <div className="wrapper-type-actions">
               <ButtonTransaction icon={trending} alt={"image pour augmenter"} />
               <ButtonTransaction icon={decrease} alt={"image pour diminuer"} />
@@ -74,7 +74,7 @@ const BodyTable = ({ profils, setEmployees }) => {
               />
             </div>
           </td>
-          <td className="td-more">
+          <td className="tdMore">
             <Link to={`employee/detail/${profil.id}`} state={profil}>
               <div>
                 <ButtonTransaction

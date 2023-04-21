@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  padding-left: 40px;
 
   div {
     width: 48px;
@@ -19,11 +18,7 @@
   }
 }
 
-.th-name {
-  padding-left: 40px;
-}
-
-.td-grade {
+.tdGrade {
   p {
     display: inline;
     padding: 9px 24px;
@@ -33,17 +28,17 @@
   }
 }
 
-.td-date {
+.tdDate {
   color: $colorGrey3;
   font-size: 14px;
 }
 
-.td-phone {
+.tdPhone {
   color: $colorText;
   font-size: 14px;
 }
 
-.td-action {
+.tdAction {
   .wrapper-type-actions {
     display: flex;
     align-items: center;
@@ -56,7 +51,7 @@
   }
 }
 
-.td-more {
+.tdMore {
   div {
     width: 40px;
     height: 40px;
