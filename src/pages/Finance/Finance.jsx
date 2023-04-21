@@ -13,20 +13,15 @@ import ScrollPagesContainer from "../../components/ScrollPagesContainer/ScrollPa
 
 const Finance = () => {
 
-
   return (
     <div className="main mainFinance">
       <Header title={"Finances"} />
       <main>
-        
         <ScrollPagesContainer />
-
       </main>
     </div>
   )
 };
-
-
 
 export default Finance;
 

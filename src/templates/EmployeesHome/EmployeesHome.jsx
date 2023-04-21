@@ -10,13 +10,15 @@ const EmployeesHome = ({ employees }) => {
   return (
     <>
       <Header title={"Employés"} />
-      <div className="container-search-add">
-        <SearchBar search={search} setSearch={setSearch} />
-        <Link to="/employees/employee/add" className="flex">
-          <ButtonAdd />
-        </Link>
+      <div className="mainContainerEmployeeHome">
+        <div className="container-search-add">
+          <SearchBar search={search} setSearch={setSearch} />
+          <Link to="/employees/employee/add" className="flex">
+            <ButtonAdd />
+          </Link>
+        </div>
+        <ManageEmployeeDash search={search} employees={employees} />
       </div>
-      <ManageEmployeeDash search={search} employees={employees} />
     </>
   );
 };

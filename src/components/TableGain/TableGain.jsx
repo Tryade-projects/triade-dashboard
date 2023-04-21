@@ -73,8 +73,7 @@ const TableGain = (props) => {
         </tbody>
 
       </table>
-      <div className="footer-dashboard-employee">
-        {/* Utilisation du composant PaginationEmployee */}
+      {/* <div className="footer-dashboard-employee">
         <PaginationEmployee
           infoPerPage={infoPerPage}
           numberOfPages={numberPages}
@@ -85,7 +84,7 @@ const TableGain = (props) => {
           previousPage={previousPage}
           itemName="gain"
         />
-      </div>
+      </div> */}
     </div>
   );
 };

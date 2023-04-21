@@ -42,7 +42,7 @@ const ScrollPagesContainer = () => {
         </section>
 
         <section>
-          <ArticleContainer title="Analyse financière" contain={<DashboardDailyCharts />} />
+          <DashboardDailyCharts />
         </section>
       </div>
 

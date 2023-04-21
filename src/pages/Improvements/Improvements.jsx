@@ -219,7 +219,6 @@ const Improvements = () => {
               ))}
 
             </div>
-
             {/* Render the PaginationEmployee component */}
             <div className="footer-dashboard-employee">
               <PaginationEmployee
@@ -233,6 +232,7 @@ const Improvements = () => {
                 itemName="amélioration"
               />
             </div>
+
 
           </>
         }

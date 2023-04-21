@@ -11,13 +11,15 @@ const RanksHome = () => {
   return (
     <>
       <Header title={"Grades"} />
-      <div className="container-search-add">
-        <SearchBar search={search} setSearch={setSearch} />
-        <Link to="/ranks/rank/add" className="flex">
-          <ButtonAdd />
-        </Link>
+      <div className="mainContainerEmployeeRanks">
+        <div className="container-search-add">
+          <SearchBar search={search} setSearch={setSearch} />
+          <Link to="/ranks/rank/add" className="flex">
+            <ButtonAdd />
+          </Link>
+        </div>
+        <ManageRanksDash search={search} />
       </div>
-      <ManageRanksDash search={search} />
     </>
   );
 };
