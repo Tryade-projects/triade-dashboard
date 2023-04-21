@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { usePagination, useIndexRange } from "../../utils/usePagination";
+import { usePagination } from "../../utils/usePagination";
 import moment from "moment";
 import fakeDataExpense from "../../../fakeDatasExpense.json";
 import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
@@ -7,44 +7,39 @@ import FormatIcon from "../FormatIcon/FormatIcon";
 
 /**
  * TableExpense component displays a table of expenses
- * 
+ *
  * @param {object} props - Component props
  * @param {array}  props.fichier - List of expenses (from JSON file or API)
- * 
+ *
  * @returns {JSX.Element} - Rendered component
  */
 const TableExpense = (props) => {
-   
   //number of expenses per page
   const infoPerPage = 6;
 
-   //calculate number of pages based on number of expenses and number of expenses per page
+  //calculate number of pages based on number of expenses and number of expenses per page
   const numberPages = Math.ceil(props.fichier.length / infoPerPage);
 
-   //set up custom pagination hooks
+  //set up custom pagination hooks
   const { currentPage, setCurrentPage, nextPage, previousPage, paginate } =
     usePagination(numberPages, 1);
 
-   // set up state for rows of expense data in table
+  // set up state for rows of expense data in table
   const [rows, setRows] = useState([]);
 
-  
   // set current page to 1 on first render
-    useEffect(() => {
+  useEffect(() => {
     setCurrentPage(1);
   }, []);
 
-  
   // use custom hook to calculate first and last index of current page's expenses in list
-    const { firstIndex, lastIndex } = useIndexRange(currentPage, infoPerPage);
+  const { firstIndex, lastIndex } = useIndexRange(currentPage, infoPerPage);
 
-  
   // slice list of expenses for current page to pass down to PaginationEmployee component
-    const currentProfils = props.fichier.slice(firstIndex, lastIndex);
+  const currentProfils = props.fichier.slice(firstIndex, lastIndex);
 
-  
   // set up rows of expense data for table based on current page of expenses
-    useEffect(() => {
+  useEffect(() => {
     if (props.fichier && props.fichier.length > 0) {
       // create rows of expense data based on corresponding values
       const currentProfils = props.fichier.slice(firstIndex, lastIndex);
@@ -110,7 +105,7 @@ const TableExpense = (props) => {
               })}
             </tr>
           );
-        })
+        }),
       );
     }
   }, [props.fichier, firstIndex, lastIndex]);
