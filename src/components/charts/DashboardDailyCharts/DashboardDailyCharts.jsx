@@ -172,7 +172,12 @@ function DashboardCharts() {
     <div className="dashboardDailyCharts">
       <h2>Analyse financière</h2>
       <h4>Survolez le tableau pour plus d'informations</h4>
-      <Chart options={options} series={series} type="area" width="100%" height="100%" />
+      <Chart 
+        options={options} 
+        series={series} 
+        type="area" 
+        width="100%" 
+        height="100%" />
     </div>
   );
 

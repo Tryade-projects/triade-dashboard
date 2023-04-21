@@ -5,13 +5,16 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    column-gap: 42px;
+    column-gap: 2.062vw;
     >section{
         display: flex;
         flex-direction: column;
-        width: 70%;
+        width: 48.56vw;
         height: 78.43vh;
-        row-gap:4.54vh;
+        row-gap:4.5vh;
     }
-    aside{width: 30%;}
+    aside{
+        width: 30%;
+        width: 18.51vw;
+    }
 }

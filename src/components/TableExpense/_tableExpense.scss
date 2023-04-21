@@ -4,47 +4,59 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+
         .tableExpense {
-            height: 59.20vh;
-            margin-top: 70px;
-            margin-bottom: 30px;
+            height: 52vh;
+            margin-top: 10vh;
             flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
 
-            tr {
-                border-left: none;
+            tbody {
+
+                height: 100%;
                 display: flex;
-                align-items: center;
-                justify-content: space-around;
-
-                th,
-                td {
-                    border-bottom: none !important;
-                    padding: 0!important;
-                }
-                .tableExpenseColSpan{
+                flex-direction: column;
+                row-gap: 2.724vh;
+                tr {
+                    height: 6.356vh;
+                    min-height: 56px;
+                    border-left: none;
                     display: flex;
-                    flex-direction: column;
-                    margin: 0 3.28vw 0 0.75vw;
-                    :first-child{
-                        @include idTitle  
+                    align-items: center;
+                    justify-content: space-around;
+
+                    th,
+                    td {
+                        border-bottom: none !important;
+                        padding: 0 !important;
                     }
-                    :last-child{
-                        @include greyText
+
+                    .tableExpenseColSpan {
+                        display: flex;
+                        flex-direction: column;
+                        margin: 0 3.28vw 0 0.75vw;
+
+                        :first-child {
+                            @include idTitle
+                        }
+
+                        :last-child {
+                            @include greyText
+                        }
                     }
-                }
-                .tableExpenseLastCell{
-                    flex-grow: 1;
-                    text-align: right;
-                }
-                .tableExpenseAmount{
-                    text-align: left;
-                    flex-grow: 1;
-                    @include idTitle
+
+                    .tableExpenseLastCell {
+                        flex-grow: 1;
+                        text-align: right;
+                    }
+
+                    .tableExpenseAmount {
+                        text-align: left;
+                        flex-grow: 1;
+                        @include idTitle
+                    }
                 }
             }
+
         }
     }
 
