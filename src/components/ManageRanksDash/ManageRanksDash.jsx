@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import HeaderTableGrade from "./HeaderTableRanks/HeaderTableRanks";
 import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 import BodyTableRanks from "./BodyTableRanks/BodyTableRanks";
-import { usePagination, useIndexRange } from "../../utils/usePagination";
+import { usePagination } from "../../utils/usePagination";
 import filteredData from "../../utils/filteredData";
 import { RanksContext } from "../../App";
 
@@ -16,36 +16,21 @@ const ManageRanksDash = ({ search }) => {
     "permissions",
   ]);
 
-  const numberPages = Math.ceil(displayRanksFiltered.length / INFO_PER_PAGE);
-
-  const { currentPage, setCurrentPage, nextPage, previousPage, paginate } =
-    usePagination(numberPages, 1);
-
+  const _DATA = usePagination(displayRanksFiltered, INFO_PER_PAGE);
   useEffect(() => {
-    setCurrentPage(1);
+    _DATA.setCurrentPage(1);
   }, [search]);
 
-  const { firstIndex, lastIndex } = useIndexRange(currentPage, INFO_PER_PAGE);
-
-  const currentRanks = displayRanksFiltered.slice(firstIndex, lastIndex);
   return (
     <div className="container-dashboard-employee containerDashBoardRanks">
       <table>
         <HeaderTableGrade />
-        <BodyTableRanks currentRanks={currentRanks} setRanks={setRanks} />
-      </table>
-      <div className="footer-dashboard-employee">
-        <PaginationEmployee
-          infoPerPage={currentRanks.length}
-          numberOfPages={numberPages}
-          totalOfInfo={ranks.length}
-          paginate={paginate}
-          currentPage={currentPage}
-          nextPage={nextPage}
-          previousPage={previousPage}
-          itemName={"grade"}
+        <BodyTableRanks
+          currentRanks={_DATA.currentData()}
+          setRanks={setRanks}
         />
-      </div>
+      </table>
+      <PaginationEmployee data={_DATA} list={ranks} type="grade" />
     </div>
   );
 };

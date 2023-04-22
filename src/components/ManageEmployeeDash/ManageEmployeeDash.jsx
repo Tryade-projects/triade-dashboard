@@ -20,14 +20,13 @@ const ManageEmployeeDash = ({ search }) => {
   useEffect(() => {
     _DATA.setCurrentPage(1);
   }, [search]);
-
   return (
     <div className="container-dashboard-employee">
       <table>
         <HeaderTable />
         <BodyTable profils={_DATA.currentData()} setEmployees={setEmployees} />
       </table>
-      <PaginationEmployee data={_DATA} employees={employees} />
+      <PaginationEmployee data={_DATA} list={employees} type="employee" />
     </div>
   );
 };

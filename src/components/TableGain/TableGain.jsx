@@ -5,15 +5,12 @@ import FormatIcon from "../FormatIcon/FormatIcon";
 import { useStickyState } from "../../utils/useStickyState";
 import user from "../../assets/User.svg";
 
-
-
 /**
  * Component représentant le tableau de données de gain de l'employé
  * @param {object} props - Les props passés au composant
  * @param {array} props.fichier - Les données de gain déclarées par les employés
  * @returns {JSX.Element} - Le composant du tableau de gains
  */
-
 
 const TableGain = (props) => {
   //number of gain per page
@@ -26,7 +23,7 @@ const TableGain = (props) => {
   const { currentPage, setCurrentPage, nextPage, previousPage, paginate } =
     usePagination(numberPages, 1);
   const [rows, setRows] = useState([]);
-  const [employees, setEmployees] = useStickyState("employees", [])
+  const [employees, setEmployees] = useStickyState("employees", []);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -47,8 +44,12 @@ const TableGain = (props) => {
         if (employee) {
           return (
             <tr key={obj.id}>
-              <td><FormatIcon image={user} background={employee.colorRank} /></td>
-              <td className="tableGainName">{employee.firstName} {employee.lastName}</td>
+              <td>
+                <FormatIcon image={user} background={employee.colorRank} />
+              </td>
+              <td className="tableGainName">
+                {employee.firstName} {employee.lastName}
+              </td>
               <td className="tableGainRank">
                 <FormatIcon image={user} background={employee.colorRank} />
                 <div>
@@ -69,9 +70,14 @@ const TableGain = (props) => {
     <div className="tableContainer">
       <table className="tableGain">
         <tbody>
-          {rows.length > 0 ? rows : <tr><td colSpan="4">No data available</td></tr>}
+          {rows.length > 0 ? (
+            rows
+          ) : (
+            <tr>
+              <td colSpan="4">No data available</td>
+            </tr>
+          )}
         </tbody>
-
       </table>
       {/* <div className="footer-dashboard-employee">
         <PaginationEmployee
