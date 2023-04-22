@@ -4,7 +4,7 @@ import { usePagination } from "../../utils/usePagination";
 import HeaderTable from "./componentsEmployee/HeaderTable";
 import filteredData from "../../utils/filteredData";
 import { useStickyState } from "../../utils/useStickyState";
-import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
+import PaginationWrapper from "../PaginationWrapper/PaginationWrapper";
 
 const INFO_PER_PAGE = 5;
 
@@ -27,7 +27,7 @@ const ManageEmployeeDash = ({ search }) => {
         <HeaderTable />
         <BodyTable profils={_DATA.currentData()} setEmployees={setEmployees} />
       </table>
-      <PaginationEmployee data={_DATA} employees={employees} />
+      <PaginationWrapper data={_DATA} list={employees} type="employee" />
     </div>
   );
 };

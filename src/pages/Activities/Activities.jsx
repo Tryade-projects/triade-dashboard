@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import { fetchData } from "../../utils/fetchData";
-import PaginationEmployee from "../../components/PaginationEmployee/PaginationEmployee";
+import PaginationWrapper from "../../components/PaginationWrapper/PaginationWrapper";
 import ButtonsFilterWrapper from "../../components/ButtonsFilterWrapper/ButtonsFilterWrapper";
-import { usePagination, useIndexRange } from "../../utils/usePagination";
+import { usePagination } from "../../utils/usePagination";
 import filteredData from "../../utils/filteredData";
 
 const INFO_PER_PAGE = 6;
@@ -20,10 +20,7 @@ const Activities = () => {
   const [activities, setActivities] = useState([]);
   const [category, setCategory] = useState("Tout");
 
-  const numberPages = Math.ceil(activities.length / INFO_PER_PAGE);
-
-  const { currentPage, setCurrentPage, nextPage, previousPage, paginate } =
-    usePagination(numberPages, 1);
+  const _DATA = usePagination(activities, INFO_PER_PAGE);
 
   useEffect(() => {
     if (category === "Tout") {
@@ -36,12 +33,9 @@ const Activities = () => {
         setActivities(filteredData(data, category, ["category"]));
       });
     }
-    setCurrentPage(1);
+    _DATA.setCurrentPage(1);
   }, [category]);
 
-  const { firstIndex, lastIndex } = useIndexRange(currentPage, INFO_PER_PAGE);
-
-  const currentActivities = activities.slice(firstIndex, lastIndex);
   console.log({ activities });
 
   /**
@@ -184,7 +178,7 @@ const Activities = () => {
       <article className="activitiesWrapper">
         <section className="activitiesListAndNavWrapper">
           <ul className="timeline activitiesListWrapper">
-            {currentActivities.map((activity, i, activities) => (
+            {_DATA.currentData().map((activity, i, activities) => (
               <div
                 key={activity.activityId}
                 className="timelineItemAndSeparatorWrapper"
@@ -217,16 +211,7 @@ const Activities = () => {
           />
         </section>
         <section className="activitiesPagination">
-          <PaginationEmployee
-            infoPerPage={currentActivities.length}
-            numberOfPages={numberPages}
-            totalOfInfo={activities.length}
-            paginate={paginate}
-            currentPage={currentPage}
-            nextPage={nextPage}
-            previousPage={previousPage}
-            itemName={"activitée"}
-          />
+          <PaginationWrapper data={_DATA} list={activities} type="employee" />
         </section>
       </article>
     </main>

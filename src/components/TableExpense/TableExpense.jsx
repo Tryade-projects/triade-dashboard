@@ -1,52 +1,34 @@
 import React, { useEffect, useState } from "react";
 import { usePagination, useIndexRange } from "../../utils/usePagination";
 import moment from "moment";
-import fakeDataExpense from "../../../fakeDatasExpense.json";
-import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
+import PaginationWrapper from "../PaginationWrapper/PaginationWrapper";
 import FormatIcon from "../FormatIcon/FormatIcon";
 
+//number of expenses per page
+const INFO_PER_PAGE = 6;
 /**
  * TableExpense component displays a table of expenses
  *
  * @param {object} props - Component props
- * @param {array}  props.fichier - List of expenses (from JSON file or API)
+ * @param {object[]}  props.list - List of expenses (from JSON file or API)
  *
  * @returns {JSX.Element} - Rendered component
  */
-
-
-const TableExpense = (props) => {
-  //number of expenses per page
-  const infoPerPage = 6;
-
-  //calculate number of pages based on number of expenses and number of expenses per page
-  const numberPages = Math.ceil(props.fichier.length / infoPerPage);
-
-  //set up custom pagination hooks
-  const { currentPage, setCurrentPage, nextPage, previousPage, paginate } =
-    usePagination(numberPages, 1);
+const TableExpense = ({ list }) => {
+  const _DATA = usePagination(list, INFO_PER_PAGE);
+  useEffect(() => {
+    _DATA.setCurrentPage(1);
+  }, []);
 
   // set up state for rows of expense data in table
   const [rows, setRows] = useState([]);
 
-  // set current page to 1 on first render
-  useEffect(() => {
-    setCurrentPage(1);
-  }, []);
-
-  // use custom hook to calculate first and last index of current page's expenses in list
-  const { firstIndex, lastIndex } = useIndexRange(currentPage, infoPerPage);
-
-  // slice list of expenses for current page to pass down to PaginationEmployee component
-  const currentProfils = props.fichier.slice(firstIndex, lastIndex);
-
   // set up rows of expense data for table based on current page of expenses
   useEffect(() => {
-    if (props.fichier && props.fichier.length > 0) {
-      // create rows of expense data based on corresponding values
-      const currentProfils = props.fichier.slice(firstIndex, lastIndex);
+    const currentData = _DATA.currentData();
+    if (list && list.length > 0) {
       setRows(
-        currentProfils.map((obj, indexObj) => {
+        currentData.map((obj, indexObj) => {
           return (
             <tr key={indexObj}>
               {Object.entries(obj).map(([key, value], index) => {
@@ -110,7 +92,7 @@ const TableExpense = (props) => {
         }),
       );
     }
-  }, [props.fichier, firstIndex, lastIndex]);
+  }, [_DATA.currentPage]);
 
   return (
     <div className="tableContainer">
@@ -118,16 +100,7 @@ const TableExpense = (props) => {
         <tbody>{rows}</tbody>
       </table>
       <div className="footer-dashboard-employee">
-        <PaginationEmployee
-          infoPerPage={currentProfils.length}
-          numberOfPages={numberPages}
-          totalOfInfo={fakeDataExpense.length}
-          paginate={paginate}
-          currentPage={currentPage}
-          nextPage={nextPage}
-          previousPage={previousPage}
-          itemName="dépense"
-        />
+        <PaginationWrapper data={_DATA} list={list} type="employee" />
       </div>
     </div>
   );
