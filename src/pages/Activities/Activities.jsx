@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import { fetchData } from "../../utils/fetchData";
-import PaginationWrapper from "../../components/PaginationWrapper/PaginationWrapper";
+import PaginationWrapper from "../../components/PaginationEmployee/PaginationEmployee";
 import ButtonsFilterWrapper from "../../components/ButtonsFilterWrapper/ButtonsFilterWrapper";
 import { usePagination } from "../../utils/usePagination";
 import filteredData from "../../utils/filteredData";

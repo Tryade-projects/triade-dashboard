@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import HeaderTableGrade from "./HeaderTableRanks/HeaderTableRanks";
-import PaginationWrapper from "../PaginationWrapper/PaginationWrapper";
+import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 import BodyTableRanks from "./BodyTableRanks/BodyTableRanks";
 import { usePagination, useIndexRange } from "../../utils/usePagination";
 import filteredData from "../../utils/filteredData";
@@ -31,7 +31,7 @@ const ManageRanksDash = ({ search }) => {
         />
       </table>
       <div className="footer-dashboard-employee">
-        <PaginationWrapper data={_DATA} list={ranks} type="grade" />
+        <PaginationEmployee data={_DATA} list={ranks} type="grade" />
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import filteredData from "../../utils/filteredData";
 import { fetchData } from "../../utils/fetchData";
 import ButtonBuy from "../../components/ButtonBuy/ButtonBuy";
 import { usePagination, useIndexRange } from "../../utils/usePagination";
-import PaginationWrapper from "../../components/PaginationWrapper/PaginationWrapper";
+import PaginationWrapper from "../../components/PaginationEmployee/PaginationEmployee";
 import star from "../../assets/star.svg";
 import capacity from "../../assets/capacity.svg";
 import arrow from "../../assets/arrow.svg";

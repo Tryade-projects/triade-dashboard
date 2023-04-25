@@ -9,7 +9,7 @@ import { Pagination } from "@mui/material";
  * @param {string} props.type - type of data to paginate
  * @returns {JSX.Element}
  */
-const PaginationWrapper = ({ data, list, type }) => {
+const PaginationEmployee = ({ data, list, type }) => {
   const handleChange = (event, page) => {
     data.setPage(page);
     data.jump(page);
@@ -32,4 +32,4 @@ const PaginationWrapper = ({ data, list, type }) => {
   );
 };
 
-export default PaginationWrapper;
+export default PaginationEmployee;

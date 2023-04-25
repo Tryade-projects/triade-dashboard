@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { usePagination, useIndexRange } from "../../utils/usePagination";
-import PaginationWrapper from "../PaginationWrapper/PaginationWrapper";
+import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 import FormatIcon from "../FormatIcon/FormatIcon";
 import { useStickyState } from "../../utils/useStickyState";
 import user from "../../assets/User.svg";
@@ -73,7 +73,7 @@ const TableGain = ({ list }) => {
       </table>
       <div className="footer-dashboard-employee">
         {/* Utilisation du composant PaginationEmployee */}
-        <PaginationWrapper data={_DATA} list={list} type="gain" />
+        <PaginationEmployee data={_DATA} list={list} type="gain" />
       </div>
     </div>
   );
