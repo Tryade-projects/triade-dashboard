@@ -23,33 +23,41 @@ const TableGain = ({ list }) => {
   }, []);
 
   const displayRows = (list) => {
-    console.log("list", list);
+    // console.log("list", list);
     //Vérification si list et employees ne sont pas vides
     if (list && list.length > 0 && employees.length > 0) {
-      console.log("employees", employees);
+      // console.log("employees", employees);
       return list.map((obj) => {
-        //Trouver l'employé à partir de son ID et lui affecter les données de l'employé actuel
-        const employee = employees.find((emp) => emp.id === obj.idEmployee);
-        if (employee) {
-          return (
-            <tr key={obj.id}>
-              <td>
-                <FormatIcon image={user} background={employee.colorRank} />
-              </td>
-              <td className="tableGainName">
-                {employee.firstName} {employee.lastName}
-              </td>
-              <td className="tableGainRank">
-                <FormatIcon image={user} background={employee.colorRank} />
-                <div>
-                  <p>Grade</p>
-                  <p>{employee.rank}</p>
-                </div>
-              </td>
-              <td className="tableGainGain">$ {obj.gain}</td>
-            </tr>
-          );
-        }
+        // console.log("obj", obj);
+        const employee = employees.find((employee) => {
+          return employee.id === obj.idEmployee;
+        });
+        // console.log("employee", employee);
+        return (
+          <tr key={obj.id}>
+            <td>
+              <img
+                src={employee ? employee.avatar : user}
+                alt="avatar"
+                className="avatar"
+              />
+            </td>
+            <td>
+              <FormatIcon background={employee.color} image={user} />
+            </td>
+            <td className="tableGainName">
+              {employee.firstName} {employee.lastName}
+            </td>
+            <td className="tableGainRank">
+              <FormatIcon image={user} background={employee.colorRank} />
+              <div>
+                <p>Grade</p>
+                <p>{employee.rank}</p>
+              </div>
+            </td>
+            <td className="tableGainGain">$ {obj.gain}</td>
+          </tr>
+        );
       });
     }
     return (
@@ -62,11 +70,11 @@ const TableGain = ({ list }) => {
   return (
     <div className="tableContainer">
       <table className="tableGain">
-        <tbody>{displayRows(list, setRows)}</tbody>
+        <tbody>{displayRows(_DATA.currentData())}</tbody>
       </table>
       <div className="footer-dashboard-employee">
         {/* Utilisation du composant PaginationEmployee */}
-        <PaginationWrapper data={_DATA} list={list} type="employee" />
+        <PaginationWrapper data={_DATA} list={list} type="gain" />
       </div>
     </div>
   );
