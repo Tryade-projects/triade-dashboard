@@ -38,7 +38,6 @@ const TableGain = ({ list }) => {
             <td>
               <img
                 src={employee ? employee.avatar : user}
-                alt="avatar"
                 className="avatar"
               />
             </td>

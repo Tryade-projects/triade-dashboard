@@ -31,7 +31,63 @@ const TableExpense = ({ list }) => {
       return list.map((obj, indexObj) => {
         return (
           <tr key={obj.id}>
-            <td>{obj.transaction.id}</td>
+            {/* <td>{obj.transaction.id}</td> */}
+            {Object.entries(obj).map(([key, value], index) => {
+                if (key === "logo" && value.endsWith(".svg")) {
+                  return (
+                    <td key={index}>
+                      <FormatIcon background="#FF4550" image={value} />
+                    </td>
+                  );
+                } else if (typeof value === "object" && value !== null) {
+                  return (
+                    <td className="tableExpenseColSpan" colSpan="2" key={index}>
+                      <p>{value.id}</p>
+                      <p>
+                        {moment(value.date).format("DD MMMM YYYY, hh:mm A")}
+                      </p>
+                    </td>
+                  );
+                } else if (key === "finish") {
+                  if (value === true) {
+                    return (
+                      <td
+                        style={{
+                          color: "#4CBC9A",
+                          width: "4.40vw",
+                          fontWeight: "600",
+                        }}
+                        className="tableExpenseLastCell"
+                        key={index}
+                      >
+                        <span>Terminé</span>
+                      </td>
+                    );
+                  } else {
+                    return (
+                      <td
+                        style={{
+                          color: "#FCC43E",
+                          width: "4.40vw",
+                          fontWeight: "600",
+                        }}
+                        className="tableExpenseLastCell"
+                        key={index}
+                      >
+                        <span>En attente</span>
+                      </td>
+                    );
+                  }
+                } else if (key === "amount") {
+                  return (
+                    <td className="tableExpenseAmount" key={index}>
+                      ${value}
+                    </td>
+                  );
+                } else {
+                  return <td key={index}>{value}</td>;
+                }
+              })}
           </tr>
         );
       });
