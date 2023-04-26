@@ -1,8 +1,19 @@
 import React from "react";
 import { Pagination } from "@mui/material";
 
+
+/**
+ *
+ * @param {object} props
+ * @param {object} props.data - data to paginate
+ * @param {array} props.list - list of all the data
+ * @param {string} props.type - type of data to paginate
+ * @returns {JSX.Element}
+ */
 const PaginationEmployee = ({ data, list, type }) => {
+
   console.log(list);
+
   const handleChange = (event, page) => {
     data.setPage(page);
     data.jump(page);
@@ -16,6 +27,7 @@ const PaginationEmployee = ({ data, list, type }) => {
       </p>
       <Pagination
         count={data.numberPages}
+        size="large"
         page={data.page}
         onChange={handleChange}
         siblingCount={0}

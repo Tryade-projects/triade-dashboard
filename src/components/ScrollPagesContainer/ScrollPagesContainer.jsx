@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import DashboardDailyCharts from "../charts/DashboardDailyCharts/DashboardDailyCharts";
 import FinanceEmployeeDatas from "../FinanceEmployeesDatas/FinanceEmployeesDatas";
 import FinanceFortuneDatas from "../FinanceFortuneDatas/FinanceFortuneDatas";
@@ -9,20 +9,20 @@ import fakeDataExpense from "../../../fakeDatasExpense.json";
 import TableExpense from "../TableExpense/TableExpense";
 import TableGain from "../TableGain/TableGain";
 import fakeGain from "../../../fakeGain.json";
-
-
-
-/**
- * 
- * @param {object} props
- * 
- * @returns {JSX.Element}
- */
+import { fetchData } from "../../utils/fetchData";
 
 const ScrollPagesContainer = () => {
+  const [gainList, setGainList] = useState([]);
+  const [expenseList, setExpenseList] = useState([]);
 
-  const infoPerPage = 5
-  
+  useEffect(() => {
+    fetchData("/fakeDatasExpense.json").then((data) => {
+      setExpenseList(data);
+    });
+    fetchData("/fakeGain.json").then((data) => {
+      setGainList(data);
+    });
+  }, []);
 
   return (
     <ScrollableComponent>
@@ -42,7 +42,12 @@ const ScrollPagesContainer = () => {
         </section>
 
         <section>
-          <DashboardDailyCharts />
+
+          <ArticleContainer
+            title="Analyse financière"
+            contain={<DashboardDailyCharts />}
+          />
+
         </section>
       </div>
 
@@ -50,18 +55,17 @@ const ScrollPagesContainer = () => {
         <section>
           <ArticleContainer
             title="Argent rapportés"
-            contain={<TableGain fichier={fakeGain} infoPerPage={infoPerPage} />}
+            contain={<TableGain list={gainList} />}
           />
 
           <ArticleContainer
             title="Dépenses"
-            contain={<TableExpense fichier={fakeDataExpense} infoPerPage={infoPerPage}/>}
+            contain={<TableExpense list={expenseList} />}
           />
         </section>
       </div>
     </ScrollableComponent>
-  )
+  );
 };
-
 
 export default ScrollPagesContainer;

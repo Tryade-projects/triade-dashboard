@@ -1,55 +1,38 @@
 import React, { useEffect, useState } from "react";
 import { usePagination, useIndexRange } from "../../utils/usePagination";
 import moment from "moment";
-import fakeDataExpense from "../../../fakeDatasExpense.json";
 import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 import FormatIcon from "../FormatIcon/FormatIcon";
 
+//number of expenses per page
+const INFO_PER_PAGE = 6;
 /**
  * TableExpense component displays a table of expenses
  *
  * @param {object} props - Component props
- * @param {array}  props.fichier - List of expenses (from JSON file or API)
+ * @param {object[]}  props.list - List of expenses (from JSON file or API)
  *
  * @returns {JSX.Element} - Rendered component
  */
-
-
-const TableExpense = (props) => {
-  //number of expenses per page
-  const infoPerPage = 6;
-
-  //calculate number of pages based on number of expenses and number of expenses per page
-  const numberPages = Math.ceil(props.fichier.length / infoPerPage);
-
-  //set up custom pagination hooks
-  const { currentPage, setCurrentPage, nextPage, previousPage, paginate } =
-    usePagination(numberPages, 1);
+const TableExpense = ({ list }) => {
+  console.log("list", list);
+  const _DATA = usePagination(list, INFO_PER_PAGE);
+  useEffect(() => {
+    _DATA.setCurrentPage(1);
+  }, []);
 
   // set up state for rows of expense data in table
   const [rows, setRows] = useState([]);
 
-  // set current page to 1 on first render
-  useEffect(() => {
-    setCurrentPage(1);
-  }, []);
-
-  // use custom hook to calculate first and last index of current page's expenses in list
-  const { firstIndex, lastIndex } = useIndexRange(currentPage, infoPerPage);
-
-  // slice list of expenses for current page to pass down to PaginationEmployee component
-  const currentProfils = props.fichier.slice(firstIndex, lastIndex);
-
   // set up rows of expense data for table based on current page of expenses
-  useEffect(() => {
-    if (props.fichier && props.fichier.length > 0) {
-      // create rows of expense data based on corresponding values
-      const currentProfils = props.fichier.slice(firstIndex, lastIndex);
-      setRows(
-        currentProfils.map((obj, indexObj) => {
-          return (
-            <tr key={indexObj}>
-              {Object.entries(obj).map(([key, value], index) => {
+  const displayRows = (list) => {
+    console.log({ list });
+    if (list && list.length > 0) {
+      return list.map((obj, indexObj) => {
+        return (
+          <tr key={obj.id}>
+            {/* <td>{obj.transaction.id}</td> */}
+            {Object.entries(obj).map(([key, value], index) => {
                 if (key === "logo" && value.endsWith(".svg")) {
                   return (
                     <td key={index}>
@@ -105,29 +88,19 @@ const TableExpense = (props) => {
                   return <td key={index}>{value}</td>;
                 }
               })}
-            </tr>
-          );
-        }),
-      );
+          </tr>
+        );
+      });
     }
-  }, [props.fichier, firstIndex, lastIndex]);
+  };
 
   return (
     <div className="tableContainer">
       <table className="tableExpense">
-        <tbody>{rows}</tbody>
+        <tbody>{displayRows(_DATA.currentData())}</tbody>
       </table>
       <div className="footer-dashboard-employee">
-        <PaginationEmployee
-          infoPerPage={currentProfils.length}
-          numberOfPages={numberPages}
-          totalOfInfo={fakeDataExpense.length}
-          paginate={paginate}
-          currentPage={currentPage}
-          nextPage={nextPage}
-          previousPage={previousPage}
-          itemName="dépense"
-        />
+        <PaginationEmployee data={_DATA} list={list} type="employee" />
       </div>
     </div>
   );

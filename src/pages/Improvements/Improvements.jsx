@@ -6,13 +6,16 @@ import filteredData from "../../utils/filteredData";
 import { fetchData } from "../../utils/fetchData";
 import ButtonBuy from "../../components/ButtonBuy/ButtonBuy";
 import { usePagination, useIndexRange } from "../../utils/usePagination";
+
 import PaginationEmployee from "../../components/PaginationEmployee/PaginationEmployee";
+
 import star from "../../assets/star.svg";
 import capacity from "../../assets/capacity.svg";
 import arrow from "../../assets/arrow.svg";
 import fakeDataCompany from "../../../fakeCompanyData.json";
 import ModalActions from "../../components/ModalActions/ModalActions";
 
+const INFO_PER_PAGE = 3;
 /**
  * Improvements page component.
  * Renders a container with a list of improvements.
@@ -22,13 +25,11 @@ import ModalActions from "../../components/ModalActions/ModalActions";
  */
 
 const Improvements = () => {
-  //******Déclaration of the main const *******//
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [improvementData, setImprovementData] = useState({});
   const [improvements, setImprovements] = useState([]);
 
-  //***** End of main const *******//
 
   //******The ButtonsFilterWrapper informations */
   // State that holds the improvements data and the selected category for filtering
@@ -41,36 +42,12 @@ const Improvements = () => {
     fetchData("/fakeImprovements.json").then((data) => {
       setImprovements(filteredData(data, category, ["category"]));
     });
+    _DATA.setCurrentPage(1);
   }, [category]);
   //******* End of ButtonsFilterWrapper */
 
-  //***** The pagination informations *******//
-  // Number of improvements displayed per page
-  const infoPerPage = 3;
+  const _DATA = usePagination(improvements, INFO_PER_PAGE);
 
-  // Calculate the total number of pages based on the number of improvements and the infoPerPage value
-  // const numberPages = Math.ceil(improvements.length / infoPerPage);
-
-  // Hook for pagination functionality
-  // const { currentPage, setCurrentPage, nextPage, previousPage, paginate } =
-  //   usePagination(numberPages, 1);
-
-  // Set the current page to the first page whenever the category changes
-  // useEffect(() => {
-  //   setCurrentPage(1);
-  // }, [category]);
-
-  // Calculate the first and last indices of the current page of improvements
-  // const { firstIndex, lastIndex } = useIndexRange(currentPage, infoPerPage);
-
-  // Slice the improvements array to get the current page's improvements
-  // const currentImprovements = improvements.slice(firstIndex, lastIndex);
-  //*******End of pagination ********//
-
-  const _DATA = usePagination(improvements, infoPerPage);
-  useEffect(() => {
-    _DATA.setCurrentPage(1);
-  }, [category]);
 
   //******** Increase the datas *********//
   const [companyData, setCompanyData] = useState({});
@@ -225,23 +202,15 @@ const Improvements = () => {
               ))}
             </div>
             {/* Render the PaginationEmployee component */}
-            {/* <div className="footer-dashboard-employee">
+
+            <div className="footer-dashboard-employee">
               <PaginationEmployee
-                infoPerPage={infoPerPage}
-                numberOfPages={numberPages}
-                totalOfInfo={improvements.length}
-                paginate={paginate}
-                currentPage={currentPage}
-                nextPage={nextPage}
-                previousPage={previousPage}
-                itemName="amélioration"
+                data={_DATA}
+                list={improvements}
+                type="employee"
               />
-            </div> */}
-            <PaginationEmployee
-              data={_DATA}
-              list={improvements}
-              type="employee"
-            />
+            </div>
+
           </>
         }
       />
