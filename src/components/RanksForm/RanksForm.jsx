@@ -152,11 +152,11 @@ const RanksForm = () => {
     const errorsInput = {
       name: rank.name.length === 0,
       nameAlreadyExist: ranks.some(
-        (elm) => elm.name === rank.name.toLowerCase(),
+        (elm) => elm.name.toLowerCase() === rank.name.toLowerCase(),
       ),
       label: rank.label.length === 0,
       labelAlreadyExist: ranks.some(
-        (elm) => elm.label === rank.label.toLowerCase(),
+        (elm) => elm.label.toLowerCase() === rank.label.toLowerCase(),
       ),
       salary: rank.salary.length === 0,
       permissions: !verifIfOnePermissionIsChecked,
