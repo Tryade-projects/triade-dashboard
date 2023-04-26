@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import HeaderTableGrade from "./HeaderTableRanks/HeaderTableRanks";
 import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 import BodyTableRanks from "./BodyTableRanks/BodyTableRanks";
-import { usePagination, useIndexRange } from "../../utils/usePagination";
+import { usePagination } from "../../utils/usePagination";
 import filteredData from "../../utils/filteredData";
 import { RanksContext } from "../../App";
 
@@ -30,9 +30,11 @@ const ManageRanksDash = ({ search }) => {
           setRanks={setRanks}
         />
       </table>
+
       <div className="footer-dashboard-employee">
         <PaginationEmployee data={_DATA} list={ranks} type="grade" />
       </div>
+
     </div>
   );
 };

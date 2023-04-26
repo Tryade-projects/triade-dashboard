@@ -6,7 +6,9 @@ import filteredData from "../../utils/filteredData";
 import { fetchData } from "../../utils/fetchData";
 import ButtonBuy from "../../components/ButtonBuy/ButtonBuy";
 import { usePagination, useIndexRange } from "../../utils/usePagination";
-import PaginationWrapper from "../../components/PaginationEmployee/PaginationEmployee";
+
+import PaginationEmployee from "../../components/PaginationEmployee/PaginationEmployee";
+
 import star from "../../assets/star.svg";
 import capacity from "../../assets/capacity.svg";
 import arrow from "../../assets/arrow.svg";
@@ -21,10 +23,13 @@ const INFO_PER_PAGE = 3;
  * Displays detailed information about each improvement and allows purchasing them.
  * @returns {JSX.Element} The Improvements component.
  */
+
 const Improvements = () => {
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [improvementData, setImprovementData] = useState({});
   const [improvements, setImprovements] = useState([]);
+
 
   //******The ButtonsFilterWrapper informations */
   // State that holds the improvements data and the selected category for filtering
@@ -42,6 +47,7 @@ const Improvements = () => {
   //******* End of ButtonsFilterWrapper */
 
   const _DATA = usePagination(improvements, INFO_PER_PAGE);
+
 
   //******** Increase the datas *********//
   const [companyData, setCompanyData] = useState({});
@@ -195,15 +201,16 @@ const Improvements = () => {
                 </div>
               ))}
             </div>
-
             {/* Render the PaginationEmployee component */}
+
             <div className="footer-dashboard-employee">
-              <PaginationWrapper
+              <PaginationEmployee
                 data={_DATA}
                 list={improvements}
                 type="employee"
               />
             </div>
+
           </>
         }
       />

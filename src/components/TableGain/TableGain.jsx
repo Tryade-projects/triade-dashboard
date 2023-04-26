@@ -5,7 +5,9 @@ import FormatIcon from "../FormatIcon/FormatIcon";
 import { useStickyState } from "../../utils/useStickyState";
 import user from "../../assets/User.svg";
 
+
 const INFO_PER_PAGE = 5;
+
 
 /**
  * Component représentant le tableau de données de gain de l'employé
@@ -13,7 +15,11 @@ const INFO_PER_PAGE = 5;
  * @param {array} props.list - Les données de gain déclarées par les employés
  * @returns {JSX.Element} - Le composant du tableau de gains
  */
+
 const TableGain = ({ list }) => {
+
+
+
   const [rows, setRows] = useState([]);
   const [employees, setEmployees] = useStickyState("employees", []);
 
@@ -57,6 +63,7 @@ const TableGain = ({ list }) => {
             <td className="tableGainGain">$ {obj.gain}</td>
           </tr>
         );
+
       });
     }
     return (
@@ -69,12 +76,14 @@ const TableGain = ({ list }) => {
   return (
     <div className="tableContainer">
       <table className="tableGain">
+
         <tbody>{displayRows(_DATA.currentData())}</tbody>
       </table>
       <div className="footer-dashboard-employee">
         {/* Utilisation du composant PaginationEmployee */}
         <PaginationEmployee data={_DATA} list={list} type="gain" />
       </div>
+
     </div>
   );
 };

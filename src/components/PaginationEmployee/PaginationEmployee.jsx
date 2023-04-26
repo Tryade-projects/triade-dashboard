@@ -1,6 +1,7 @@
 import React from "react";
 import { Pagination } from "@mui/material";
 
+
 /**
  *
  * @param {object} props
@@ -10,6 +11,9 @@ import { Pagination } from "@mui/material";
  * @returns {JSX.Element}
  */
 const PaginationEmployee = ({ data, list, type }) => {
+
+  console.log(list);
+
   const handleChange = (event, page) => {
     data.setPage(page);
     data.jump(page);
@@ -26,7 +30,7 @@ const PaginationEmployee = ({ data, list, type }) => {
         size="large"
         page={data.page}
         onChange={handleChange}
-        boundaryCount={1}
+        siblingCount={0}
       />
     </div>
   );

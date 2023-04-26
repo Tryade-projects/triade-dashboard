@@ -6,7 +6,7 @@ import filteredData from "../../utils/filteredData";
 import { useStickyState } from "../../utils/useStickyState";
 import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 
-const INFO_PER_PAGE = 5;
+const INFO_PER_PAGE = 1;
 
 const ManageEmployeeDash = ({ search }) => {
   const [employees, setEmployees] = useStickyState("employees", []);
@@ -20,7 +20,6 @@ const ManageEmployeeDash = ({ search }) => {
   useEffect(() => {
     _DATA.setCurrentPage(1);
   }, [search]);
-
   return (
     <div className="container-dashboard-employee">
       <table>
