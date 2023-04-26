@@ -37,7 +37,9 @@ const RanksForm = () => {
 
   const [errors, setErrors] = useState({
     name: false,
+    nameAlreadyExist: false,
     label: false,
+    labelAlreadyExist: false,
     salary: false,
     permissions: false,
   });
@@ -147,10 +149,15 @@ const RanksForm = () => {
       (value) => value,
     );
 
-    console.log(rank.name.length > 0);
     const errorsInput = {
       name: rank.name.length === 0,
+      nameAlreadyExist: ranks.some(
+        (elm) => elm.name === rank.name.toLowerCase(),
+      ),
       label: rank.label.length === 0,
+      labelAlreadyExist: ranks.some(
+        (elm) => elm.label === rank.label.toLowerCase(),
+      ),
       salary: rank.salary.length === 0,
       permissions: !verifIfOnePermissionIsChecked,
     };
@@ -230,8 +237,9 @@ const RanksForm = () => {
           }}
           aria-required
         />
-        <p className={errorHidden(errors.name)}>
-          Veuillez renseigner le nom du grade
+        <p className={errorHidden(errors.name || errors.nameAlreadyExist)}>
+          {errors.name && "Veuillez renseigner le nom du grade"}
+          {errors.nameAlreadyExist && "Ce nom de grade existe déjà"}
         </p>
       </div>
       <div className="formGroup gradeLabelWrapper">
@@ -260,8 +268,9 @@ const RanksForm = () => {
           aria-required
         />
 
-        <p className={errorHidden(errors.label)}>
-          Veuillez renseigner le label du grade
+        <p className={errorHidden(errors.label || errors.labelAlreadyExist)}>
+          {errors.label && "Veuillez renseigner le nom du grade"}
+          {errors.labelAlreadyExist && "Ce label de grade existe déjà"}
         </p>
       </div>
 
