@@ -6,4 +6,52 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  &:after{
+    content:attr(data-content);
+    min-width: 150px;
+    width: auto;
+    color: $colorWhite;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0.681vh 2vw;
+    height: 4.54vh;
+    background-color: $colorPurple;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: calc(-100% - 20px);
+    display: none;
+    border-radius: 10px;
+    z-index: 99;
+  }
+  &:before{
+    content:"";
+    width: 10px;
+    height: 20px;
+    position: absolute;
+    display: none;
+    top:calc(-100%);
+    width: 0; 
+    height: 0; 
+    border-left: 2vw solid transparent;
+    border-right: 2vw solid transparent;
+    border-top: 35px solid $colorPurple;
+
+  }
+  &:hover::after, &:hover::before{
+    display: block;
+  }
+  &:hover::after{
+    display: flex;
+  }
+  // .testtest{
+  //   background-color: red;
+  //   width: 200px;
+  //   height: 20PX;
+  //   position: absolute;
+  //   top: -100%;
+  //   z-index: 9999;
+  //   border-radius: 10px;
+  // }
 }
