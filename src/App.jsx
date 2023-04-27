@@ -1,7 +1,6 @@
 import React, { useState, useEffect, createContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 import Employees from "./pages/Employees/Employees";
 import Ranks from "./pages/Ranks/Ranks";
@@ -44,7 +43,7 @@ function App() {
         <BrowserRouter>
           <Sidebar />
           <Routes>
-            <Route path="/" element={<Login />} />
+            <Route path="/" element={<Home employees={employees} />} />
             <Route path="/home" element={<Home employees={employees} />} />
             <Route
               path="/employees/*"
