@@ -30,11 +30,7 @@ const ManageRanksDash = ({ search }) => {
           setRanks={setRanks}
         />
       </table>
-
-      <div className="footer-dashboard-employee">
-        <PaginationEmployee data={_DATA} list={ranks} type="grade" />
-      </div>
-
+      <PaginationEmployee data={_DATA} list={ranks} type="grade" />
     </div>
   );
 };
