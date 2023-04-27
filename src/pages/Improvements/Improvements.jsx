@@ -203,7 +203,7 @@ const Improvements = () => {
             <PaginationEmployee
               data={_DATA}
               list={improvements}
-              type="employee"
+              type="amélioration"
             />
           </>
         }
