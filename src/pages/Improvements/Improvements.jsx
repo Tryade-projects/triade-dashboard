@@ -25,11 +25,9 @@ const INFO_PER_PAGE = 3;
  */
 
 const Improvements = () => {
-
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [improvementData, setImprovementData] = useState({});
   const [improvements, setImprovements] = useState([]);
-
 
   //******The ButtonsFilterWrapper informations */
   // State that holds the improvements data and the selected category for filtering
@@ -47,7 +45,6 @@ const Improvements = () => {
   //******* End of ButtonsFilterWrapper */
 
   const _DATA = usePagination(improvements, INFO_PER_PAGE);
-
 
   //******** Increase the datas *********//
   const [companyData, setCompanyData] = useState({});
@@ -203,14 +200,11 @@ const Improvements = () => {
             </div>
             {/* Render the PaginationEmployee component */}
 
-            <div className="footer-dashboard-employee">
-              <PaginationEmployee
-                data={_DATA}
-                list={improvements}
-                type="employee"
-              />
-            </div>
-
+            <PaginationEmployee
+              data={_DATA}
+              list={improvements}
+              type="employee"
+            />
           </>
         }
       />
