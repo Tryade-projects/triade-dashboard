@@ -65,13 +65,22 @@ const BodyTable = ({ profils, setEmployees }) => {
 
           <td className="tdAction">
             <div className="wrapper-type-actions">
-              <ButtonTransaction icon={trending} alt={"image pour augmenter"} />
-              <ButtonTransaction icon={decrease} alt={"image pour diminuer"} />
+              <ButtonTransaction 
+                icon={trending} 
+                alt={"Bouton pour promouvoir l'employé"}
+                title={"Promouvoir"}  />
+
+              <ButtonTransaction 
+                icon={decrease} 
+                alt={"Bouton pour rétrograder l'employé"}
+                title={"Rétrograder"} />
+                
               <ButtonTransaction
                 onClick={() => handleOpenModal(profil)}
                 icon={fired}
-                alt={"image pour virer"}
-              />
+                alt={"Bouton pour licensier l'employé"}
+                title={"Licencier"}
+                />
             </div>
           </td>
           <td className="tdMore">
@@ -79,7 +88,8 @@ const BodyTable = ({ profils, setEmployees }) => {
               <div>
                 <ButtonTransaction
                   icon={gear}
-                  alt={"image de réglage pour avoir plus d'accès"}
+                  alt={"Bouton pour voir les détails de l'employé"}
+                  title={"Détails"}
                 />
               </div>
             </Link>

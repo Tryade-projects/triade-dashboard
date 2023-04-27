@@ -15,6 +15,7 @@ import {
   modifyArrayInLocalStorage,
 } from "../../../utils/arrayManager";
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 
 const customStyles = {
   content: {
@@ -117,17 +118,20 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
             <div className="buttonsActionsWrapper wrapper-type-actions">
               <ButtonActions
                 icon={trending}
-                alt="Augmente le grade"
+                alt="Bouton pour augmenter la hiérarchie du grade"
+                title={"Augmenter"}
                 onClick={() => setRanks(increaseElm(rank, "ranks"))}
               />
               <ButtonActions
                 icon={decrease}
-                alt="Diminue le grade"
+                alt="Bouton pour diminuer la hiérarchie du grade"
+                title={"Diminuer"}
                 onClick={() => setRanks(decreaseElm(rank, "ranks"))}
               />
               <ButtonActions
                 icon={deleteIcon}
-                alt="Supprime le grade"
+                alt="Bouton pour supprimer le grade"
+                title={"Supprimer"}
                 onClick={() => {
                   openModal();
                   setCurrentRank(rank);
@@ -137,9 +141,13 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
             </div>
           </td>
           <td className="tdMore">
-            <Link to={`/ranks/rank/${rank._id}`} className="flex">
+            <Link to={`/ranks/rank/${rank._id}`}>
               <div>
-                <img src={gear} alt="Paramètres" />
+                <ButtonActions
+                  icon={gear}
+                  alt={"Bouton pour voir les détails du grade"}
+                  title={"Détails"}
+                />
               </div>
             </Link>
           </td>
