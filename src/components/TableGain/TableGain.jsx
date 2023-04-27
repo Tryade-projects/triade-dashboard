@@ -24,23 +24,20 @@ const TableGain = ({ list }) => {
   }, []);
 
   const displayRows = (list) => {
-    console.log("list", list);
     //Vérification si list et employees ne sont pas vides
     if (list && list.length > 0 && employees.length > 0) {
-      console.log("employees", employees);
       return list.map((obj) => {
-        // console.log("obj", obj);
         const employee = employees.find((employee) => {
+          
           return employee.id === obj.idEmployee;
         });
-        // console.log("employee", employee);
         return (
           <tr key={obj.id}>
             <td>
-              <img src={employee ? employee.avatar : user} className="avatar" />
+              <img alt="" src={employee ? employee.avatar : user} className="avatar" />
             </td>
             <td>
-              <FormatIcon background={employee.color} image={user} />
+              <FormatIcon background={employee.colorRank} image={user} />
             </td>
             <td className="tableGainName">
               {employee.firstName} {employee.lastName}
