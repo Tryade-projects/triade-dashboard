@@ -11,11 +11,13 @@
 .label {
   font-size: 18px;
   font-weight: 600;
+  min-height: 1.5rem;
 }
 
 .input {
   max-width: 577px;
-  height: 48px;
+
+  min-height: 3rem;
   padding-left: 14px;
   border-radius: 5px;
   border: 1px solid $colorGrey2;

@@ -1,50 +1,48 @@
-@mixin greyText{
-    font-size: 14px;
-    color: $colorGrey3;
+@mixin greyText {
+  font-size: 14px;
+  color: $colorGrey3;
 }
 
-@mixin headerTableTitle{
-    font-size: 14px;
-    color: $colorText;
-    font-weight: 600;
-    line-height: 21px;
+@mixin headerTableTitle {
+  font-size: 14px;
+  color: $colorText;
+  font-weight: 600;
+  line-height: 21px;
 }
 
-@mixin greyTitle{
-    font-size: 18px;
-    color: $colorGrey3;
-    font-weight: 400;
+@mixin greyTitle {
+  font-size: 18px;
+  color: $colorGrey3;
+  font-weight: 400;
 }
 
-@mixin littleTitle{
-    font-size: 24px;
-    color: $colorText;
+@mixin littleTitle {
+  font-size: 24px;
+  color: $colorText;
 }
 
-@mixin datasTitle{
-    font-size: 36px;
-    font-weight: 700;
-    color: $colorText;
+@mixin datasTitle {
+  font-size: 36px;
+  font-weight: 700;
+  color: $colorText;
 }
 
-@mixin idTitle{
-    font-size: 18px;
-    font-weight: 600;
-    color: $colorCheckbox;
+@mixin idTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: $colorCheckbox;
 }
 
-@mixin errorMessage{
-    font-size: 0.875rem;
-    color: $colorRed;
-    position: absolute;
-    bottom: -8px;
-    left: 5px;
+@mixin errorMessage {
+  font-size: 0.875rem;
+  color: $colorRed;
+  min-height: 1.5rem;
 }
 
-@mixin transitionInHover{
-    transition: all ease-in .2s;
+@mixin transitionInHover {
+  transition: all ease-in 0.2s;
 }
 
-@mixin transitionOutHover{
-    transition: all ease-out .2s;
+@mixin transitionOutHover {
+  transition: all ease-out 0.2s;
 }
