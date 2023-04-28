@@ -7,6 +7,7 @@ import Ranks from "./pages/Ranks/Ranks";
 import Finance from "./pages/Finance/Finance";
 import Improvements from "./pages/Improvements/Improvements";
 import Activities from "./pages/Activities/Activities";
+import ErrorPath from "./components/ErrorPath/ErrorPath";
 
 import employees from "../fakeData.json";
 
@@ -44,20 +45,16 @@ function App() {
           <Sidebar />
           <Routes>
             <Route path="/" element={<Home employees={employees} />} />
-            <Route path="/home" element={<Home employees={employees} />} />
             <Route
               path="/employees/*"
               element={<Employees employees={employees} />}
             />
             <Route path="/ranks/*" element={<Ranks />} />
-            <Route
-              path="/finance"
-              element={<Finance employees={employees} />}
-            />
-
+            <Route path="/finance" element={<Finance />} />
             <Route path="/finance" element={<Finance />} />
             <Route path="/improvements" element={<Improvements />} />
             <Route path="/activities" element={<Activities />} />
+            <Route path="*" element={<ErrorPath />} />
           </Routes>
         </BrowserRouter>
       </RanksContext.Provider>
