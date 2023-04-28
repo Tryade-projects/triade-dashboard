@@ -97,9 +97,7 @@ const TableExpense = ({ list }) => {
       <table className="tableExpense">
         <tbody>{displayRows(_DATA.currentData())}</tbody>
       </table>
-      <div className="footer-dashboard-employee">
         <PaginationEmployee data={_DATA} list={list} type="employee" />
-      </div>
     </div>
   );
 };

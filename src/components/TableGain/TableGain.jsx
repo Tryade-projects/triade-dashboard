@@ -66,10 +66,8 @@ const TableGain = ({ list }) => {
       <table className="tableGain">
         <tbody>{displayRows(_DATA.currentData())}</tbody>
       </table>
-      <div className="footer-dashboard-employee">
         {/* Utilisation du composant PaginationEmployee */}
         <PaginationEmployee data={_DATA} list={list} type="gain" />
-      </div>
     </div>
   );
 };
