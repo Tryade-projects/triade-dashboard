@@ -124,10 +124,7 @@
 }
 
 .errorRanksForm {
-  // position: relative;
-  // bottom: 0;
-  font-size: 0.875rem;
-  color: $colorRed;
+  @include errorMessage;
 }
 
 .hidden {

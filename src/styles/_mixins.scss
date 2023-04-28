@@ -33,6 +33,14 @@
     color: $colorCheckbox;
 }
 
+@mixin errorMessage{
+    font-size: 0.875rem;
+    color: $colorRed;
+    position: absolute;
+    bottom: -8px;
+    left: 5px;
+}
+
 @mixin transitionInHover{
     transition: all ease-in .2s;
 }
