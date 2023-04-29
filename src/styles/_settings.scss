@@ -11,6 +11,19 @@
   }
 }
 
+html, body{
+  height: 100%;
+  width: 100%;
+}
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(53, 53, 53, 0.4)!important;
+  backdrop-filter: blur(5px)!important;
+}
+
 ul {
   list-style: none;
 }
@@ -27,25 +40,27 @@ button {
 }
 
 #root {
-  height: 100vh;
+  height: 90vh;
   width: 90vw;
   margin: 0 auto;
 }
 
 .app {
-  display: grid;
-  grid-template-columns: 16.17vw 73.82vw;
+  display: flex;
   height: 100%;
   width: 100%;
   background-color: #f3f4ff;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   color: #333;
+  border-radius: 10px;
 }
 
 .main {
   padding: 40px 2.34vw;
-  max-height: 100vh;
+  width: 73.829vw;
+  // max-height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }

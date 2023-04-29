@@ -1,16 +1,17 @@
 .formContainer {
   border-radius: 20px;
-  overflow: hidden;
-  height: 89%;
+  height: 70vh;
   background-color: $colorWhite;
   display: flex;
   flex-direction: column;
 }
 
 .formContainerTitle {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   background-color: $colorPurple;
   color: $colorWhite;
-  height: 55px;
+  height: 5.6vh;
   display: flex;
   align-items: center;
   padding-left: 40px;

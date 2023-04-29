@@ -4,60 +4,65 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+        height: calc(70vh - 6vh);
         .tableGain {
-            height: 59.20vh;
-            margin-top: 70px;
-            margin-bottom: 30px;
+            height: 50vh;
+            margin-top: 4vh;
             flex-grow: 1;
-            display: flex;
+            display: flex;  
             flex-direction: column;
             justify-content: center;
-
-            tr {
-                border-left: none;
+            padding: 0 1.5vw;
+            tbody{
+                height: 50vh;
                 display: flex;
-                align-items: center;
+                flex-direction: column;
                 justify-content: space-around;
-                height: 11.80vh;
-
-                th,
-                td {
-                    border-bottom: none !important;
-                    padding: 0!important;
-                }
-                .tableGainName{
-                    @include idTitle;
-                    flex-grow:2;
-                    margin-left: 1.12vw;
-
-                }
-                .tableGainRank{
+                tr {
+                    border-left: none;
                     display: flex;
-                    column-gap: 0.75vw;
-                    width: 12vw;
-                    img{
-                        width: 28px;
-                        height: 28px;
+                    align-items: center;
+                    justify-content: space-around;
+                    height: 10vh;
+    
+                    th,
+                    td {
+                        border-bottom: none !important;
+                        padding: 0!important;
                     }
-                    p:nth-child(2){
-                        position: relative;
-                        @include idTitle
+                    .tableGainName{
+                        @include idTitle;
+                        flex-grow:2;
+                        margin-left: 1.12vw;
+    
+                    }
+                    .tableGainRank{
+                        display: flex;
+                        column-gap: 0.75vw;
+                        width: 12vw;
+
+                        p:nth-child(2){
+                            position: relative;
+                            @include idTitle
+                        }
+                    }
+                    .tableGainGain{
+                        @include idTitle;
+                        width: 7.03vw;
+                        text-align: right;
                     }
                 }
-                .tableGainGain{
-                    @include idTitle;
-                    width: 7.03vw;
-                    text-align: right;
-                }
+
             }
+            
         }
     }
 
     div.footer-dashboard-employee {
-        padding: 0;
-        align-self: flex-end;
+        padding: 1.532vh 2.109vw;
         display: flex;
         justify-content: space-between;
-        width: 100%;
+        align-items: center;
+        height: 8.5vh;
     }
 }

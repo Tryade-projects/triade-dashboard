@@ -1,12 +1,11 @@
 .dashboardInfos{
     width: 100%;
-    height: 19.50vh;
+    height: 17.5vh;
     display: flex;
     align-items: center;
     padding: 20px;
     background-color: $colorWhite;
     border-radius: 20px;
-
 }
 
 .dashboardInfos>div{
@@ -16,11 +15,11 @@
     align-items: center;
     column-gap: 10px;
     .formatIcon{
-        width: 4vw;
-        height: 4vw;
+        width: 7.355vh;
+        height: 7.355vh;
         img{
-            width: 2.5vw;
-            height: 2.5vw;
+            width: 3.83vh;
+            height: 3.83vh;
         }
     }
 

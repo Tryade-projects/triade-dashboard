@@ -1,7 +1,7 @@
 //class for the home dashboard container 
 .mainDashboard main{
     width: 69.04vw;
-    height: 78.43vh;
+    height: 70vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -10,11 +10,10 @@
         display: flex;
         flex-direction: column;
         width: 48.56vw;
-        height: 78.43vh;
+        height: 70vh;
         row-gap:4.5vh;
     }
     aside{
-        width: 30%;
         width: 18.51vw;
     }
 }
