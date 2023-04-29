@@ -1,20 +1,18 @@
 .financePages {
-    height: 78vh;
+    height: 70vh;
     display: flex;
     flex-direction: column;
 
     article {
         background-color: $colorWhite;
         border-radius: 20px;
-        padding: 20px;
         display: flex;
     }
 }
 
 //First Page
 div#financePage1 {
-    // height: 78vh;
-    row-gap: 4.540vh;
+    row-gap: 4.5vh;
     section:first-child {
         display: flex;
         justify-content: space-between;
@@ -24,31 +22,33 @@ div#financePage1 {
         }
         article {
             width: 16.97vw;
-            height: 19.5vh;
+            height: 17.5vh;
         }
     }
 
     section:nth-child(2) {
-        height: 53.96vh;
+        height: 48vh;
+        article{
+            padding: 20px;
+        }
     }
 }
 
 
 //Second Page
 div#financePage2 {
-    // height:78vh;
     >section {
         display: flex;
         flex-direction: row;
         column-gap: 2.08vw;
         article{
-            height: 78vh;
+            height: 70vh;
             div.formatIcon{
-                height: 56px;
-                width: 56px;
+                height: 4.903vh;
+                width: 4.903vh;
                 img{
-                    width: 24px;
-                    height: 16px;
+                    width: 2.247vh;
+                    height: 2.247vh;
                 }
             }
         }

@@ -1,29 +1,47 @@
 .mainImprovements {
 
+
     .articleContainer {
         width: 69.14vw;
-        height: 78vh;
+        height: 70vh;
         display: flex;
         flex-direction: column;
         
         .contain {
             margin-top: calc(12.48vh - 60px);
+            height: 59vh;
+            display: flex;
+            flex-direction: column;
+
             
             .mainContain{
                 display: flex;
                 flex-direction: column;
-                height: 54.93vh;
                 flex-grow: 1;
-                row-gap: 3.363vh;
+                row-gap: 3vh;
+                height: 45vh;
+                padding-left: 1.546vw;
+                padding-right: 2.109vw;
+
             }
 
             .footer-dashboard-employee{
-                height: 9.19vh;
-                padding: 1.702vh calc(2.109vw - 25px);
-                margin-top: 1vh;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+                // height: 9.19vh;
+                // display: flex;
+                // justify-content: space-between;
+                // align-items: center;
+                // padding-left: 0.81vw;
+                // padding-right: 0.79vw;
+                // padding-top: 6vh;
+                // display: flex;
+                // justify-content: space-between;
+                // align-items: center;
+
+                    padding: 1.532vh 2.109vw;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    height: 8.5vh;
             }
 
             
@@ -32,6 +50,7 @@
                 align-items: center;
                 row-gap: 2px;
                 justify-content: space-between;
+                height: 13vh;
                 div{
                     display: flex;
                     justify-content: center;
@@ -39,8 +58,8 @@
                 }
 
                 .improvementImage {
-                    width: 15.89vh;
-                    height: 15.89vh;
+                    width: 13vh;
+                    height: 13vh;
                     border-radius: 18px;
                     background-color: $colorGrey2;
                     margin-right: 2.34vw;

@@ -210,9 +210,9 @@ const Activities = () => {
             setCategory={setCategory}
           />
         </section>
-        <section className="activitiesPagination">
+        {/* <section className="activitiesPagination"> */}
           <PaginationEmployee data={_DATA} list={activities} type="activité" />
-        </section>
+        {/* </section> */}
       </article>
     </main>
   );

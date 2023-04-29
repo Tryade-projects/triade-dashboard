@@ -4,10 +4,9 @@
 .form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(4fr);
   column-gap: 100px;
   row-gap: 25px;
-  height: 100%;
+  height: 51.12vh;
 
   &>div{
     position: relative;
@@ -40,7 +39,7 @@
 
 textarea {
   width: 100%;
-  height: 90px;
+  height: 9vh;
   border: 1px solid $colorGrey2;
   border-radius: 5px;
   resize: none;
@@ -62,7 +61,7 @@ textarea {
 .wrapperButton {
   display: flex;
   justify-content: flex-end;
-  padding-top: 35px;
+  padding-top: 20px;
   button:nth-child(1) {
     margin-right: 40px;
   }

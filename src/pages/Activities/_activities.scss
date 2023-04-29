@@ -1,185 +1,203 @@
 .activitiesWrapper {
   display: flex;
-  height: 78vh;
+  height: 70vh;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   background-color: $colorWhite;
-  padding: 1% 2% 3% 2%;
+  // padding: 1% 2% 3% 2%;
   border-radius: 20px;
-}
 
-.activitiesListAndNavWrapper {
-  display: flex;
-  padding: 1%;
-  height: 100%;
-  width: 100%;
-}
-
-.activitiesListWrapper {
-  display: flex;
-  flex-direction: column;
-  // height: 92.62%;
-  width: 120%;
-
-  /*-- GENERAL STYLES
-    ------------------------------*/
-  .timeline {
-    line-height: 1.4em;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
+  .activitiesListAndNavWrapper {
+    display: flex;
+    padding: 3.269vh 2.906vw 0 1.5vw;
     height: 100%;
+    width: 100%;
+  }
+  
+  .activitiesListWrapper {
     display: flex;
     flex-direction: column;
-    // gap: 4%;
-    // justify-content: space-between;
-    //childrens
-    // .timelineItemWrapper {
-    //   flex-shrink: 0; /* Empêche les éléments de rétrécir */
-    //   flex-grow: 1; /* Permet aux éléments de s'agrandir */
-    //   max-width: 100%; /* Empêche les éléments de dépasser la largeur du conteneur */
-    // }
-  }
-
-  .timelineItemAndSeparatorWrapper {
-    flex-shrink: 0; /* Empêche les éléments de rétrécir */
-    flex-grow: 1; /* Permet aux éléments de s'agrandir */
-    max-width: 100%; /* Empêche les éléments de dépasser la largeur du conteneur */
-    display: flex;
-    flex-direction: column;
-  }
-
-  .timelineItemWrapper {
-    flex-shrink: 0; /* Empêche les éléments de rétrécir */
-    flex-grow: 1; /* Permet aux éléments de s'agrandir */
-    max-width: 100%; /* Empêche les éléments de dépasser la largeur du conteneur */
-    li {
+    // height: 92.62%;
+    width: 120%;
+  
+    /*-- GENERAL STYLES
+      ------------------------------*/
+    .timeline {
+      line-height: 1.4em;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: 100%;
       height: 100%;
+      display: flex;
+      flex-direction: column;
+      // gap: 4%;
+      // justify-content: space-between;
+      //childrens
+      // .timelineItemWrapper {
+      //   flex-shrink: 0; /* Empêche les éléments de rétrécir */
+      //   flex-grow: 1; /* Permet aux éléments de s'agrandir */
+      //   max-width: 100%; /* Empêche les éléments de dépasser la largeur du conteneur */
+      // }
+    }
+  
+    .timelineItemAndSeparatorWrapper {
+      flex-shrink: 0; /* Empêche les éléments de rétrécir */
+      flex-grow: 1; /* Permet aux éléments de s'agrandir */
+      max-width: 100%; /* Empêche les éléments de dépasser la largeur du conteneur */
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .timelineItemWrapper {
+      flex-shrink: 0; /* Empêche les éléments de rétrécir */
+      flex-grow: 1; /* Permet aux éléments de s'agrandir */
+      max-width: 100%; /* Empêche les éléments de dépasser la largeur du conteneur */
+      li {
+        height: 100%;
+      }
+    }
+  
+    /*----- TIMELINE ITEM -----*/
+  
+    .timelineItem {
+      // padding-left: 2.0625rem;
+      padding-left: 2vw;
+      position: relative;
+      // height: 4vw;
+      display: flex;
+      flex-direction: column;
+      // gap: 0.625rem;
+      // gap: 0.5vw;
+      height: 100%;
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+  
+    /*----- TIMELINE INFO -----*/
+  
+    .timelineInfo {
+      font-size: 14px;
+      font-size: 0.75vw;
+      font-weight: 400;
+      color: $colorGrey3;
+    }
+    /*----- TIMELINE MARKER -----*/
+  
+    .timelineMarker {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 1.625rem;
+      &:before {
+        background: $colorWhite;
+        border: 3px solid transparent;
+        border-radius: 100%;
+        border: 4px solid $colorPurple;
+        content: "";
+        display: block;
+        height: 15px;
+        position: absolute;
+        top: 4px;
+        left: 0;
+        width: 15px;
+        transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+        z-index: 2;
+      }
+      &:after {
+        content: "";
+        width: 3px;
+        background: #ccd5db;
+        display: block;
+        position: absolute;
+        top: 0.625rem;
+        bottom: -0.3125rem;
+        left: 6px;
+        height: 100%;
+      }
+      .timelineItem:last-child &:after {
+        content: none;
+      }
+    }
+    .timelineItem:not(.period):hover .timeline-marker:before {
+      background: transparent;
+      border: 3px solid peru;
+    }
+  
+    .timelineMarkerWithoutAfter {
+      &:after {
+        content: none;
+      }
     }
   }
-
-  /*----- TIMELINE ITEM -----*/
-
-  .timelineItem {
-    // padding-left: 2.0625rem;
-    padding-left: 2vw;
-    position: relative;
+  
+  .timelineTitle {
+    // height: 3.5625rem;
     // height: 4vw;
     display: flex;
-    flex-direction: column;
-    // gap: 0.625rem;
-    // gap: 0.5vw;
-    height: 100%;
-    &:last-child {
-      padding-bottom: 0;
-    }
+    align-items: center;
+    color: $colorText;
+    // font-size: 1.125rem;
+    font-size: 1vw;
+    flex-shrink: 0;
+    flex-grow: 1;
+    max-width: 100%;
   }
+  
+  // .activitiesPagination {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+  //   height: 7.38%;
+  //   width: 100%;
+  // }
 
-  /*----- TIMELINE INFO -----*/
-
-  .timelineInfo {
-    font-size: 14px;
-    font-size: 0.75vw;
-    font-weight: 400;
-    color: $colorGrey3;
+  .footer-dashboard-employee{
+    // align-items: center;
+    // justify-content: space-between;
+    // background-color: blue;
+    // width: 100%;
+    
+    width: 100%;
+    padding: 1.532vh 2.109vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8.5vh;
+    margin-bottom: 0.3vh;
+  
   }
-  /*----- TIMELINE MARKER -----*/
-
-  .timelineMarker {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 1.625rem;
-    &:before {
-      background: $colorWhite;
-      border: 3px solid transparent;
-      border-radius: 100%;
-      border: 4px solid $colorPurple;
-      content: "";
-      display: block;
-      height: 15px;
-      position: absolute;
-      top: 4px;
-      left: 0;
-      width: 15px;
-      transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
-      z-index: 2;
-    }
-    &:after {
-      content: "";
-      width: 3px;
-      background: #ccd5db;
-      display: block;
-      position: absolute;
-      top: 0.625rem;
-      bottom: -0.3125rem;
-      left: 6px;
-      height: 100%;
-    }
-    .timelineItem:last-child &:after {
-      content: none;
-    }
+  
+  
+  .timelineContent {
+    color: $colorText;
+    // font-size: 1.125rem;
+    font-size: 1vw;
+    white-space: nowrap;
+    line-height: 1.6875rem;
+    flex-shrink: 0;
+    flex-grow: 0.7;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
   }
-  .timelineItem:not(.period):hover .timeline-marker:before {
-    background: transparent;
-    border: 3px solid peru;
-  }
-
-  .timelineMarkerWithoutAfter {
-    &:after {
-      content: none;
+  
+  .categoryColor {
+    &Stockage {
+      color: $colorOrange;
+    }
+    &Factures {
+      color: $colorRed;
+    }
+    &Service {
+      color: $colorYellow;
+    }
+    &Garage {
+      color: $colorGreen;
     }
   }
 }
 
-.timelineTitle {
-  // height: 3.5625rem;
-  // height: 4vw;
-  display: flex;
-  align-items: center;
-  color: $colorText;
-  // font-size: 1.125rem;
-  font-size: 1vw;
-  flex-shrink: 0;
-  flex-grow: 1;
-  max-width: 100%;
-}
-
-.activitiesPagination {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 7.38%;
-  width: 100%;
-}
-
-.timelineContent {
-  color: $colorText;
-  // font-size: 1.125rem;
-  font-size: 1vw;
-  white-space: nowrap;
-  line-height: 1.6875rem;
-  flex-shrink: 0;
-  flex-grow: 0.7;
-  max-width: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.categoryColor {
-  &Stockage {
-    color: $colorOrange;
-  }
-  &Factures {
-    color: $colorRed;
-  }
-  &Service {
-    color: $colorYellow;
-  }
-  &Garage {
-    color: $colorGreen;
-  }
-}

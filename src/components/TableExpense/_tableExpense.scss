@@ -6,19 +6,18 @@
         width: 100%;
 
         .tableExpense {
-            height: 52vh;
-            margin-top: 10vh;
+            height: 50vh;
+            margin-top: 4vh;
             flex-grow: 1;
-
+            display: flex;  
+            flex-direction: column;
+            padding: 0 1.5vw;
             tbody {
-
-                height: 100%;
+                height: 50vh;
                 display: flex;
                 flex-direction: column;
-                row-gap: 2.724vh;
                 tr {
-                    height: 6.356vh;
-                    min-height: 56px;
+                    height: calc(50vh / 6);
                     border-left: none;
                     display: flex;
                     align-items: center;
@@ -61,10 +60,10 @@
     }
 
     div.footer-dashboard-employee {
-        padding: 0;
-        align-self: flex-end;
+        padding: 1.532vh 2.109vw;
         display: flex;
         justify-content: space-between;
-        width: 100%;
+        align-items: center;
+        height: 8.5vh;
     }
 }
