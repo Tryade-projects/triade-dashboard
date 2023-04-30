@@ -14,7 +14,7 @@ import {
   findNextElm,
   modifyArrayInLocalStorage,
 } from "../../../utils/arrayManager";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 
 const customStyles = {
@@ -37,10 +37,11 @@ const customStyles = {
 ReactModal.setAppElement("#root");
 
 const BodyTableRanks = ({ currentRanks, setRanks }) => {
+  const navigate = useNavigate();
   const [modalIsOpen, setIsOpen] = useState(false);
   const [currentRank, setCurrentRank] = useState({
     label: "",
-    _id: "",
+    id: "",
   });
   const [nextRank, setNextRank] = useState({
     label: "",
@@ -103,7 +104,7 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
         </div>
       </ReactModal>
       {currentRanks.map((rank) => (
-        <tr key={rank._id}>
+        <tr key={rank.id}>
           <td className="thNameGrade">
             <Label backgroundColor={rank.color} text={rank.label} />
           </td>
@@ -141,15 +142,16 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
             </div>
           </td>
           <td className="tdMore">
-            <Link to={`/ranks/rank/${rank._id}`}>
-              <div>
-                <ButtonActions
-                  icon={gear}
-                  alt={"Bouton pour voir les détails du grade"}
-                  title={"Détails"}
-                />
-              </div>
-            </Link>
+            <div>
+              <ButtonActions
+                icon={gear}
+                alt={"Bouton pour voir les détails du grade"}
+                title={"Détails"}
+                onClick={() => {
+                  navigate(`/ranks/rank/${rank.id}`);
+                }}
+              />
+            </div>
           </td>
         </tr>
       ))}

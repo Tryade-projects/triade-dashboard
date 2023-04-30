@@ -1,26 +1,9 @@
-import React, {useState, useEffect} from "react";
-import FormatIcon from "../FormatIcon/FormatIcon"
-import StatsData from "../StatsData/StatsData"
-import stock from "../../assets/stock.svg"
-import { useStickyState } from "../../utils/useStickyState";
+import React, { useState, useEffect } from "react";
+import FormatIcon from "../FormatIcon/FormatIcon";
+import StatsData from "../StatsData/StatsData";
+import stock from "../../assets/stock.svg";
 
-
-/**
- * 
- * @param {object} props
- * @param {string} background A hexadecimal color code
- * @param {string} image Link to an SVG image
- * @constant {int} stockData 
- * 
- * @returns {JSX.Element}
- */
-
-
-const FinanceStockDatas = () => {
-
-  const [stockData, setStockData] = useStickyState("stockData",0);
-  const [oldStockData, setOldStockData]= useStickyState("oldStockData",0)
-
+const FinanceStockDatas = ({ oldStockData, nowData }) => {
   return (
     <div className="financeStockDatas">
       <div>
@@ -29,12 +12,11 @@ const FinanceStockDatas = () => {
       </div>
       <div>
         <h3>Stock</h3>
-        <h2>{stockData}Kg</h2>
-        <StatsData oldData = {oldStockData} nowData = {stockData}/>
+        <h2>{nowData}Kg</h2>
+        <StatsData oldData={oldStockData} nowData={nowData} />
       </div>
     </div>
+  );
+};
 
-  )
-}
-
-export default FinanceStockDatas
+export default FinanceStockDatas;

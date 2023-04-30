@@ -6,14 +6,14 @@
  */
 const increaseElm = (elm, category) => {
   const currentData = JSON.parse(localStorage.getItem(category) || "[]");
-  const currentRankIndex = currentData.findIndex((r) => r._id === elm._id);
+  const currentRankIndex = currentData.findIndex((r) => r.id === elm.id);
   const previousRank = currentData[currentRankIndex - 1];
   if (!previousRank) return currentData;
   const updatedData = currentData.map((r) => {
-    if (r._id === elm._id) {
+    if (r.id === elm.id) {
       return previousRank;
     }
-    if (r._id === previousRank._id) {
+    if (r.id === previousRank.id) {
       return elm;
     }
     return r;
@@ -30,14 +30,14 @@ const increaseElm = (elm, category) => {
  */
 const decreaseElm = (elm, category) => {
   const currentData = JSON.parse(localStorage.getItem(category) || "[]");
-  const currentRankIndex = currentData.findIndex((r) => r._id === elm._id);
+  const currentRankIndex = currentData.findIndex((r) => r.id === elm.id);
   const nextRank = currentData[currentRankIndex + 1];
   if (!nextRank) return currentData;
   const updatedData = currentData.map((r) => {
-    if (r._id === elm._id) {
+    if (r.id === elm.id) {
       return nextRank;
     }
-    if (r._id === nextRank._id) {
+    if (r.id === nextRank.id) {
       return elm;
     }
     return r;
@@ -58,7 +58,7 @@ const deleteElm = (elm, category) => {
   const currentData = JSON.parse(localStorage.getItem(category) || "[]");
 
   // Filtrer l'objet de données pour supprimer l'élément avec l'ID donné
-  const updatedData = currentData.filter((rank) => rank._id !== elm._id);
+  const updatedData = currentData.filter((rank) => rank.id !== elm.id);
 
   // Mettre à jour les données de localStorage
   localStorage.setItem(category, JSON.stringify(updatedData));
@@ -73,7 +73,7 @@ const deleteElm = (elm, category) => {
  */
 const findNextElm = (elm, category) => {
   const currentData = JSON.parse(localStorage.getItem(category) || "[]");
-  const currentElmIndex = currentData.findIndex((r) => r._id === elm._id);
+  const currentElmIndex = currentData.findIndex((r) => r.id === elm.id);
   const nextElm = currentData[currentElmIndex + 1];
   return nextElm;
 };

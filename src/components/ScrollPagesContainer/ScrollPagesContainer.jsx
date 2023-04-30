@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import DashboardDailyCharts from "../charts/DashboardDailyCharts/DashboardDailyCharts";
 import FinanceEmployeeDatas from "../FinanceEmployeesDatas/FinanceEmployeesDatas";
 import FinanceFortuneDatas from "../FinanceFortuneDatas/FinanceFortuneDatas";
 import ScrollableComponent from "../ScrollableComponent/ScrollableComponent";
 import FinanceStockDatas from "../FinanceStockDatas/FinanceStockDatas";
 import ArticleContainer from "../ArticleContainer/ArticleContainer";
-import fakeDataExpense from "../../../fakeDatasExpense.json";
 import TableExpense from "../TableExpense/TableExpense";
 import TableGain from "../TableGain/TableGain";
-import fakeGain from "../../../fakeGain.json";
 import { fetchData } from "../../utils/fetchData";
+import { dataDashboardContext } from "../../App";
 
 const ScrollPagesContainer = () => {
   const [gainList, setGainList] = useState([]);
@@ -24,30 +23,38 @@ const ScrollPagesContainer = () => {
     });
   }, []);
 
+  const { dataDashboard } = useContext(dataDashboardContext);
+
   return (
     <ScrollableComponent>
       <div className="financePages" id="financePage1">
         <section>
           <article>
-            <FinanceEmployeeDatas />
+            <FinanceEmployeeDatas
+              oldEmployeesData={dataDashboard.oldEmployeesData}
+            />
           </article>
 
           <article>
-            <FinanceStockDatas />
+            <FinanceStockDatas
+              oldStockData={dataDashboard.oldStockData}
+              nowData={dataDashboard.stockData}
+            />
           </article>
 
           <article>
-            <FinanceFortuneDatas />
+            <FinanceFortuneDatas
+              fortuneData={dataDashboard.fortuneData}
+              oldFortuneData={dataDashboard.oldFortuneData}
+            />
           </article>
         </section>
 
         <section>
-
           <ArticleContainer
             title="Analyse financière"
             contain={<DashboardDailyCharts />}
           />
-
         </section>
       </div>
 

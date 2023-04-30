@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import BodyTable from "./componentsEmployee/BodyTable";
 import { usePagination } from "../../utils/usePagination";
 import HeaderTable from "./componentsEmployee/HeaderTable";
 import filteredData from "../../utils/filteredData";
-import { useStickyState } from "../../utils/useStickyState";
+// import { useStickyState } from "../../utils/useStickyState";
+import { EmployeesContext } from "../../App";
 import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 
 const INFO_PER_PAGE = 1;
 
 const ManageEmployeeDash = ({ search }) => {
-  const [employees, setEmployees] = useStickyState("employees", []);
+  const { employees, setEmployees } = useContext(EmployeesContext);
   const displayProfilFiltered = filteredData(employees, search, [
     "firstName",
     "rank",

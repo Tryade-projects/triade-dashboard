@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import HeaderTableGrade from "./HeaderTableRanks/HeaderTableRanks";
 import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 import BodyTableRanks from "./BodyTableRanks/BodyTableRanks";

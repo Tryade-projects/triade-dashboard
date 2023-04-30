@@ -48,7 +48,7 @@ const BodyTable = ({ profils, setEmployees }) => {
           <td className="tdName">
             <div className="wrapper-flex-name-avatar">
               <div>
-                <img src={avatar} alt="avatar" />
+                <img src={profil.image} alt="avatar" />
               </div>
               <p className="bold">
                 {profil.firstName} {profil.lastName}
@@ -57,7 +57,7 @@ const BodyTable = ({ profils, setEmployees }) => {
           </td>
 
           <td className="tdGrade">
-            <p style={{ background: profil.colorRank }}>{profil.rank}</p>
+            <p style={{ background: profil.color }}>{profil.rank}</p>
           </td>
 
           <td className="tdDate regular">{profil.employee_at}</td>
@@ -65,22 +65,24 @@ const BodyTable = ({ profils, setEmployees }) => {
 
           <td className="tdAction">
             <div className="wrapper-type-actions">
-              <ButtonTransaction 
-                icon={trending} 
+              <ButtonTransaction
+                icon={trending}
                 alt={"Bouton pour promouvoir l'employé"}
-                title={"Promouvoir"}  />
+                title={"Promouvoir"}
+              />
 
-              <ButtonTransaction 
-                icon={decrease} 
+              <ButtonTransaction
+                icon={decrease}
                 alt={"Bouton pour rétrograder l'employé"}
-                title={"Rétrograder"} />
-                
+                title={"Rétrograder"}
+              />
+
               <ButtonTransaction
                 onClick={() => handleOpenModal(profil)}
                 icon={fired}
                 alt={"Bouton pour licensier l'employé"}
                 title={"Licencier"}
-                />
+              />
             </div>
           </td>
           <td className="tdMore">

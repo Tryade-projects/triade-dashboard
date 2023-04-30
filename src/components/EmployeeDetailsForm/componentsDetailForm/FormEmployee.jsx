@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./_formEmployee.module.scss";
 import ButtonForm from "../../ButtonForm/ButtonForm";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -9,13 +9,17 @@ import LabelForm from "./LabelForm";
 import InputForm from "./InputForm";
 import { v4 as uuidv4 } from "uuid";
 import { firstLetterUpperCase } from "../../../utils/stringManager";
+import { EmployeesContext } from "../../../App";
 
 const NAME_KEY = "employees";
 
 const FormEmployee = () => {
   const { state } = useLocation();
+  console.log(state);
 
   const profilId = state || [];
+
+  const { employees, setEmployees } = useContext(EmployeesContext);
 
   const {
     register,
@@ -23,7 +27,6 @@ const FormEmployee = () => {
     formState: { errors },
   } = useForm();
 
-  const [employees, setEmployees] = useStickyState(NAME_KEY, []);
   const [ranksLocalStorage, setRanksLocalStorage] = useStickyState("ranks", []);
   const [displayRank, setDisplayRank] = useState("Recrue");
   const [colorRank, setColorRank] = useState("");
@@ -48,6 +51,7 @@ const FormEmployee = () => {
   };
 
   const onSubmit = (data) => {
+    console.log({ data });
     const newEmployee = {
       id: uuidv4(),
       firstName: data.firstName,
@@ -60,24 +64,29 @@ const FormEmployee = () => {
       color: colorRank,
       place: data.place,
       information: data.informations,
-      employee_at: "March 25, 2021",
+      employee_at: new Date().toLocaleDateString(),
+      image: "./src/assets/fake-avatar.svg",
     };
 
     if (state) {
-      const changeProfil = employees.map((employee) => {
-        if (employee.id === profilId.id) {
-          return {
-            ...newEmployee,
-            id: profilId.id,
-          };
-        }
-        return employee;
-      });
-      setEmployees(changeProfil);
+      const employeeIndex = employees.findIndex(
+        (employee) => employee.id === state.id,
+      );
+      const newEmployees = [...employees];
+      newEmployees[employeeIndex] = {
+        ...newEmployee,
+        id: state.id,
+      };
+      localStorage.setItem(NAME_KEY, JSON.stringify(newEmployees));
+      setEmployees(newEmployees);
     } else {
+      localStorage.setItem(
+        NAME_KEY,
+        JSON.stringify([...employees, newEmployee]),
+      );
       setEmployees((employee) => [...employee, newEmployee]);
     }
-    setTimeout(() => navigate("/employees"), 0);
+    navigate("/employees");
   };
 
   return (
@@ -220,7 +229,7 @@ const FormEmployee = () => {
             <li
               onClick={() => handleRanks(rank)}
               className={styles.option}
-              key={rank._id}
+              key={rank.id}
             >
               {rank.label}
             </li>

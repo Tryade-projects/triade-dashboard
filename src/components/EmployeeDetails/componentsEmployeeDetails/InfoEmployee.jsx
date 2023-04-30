@@ -6,6 +6,7 @@ import address from "../../../assets/address.svg";
 import date from "../../../assets/Date.svg";
 
 const InfoEmployee = ({ profil }) => {
+  console.log({ profil });
   return (
     <>
       <div className={styles.wrapperNameRank}>
@@ -43,7 +44,7 @@ const InfoEmployee = ({ profil }) => {
       <div className={styles.informations}>
         <p className="bold">Informations :</p>
         <p className="regular">
-          {profil.informations ?? "Aucune informations enregistrés"}
+          {profil.information ?? "Aucune informations enregistrés"}
         </p>
       </div>
     </>

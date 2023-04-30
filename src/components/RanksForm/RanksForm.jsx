@@ -52,7 +52,7 @@ const RanksForm = () => {
 
   useEffect(() => {
     /** @type {object} */
-    const rank = ranks.find((rank) => rank._id === rankId);
+    const rank = ranks.find((rank) => rank.id === rankId);
     if (rank) {
       setRank({
         name: rank.name,
@@ -172,10 +172,10 @@ const RanksForm = () => {
     const rankNameToLowerCase = rank.name.toLowerCase();
 
     if (rankId) {
-      const rankIndex = ranks.findIndex((rank) => rank._id === rankId);
+      const rankIndex = ranks.findIndex((rank) => rank.id === rankId);
       const newRanks = [...ranks];
       newRanks[rankIndex] = {
-        _id: rankId,
+        id: rankId,
         name: rankNameToLowerCase,
         label: firstLetterUpperCase(rank.label),
         permissions: permissionsArray,
@@ -189,7 +189,7 @@ const RanksForm = () => {
     }
 
     const newGrade = {
-      _id: uuidv4(),
+      id: uuidv4(),
       name: rankNameToLowerCase,
       label: firstLetterUpperCase(rank.label),
       permissions: permissionsArray,

@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import ShortEmployeeListHeader from "../ShortEmployeeListHeader/ShortEmployeeListHeader";
 import ShortEmployeeList from "../ShortEmployeeList/ShortEmployeeList";
 import ButtonSeeMore from "../ButtonSeeMore/ButtonSeeMore";
-import { useStickyState } from "../../utils/useStickyState";
+import { EmployeesContext } from "../../App";
 
 const ShortEmployeeListContainer = () => {
-  const [employees, setemployees] = useStickyState("employees", []);
+  const { employees } = useContext(EmployeesContext);
 
   return (
     <div className="shortEmployeeListContainer">

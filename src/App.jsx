@@ -9,12 +9,10 @@ import Improvements from "./pages/Improvements/Improvements";
 import Activities from "./pages/Activities/Activities";
 import ErrorPath from "./components/ErrorPath/ErrorPath";
 
-import employees from "../fakeData.json";
-
 import { fetchData } from "./utils/fetchData";
 
 export const EmployeesContext = createContext({
-  employees: employees,
+  employees: [{}],
   setEmployees: (_array) => {},
 });
 
@@ -23,41 +21,67 @@ export const RanksContext = createContext({
   setRanks: (_array) => {},
 });
 
+export const dataDashboardContext = createContext({
+  dataDashboard: {},
+  setDataDashboard: (_object) => {},
+});
+
 function App() {
   /** @type {array} */
   const [ranks, setRanks] = useState([]);
   const [employees, setEmployees] = useState([]);
+  const [dataDashboard, setDataDashboard] = useState({
+    employeesData: [],
+    oldEmployeesData: 2,
+    stockData: 1000,
+    oldStockData: 10,
+    fortuneData: 60,
+    oldFortuneData: 180,
+    carData: 18,
+  });
 
   useEffect(() => {
-    // if (localStorage.getItem("ranks")) {
-    setRanks(JSON.parse(localStorage.getItem("ranks") || "[]"));
-    //   return;
-    // }
+    if (localStorage.getItem("ranks")) {
+      setRanks(JSON.parse(localStorage.getItem("ranks") || "[]"));
+    } else {
+      fetchData("/fakeRanks.json").then((data) => {
+        localStorage.setItem("ranks", JSON.stringify(data));
+        setRanks(data);
+      });
+    }
 
-    fetchData("/fakeData.json").then((data) => {
-      setEmployees(data);
-    });
+    if (localStorage.getItem("employees")) {
+      setEmployees(JSON.parse(localStorage.getItem("employees") || "[]"));
+    } else {
+      fetchData("/fakeEmployees.json").then((data) => {
+        localStorage.setItem("employees", JSON.stringify(data));
+        setEmployees(data);
+      });
+    }
   }, []);
   return (
     <div className="app">
-      <RanksContext.Provider value={{ ranks, setRanks }}>
-        <BrowserRouter>
-          <Sidebar />
-          <Routes>
-            <Route path="/" element={<Home employees={employees} />} />
-            <Route
-              path="/employees/*"
-              element={<Employees employees={employees} />}
-            />
-            <Route path="/ranks/*" element={<Ranks />} />
-            <Route path="/finance" element={<Finance />} />
-            <Route path="/finance" element={<Finance />} />
-            <Route path="/improvements" element={<Improvements />} />
-            <Route path="/activities" element={<Activities />} />
-            <Route path="*" element={<ErrorPath />} />
-          </Routes>
-        </BrowserRouter>
-      </RanksContext.Provider>
+      <dataDashboardContext.Provider
+        value={{ dataDashboard, setDataDashboard }}
+      >
+        <EmployeesContext.Provider value={{ employees, setEmployees }}>
+          <RanksContext.Provider value={{ ranks, setRanks }}>
+            <BrowserRouter>
+              <Sidebar />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/employees/*" element={<Employees />} />
+                <Route path="/ranks/*" element={<Ranks />} />
+                <Route path="/finance" element={<Finance />} />
+                {/* <Route path="/finance" element={<Finance />} /> */}
+                <Route path="/improvements" element={<Improvements />} />
+                <Route path="/activities" element={<Activities />} />
+                <Route path="*" element={<ErrorPath />} />
+              </Routes>
+            </BrowserRouter>
+          </RanksContext.Provider>
+        </EmployeesContext.Provider>
+      </dataDashboardContext.Provider>
     </div>
   );
 }
