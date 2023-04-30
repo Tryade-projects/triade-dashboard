@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import gear from "../../../assets/gear.svg";
 import trending from "../../../assets/trending.svg";
 import decrease from "../../../assets/decrease.svg";
@@ -16,6 +16,7 @@ import {
 } from "../../../utils/arrayManager";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
+import { EmployeesContext } from "../../../App";
 
 const customStyles = {
   content: {
@@ -47,6 +48,8 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
     label: "",
     color: "",
   });
+
+  const { setEmployees } = useContext(EmployeesContext);
 
   const openModal = () => {
     setIsOpen(true);
@@ -94,6 +97,9 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
                   "rank",
                   currentRank.label,
                   { rank: nextRank.label, color: nextRank.color },
+                );
+                setEmployees(
+                  JSON.parse(localStorage.getItem("employees") || "[]"),
                 );
                 closeModal();
               }}

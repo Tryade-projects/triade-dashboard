@@ -84,8 +84,7 @@ const findNextElm = (elm, category) => {
  * @param {string} keyAtChecked - the key that was checked
  * @param {string} valueDeleted - the value that was deleted
  * @param {object} keysWithValue - the object that contains the keys and the values to be updated
- * 
-
+ *
  * @returns {void} - Modify the local storage
  */
 const modifyArrayInLocalStorage = (
