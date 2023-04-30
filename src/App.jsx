@@ -73,7 +73,6 @@ function App() {
                 <Route path="/employees/*" element={<Employees />} />
                 <Route path="/ranks/*" element={<Ranks />} />
                 <Route path="/finance" element={<Finance />} />
-                {/* <Route path="/finance" element={<Finance />} /> */}
                 <Route path="/improvements" element={<Improvements />} />
                 <Route path="/activities" element={<Activities />} />
                 <Route path="*" element={<ErrorPath />} />

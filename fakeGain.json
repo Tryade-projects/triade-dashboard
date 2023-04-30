@@ -1,27 +1,62 @@
 [
     {
         "id": 1,
-        "idEmployee": "44569af4-465b-47eb-afcb-b4ab5898e9a5",
+        "employee": {
+            "id": "44569af4-465b-47eb-afcb-b4ab5898e9a5",
+            "image": "./src/assets/fake-avatar.svg",
+            "firstName": "Samanta",
+            "lastName": "William",
+            "color": "#FB7D5B",
+            "rank": "Capitaine"
+        },
         "gain": 25
     },
     {
         "id": 2,
-        "idEmployee": "44569af4-465b-47eb-afcb-b4ab5898e9a6",
+        "employee": {
+            "id": "44569af4-465b-47eb-afcb-b4ab5898e9a6",
+            "image": "./src/assets/fake-avatar.svg",
+            "firstName": "Tony",
+            "lastName": "Soap",
+            "color": "#FCC43E",
+            "rank": "Recrue"
+        },
         "gain": 899
     },
     {
         "id": 3,
-        "idEmployee": "44569af4-465b-47eb-afcb-b4ab5898e9a7",
+        "employee": {
+            "id": "44569af4-465b-47eb-afcb-b4ab5898e9a7",
+            "image": "./src/assets/fake-avatar.svg",
+            "firstName": "Karen",
+            "lastName": "Hope",
+            "color": "#4CBC9A",
+            "rank": "Commandant"
+        },
         "gain": 1600
     },
     {
         "id": 4,
-        "idEmployee": "44569af4-465b-47eb-afcb-b4ab5898e9a8",
+        "employee": {
+            "id": "44569af4-465b-47eb-afcb-b4ab5898e9a8",
+            "image": "./src/assets/fake-avatar.svg",
+            "firstName": "Jordan",
+            "lastName": "Nico",
+            "color": "#FCC43E",
+            "rank": "Recrue"
+        },
         "gain": 50
     },
     {
         "id": 5,
-        "idEmployee": "44569af4-465b-47eb-afcb-b4ab5898e9a9",
+        "employee": {
+            "id": "44569af4-465b-47eb-afcb-b4ab5898e9a9",
+            "image": "./src/assets/fake-avatar.svg",
+            "firstName": "Nabila",
+            "lastName": "Adja",
+            "color": "#FCC43E",
+            "rank": "Recrue"
+        },
         "gain": 159
     }
 ]
