@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import gear from "../../../assets/gear.svg";
 import trending from "../../../assets/trending.svg";
 import decrease from "../../../assets/decrease.svg";
@@ -10,12 +10,13 @@ import ButtonForm from "../../ButtonForm/ButtonForm";
 import {
   increaseElm,
   decreaseElm,
-  deleteElm,
+  deleteElmOnLocalStorage,
   findNextElm,
   modifyArrayInLocalStorage,
 } from "../../../utils/arrayManager";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
+import { EmployeesContext } from "../../../App";
 
 const customStyles = {
   content: {
@@ -37,15 +38,18 @@ const customStyles = {
 ReactModal.setAppElement("#root");
 
 const BodyTableRanks = ({ currentRanks, setRanks }) => {
+  const navigate = useNavigate();
   const [modalIsOpen, setIsOpen] = useState(false);
   const [currentRank, setCurrentRank] = useState({
     label: "",
-    _id: "",
+    id: "",
   });
   const [nextRank, setNextRank] = useState({
     label: "",
     color: "",
   });
+
+  const { setEmployees } = useContext(EmployeesContext);
 
   const openModal = () => {
     setIsOpen(true);
@@ -87,12 +91,15 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
             <ButtonForm
               type="button"
               onClick={() => {
-                setRanks(deleteElm(currentRank, "ranks"));
+                setRanks(deleteElmOnLocalStorage(currentRank, "ranks"));
                 modifyArrayInLocalStorage(
                   "employees",
                   "rank",
                   currentRank.label,
                   { rank: nextRank.label, color: nextRank.color },
+                );
+                setEmployees(
+                  JSON.parse(localStorage.getItem("employees") || "[]"),
                 );
                 closeModal();
               }}
@@ -103,7 +110,7 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
         </div>
       </ReactModal>
       {currentRanks.map((rank) => (
-        <tr key={rank._id}>
+        <tr key={rank.id}>
           <td className="thNameGrade">
             <Label backgroundColor={rank.color} text={rank.label} />
           </td>
@@ -141,15 +148,16 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
             </div>
           </td>
           <td className="tdMore">
-            <Link to={`/ranks/rank/${rank._id}`}>
-              <div>
-                <ButtonActions
-                  icon={gear}
-                  alt={"Bouton pour voir les détails du grade"}
-                  title={"Détails"}
-                />
-              </div>
-            </Link>
+            <div>
+              <ButtonActions
+                icon={gear}
+                alt={"Bouton pour voir les détails du grade"}
+                title={"Détails"}
+                onClick={() => {
+                  navigate(`/ranks/rank/${rank.id}`);
+                }}
+              />
+            </div>
           </td>
         </tr>
       ))}

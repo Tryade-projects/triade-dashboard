@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { usePagination, useIndexRange } from "../../utils/usePagination";
 import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 import FormatIcon from "../FormatIcon/FormatIcon";
-import { useStickyState } from "../../utils/useStickyState";
 import user from "../../assets/User.svg";
+import { EmployeesContext } from "../../App";
 
 const INFO_PER_PAGE = 5;
 
@@ -13,10 +13,8 @@ const INFO_PER_PAGE = 5;
  * @param {array} props.list - Les données de gain déclarées par les employés
  * @returns {JSX.Element} - Le composant du tableau de gains
  */
-
 const TableGain = ({ list }) => {
-  const [rows, setRows] = useState([]);
-  const [employees, setEmployees] = useStickyState("employees", []);
+  const { employees, setEmployees } = useContext(EmployeesContext);
 
   const _DATA = usePagination(list, INFO_PER_PAGE);
   useEffect(() => {
@@ -28,25 +26,24 @@ const TableGain = ({ list }) => {
     if (list && list.length > 0 && employees.length > 0) {
       return list.map((obj) => {
         const employee = employees.find((employee) => {
-          
           return employee.id === obj.idEmployee;
         });
         return (
           <tr key={obj.id}>
             <td>
-              <img alt="" src={employee ? employee.avatar : user} className="avatar" />
+              <img alt="" src={employee?.image} className="avatar" />
             </td>
             <td>
-              <FormatIcon background={employee.colorRank} image={user} />
+              <FormatIcon background={employee?.colorRank} image={user} />
             </td>
             <td className="tableGainName">
-              {employee.firstName} {employee.lastName}
+              {employee?.firstName} {employee?.lastName}
             </td>
             <td className="tableGainRank">
-              <FormatIcon image={user} background={employee.colorRank} />
+              <FormatIcon image={user} background={employee?.color} />
               <div>
                 <p>Grade</p>
-                <p>{employee.rank}</p>
+                <p>{employee?.rank}</p>
               </div>
             </td>
             <td className="tableGainGain">$ {obj.gain}</td>
@@ -66,8 +63,8 @@ const TableGain = ({ list }) => {
       <table className="tableGain">
         <tbody>{displayRows(_DATA.currentData())}</tbody>
       </table>
-        {/* Utilisation du composant PaginationEmployee */}
-        <PaginationEmployee data={_DATA} list={list} type="gain" />
+      {/* Utilisation du composant PaginationEmployee */}
+      <PaginationEmployee data={_DATA} list={list} type="gain" />
     </div>
   );
 };

@@ -1,12 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import RoundButtonAdd from '../RoundButtonAdd/RoundButtonAdd'
-import { fetchData } from '../../utils/fetchData'
+import React, { useState, useEffect } from "react";
+import RoundButtonAdd from "../RoundButtonAdd/RoundButtonAdd";
 
-
-
-const ShortEmployeeListHeader = ({employees}) => {
-
-
+const ShortEmployeeListHeader = ({ employees }) => {
   return (
     <div className="ShortEmployeeListHeader">
       <div>
@@ -17,7 +12,7 @@ const ShortEmployeeListHeader = ({employees}) => {
         <RoundButtonAdd />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ShortEmployeeListHeader
+export default ShortEmployeeListHeader;

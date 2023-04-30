@@ -1,0 +1,77 @@
+[
+  {
+    "id": "29ed632d-e3be-4083-be90-cfafdbd2e6c1",
+    "permissions": [
+      "Recrutement",
+      "Finances",
+      "Coffres",
+      "Vestiaires",
+      "Garage",
+      "Armurerie"
+    ],
+    "salary": "250",
+    "color": "#FB7D5B",
+    "name": "capitaine",
+    "label": "Capitaine"
+  },
+  {
+    "id": "72e2d369-70e3-4e1a-b83d-1394adbdb31a",
+    "permissions": [
+      "Recrutement",
+      "Finances",
+      "Coffres",
+      "Vestiaires",
+      "Garage",
+      "Armurerie"
+    ],
+    "salary": "25",
+    "color": "#FCC43E",
+    "name": "recrue",
+    "label": "Recrue"
+  },
+  {
+    "id": "9828c145-5908-4d22-95f4-b4760cd4c055",
+    "permissions": [
+      "Recrutement",
+      "Finances",
+      "Coffres",
+      "Vestiaires",
+      "Garage",
+      "Armurerie"
+    ],
+    "salary": "250",
+    "color": "#4CBC9A",
+    "name": "commandant",
+    "label": "Commandant"
+  },
+  {
+    "id": "8e76c1e6-0313-4a7b-8f1a-8af88dff1a20",
+    "permissions": [
+      "Recrutement",
+      "Finances",
+      "Coffres",
+      "Vestiaires",
+      "Garage",
+      "Armurerie"
+    ],
+    "salary": "25",
+    "color": "#FCC43E",
+    "name": "agent",
+    "label": "Agent"
+  },
+  {
+    "id": "81973c84-c22b-4a4e-a466-21788cd12b34",
+    "permissions": [
+      "Recrutement",
+      "Finances",
+      "Coffres",
+      "Vestiaires",
+      "Garage",
+      "Armurerie"
+    ],
+    "salary": "25",
+    "color": "#FCC43E",
+    "name": "visiteurs",
+    "label": "Visiteurs"
+  }
+]
