@@ -10,7 +10,7 @@ import ButtonForm from "../../ButtonForm/ButtonForm";
 import {
   increaseElm,
   decreaseElm,
-  deleteElm,
+  deleteElmOnLocalStorage,
   findNextElm,
   modifyArrayInLocalStorage,
 } from "../../../utils/arrayManager";
@@ -88,7 +88,7 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
             <ButtonForm
               type="button"
               onClick={() => {
-                setRanks(deleteElm(currentRank, "ranks"));
+                setRanks(deleteElmOnLocalStorage(currentRank, "ranks"));
                 modifyArrayInLocalStorage(
                   "employees",
                   "rank",

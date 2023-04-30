@@ -7,6 +7,7 @@ import trending from "../../../assets/trending.svg";
 import decrease from "../../../assets/decrease.svg";
 import fired from "../../../assets/fired.svg";
 import avatar from "../../../assets/fake-avatar.svg";
+import { deleteElmOnLocalStorage } from "../../../utils/arrayManager";
 
 const BodyTable = ({ profils, setEmployees }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -26,6 +27,7 @@ const BodyTable = ({ profils, setEmployees }) => {
   };
 
   const handleFired = () => {
+    deleteElmOnLocalStorage(firedProfil, "employees");
     setEmployees((profil) => {
       const fired = profil.filter((fired) => fired.id !== firedProfil.id);
       return fired;

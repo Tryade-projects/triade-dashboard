@@ -53,7 +53,7 @@ const decreaseElm = (elm, category) => {
  * @param {string} category - The category of the data to be deleted on the storage
  * @returns {array} The updated data.
  */
-const deleteElm = (elm, category) => {
+const deleteElmOnLocalStorage = (elm, category) => {
   // Récupérer les données actuelles de localStorage
   const currentData = JSON.parse(localStorage.getItem(category) || "[]");
 
@@ -118,7 +118,7 @@ const modifyArrayInLocalStorage = (
 export {
   increaseElm,
   decreaseElm,
-  deleteElm,
+  deleteElmOnLocalStorage,
   findNextElm,
   modifyArrayInLocalStorage,
 };
