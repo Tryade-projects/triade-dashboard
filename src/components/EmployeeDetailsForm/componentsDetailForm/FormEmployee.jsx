@@ -28,7 +28,9 @@ const FormEmployee = () => {
   } = useForm();
 
   const [ranksLocalStorage, setRanksLocalStorage] = useStickyState("ranks", []);
-  const [displayRank, setDisplayRank] = useState(ranksLocalStorage[0]?.label);
+  const [displayRank, setDisplayRank] = useState(
+    state ? state.rank : ranksLocalStorage[ranksLocalStorage.length - 1]?.label,
+  );
   const [colorRank, setColorRank] = useState("");
 
   const [displayDropdown, setDisplayDropdown] = useState(false);
