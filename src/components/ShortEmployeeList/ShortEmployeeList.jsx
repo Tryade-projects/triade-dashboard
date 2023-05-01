@@ -12,7 +12,7 @@ const ShortEmployeeList = ({ employees }) => {
       {employees.map((employee) => (
         <div key={employee.id}>
           <div>
-            <img src={employee.image} alt="" />
+            <img src={employee.image} alt="Employee avatar" />
           </div>
           <div>
             <p>
