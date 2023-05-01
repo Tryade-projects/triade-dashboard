@@ -1,7 +1,7 @@
 [
   {
     "id": "44569af4-465b-47eb-afcb-b4ab5898e9a5",
-    "image": "./src/assets/fake-avatar.svg",
+    "image": "/src/assets/fake-avatar.svg",
     "firstName": "Samanta",
     "lastName": "William",
     "employee_at": "25/03/2021",
@@ -16,7 +16,7 @@
   },
   {
     "id": "44569af4-465b-47eb-afcb-b4ab5898e9a6",
-    "image": "./src/assets/fake-avatar.svg",
+    "image": "/src/assets/fake-avatar.svg",
     "firstName": "Tony",
     "lastName": "Soap",
     "employee_at": "25/03/2021",
@@ -31,7 +31,7 @@
   },
   {
     "id": "44569af4-465b-47eb-afcb-b4ab5898e9a7",
-    "image": "./src/assets/fake-avatar.svg",
+    "image": "/src/assets/fake-avatar.svg",
     "firstName": "Karen",
     "lastName": "Hope",
     "employee_at": "25/03/2021",
@@ -46,7 +46,7 @@
   },
   {
     "id": "44569af4-465b-47eb-afcb-b4ab5898e9a8",
-    "image": "./src/assets/fake-avatar.svg",
+    "image": "/src/assets/fake-avatar.svg",
     "firstName": "Jordan",
     "lastName": "Nico",
     "employee_at": "25/03/2021",
@@ -61,7 +61,7 @@
   },
   {
     "id": "44569af4-465b-47eb-afcb-b4ab5898e9a9",
-    "image": "./src/assets/fake-avatar.svg",
+    "image": "/src/assets/fake-avatar.svg",
     "firstName": "Nabila",
     "lastName": "Adja",
     "employee_at": "25/03/2021",
