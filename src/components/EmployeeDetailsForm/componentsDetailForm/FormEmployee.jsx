@@ -40,6 +40,7 @@ const FormEmployee = () => {
   const handleRanks = (rank) => {
     setDisplayRank(rank.label);
     setColorRank(rank.color);
+    handleDisplayRanks();
   };
 
   const errorMessage = "Champs requis";
