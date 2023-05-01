@@ -28,10 +28,10 @@ const FormEmployee = () => {
   } = useForm();
 
   const [ranksLocalStorage, setRanksLocalStorage] = useStickyState("ranks", []);
-  const [displayRank, setDisplayRank] = useState("Recrue");
+  const [displayRank, setDisplayRank] = useState(ranksLocalStorage[0]?.label);
   const [colorRank, setColorRank] = useState("");
 
-  const [diplayDropdown, setDisplayDropdown] = useState(false);
+  const [displayDropdown, setDisplayDropdown] = useState(false);
 
   const handleDisplayRanks = () => {
     setDisplayDropdown((current) => !current);
@@ -213,14 +213,18 @@ const FormEmployee = () => {
         styleErrors={styles.errors}
       />
       <div>
-        <LabelForm className={"semiBold"} label={"Grades *"} />
+        <LabelForm
+          className={"semiBold"}
+          label={"Grades *"}
+          htmlFor={"ranks"}
+        />
         <div className={styles.select} onClick={handleDisplayRanks}>
-          <input value={displayRank} readOnly />
+          <input value={displayRank} readOnly id="ranks" />
           <div className={styles.triangle}></div>
         </div>
         <ul
           className={
-            diplayDropdown
+            displayDropdown
               ? `${styles.active} ${styles.options}`
               : styles.options
           }
