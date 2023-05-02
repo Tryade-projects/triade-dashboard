@@ -1,10 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Checkbox from "../Checkbox/Checkbox";
-import { RanksContext } from "../../App";
+import { RanksContext, EmployeesContext } from "../../App";
 import ButtonForm from "../ButtonForm/ButtonForm";
 import { v4 as uuidv4 } from "uuid";
 import { firstLetterUpperCase } from "../../utils/stringManager";
+import { settingsRankAndColorOfEmployees } from "../../utils/arrayManager";
 
 const permissionLabels = {
   finance: "Finances",
@@ -49,6 +50,7 @@ const RanksForm = () => {
   const { rankId } = useParams();
 
   const { ranks, setRanks } = useContext(RanksContext);
+  const { employees, setEmployees } = useContext(EmployeesContext);
 
   useEffect(() => {
     /** @type {object} */
@@ -145,19 +147,20 @@ const RanksForm = () => {
   const onSubmit = (event) => {
     event.preventDefault();
 
+    const rankIndex = ranks.findIndex((rank) => rank.id === rankId);
+    const newRanks = [...ranks];
+
+    const oldLabel = ranks[rankIndex].label;
+
     const verifIfOnePermissionIsChecked = Object.values(rank.permissions).some(
       (value) => value,
     );
 
     const errorsInput = {
       name: rank.name.length === 0,
-      nameAlreadyExist: ranks.some(
-        (elm) => elm.name.toLowerCase() === rank.name.toLowerCase(),
-      ),
+      nameAlreadyExist: checkIfPropsAlreadyExist("name"),
       label: rank.label.length === 0,
-      labelAlreadyExist: ranks.some(
-        (elm) => elm.label.toLowerCase() === rank.label.toLowerCase(),
-      ),
+      labelAlreadyExist: checkIfPropsAlreadyExist("label"),
       salary: rank.salary.length === 0,
       permissions: !verifIfOnePermissionIsChecked,
     };
@@ -172,8 +175,6 @@ const RanksForm = () => {
     const rankNameToLowerCase = rank.name.toLowerCase();
 
     if (rankId) {
-      const rankIndex = ranks.findIndex((rank) => rank.id === rankId);
-      const newRanks = [...ranks];
       newRanks[rankIndex] = {
         id: rankId,
         name: rankNameToLowerCase,
@@ -184,6 +185,13 @@ const RanksForm = () => {
       };
       localStorage.setItem("ranks", JSON.stringify(newRanks));
       setRanks(newRanks);
+      localStorage.setItem(
+        "employees",
+        JSON.stringify(
+          settingsRankAndColorOfEmployees(employees, oldLabel, rank),
+        ),
+      );
+      setEmployees(settingsRankAndColorOfEmployees(employees, oldLabel, rank));
       navigate("/ranks");
       return;
     }
@@ -199,6 +207,20 @@ const RanksForm = () => {
     localStorage.setItem("ranks", JSON.stringify([...ranks, newGrade]));
     setRanks([...ranks, newGrade]);
     navigate("/ranks");
+
+    function checkIfPropsAlreadyExist(propsAtChecked) {
+      return rankId
+        ? ranks.some(
+            (elm) =>
+              elm[propsAtChecked].toLowerCase() ===
+                rank[propsAtChecked].toLowerCase() && elm.id !== rankId,
+          )
+        : ranks.some(
+            (elm) =>
+              elm[propsAtChecked].toLowerCase() ===
+              rank[propsAtChecked].toLowerCase(),
+          );
+    }
   };
 
   const onCancel = (event) => {

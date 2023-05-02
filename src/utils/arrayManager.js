@@ -1,3 +1,5 @@
+import { firstLetterUpperCase } from "./stringManager";
+
 /**
  * It takes an element and a category, finds the element in the category, and swaps it with the element above it
  * @param   {object}  elm - The element to increase
@@ -114,10 +116,31 @@ const modifyArrayInLocalStorage = (
   localStorage.setItem(keyOfLocalStorage, JSON.stringify(updatedData));
 };
 
+/**
+ * This function updates the rank and color of employees based on their old rank label.
+ * @param   {Array}  employees  - The array of employees
+ * @param   {string}  oldLabel   - The old label of the rank
+ * @param   {object}  rank    - The new rank
+ * @return  {Array}     - The updated array of employees
+ */
+function settingsRankAndColorOfEmployees(employees, oldLabel, rank) {
+  return employees.map((employee) => {
+    if (employee.rank === oldLabel) {
+      return {
+        ...employee,
+        rank: firstLetterUpperCase(rank.label),
+        color: rank.color,
+      };
+    }
+    return employee;
+  });
+}
+
 export {
   increaseElm,
   decreaseElm,
   deleteElmOnLocalStorage,
   findNextElm,
   modifyArrayInLocalStorage,
+  settingsRankAndColorOfEmployees,
 };
