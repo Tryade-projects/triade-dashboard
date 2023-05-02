@@ -21,8 +21,10 @@ const ShortEmployeeList = ({ employees }) => {
             <p>{employee.rank}</p>
           </div>
           <div>
-            {/*  A compléter */}
-            <Link to={"{employee.id}"}>
+            <Link
+              to={`/employees/employee/detail/${employee.id}`}
+              state={employee}
+            >
               <RoundButtonEmployee />
             </Link>
           </div>
