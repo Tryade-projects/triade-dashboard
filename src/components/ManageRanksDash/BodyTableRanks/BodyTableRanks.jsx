@@ -14,8 +14,7 @@ import {
   findNextElm,
   modifyArrayInLocalStorage,
 } from "../../../utils/arrayManager";
-import { Link, useNavigate } from "react-router-dom";
-import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import { EmployeesContext } from "../../../App";
 
 const customStyles = {
