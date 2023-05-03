@@ -148,9 +148,14 @@ const RanksForm = () => {
     event.preventDefault();
 
     const rankIndex = ranks.findIndex((rank) => rank.id === rankId);
+    console.log({ rankIndex });
     const newRanks = [...ranks];
 
-    const oldLabel = ranks[rankIndex].label;
+    let oldLabel = "";
+
+    if (rankIndex > -1) {
+      oldLabel = ranks[rankIndex].label;
+    }
 
     const verifIfOnePermissionIsChecked = Object.values(rank.permissions).some(
       (value) => value,
