@@ -9,7 +9,7 @@ import LabelForm from "./LabelForm";
 import InputForm from "./InputForm";
 import { v4 as uuidv4 } from "uuid";
 import { firstLetterUpperCase } from "../../../utils/stringManager";
-import { EmployeesContext } from "../../../contexts/DataContext";
+import DataContext from "../../../contexts/DataContext";
 
 const NAME_KEY = "employees";
 
@@ -19,7 +19,7 @@ const FormEmployee = () => {
 
   const profilId = state || [];
 
-  const { employees, setEmployees } = useContext(EmployeesContext);
+  const { employees, setEmployees } = useContext(DataContext);
 
   const {
     register,

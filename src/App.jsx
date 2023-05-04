@@ -8,17 +8,12 @@ import Finance from "./pages/Finance/Finance";
 import Improvements from "./pages/Improvements/Improvements";
 import Activities from "./pages/Activities/Activities";
 import ErrorPath from "./components/ErrorPath/ErrorPath";
-import {
-  CONSTANTSContext,
-  EmployeesContext,
-  RanksContext,
-  DataDashboardContext,
-} from "./contexts/DataContext";
+import DataContext from "./contexts/DataContext";
 
 import { fetchData } from "./utils/fetchData";
 
 function App() {
-  const CONSTANTS = {
+  const constants = {
     BEST_RANK: "boss",
     WORST_RANK: "recrue",
   };
@@ -57,28 +52,30 @@ function App() {
   }, []);
   return (
     <div className="app">
-      <CONSTANTSContext.Provider value={{ CONSTANTS }}>
-        <DataDashboardContext.Provider
-          value={{ dataDashboard, setDataDashboard }}
-        >
-          <EmployeesContext.Provider value={{ employees, setEmployees }}>
-            <RanksContext.Provider value={{ ranks, setRanks }}>
-              <BrowserRouter>
-                <Sidebar />
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/employees/*" element={<Employees />} />
-                  <Route path="/ranks/*" element={<Ranks />} />
-                  <Route path="/finance" element={<Finance />} />
-                  <Route path="/improvements" element={<Improvements />} />
-                  <Route path="/activities" element={<Activities />} />
-                  <Route path="*" element={<ErrorPath />} />
-                </Routes>
-              </BrowserRouter>
-            </RanksContext.Provider>
-          </EmployeesContext.Provider>
-        </DataDashboardContext.Provider>
-      </CONSTANTSContext.Provider>
+      <DataContext.Provider
+        value={{
+          constants,
+          ranks,
+          setRanks,
+          employees,
+          setEmployees,
+          dataDashboard,
+          setDataDashboard,
+        }}
+      >
+        <BrowserRouter>
+          <Sidebar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/employees/*" element={<Employees />} />
+            <Route path="/ranks/*" element={<Ranks />} />
+            <Route path="/finance" element={<Finance />} />
+            <Route path="/improvements" element={<Improvements />} />
+            <Route path="/activities" element={<Activities />} />
+            <Route path="*" element={<ErrorPath />} />
+          </Routes>
+        </BrowserRouter>
+      </DataContext.Provider>
     </div>
   );
 }

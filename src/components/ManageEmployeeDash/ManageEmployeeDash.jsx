@@ -4,13 +4,13 @@ import { usePagination } from "../../utils/usePagination";
 import HeaderTable from "./componentsEmployee/HeaderTable";
 import filteredData from "../../utils/filteredData";
 // import { useStickyState } from "../../utils/useStickyState";
-import { EmployeesContext } from "../../contexts/DataContext";
+import DataContext from "../../contexts/DataContext";
 import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 
 const INFO_PER_PAGE = 5;
 
 const ManageEmployeeDash = ({ search }) => {
-  const { employees, setEmployees } = useContext(EmployeesContext);
+  const { employees, setEmployees } = useContext(DataContext);
   const displayProfilFiltered = filteredData(employees, search, [
     "firstName",
     "rank",

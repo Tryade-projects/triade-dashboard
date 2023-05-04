@@ -4,14 +4,10 @@ import finance from "../../../src/assets/finance.svg";
 import stock from "../../../src/assets/stock.svg";
 import Car from "../../../src/assets/Car.svg";
 import teacher from "../../../src/assets/studentWhite.svg";
-import {
-  EmployeesContext,
-  DataDashboardContext,
-} from "../../contexts/DataContext";
+import DataContext from "../../contexts/DataContext";
 
 const DashboardInfos = () => {
-  const { dataDashboard } = useContext(DataDashboardContext);
-  const { employees } = useContext(EmployeesContext);
+  const { dataDashboard, employees } = useContext(DataContext);
 
   return (
     <section className="dashboardInfos">

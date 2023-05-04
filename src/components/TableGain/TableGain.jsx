@@ -3,7 +3,7 @@ import { usePagination, useIndexRange } from "../../utils/usePagination";
 import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 import FormatIcon from "../FormatIcon/FormatIcon";
 import user from "../../assets/User.svg";
-// import { EmployeesContext } from "../../contexts/DataContext";
+// import DataContext from "../../contexts/DataContext";
 
 const INFO_PER_PAGE = 5;
 
@@ -14,7 +14,7 @@ const INFO_PER_PAGE = 5;
  * @returns {JSX.Element} - Le composant du tableau de gains
  */
 const TableGain = ({ list }) => {
-  // const { employees, setEmployees } = useContext(EmployeesContext);
+  // const { employees, setEmployees } = useContext(DataContext);
 
   const _DATA = usePagination(list, INFO_PER_PAGE);
   useEffect(() => {

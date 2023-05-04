@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Checkbox from "../Checkbox/Checkbox";
-import { RanksContext, EmployeesContext } from "../../contexts/DataContext";
+import DataContext from "../../contexts/DataContext";
 import ButtonForm from "../ButtonForm/ButtonForm";
 import { v4 as uuidv4 } from "uuid";
 import { firstLetterUpperCase } from "../../utils/stringManager";
@@ -49,8 +49,7 @@ const RanksForm = () => {
 
   const { rankId } = useParams();
 
-  const { ranks, setRanks } = useContext(RanksContext);
-  const { employees, setEmployees } = useContext(EmployeesContext);
+  const { ranks, setRanks, employees, setEmployees } = useContext(DataContext);
 
   useEffect(() => {
     /** @type {object} */
