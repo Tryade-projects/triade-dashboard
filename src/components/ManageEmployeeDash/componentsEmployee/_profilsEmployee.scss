@@ -20,11 +20,16 @@
 
 .tdGrade {
   p {
-    display: inline;
-    padding: 9px 24px;
+    display: flex;
+    height: 4.086vh;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 0 24px;
     border-radius: 40px;
     color: $colorWhite;
-    background: #fcc43e;
+    // no wrap
+    white-space: nowrap;
   }
 }
 
