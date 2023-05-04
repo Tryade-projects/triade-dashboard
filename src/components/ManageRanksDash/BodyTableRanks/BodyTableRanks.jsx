@@ -36,7 +36,15 @@ const customStyles = {
 
 ReactModal.setAppElement("#root");
 
-const BodyTableRanks = ({ currentRanks, setRanks }) => {
+/**
+ *
+ * @param {object} props
+ * @param {object} props.currentRanks - current ranks
+ * @param {function} props.setRanks - set ranks
+ * @param {array} props.ranks - all ranks
+ * @returns {JSX.Element}
+ */
+const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
   const navigate = useNavigate();
   const [modalIsOpen, setIsOpen] = useState(false);
   const [currentRank, setCurrentRank] = useState({
@@ -57,6 +65,35 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
   const closeModal = () => {
     setIsOpen(false);
   };
+  const unchangeableGradesBoolean = (rank) =>
+    ["boss", "recrue"].includes(rank.name);
+  const unincreaseRanks = (rank, ranks) => ranks.indexOf(rank) === 1;
+  const undecreaseRanks = (rank, ranks) =>
+    ranks.indexOf(rank) === ranks.length - 2;
+
+  /**
+   *
+   * @param {object} rank - rank object
+   * @param {string} action - action to do
+   * @param {array} ranks - all ranks
+   * @returns {import("react").MouseEventHandler<HTMLButtonElement>|undefined}
+   */
+  function actionClick(rank, action, ranks) {
+    if (unchangeableGradesBoolean(rank)) return undefined;
+    if (action === "decrease" && !undecreaseRanks(rank, ranks)) {
+      return () => setRanks(decreaseElm(rank, "ranks"));
+    } else if (action === "increase" && !unincreaseRanks(rank, ranks)) {
+      return () => setRanks(increaseElm(rank, "ranks"));
+    } else if (action === "delete") {
+      return () => {
+        openModal();
+        setCurrentRank(rank);
+        setNextRank(findNextElm(rank, "ranks"));
+      };
+    } else if (action === "modify") {
+      navigate(`/ranks/rank/${rank.id}`);
+    }
+  }
 
   return (
     <tbody>
@@ -126,23 +163,28 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
                 icon={trending}
                 alt="Bouton pour augmenter la hiérarchie du grade"
                 title={"Augmenter"}
-                onClick={() => setRanks(increaseElm(rank, "ranks"))}
+                onClick={actionClick(rank, "increase", ranks)}
+                inactive={
+                  unchangeableGradesBoolean(rank) ||
+                  unincreaseRanks(rank, ranks)
+                }
               />
               <ButtonActions
                 icon={decrease}
                 alt="Bouton pour diminuer la hiérarchie du grade"
                 title={"Diminuer"}
-                onClick={() => setRanks(decreaseElm(rank, "ranks"))}
+                onClick={actionClick(rank, "decrease", ranks)}
+                inactive={
+                  unchangeableGradesBoolean(rank) ||
+                  undecreaseRanks(rank, ranks)
+                }
               />
               <ButtonActions
                 icon={deleteIcon}
                 alt="Bouton pour supprimer le grade"
                 title={"Supprimer"}
-                onClick={() => {
-                  openModal();
-                  setCurrentRank(rank);
-                  setNextRank(findNextElm(rank, "ranks"));
-                }}
+                onClick={actionClick(rank, "delete", ranks)}
+                inactive={unchangeableGradesBoolean(rank)}
               />
             </div>
           </td>
@@ -153,8 +195,9 @@ const BodyTableRanks = ({ currentRanks, setRanks }) => {
                 alt={"Bouton pour voir les détails du grade"}
                 title={"Détails"}
                 onClick={() => {
-                  navigate(`/ranks/rank/${rank.id}`);
+                  actionClick(rank, "modify", ranks);
                 }}
+                inactive={unchangeableGradesBoolean(rank)}
               />
             </div>
           </td>

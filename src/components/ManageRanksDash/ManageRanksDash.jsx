@@ -10,6 +10,7 @@ const INFO_PER_PAGE = 5;
 
 const ManageRanksDash = ({ search }) => {
   const { ranks, setRanks } = useContext(RanksContext);
+  console.log(ranks);
   const displayRanksFiltered = filteredData(ranks, search, [
     "name",
     "label",
@@ -28,6 +29,7 @@ const ManageRanksDash = ({ search }) => {
         <BodyTableRanks
           currentRanks={_DATA.currentData()}
           setRanks={setRanks}
+          ranks={ranks}
         />
       </table>
       <PaginationEmployee data={_DATA} list={ranks} type="grade" />

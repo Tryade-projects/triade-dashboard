@@ -7,8 +7,8 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  &:after{
-    content:attr(data-content);
+  &:after {
+    content: attr(data-content);
     min-width: 150px;
     width: auto;
     color: $colorWhite;
@@ -25,33 +25,37 @@
     border-radius: 10px;
     z-index: 99;
   }
-  &:before{
-    content:"";
+  &:before {
+    content: "";
     width: 10px;
     height: 20px;
     position: absolute;
     display: none;
-    top:calc(-80%);
-    width: 0; 
-    height: 0; 
+    top: calc(-80%);
+    width: 0;
+    height: 0;
     border-left: 2vw solid transparent;
     border-right: 2vw solid transparent;
     border-top: 35px solid $colorPurple;
-
   }
-  &:hover::after, &:hover::before{
+  &:hover::after,
+  &:hover::before {
     display: block;
   }
-  &:hover::after{
+  &:hover::after {
     display: flex;
   }
-  // .testtest{
-  //   background-color: red;
-  //   width: 200px;
-  //   height: 20PX;
-  //   position: absolute;
-  //   top: -100%;
-  //   z-index: 9999;
-  //   border-radius: 10px;
-  // }
+}
+
+.inactive {
+  img {
+    filter: opacity(0.2);
+  }
+  &:hover {
+    cursor: not-allowed;
+  }
+  &:hover::after,
+  &:hover::before {
+    display: none;
+  }
 }
