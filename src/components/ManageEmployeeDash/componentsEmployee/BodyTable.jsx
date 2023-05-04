@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ButtonActions from "../../ButtonActions/ButtonActions";
 import ModalActions from "../../ModalActions/ModalActions";
 import { Link } from "react-router-dom";
@@ -7,6 +7,12 @@ import trending from "../../../assets/trending.svg";
 import decrease from "../../../assets/decrease.svg";
 import fired from "../../../assets/fired.svg";
 import { deleteElmOnLocalStorage } from "../../../utils/arrayManager";
+import DataContext from "../../../contexts/DataContext";
+import {
+  unchangeableRanksBoolean,
+  unincreaseRanks,
+  undecreaseRanks,
+} from "../../../utils/unchangeableRanks";
 
 const BodyTable = ({ profils, setEmployees }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -15,6 +21,8 @@ const BodyTable = ({ profils, setEmployees }) => {
     firstName: "",
     lastName: "",
   });
+
+  const { BEST_RANK, WORST_RANK } = useContext(DataContext).constants;
 
   const handleOpenModal = (profil) => {
     setIsOpen(true);
@@ -32,6 +40,11 @@ const BodyTable = ({ profils, setEmployees }) => {
       return fired;
     });
     setIsOpen(false);
+  };
+
+  const promote = (profil) => {
+    if (unchangeableRanksBoolean(profil.rank, [BEST_RANK, WORST_RANK]))
+      return undefined;
   };
 
   return (
@@ -70,7 +83,7 @@ const BodyTable = ({ profils, setEmployees }) => {
                 icon={trending}
                 alt="Bouton pour promouvoir l'employé"
                 title="Promouvoir"
-                // onClick={profil.rank === "PDG"}
+                onClick={() => promote(profil)}
               />
 
               <ButtonActions
@@ -82,8 +95,8 @@ const BodyTable = ({ profils, setEmployees }) => {
               <ButtonActions
                 onClick={() => handleOpenModal(profil)}
                 icon={fired}
-                alt={"Bouton pour licensier l'employé"}
-                title={"Licencier"}
+                alt="Bouton pour licensier l'employé"
+                title="Licencier"
               />
             </div>
           </td>

@@ -16,6 +16,11 @@ import {
 } from "../../../utils/arrayManager";
 import { useNavigate } from "react-router-dom";
 import DataContext from "../../../contexts/DataContext";
+import {
+  unchangeableRanksBoolean,
+  unincreaseRanks,
+  undecreaseRanks,
+} from "../../../utils/unchangeableRanks";
 
 const customStyles = {
   content: {
@@ -66,11 +71,6 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
   const closeModal = () => {
     setIsOpen(false);
   };
-  const unchangeableGradesBoolean = (rank) =>
-    [BEST_RANK, WORST_RANK].includes(rank.name);
-  const unincreaseRanks = (rank, ranks) => ranks.indexOf(rank) === 1;
-  const undecreaseRanks = (rank, ranks) =>
-    ranks.indexOf(rank) === ranks.length - 2;
 
   /**
    *
@@ -80,7 +80,8 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
    * @returns {import("react").MouseEventHandler<HTMLButtonElement>|undefined}
    */
   function actionClick(rank, action, ranks) {
-    if (unchangeableGradesBoolean(rank)) return undefined;
+    if (unchangeableRanksBoolean(rank, [BEST_RANK, WORST_RANK]))
+      return undefined;
     if (action === "decrease" && !undecreaseRanks(rank, ranks)) {
       return () => setRanks(decreaseElm(rank, "ranks"));
     } else if (action === "increase" && !unincreaseRanks(rank, ranks)) {
@@ -166,7 +167,7 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
                 title={"Augmenter"}
                 onClick={actionClick(rank, "increase", ranks)}
                 inactive={
-                  unchangeableGradesBoolean(rank) ||
+                  unchangeableRanksBoolean(rank, [BEST_RANK, WORST_RANK]) ||
                   unincreaseRanks(rank, ranks)
                 }
               />
@@ -176,7 +177,7 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
                 title={"Diminuer"}
                 onClick={actionClick(rank, "decrease", ranks)}
                 inactive={
-                  unchangeableGradesBoolean(rank) ||
+                  unchangeableRanksBoolean(rank, [BEST_RANK, WORST_RANK]) ||
                   undecreaseRanks(rank, ranks)
                 }
               />
@@ -185,7 +186,10 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
                 alt="Bouton pour supprimer le grade"
                 title={"Supprimer"}
                 onClick={actionClick(rank, "delete", ranks)}
-                inactive={unchangeableGradesBoolean(rank)}
+                inactive={unchangeableRanksBoolean(rank, [
+                  BEST_RANK,
+                  WORST_RANK,
+                ])}
               />
             </div>
           </td>
@@ -198,7 +202,10 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
                 onClick={() => {
                   actionClick(rank, "modify", ranks);
                 }}
-                inactive={unchangeableGradesBoolean(rank)}
+                inactive={unchangeableRanksBoolean(rank, [
+                  BEST_RANK,
+                  WORST_RANK,
+                ])}
               />
             </div>
           </td>
