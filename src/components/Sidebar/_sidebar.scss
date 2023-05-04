@@ -15,7 +15,7 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: $titleSize;
+  font-size: 1.9vw;
   color: $colorWhite;
   gap: 1rem;
 }
@@ -26,9 +26,8 @@
   align-items: flex-end;
   justify-content: space-between;
   font-weight: 600;
-  font-size: $subTitleSize;
-  // gap: 8px;
   height: 69%;
+  color: red;
 }
 
 .sidebarLink {
@@ -39,6 +38,7 @@
   color: $colorGrey2;
   border-radius: 40px 0 0 40px;
   padding-left: 6.9%;
+  font-size: 0.94vw;
   gap: 6.9%;
 }
 
@@ -50,7 +50,7 @@
 
 .buttonClose {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 0.94vw;
   @include transitionOutHover;
   &:hover {
     color: $colorRed;
@@ -69,6 +69,6 @@
   justify-content: center;
   align-items: center;
   color: $colorWhite;
-  font-size: 14px;
+  font-size: 0.8vw;
   gap: 13px;
 }
