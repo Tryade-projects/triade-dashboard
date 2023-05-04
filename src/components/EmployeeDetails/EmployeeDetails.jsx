@@ -13,16 +13,16 @@ const EmployeeDetails = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.firstContainer}>
+      <section className={styles.firstContainer}>
         <Cover />
         <div className={styles.info}>
           <WrapperAvatarActions profil={profil} />
           <InfoEmployee profil={profil} />
         </div>
-      </div>
-      <div className={styles.showEmployee}>
+      </section>
+      <aside className={styles.showEmployee}>
         <ShortEmployeeListContainer />
-      </div>
+      </aside>
     </div>
   );
 };
