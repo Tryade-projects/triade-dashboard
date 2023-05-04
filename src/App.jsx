@@ -8,25 +8,21 @@ import Finance from "./pages/Finance/Finance";
 import Improvements from "./pages/Improvements/Improvements";
 import Activities from "./pages/Activities/Activities";
 import ErrorPath from "./components/ErrorPath/ErrorPath";
+import {
+  CONSTANTSContext,
+  EmployeesContext,
+  RanksContext,
+  DataDashboardContext,
+} from "./contexts/DataContext";
 
 import { fetchData } from "./utils/fetchData";
 
-export const EmployeesContext = createContext({
-  employees: [{}],
-  setEmployees: (_array) => {},
-});
-
-export const RanksContext = createContext({
-  ranks: [{}],
-  setRanks: (_array) => {},
-});
-
-export const dataDashboardContext = createContext({
-  dataDashboard: {},
-  setDataDashboard: (_object) => {},
-});
-
 function App() {
+  const CONSTANTS = {
+    BEST_RANK: "boss",
+    WORST_RANK: "recrue",
+  };
+
   /** @type {array} */
   const [ranks, setRanks] = useState([]);
   const [employees, setEmployees] = useState([]);
@@ -61,26 +57,28 @@ function App() {
   }, []);
   return (
     <div className="app">
-      <dataDashboardContext.Provider
-        value={{ dataDashboard, setDataDashboard }}
-      >
-        <EmployeesContext.Provider value={{ employees, setEmployees }}>
-          <RanksContext.Provider value={{ ranks, setRanks }}>
-            <BrowserRouter>
-              <Sidebar />
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/employees/*" element={<Employees />} />
-                <Route path="/ranks/*" element={<Ranks />} />
-                <Route path="/finance" element={<Finance />} />
-                <Route path="/improvements" element={<Improvements />} />
-                <Route path="/activities" element={<Activities />} />
-                <Route path="*" element={<ErrorPath />} />
-              </Routes>
-            </BrowserRouter>
-          </RanksContext.Provider>
-        </EmployeesContext.Provider>
-      </dataDashboardContext.Provider>
+      <CONSTANTSContext.Provider value={{ CONSTANTS }}>
+        <DataDashboardContext.Provider
+          value={{ dataDashboard, setDataDashboard }}
+        >
+          <EmployeesContext.Provider value={{ employees, setEmployees }}>
+            <RanksContext.Provider value={{ ranks, setRanks }}>
+              <BrowserRouter>
+                <Sidebar />
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/employees/*" element={<Employees />} />
+                  <Route path="/ranks/*" element={<Ranks />} />
+                  <Route path="/finance" element={<Finance />} />
+                  <Route path="/improvements" element={<Improvements />} />
+                  <Route path="/activities" element={<Activities />} />
+                  <Route path="*" element={<ErrorPath />} />
+                </Routes>
+              </BrowserRouter>
+            </RanksContext.Provider>
+          </EmployeesContext.Provider>
+        </DataDashboardContext.Provider>
+      </CONSTANTSContext.Provider>
     </div>
   );
 }

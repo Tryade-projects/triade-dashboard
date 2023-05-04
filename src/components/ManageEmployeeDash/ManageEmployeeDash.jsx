@@ -4,7 +4,7 @@ import { usePagination } from "../../utils/usePagination";
 import HeaderTable from "./componentsEmployee/HeaderTable";
 import filteredData from "../../utils/filteredData";
 // import { useStickyState } from "../../utils/useStickyState";
-import { EmployeesContext } from "../../App";
+import { EmployeesContext } from "../../contexts/DataContext";
 import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 
 const INFO_PER_PAGE = 5;

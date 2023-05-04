@@ -3,7 +3,7 @@ import { usePagination, useIndexRange } from "../../utils/usePagination";
 import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 import FormatIcon from "../FormatIcon/FormatIcon";
 import user from "../../assets/User.svg";
-// import { EmployeesContext } from "../../App";
+// import { EmployeesContext } from "../../contexts/DataContext";
 
 const INFO_PER_PAGE = 5;
 

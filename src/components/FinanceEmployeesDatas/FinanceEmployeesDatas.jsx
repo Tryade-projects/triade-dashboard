@@ -2,10 +2,13 @@ import React, { useState, useEffect, useContext } from "react";
 import FormatIcon from "../FormatIcon/FormatIcon";
 import StatsData from "../StatsData/StatsData";
 import studentWhite from "../../assets/studentWhite.svg";
-import { EmployeesContext, dataDashboardContext } from "../../App";
+import {
+  EmployeesContext,
+  DataDashboardContext,
+} from "../../contexts/DataContext";
 
 const FinanceEmployeesDatas = ({ oldEmployeesData }) => {
-  const { dataDashboard } = useContext(dataDashboardContext);
+  const { dataDashboard } = useContext(DataDashboardContext);
   const { employees } = useContext(EmployeesContext);
 
   return (

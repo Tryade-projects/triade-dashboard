@@ -15,7 +15,10 @@ import {
   modifyArrayInLocalStorage,
 } from "../../../utils/arrayManager";
 import { useNavigate } from "react-router-dom";
-import { EmployeesContext } from "../../../App";
+import {
+  EmployeesContext,
+  CONSTANTSContext,
+} from "../../../contexts/DataContext";
 
 const customStyles = {
   content: {
@@ -57,6 +60,7 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
   });
 
   const { setEmployees } = useContext(EmployeesContext);
+  const { CONSTANTS } = useContext(CONSTANTSContext);
 
   const openModal = () => {
     setIsOpen(true);
@@ -66,7 +70,7 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
     setIsOpen(false);
   };
   const unchangeableGradesBoolean = (rank) =>
-    ["boss", "recrue"].includes(rank.name);
+    [CONSTANTS.BEST_RANK, "recrue"].includes(rank.name);
   const unincreaseRanks = (rank, ranks) => ranks.indexOf(rank) === 1;
   const undecreaseRanks = (rank, ranks) =>
     ranks.indexOf(rank) === ranks.length - 2;

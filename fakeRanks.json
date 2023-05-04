@@ -13,8 +13,8 @@
     ],
     "salary": "250",
     "color": "#fd3f3f",
-    "name": "boss",
-    "label": "Boss"
+    "name": BEST_RANKS,
+    "label": BEST_RANKS
   },
   {
     "id": "81973c84-c22b-4a4e-a466-21788cd12b34",

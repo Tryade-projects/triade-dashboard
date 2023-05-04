@@ -4,13 +4,13 @@ import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 import BodyTableRanks from "./BodyTableRanks/BodyTableRanks";
 import { usePagination } from "../../utils/usePagination";
 import filteredData from "../../utils/filteredData";
-import { RanksContext } from "../../App";
+import { RanksContext } from "../../contexts/DataContext";
 
 const INFO_PER_PAGE = 5;
 
 const ManageRanksDash = ({ search }) => {
   const { ranks, setRanks } = useContext(RanksContext);
-  console.log(ranks);
+
   const displayRanksFiltered = filteredData(ranks, search, [
     "name",
     "label",

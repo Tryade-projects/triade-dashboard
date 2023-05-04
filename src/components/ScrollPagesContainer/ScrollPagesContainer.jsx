@@ -8,7 +8,7 @@ import ArticleContainer from "../ArticleContainer/ArticleContainer";
 import TableExpense from "../TableExpense/TableExpense";
 import TableGain from "../TableGain/TableGain";
 import { fetchData } from "../../utils/fetchData";
-import { dataDashboardContext } from "../../App";
+import { DataDashboardContext } from "../../contexts/DataContext";
 
 const ScrollPagesContainer = () => {
   const [gainList, setGainList] = useState([]);
@@ -23,7 +23,7 @@ const ScrollPagesContainer = () => {
     });
   }, []);
 
-  const { dataDashboard } = useContext(dataDashboardContext);
+  const { dataDashboard } = useContext(DataDashboardContext);
 
   return (
     <ScrollableComponent>

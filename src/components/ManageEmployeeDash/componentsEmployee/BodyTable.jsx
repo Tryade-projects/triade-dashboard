@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import ButtonTransaction from "../../ButtonActions/ButtonActions";
+import ButtonActions from "../../ButtonActions/ButtonActions";
 import ModalActions from "../../ModalActions/ModalActions";
 import { Link } from "react-router-dom";
 import gear from "../../../assets/gear.svg";
 import trending from "../../../assets/trending.svg";
 import decrease from "../../../assets/decrease.svg";
 import fired from "../../../assets/fired.svg";
-import avatar from "../../../assets/fake-avatar.svg";
 import { deleteElmOnLocalStorage } from "../../../utils/arrayManager";
 
 const BodyTable = ({ profils, setEmployees }) => {
@@ -67,19 +66,20 @@ const BodyTable = ({ profils, setEmployees }) => {
 
           <td className="tdAction">
             <div className="wrapper-type-actions">
-              <ButtonTransaction
+              <ButtonActions
                 icon={trending}
-                alt={"Bouton pour promouvoir l'employé"}
-                title={"Promouvoir"}
+                alt="Bouton pour promouvoir l'employé"
+                title="Promouvoir"
+                // onClick={profil.rank === "PDG"}
               />
 
-              <ButtonTransaction
+              <ButtonActions
                 icon={decrease}
-                alt={"Bouton pour rétrograder l'employé"}
-                title={"Rétrograder"}
+                alt="Bouton pour rétrograder l'employé"
+                title="Rétrograder"
               />
 
-              <ButtonTransaction
+              <ButtonActions
                 onClick={() => handleOpenModal(profil)}
                 icon={fired}
                 alt={"Bouton pour licensier l'employé"}
@@ -90,7 +90,7 @@ const BodyTable = ({ profils, setEmployees }) => {
           <td className="tdMore">
             <Link to={`employee/detail/${profil.id}`} state={profil}>
               <div>
-                <ButtonTransaction
+                <ButtonActions
                   icon={gear}
                   alt={"Bouton pour voir les détails de l'employé"}
                   title={"Détails"}

@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Checkbox from "../Checkbox/Checkbox";
-import { RanksContext, EmployeesContext } from "../../App";
+import { RanksContext, EmployeesContext } from "../../contexts/DataContext";
 import ButtonForm from "../ButtonForm/ButtonForm";
 import { v4 as uuidv4 } from "uuid";
 import { firstLetterUpperCase } from "../../utils/stringManager";
