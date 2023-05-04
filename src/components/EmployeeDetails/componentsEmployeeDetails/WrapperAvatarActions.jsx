@@ -12,9 +12,6 @@ const WrapperAvatarActions = ({ profil }) => {
   return (
     <div className={styles.wrapperAvatar}>
       <div className={styles.avatar}>
-        <svg>
-          <circle cx="100" cy="100" r="90" strokeWidth="8" fill="transparent" />
-        </svg>
         <img src={avatar} alt="" />
       </div>
       <div className={styles.actions}>

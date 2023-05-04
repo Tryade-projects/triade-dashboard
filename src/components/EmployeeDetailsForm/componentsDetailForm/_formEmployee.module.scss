@@ -69,6 +69,9 @@ textarea {
   display: flex;
   justify-content: flex-end;
   padding-top: 0.5vh;
+  @media screen and (min-height:1200px) {
+    padding-top: 2vh;
+  }
   width: 100%;
   button{
   width: 6.25vw;

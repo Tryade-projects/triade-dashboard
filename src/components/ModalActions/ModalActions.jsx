@@ -27,7 +27,7 @@ const   ModalActions = ({
       padding: "0",
       border: "none",
       borderRadius: "20px",
-      fontSize: "18px",
+      fontSize: "0.94vw",
     },
   };
 
