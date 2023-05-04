@@ -209,8 +209,15 @@ const RanksForm = () => {
       salary: rank.salary,
       color: rank.color,
     };
-    localStorage.setItem("ranks", JSON.stringify([...ranks, newGrade]));
-    setRanks([...ranks, newGrade]);
+    const lastElm = ranks[ranks.length - 1];
+    //Array without last element
+    const ranksWithoutLastElm = ranks.slice(0, ranks.length - 1);
+    localStorage.setItem(
+      "ranks",
+      JSON.stringify([...ranksWithoutLastElm, newGrade, lastElm]),
+    );
+    // inserer l'element a l'avant derniere place du tableau
+    setRanks([...ranksWithoutLastElm, newGrade, lastElm]);
     navigate("/ranks");
 
     function checkIfPropsAlreadyExist(propsAtChecked) {
