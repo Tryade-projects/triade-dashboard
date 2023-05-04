@@ -5,24 +5,31 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 100px;
-  row-gap: 25px;
+  // row-gap: 25px;
   height: 51.12vh;
 
   &>div{
     position: relative;
+    span{
+      height: 24px;
+      display: block;
+      margin-top: 5px;
+    }
   }
 
   label {
     color: $colorText;
     padding-bottom: 15px;
-    font-size: 18px;
-  }
+    // font-size: 18px;
+    font-size: 0.94vw;
 
+  }
+  
   input {
     width: 100%;
     border: 1px solid $colorGrey2;
     border-radius: 5px;
-    height: 48px;
+    height: 4.903vh;
     padding-left: 15px;
     outline: none;
   }
@@ -61,7 +68,16 @@ textarea {
 .wrapperButton {
   display: flex;
   justify-content: flex-end;
-  padding-top: 20px;
+  padding-top: 0.5vh;
+  width: 100%;
+  button{
+  width: 6.25vw;
+  font-size: 0.94vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.685vh 1.125vw;
+  }
   button:nth-child(1) {
     margin-right: 40px;
   }
@@ -73,13 +89,14 @@ textarea {
 }
 
 .errors {
-@include errorMessage;
-bottom: -12px;
+  @include errorMessage;
+  bottom: -12px;
+  
 }
 
 .select {
   position: relative;
-
+  
   input {
     color: $colorGrey3;
     cursor: pointer;
@@ -109,7 +126,7 @@ bottom: -12px;
     background: $colorPurple;
     border-radius: 10px;
   }
-
+  
   &.active {
     visibility: visible;
     ~ .triangle {

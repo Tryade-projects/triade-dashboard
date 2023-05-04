@@ -12,6 +12,7 @@
     flex-direction: column;
     justify-content: flex-end;
 
+
     h2 {
         position: absolute;
         top: 22px;
@@ -22,11 +23,12 @@
     h4{
         position: absolute;
         right: 60px;
-        top: 26px;
+        top: 4.5vh;
         font-size: 0.7rem;
         color: $colorGrey3;
         font-weight: lighter;
         width: 140px;
+
     }
 
     //Apexcharts CSS
@@ -43,6 +45,7 @@
             width: auto;
             padding-right: 10px;
             position: relative;
+
         }
     }
 

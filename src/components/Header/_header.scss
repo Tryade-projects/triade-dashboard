@@ -2,10 +2,11 @@ header {
   padding-bottom: 40px;
   display: flex;
   justify-content: space-between;
+  height: 10vh;
 }
 
 .title-sections {
-  font-size: 36px;
+  font-size: 1.9vw;
   color: $colorText;
 }
 
@@ -19,11 +20,15 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 60px;
+    width: 6.129vh;
+    height: 6.129vh;
     border-radius: 50%;
     box-shadow: 0px 20px 50px rgba(191, 21, 108, 0.05);
     cursor: pointer;
+    svg{
+      width: 3.269vh;
+      height: 3.269vh;
+    }
     path{
       fill: $colorGrey3;
       @include transitionOutHover;
@@ -39,13 +44,14 @@ header {
   display: flex;
   align-items: center;
   gap: 24px;
+  font-size: 0.7vw;
+
 
   p {
     color: $colorText;
   }
 
   span {
-    font-size: 14px;
     color: $colorGrey3;
   }
 
@@ -56,8 +62,8 @@ header {
   }
 
   .profil-img {
-    width: 60px;
-    height: 60px;
+    width: 6.129vh;
+    height: 6.129vh;
     border-radius: 50%;
 
     img {

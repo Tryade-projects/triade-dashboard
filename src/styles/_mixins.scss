@@ -1,34 +1,40 @@
 @mixin greyText {
-  font-size: 14px;
-  color: $colorGrey3;
+  // font-size: 14px;
+  // color: $colorGrey3;
+  font-size: 0.7vw;
 }
 
 @mixin headerTableTitle {
-  font-size: 14px;
+  // font-size: 14px;
   color: $colorText;
   font-weight: 600;
   line-height: 21px;
+  font-size: 0.7vw;
 }
 
 @mixin greyTitle {
-  font-size: 18px;
+  // font-size: 18px;
+  font-size: 0.94vw;
   color: $colorGrey3;
   font-weight: 400;
 }
 
 @mixin littleTitle {
-  font-size: 24px;
+  // font-size: 24px;
+  font-size: 1.25vw;
   color: $colorText;
 }
 
 @mixin datasTitle {
-  font-size: 36px;
+  // font-size: 36px;
+  font-size: 1.9vw;
   font-weight: 700;
   color: $colorText;
 }
 
 @mixin idTitle {
-  font-size: 18px;
+  // font-size: 18px;
+  font-size: 0.94vw;
   font-weight: 600;
   color: $colorCheckbox;
 }

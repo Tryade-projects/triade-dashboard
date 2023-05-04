@@ -1,8 +1,12 @@
 .formatIcon {
   border-radius: 50%;
-  width: 72px;
-  height: 72px;
+  width: 7.355vh;
+  height: 7.355vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  img{
+    width:3.83vh;
+    height: 3.83vh;
+  }
 }
