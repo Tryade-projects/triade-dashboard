@@ -15,7 +15,6 @@ const NAME_KEY = "employees";
 
 const FormEmployee = () => {
   const { state } = useLocation();
-  console.log(state);
 
   const profilId = state || [];
 
@@ -54,7 +53,6 @@ const FormEmployee = () => {
   };
 
   const onSubmit = (data) => {
-    console.log({ data });
     const newEmployee = {
       id: uuidv4(),
       firstName: data.firstName,
