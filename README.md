@@ -1,3 +1,4 @@
+<head>COucou</head>
 
 # Boss dashboard
 
