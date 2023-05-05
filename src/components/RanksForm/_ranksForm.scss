@@ -9,19 +9,18 @@
 }
 
 .label {
-  font-size: 18px;
+  font-size: 0.94vw;
   font-weight: 600;
   min-height: 1.5rem;
 }
 
 .input {
   max-width: 577px;
-
   min-height: 3rem;
-  padding-left: 14px;
+  padding-left: 0.656vw;
   border-radius: 5px;
   border: 1px solid $colorGrey2;
-  font-size: 14px;
+  font-size: 0.7vw;
 }
 
 .input:focus-visible:valid {
@@ -42,10 +41,6 @@
 }
 
 .gradeNameWrapper {
-  // grid-row-start: 1;
-  // grid-row-end: 2;
-  // grid-column-start: 1;
-  // grid-column-end: 3;
   grid-area: 1 / 1 / 2 / 3;
 }
 
@@ -64,7 +59,7 @@
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: 59% 39%;
   height: 85%;
-  font-size: 14px;
+  font-size: 0.7vw;
   font-weight: 500;
   border-radius: 5px;
   gap: 2%;
@@ -97,7 +92,6 @@
   border: none;
   border-radius: 50%;
   background-color: transparent;
-  // supprimer le contour bleu
 
   outline: none;
   appearance: none;
