@@ -6,6 +6,9 @@
     width: 4.903vh;
     height: 4.903vh;
     border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     @include transitionOutHover;
 }
 .roundButtonAdd:hover{
