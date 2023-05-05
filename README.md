@@ -6,6 +6,9 @@ It allows you to follow the essential information of your company.
 Thanks to these different features, you will be able to have an overview of your employees, assign them grades and more. 
 You will also have a global view of your economy and access to improvements. 
 
+![Home page of the project](https://github.com/DevWeb13/triade-dashboard/blob/master/Dashboard.jpg)
+
+
 
 
 
