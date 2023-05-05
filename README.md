@@ -1,5 +1,3 @@
-<p align="center"><img src="https://apexcharts.com/media/apexcharts-logo.png">Coucou</p>
-
 # Boss dashboard
 
 This dashboard is for the GTA V player who develops an economy on their server.
