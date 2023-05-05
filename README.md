@@ -8,9 +8,6 @@ You will also have a global view of your economy and access to improvements.
 ![Home page of the project](https://github.com/DevWeb13/triade-dashboard/blob/master/Dashboard.jpg)
 
 
-
-
-
 ## Tech Stack
 
 **Client:** React, SCSS, CSS Modules
