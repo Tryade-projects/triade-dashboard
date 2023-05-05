@@ -42,7 +42,3 @@ You will also have a global view of your economy and access to improvements.
 For support, email fake@fake.com or join our Slack channel.
 
 
-## Screenshots
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
