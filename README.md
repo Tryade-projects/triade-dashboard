@@ -1,4 +1,4 @@
-<head>COucou</head>
+<p align="center"><img src="https://apexcharts.com/media/apexcharts-logo.png">Coucou</p>
 
 # Boss dashboard
 
