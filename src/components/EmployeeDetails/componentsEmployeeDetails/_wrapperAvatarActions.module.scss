@@ -4,26 +4,20 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  margin-top: 4.5vh;
   .avatar {
     position: relative;
-    width: 200px;
-    height: 200px;
-
-    svg {
-      width: 100%;
-      height: 100%;
-
-      circle {
-        stroke: $colorWhite;
-      }
-    }
+    width: 20.431vh;
+    height: 20.431vh;
 
     img {
       position: absolute;
-      top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
-      width: 88%;
+      transform: translateX(-50%);
+      width: 100%;
+      border: 1.028vh solid $colorWhite;
+      border-radius: 50%;
+      bottom: 0;
     }
   }
 }
@@ -31,11 +25,12 @@
 .actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1.634vh;
+  margin-bottom: 1.028vh;
 
   div {
-    width: 40px;
-    height: 40px;
+    width: 4.086vh;
+    height: 4.086vh;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -43,8 +38,8 @@
     cursor: pointer;
 
     img {
-      width: 24px;
-      height: 24px;
+      width: 2.451vh;
+      height: 2.451vh;
     }
   }
 }

@@ -11,6 +11,20 @@
     justify-content: space-between;
     height: 20%;
     //Titles
+    >:nth-child(1){
+      background-color: red;
+      width: 4.903vh;
+      height: 4.903vh;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img{
+        width: 4.903vh;
+        height: 4.903vh;
+      }
+
+    }
     > :nth-child(2) {
       flex-grow: 1;
       // font-size: 14px;

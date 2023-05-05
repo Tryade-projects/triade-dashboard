@@ -1,9 +1,13 @@
 .roundButtonEmployee{
     background-color: $colorPurple;
-    width: 48px;
-    height: 48px;
+    width: 4.903vh;
+    height: 4.903vh;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    img{
+        width: 2.543vh;
+        height: 2.951vh;
+    }
 }
