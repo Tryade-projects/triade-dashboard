@@ -30,6 +30,11 @@ function App() {
     oldFortuneData: 180,
     carData: 18,
   });
+  const [dataDashboardChart, setDataDasboardChart] = useState({
+    monthlyExpenseDatas:[0, 0, 55, 30, 0, 0, 0, 98, 130, 120, 410, 310],
+    monthlyGainDatas:[0, 0, 64, 42, 76, 98, 145, 65, 124, 43, 45, 87]
+  })
+
 
   useEffect(() => {
     if (localStorage.getItem("ranks")) {
@@ -61,6 +66,8 @@ function App() {
           setEmployees,
           dataDashboard,
           setDataDashboard,
+          dataDashboardChart,
+          setDataDasboardChart
         }}
       >
         <BrowserRouter>

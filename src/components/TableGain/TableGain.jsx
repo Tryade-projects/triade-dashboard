@@ -22,7 +22,6 @@ const TableGain = ({ list }) => {
   }, []);
 
   const displayRows = (list) => {
-    console.log("list", list);
     //Vérification si list et employees ne sont pas vides
     if (list && list.length > 0) {
       return list.map((obj) => {

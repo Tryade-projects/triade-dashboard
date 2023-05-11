@@ -8,6 +8,8 @@ const DataContext = createContext({
   setRanks: (_array) => {},
   dataDashboard: {},
   setDataDashboard: (_object) => {},
+  dataDashboardChart:{},
+  setDataDasboardChart: (_object) => {}
 });
 
 export default DataContext;
