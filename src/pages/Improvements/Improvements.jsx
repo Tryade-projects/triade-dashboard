@@ -204,6 +204,7 @@ const Improvements = () => {
               data={_DATA}
               list={improvements}
               type="amélioration"
+              presentationText={true}
             />
           </>
         }

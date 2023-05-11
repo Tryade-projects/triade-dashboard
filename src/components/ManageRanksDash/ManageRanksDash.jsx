@@ -32,7 +32,12 @@ const ManageRanksDash = ({ search }) => {
           ranks={ranks}
         />
       </table>
-      <PaginationEmployee data={_DATA} list={ranks} type="grade" />
+      <PaginationEmployee 
+        data={_DATA} 
+        list={ranks} 
+        type="grade" 
+        presentationText={true}
+        />
     </div>
   );
 };

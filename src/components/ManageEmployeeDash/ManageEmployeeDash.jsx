@@ -7,7 +7,7 @@ import filteredData from "../../utils/filteredData";
 import { EmployeesContext } from "../../App";
 import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 
-const INFO_PER_PAGE = 5;
+const INFO_PER_PAGE = 1;
 
 const ManageEmployeeDash = ({ search }) => {
   const { employees, setEmployees } = useContext(EmployeesContext);
@@ -27,7 +27,12 @@ const ManageEmployeeDash = ({ search }) => {
         <HeaderTable />
         <BodyTable profils={_DATA.currentData()} setEmployees={setEmployees} />
       </table>
-      <PaginationEmployee data={_DATA} list={employees} type="employee" />
+      <PaginationEmployee 
+        data={_DATA} 
+        list={employees} 
+        type="employee"
+        presentationText={true}
+        />
     </div>
   );
 };
