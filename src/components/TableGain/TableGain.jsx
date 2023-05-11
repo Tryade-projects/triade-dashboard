@@ -59,7 +59,11 @@ const TableGain = ({ list }) => {
         <tbody>{displayRows(_DATA.currentData())}</tbody>
       </table>
       {/* Utilisation du composant PaginationEmployee */}
-      <PaginationEmployee data={_DATA} list={list} type="gain" />
+      <PaginationEmployee 
+        data={_DATA} 
+        list={list} 
+        type="gain"
+        presentationText={true} />
     </div>
   );
 };
