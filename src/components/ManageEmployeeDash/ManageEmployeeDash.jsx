@@ -3,7 +3,6 @@ import BodyTable from "./componentsEmployee/BodyTable";
 import { usePagination } from "../../utils/usePagination";
 import HeaderTable from "./componentsEmployee/HeaderTable";
 import filteredData from "../../utils/filteredData";
-// import { useStickyState } from "../../utils/useStickyState";
 import DataContext from "../../contexts/DataContext";
 import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
 
@@ -25,7 +24,10 @@ const ManageEmployeeDash = ({ search }) => {
     <div className="container-dashboard-employee">
       <table>
         <HeaderTable />
-        <BodyTable profils={_DATA.currentData()} setEmployees={setEmployees} />
+        <BodyTable
+          currentEmployees={_DATA.currentData()}
+          setEmployees={setEmployees}
+        />
       </table>
       <PaginationEmployee data={_DATA} list={employees} type="employee" />
     </div>

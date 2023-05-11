@@ -79,7 +79,7 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
    * @param {array} ranks - all ranks
    * @returns {import("react").MouseEventHandler<HTMLButtonElement>|undefined}
    */
-  function actionClick(rank, action, ranks) {
+  function btActionRank(rank, action, ranks) {
     if (unchangeableRanksBoolean(rank, [BEST_RANK, WORST_RANK]))
       return undefined;
     if (action === "decrease" && !undecreaseRanks(rank, ranks)) {
@@ -165,7 +165,7 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
                 icon={trending}
                 alt="Bouton pour augmenter la hiérarchie du grade"
                 title={"Augmenter"}
-                onClick={actionClick(rank, "increase", ranks)}
+                onClick={btActionRank(rank, "increase", ranks)}
                 inactive={
                   unchangeableRanksBoolean(rank, [BEST_RANK, WORST_RANK]) ||
                   unincreaseRanks(rank, ranks)
@@ -175,7 +175,7 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
                 icon={decrease}
                 alt="Bouton pour diminuer la hiérarchie du grade"
                 title={"Diminuer"}
-                onClick={actionClick(rank, "decrease", ranks)}
+                onClick={btActionRank(rank, "decrease", ranks)}
                 inactive={
                   unchangeableRanksBoolean(rank, [BEST_RANK, WORST_RANK]) ||
                   undecreaseRanks(rank, ranks)
@@ -185,7 +185,7 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
                 icon={deleteIcon}
                 alt="Bouton pour supprimer le grade"
                 title={"Supprimer"}
-                onClick={actionClick(rank, "delete", ranks)}
+                onClick={btActionRank(rank, "delete", ranks)}
                 inactive={unchangeableRanksBoolean(rank, [
                   BEST_RANK,
                   WORST_RANK,
@@ -200,7 +200,7 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
                 alt={"Bouton pour voir les détails du grade"}
                 title={"Détails"}
                 onClick={() => {
-                  actionClick(rank, "modify", ranks);
+                  btActionRank(rank, "modify", ranks);
                 }}
                 inactive={unchangeableRanksBoolean(rank, [
                   BEST_RANK,

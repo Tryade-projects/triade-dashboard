@@ -13,8 +13,32 @@
     ],
     "salary": "250",
     "color": "#fd3f3f",
-    "name": BEST_RANKS,
-    "label": BEST_RANKS
+    "name": "boss",
+    "label": "Boss"
+  },
+  {
+    "id": "29ed632d-e3be-4083-be90-cfafdbd2e6c2",
+    "permissions": [
+      "Recrutement",
+      "Finances",
+      "Coffres",
+      "Vestiaires"
+    ],
+    "salary": "200",
+    "color": "#fb7d5b",
+    "name": "capitaine",
+    "label": "Capitaine"
+  },
+  {
+    "id": "29ed632d-e3be-4083-be90-cfafdbd2e6c3",
+    "permissions": [
+      "Recrutement",
+      "Finances"
+    ],
+    "salary": "150",
+    "color": "#4cbc9a",
+    "name": "commandant",
+    "label": "Commandant"
   },
   {
     "id": "81973c84-c22b-4a4e-a466-21788cd12b34",

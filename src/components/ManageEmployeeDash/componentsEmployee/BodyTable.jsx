@@ -8,43 +8,34 @@ import decrease from "../../../assets/decrease.svg";
 import fired from "../../../assets/fired.svg";
 import { deleteElmOnLocalStorage } from "../../../utils/arrayManager";
 import DataContext from "../../../contexts/DataContext";
-import {
-  unchangeableRanksBoolean,
-  unincreaseRanks,
-  undecreaseRanks,
-} from "../../../utils/unchangeableRanks";
 
-const BodyTable = ({ profils, setEmployees }) => {
+const BodyTable = ({ currentEmployees, setEmployees }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [firedProfil, setFiredProfil] = useState({
+  const [firedEmployee, setFiredEmployee] = useState({
     id: "",
     firstName: "",
     lastName: "",
   });
 
-  const { BEST_RANK, WORST_RANK } = useContext(DataContext).constants;
+  // const { ranks } = useContext(DataContext);
+  // const { BEST_RANK, WORST_RANK } = useContext(DataContext).constants;
 
-  const handleOpenModal = (profil) => {
+  const handleOpenModal = (employee) => {
     setIsOpen(true);
-    setFiredProfil({
-      id: profil.id,
-      firstName: profil.firstName,
-      lastName: profil.lastName,
+    setFiredEmployee({
+      id: employee.id,
+      firstName: employee.firstName,
+      lastName: employee.lastName,
     });
   };
 
   const handleFired = () => {
-    deleteElmOnLocalStorage(firedProfil, "employees");
-    setEmployees((profil) => {
-      const fired = profil.filter((fired) => fired.id !== firedProfil.id);
+    deleteElmOnLocalStorage(firedEmployee, "employees");
+    setEmployees((employee) => {
+      const fired = employee.filter((fired) => fired.id !== firedEmployee.id);
       return fired;
     });
     setIsOpen(false);
-  };
-
-  const promote = (profil) => {
-    if (unchangeableRanksBoolean(profil.rank, [BEST_RANK, WORST_RANK]))
-      return undefined;
   };
 
   return (
@@ -52,30 +43,30 @@ const BodyTable = ({ profils, setEmployees }) => {
       <ModalActions
         confirmText={"Tout licenciement abusif est pénalement sanctionnable"}
         action={"renvoyer"}
-        span={`${firedProfil.firstName} ${firedProfil.lastName}  `}
+        span={`${firedEmployee.firstName} ${firedEmployee.lastName}  `}
         modalIsOpen={modalIsOpen}
         setIsOpen={setIsOpen}
         handleClick={handleFired}
       />
-      {profils.map((profil) => (
-        <tr key={profil.id}>
+      {currentEmployees.map((employee) => (
+        <tr key={employee.id}>
           <td className="tdName">
             <div className="wrapper-flex-name-avatar">
               <div>
-                <img src={profil.image} alt="avatar" />
+                <img src={employee.image} alt="avatar" />
               </div>
               <p className="bold">
-                {profil.firstName} {profil.lastName}
+                {employee.firstName} {employee.lastName}
               </p>
             </div>
           </td>
 
           <td className="tdGrade">
-            <p style={{ background: profil.color }}>{profil.rank}</p>
+            <p style={{ background: employee.color }}>{employee.rank}</p>
           </td>
 
-          <td className="tdDate regular">{profil.employee_at}</td>
-          <td className="tdPhone regular">{profil.phone} </td>
+          <td className="tdDate regular">{employee.employee_at}</td>
+          <td className="tdPhone regular">{employee.phone} </td>
 
           <td className="tdAction">
             <div className="wrapper-type-actions">
@@ -83,7 +74,6 @@ const BodyTable = ({ profils, setEmployees }) => {
                 icon={trending}
                 alt="Bouton pour promouvoir l'employé"
                 title="Promouvoir"
-                onClick={() => promote(profil)}
               />
 
               <ButtonActions
@@ -93,7 +83,7 @@ const BodyTable = ({ profils, setEmployees }) => {
               />
 
               <ButtonActions
-                onClick={() => handleOpenModal(profil)}
+                onClick={() => handleOpenModal(employee)}
                 icon={fired}
                 alt="Bouton pour licensier l'employé"
                 title="Licencier"
@@ -101,7 +91,7 @@ const BodyTable = ({ profils, setEmployees }) => {
             </div>
           </td>
           <td className="tdMore">
-            <Link to={`employee/detail/${profil.id}`} state={profil}>
+            <Link to={`employee/detail/${employee.id}`} state={employee}>
               <div>
                 <ButtonActions
                   icon={gear}
