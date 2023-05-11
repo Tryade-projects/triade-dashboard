@@ -4,27 +4,10 @@ import finance from "../../../src/assets/finance.svg";
 import stock from "../../../src/assets/stock.svg";
 import Car from "../../../src/assets/Car.svg";
 import teacher from "../../../src/assets/studentWhite.svg";
-import { EmployeesContext, dataDashboardContext } from "../../App";
+import DataContext from "../../contexts/DataContext";
 
 const DashboardInfos = () => {
-  //Datas of the dashboard
-
-  // const [employeesData, setEmployeesData] = useStickyState("employeesData", []); //Obtenir une seule valeur
-  // const [oldEmployeesData, setOldEmployeesData] = useStickyState(
-  //   "oldEmployeesData",
-  //   2,
-  // ); //Obtenir une seule valeur
-  // const [stockData, setStockData] = useStickyState("stockData", 1000);
-  // const [oldStockData, setOldStockData] = useStickyState("oldStockData", 10);
-  // const [fortuneData, setFortuneData] = useStickyState("fortuneData", 60);
-  // const [oldFortuneData, setOldFortuneData] = useStickyState(
-  //   "oldFortuneData",
-  //   180,
-  // );
-  // const [carData, setCarData] = useStickyState("carData", 18);
-
-  const { dataDashboard } = useContext(dataDashboardContext);
-  const { employees } = useContext(EmployeesContext);
+  const { dataDashboard, employees } = useContext(DataContext);
 
   return (
     <section className="dashboardInfos">

@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import ShortEmployeeListHeader from "../ShortEmployeeListHeader/ShortEmployeeListHeader";
 import ShortEmployeeList from "../ShortEmployeeList/ShortEmployeeList";
 import ButtonSeeMore from "../ButtonSeeMore/ButtonSeeMore";
-import { EmployeesContext } from "../../App";
+import DataContext from "../../contexts/DataContext";
 
 const ShortEmployeeListContainer = () => {
-  const { employees } = useContext(EmployeesContext);
+  const { employees } = useContext(DataContext);
 
   return (
     <div className="shortEmployeeListContainer">
