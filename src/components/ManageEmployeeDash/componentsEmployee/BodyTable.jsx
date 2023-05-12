@@ -41,6 +41,7 @@ const BodyTable = ({ currentEmployees, setEmployees, setPage }) => {
   };
 
   const handleIncrease = (profil) => {
+<<<<<<< HEAD
     const newEmployeesList = employees.map((t) => {
       if (t.id === profil.id) {
         const indexRank = ranks.findIndex((t) => t.label === profil.rank);
@@ -74,6 +75,39 @@ const BodyTable = ({ currentEmployees, setEmployees, setPage }) => {
     });
     setEmployees(newEmployeesList);
     localStorage.setItem("employees", JSON.stringify(newEmployeesList));
+=======
+    setEmployees((employess) =>
+      employess.map((t) => {
+        if (t.id === profil.id) {
+          const indexRank = ranks.findIndex((t) => t.label === profil.rank);
+          const nextRankIndex = Math.max(indexRank - 1, 0);
+          return {
+            ...t,
+            rank: ranks[nextRankIndex].label,
+            color: ranks[nextRankIndex].color,
+          };
+        }
+        return t;
+      }),
+    );
+  };
+
+  const handleDecrease = (profil) => {
+    setEmployees((employess) =>
+      employess.map((t) => {
+        if (t.id === profil.id) {
+          const indexRank = ranks.findIndex((t) => t.label === profil.rank);
+          const previousRankIndex = Math.min(indexRank + 1, ranks.length - 1);
+          return {
+            ...t,
+            rank: ranks[previousRankIndex].label,
+            color: ranks[previousRankIndex].color,
+          };
+        }
+        return t;
+      }),
+    );
+>>>>>>> d881eb8b76ddd5bad54cc6abd33af10d62017b93
   };
 
   return (
