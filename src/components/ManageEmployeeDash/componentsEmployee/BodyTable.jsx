@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ButtonTransaction from "../../ButtonActions/ButtonActions";
 import ModalActions from "../../ModalActions/ModalActions";
 import { Link } from "react-router-dom";
@@ -8,8 +8,15 @@ import decrease from "../../../assets/decrease.svg";
 import fired from "../../../assets/fired.svg";
 import avatar from "../../../assets/fake-avatar.svg";
 import { deleteElmOnLocalStorage } from "../../../utils/arrayManager";
+import { RanksContext } from "../../../App";
+import { useStickyState } from "../../../utils/useStickyState";
 
 const BodyTable = ({ profils, setEmployees }) => {
+  const { ranks, setRanks } = useContext(RanksContext);
+  console.log(ranks);
+
+  const [employee, setEmployee] = useStickyState("employees", []);
+
   const [modalIsOpen, setIsOpen] = useState(false);
   const [firedProfil, setFiredProfil] = useState({
     id: "",
@@ -33,6 +40,42 @@ const BodyTable = ({ profils, setEmployees }) => {
       return fired;
     });
     setIsOpen(false);
+  };
+
+  const handleIncrease = (profil) => {
+    setEmployees((employess) =>
+      employess.map((t) => {
+        if (t.id === profil.id) {
+          const indexRank = ranks.findIndex((t) => t.label === profil.rank);
+          const nextRankIndex = Math.max(indexRank - 1, 0);
+          return {
+            ...t,
+            id: profil.id,
+            rank: ranks[nextRankIndex].label,
+            color: ranks[nextRankIndex].color,
+          };
+        }
+        return t;
+      }),
+    );
+  };
+
+  const handleDecrease = (profil) => {
+    setEmployees((employess) =>
+      employess.map((t) => {
+        if (t.id === profil.id) {
+          const indexRank = ranks.findIndex((t) => t.label === profil.rank);
+          const nextRankIndex = Math.min(indexRank + 1, ranks.length);
+          return {
+            ...t,
+            id: profil.id,
+            rank: ranks[nextRankIndex].label,
+            color: ranks[nextRankIndex].color,
+          };
+        }
+        return t;
+      }),
+    );
   };
 
   return (
@@ -71,12 +114,14 @@ const BodyTable = ({ profils, setEmployees }) => {
                 icon={trending}
                 alt={"Bouton pour promouvoir l'employé"}
                 title={"Promouvoir"}
+                onClick={() => handleIncrease(profil)}
               />
 
               <ButtonTransaction
                 icon={decrease}
                 alt={"Bouton pour rétrograder l'employé"}
                 title={"Rétrograder"}
+                onClick={() => handleDecrease(profil)}
               />
 
               <ButtonTransaction

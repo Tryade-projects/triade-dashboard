@@ -29,7 +29,7 @@
       display: flex;
       flex-direction: column;
       tr {
-        height: calc(43vh/5);
+        height: calc(43vh / 5);
         padding-left: 2.906vw;
         &:nth-child(odd) {
           border-left: 5px solid $colorPurple;
@@ -106,7 +106,6 @@
 .footer-info-employee {
   color: $colorGrey3;
   font-size: 0.7vw;
-
 
   span {
     color: $colorText;
