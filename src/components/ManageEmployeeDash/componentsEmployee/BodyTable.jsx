@@ -7,9 +7,10 @@ import trending from "../../../assets/trending.svg";
 import decrease from "../../../assets/decrease.svg";
 import fired from "../../../assets/fired.svg";
 import { deleteElmOnLocalStorage } from "../../../utils/arrayManager";
+import DataContext from "../../../contexts/DataContext";
 
 const BodyTable = ({ currentEmployees, setEmployees, setPage }) => {
-  const { ranks, setRanks } = useContext(RanksContext);
+  const { ranks, setRanks } = useContext(DataContext);
   console.log(ranks);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [firedEmployee, setFiredEmployee] = useState({
