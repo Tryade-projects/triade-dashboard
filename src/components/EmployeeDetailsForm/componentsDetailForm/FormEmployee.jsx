@@ -30,7 +30,7 @@ const FormEmployee = () => {
   const [displayRank, setDisplayRank] = useState(
     state ? state.rank : ranksLocalStorage[ranksLocalStorage.length - 1]?.label,
   );
-  const [colorRank, setColorRank] = useState(state ? state.color : "");
+  const [colorRank, setColorRank] = useState(state ? state.color : "#FCC43E");
 
   const [displayDropdown, setDisplayDropdown] = useState(false);
 
