@@ -1,13 +1,13 @@
 import React from "react";
 import { Pagination } from "@mui/material";
 
-
 /**
  *
  * @param {object} props
  * @param {object} props.data - data to paginate
  * @param {array} props.list - list of all the data
  * @param {string} props.type - type of data to paginate
+ * @param {boolean} props.presentationText - display presentation text
  * @returns {JSX.Element}
  */
 const PaginationEmployee = ({ data, list, type, presentationText }) => {
@@ -15,20 +15,20 @@ const PaginationEmployee = ({ data, list, type, presentationText }) => {
     data.setPage(page);
     data.jump(page);
   };
-  
-  const displayPresentationText = (presentationText) => {
-    if(presentationText){
-      return "Affichage de "
-    }else{
-      return ""
-    }
-  }
 
+  const displayPresentationText = (presentationText) => {
+    if (presentationText) {
+      return "Affichage de ";
+    } else {
+      return "";
+    }
+  };
 
   return (
     <div className="footer-dashboard-employee">
       <p className="footer-info-employee">
-        {displayPresentationText(presentationText)}<span>{data.currentData().length}</span>{" "}
+        {displayPresentationText(presentationText)}
+        <span>{data.currentData().length}</span>{" "}
         {data.currentData().length === 0 ? `${type}` : `${type}s`} sur
         <span> {list.length}</span>
       </p>
@@ -38,7 +38,7 @@ const PaginationEmployee = ({ data, list, type, presentationText }) => {
         page={data.page}
         onChange={handleChange}
         siblingCount={0}
-/>
+      />
     </div>
   );
 };
