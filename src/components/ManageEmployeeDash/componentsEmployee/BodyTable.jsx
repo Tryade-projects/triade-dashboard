@@ -50,7 +50,6 @@ const BodyTable = ({ profils, setEmployees }) => {
           const nextRankIndex = Math.max(indexRank - 1, 0);
           return {
             ...t,
-            id: profil.id,
             rank: ranks[nextRankIndex].label,
             color: ranks[nextRankIndex].color,
           };
@@ -65,12 +64,11 @@ const BodyTable = ({ profils, setEmployees }) => {
       employess.map((t) => {
         if (t.id === profil.id) {
           const indexRank = ranks.findIndex((t) => t.label === profil.rank);
-          const nextRankIndex = Math.min(indexRank + 1, ranks.length);
+          const previousRankIndex = Math.min(indexRank + 1, ranks.length - 1);
           return {
             ...t,
-            id: profil.id,
-            rank: ranks[nextRankIndex].label,
-            color: ranks[nextRankIndex].color,
+            rank: ranks[previousRankIndex].label,
+            color: ranks[previousRankIndex].color,
           };
         }
         return t;
