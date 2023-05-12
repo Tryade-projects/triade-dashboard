@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import HeaderTableGrade from "./HeaderTableRanks/HeaderTableRanks";
-import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
+import PaginationWrapper from "../PaginationWrapper/PaginationWrapper";
 import BodyTableRanks from "./BodyTableRanks/BodyTableRanks";
 import { usePagination } from "../../utils/usePagination";
 import filteredData from "../../utils/filteredData";
@@ -30,9 +30,10 @@ const ManageRanksDash = ({ search }) => {
           currentRanks={_DATA.currentData()}
           setRanks={setRanks}
           ranks={ranks}
+          setPage={_DATA.setPage}
         />
       </table>
-      <PaginationEmployee
+      <PaginationWrapper
         data={_DATA}
         list={ranks}
         type="grade"

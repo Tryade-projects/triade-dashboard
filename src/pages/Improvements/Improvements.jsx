@@ -7,7 +7,7 @@ import { fetchData } from "../../utils/fetchData";
 import ButtonBuy from "../../components/ButtonBuy/ButtonBuy";
 import { usePagination, useIndexRange } from "../../utils/usePagination";
 
-import PaginationEmployee from "../../components/PaginationEmployee/PaginationEmployee";
+import PaginationWrapper from "../../components/PaginationWrapper/PaginationWrapper";
 
 import star from "../../assets/star.svg";
 import capacity from "../../assets/capacity.svg";
@@ -198,9 +198,9 @@ const Improvements = () => {
                 </div>
               ))}
             </div>
-            {/* Render the PaginationEmployee component */}
+            {/* Render the PaginationWrapper component */}
 
-            <PaginationEmployee
+            <PaginationWrapper
               data={_DATA}
               list={improvements}
               type="amélioration"

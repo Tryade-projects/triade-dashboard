@@ -4,7 +4,7 @@ import { usePagination } from "../../utils/usePagination";
 import HeaderTable from "./componentsEmployee/HeaderTable";
 import filteredData from "../../utils/filteredData";
 import DataContext from "../../contexts/DataContext";
-import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
+import PaginationWrapper from "../PaginationWrapper/PaginationWrapper";
 
 const INFO_PER_PAGE = 1;
 
@@ -31,7 +31,7 @@ const ManageEmployeeDash = ({ search }) => {
           setPage={_DATA.setPage}
         />
       </table>
-      <PaginationEmployee
+      <PaginationWrapper
         data={_DATA}
         list={employees}
         type="employee"

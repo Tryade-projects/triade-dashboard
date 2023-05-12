@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import { fetchData } from "../../utils/fetchData";
-import PaginationEmployee from "../../components/PaginationEmployee/PaginationEmployee";
+import PaginationWrapper from "../../components/PaginationWrapper/PaginationWrapper";
 import ButtonsFilterWrapper from "../../components/ButtonsFilterWrapper/ButtonsFilterWrapper";
 import { usePagination } from "../../utils/usePagination";
 import filteredData from "../../utils/filteredData";
@@ -210,9 +210,9 @@ const Activities = () => {
             setCategory={setCategory}
           />
         </section>
-          <PaginationEmployee 
-          data={_DATA} 
-          list={activities} 
+        <PaginationWrapper
+          data={_DATA}
+          list={activities}
           type="activité"
           presentationText={true}
         />

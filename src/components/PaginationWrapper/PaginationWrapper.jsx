@@ -10,7 +10,7 @@ import { Pagination } from "@mui/material";
  * @param {boolean} props.presentationText - display presentation text
  * @returns {JSX.Element}
  */
-const PaginationEmployee = ({ data, list, type, presentationText }) => {
+const PaginationWrapper = ({ data, list, type, presentationText }) => {
   const handleChange = (event, page) => {
     data.setPage(page);
     data.jump(page);
@@ -43,4 +43,4 @@ const PaginationEmployee = ({ data, list, type, presentationText }) => {
   );
 };
 
-export default PaginationEmployee;
+export default PaginationWrapper;

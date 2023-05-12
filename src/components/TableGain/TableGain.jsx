@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { usePagination, useIndexRange } from "../../utils/usePagination";
-import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
+import PaginationWrapper from "../PaginationWrapper/PaginationWrapper";
 import FormatIcon from "../FormatIcon/FormatIcon";
 import user from "../../assets/User.svg";
 // import DataContext from "../../contexts/DataContext";
@@ -57,12 +57,13 @@ const TableGain = ({ list }) => {
       <table className="tableGain">
         <tbody>{displayRows(_DATA.currentData())}</tbody>
       </table>
-      {/* Utilisation du composant PaginationEmployee */}
-      <PaginationEmployee 
-        data={_DATA} 
-        list={list} 
+      {/* Utilisation du composant PaginationWrapper */}
+      <PaginationWrapper
+        data={_DATA}
+        list={list}
         type="gain"
-        presentationText={true} />
+        presentationText={true}
+      />
     </div>
   );
 };
