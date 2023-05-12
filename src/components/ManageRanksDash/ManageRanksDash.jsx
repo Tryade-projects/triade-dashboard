@@ -20,7 +20,7 @@ const ManageRanksDash = ({ search }) => {
   const _DATA = usePagination(displayRanksFiltered, INFO_PER_PAGE);
   useEffect(() => {
     _DATA.setCurrentPage(1);
-  }, [search, ranks]);
+  }, [search]);
 
   return (
     <div className="container-dashboard-employee containerDashBoardRanks">
@@ -31,6 +31,7 @@ const ManageRanksDash = ({ search }) => {
           setRanks={setRanks}
           ranks={ranks}
           setPage={_DATA.setPage}
+          setCurrentPage={_DATA.setCurrentPage}
         />
       </table>
       <PaginationWrapper

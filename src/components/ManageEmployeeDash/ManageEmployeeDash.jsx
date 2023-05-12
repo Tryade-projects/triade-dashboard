@@ -19,7 +19,7 @@ const ManageEmployeeDash = ({ search }) => {
   const _DATA = usePagination(displayProfilFiltered, INFO_PER_PAGE);
   useEffect(() => {
     _DATA.setCurrentPage(1);
-  }, [search, employees]);
+  }, [search]);
   return (
     <div className="container-dashboard-employee">
       <table>
@@ -27,8 +27,8 @@ const ManageEmployeeDash = ({ search }) => {
         <BodyTable
           currentEmployees={_DATA.currentData()}
           setEmployees={setEmployees}
-          setCurrentPage={_DATA.setCurrentPage}
           setPage={_DATA.setPage}
+          setCurrentPage={_DATA.setCurrentPage}
         />
       </table>
       <PaginationWrapper

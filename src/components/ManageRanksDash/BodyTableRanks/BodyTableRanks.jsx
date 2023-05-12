@@ -48,9 +48,16 @@ ReactModal.setAppElement("#root");
  * @param {object} props.currentRanks - current ranks
  * @param {function} props.setRanks - set ranks
  * @param {array} props.ranks - all ranks
+ * @param {function} props.setPage - set page
  * @returns {JSX.Element}
  */
-const BodyTableRanks = ({ currentRanks, setRanks, ranks, setPage }) => {
+const BodyTableRanks = ({
+  currentRanks,
+  setRanks,
+  ranks,
+  setPage,
+  setCurrentPage,
+}) => {
   const navigate = useNavigate();
   const [modalIsOpen, setIsOpen] = useState(false);
   const [currentRank, setCurrentRank] = useState({
@@ -92,7 +99,6 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks, setPage }) => {
         openModal();
         setCurrentRank(rank);
         setNextRank(findNextElm(rank, "ranks"));
-        setPage(1);
       };
     } else if (action === "modify") {
       navigate(`/ranks/rank/${rank.id}`);
@@ -141,6 +147,8 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks, setPage }) => {
                 setEmployees(
                   JSON.parse(localStorage.getItem("employees") || "[]"),
                 );
+                setPage(1);
+                setCurrentPage(1);
                 closeModal();
               }}
               className="modalButton modalButtonValid"

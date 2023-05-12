@@ -9,7 +9,12 @@ import fired from "../../../assets/fired.svg";
 import { deleteElmOnLocalStorage } from "../../../utils/arrayManager";
 import DataContext from "../../../contexts/DataContext";
 
-const BodyTable = ({ currentEmployees, setEmployees, setPage }) => {
+const BodyTable = ({
+  currentEmployees,
+  setEmployees,
+  setPage,
+  setCurrentPage,
+}) => {
   const { ranks, setRanks, employees } = useContext(DataContext);
   console.log(ranks);
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -38,6 +43,7 @@ const BodyTable = ({ currentEmployees, setEmployees, setPage }) => {
     });
     setIsOpen(false);
     setPage(1);
+    setCurrentPage(1);
   };
 
   const handleIncrease = (profil) => {
