@@ -10,7 +10,7 @@ import { deleteElmOnLocalStorage } from "../../../utils/arrayManager";
 import DataContext from "../../../contexts/DataContext";
 
 const BodyTable = ({ currentEmployees, setEmployees, setPage }) => {
-  const { ranks, setRanks } = useContext(DataContext);
+  const { ranks, setRanks, employees } = useContext(DataContext);
   console.log(ranks);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [firedEmployee, setFiredEmployee] = useState({
@@ -19,7 +19,6 @@ const BodyTable = ({ currentEmployees, setEmployees, setPage }) => {
     lastName: "",
   });
 
-  // const { ranks } = useContext(DataContext);
   // const { BEST_RANK, WORST_RANK } = useContext(DataContext).constants;
 
   const handleOpenModal = (employee) => {
@@ -42,39 +41,39 @@ const BodyTable = ({ currentEmployees, setEmployees, setPage }) => {
   };
 
   const handleIncrease = (profil) => {
-    setEmployees((employess) =>
-      employess.map((t) => {
-        if (t.id === profil.id) {
-          const indexRank = ranks.findIndex((t) => t.label === profil.rank);
-          const nextRankIndex = Math.max(indexRank - 1, 0);
-          return {
-            ...t,
-            id: profil.id,
-            rank: ranks[nextRankIndex].label,
-            color: ranks[nextRankIndex].color,
-          };
-        }
-        return t;
-      }),
-    );
+    const newEmployeesList = employees.map((t) => {
+      if (t.id === profil.id) {
+        const indexRank = ranks.findIndex((t) => t.label === profil.rank);
+        const nextRankIndex = Math.max(indexRank - 1, 0);
+        return {
+          ...t,
+          id: profil.id,
+          rank: ranks[nextRankIndex].label,
+          color: ranks[nextRankIndex].color,
+        };
+      }
+      return t;
+    });
+    setEmployees(newEmployeesList);
+    localStorage.setItem("employees", JSON.stringify(newEmployeesList));
   };
 
   const handleDecrease = (profil) => {
-    setEmployees((employess) =>
-      employess.map((t) => {
-        if (t.id === profil.id) {
-          const indexRank = ranks.findIndex((t) => t.label === profil.rank);
-          const nextRankIndex = Math.min(indexRank + 1, ranks.length);
-          return {
-            ...t,
-            id: profil.id,
-            rank: ranks[nextRankIndex].label,
-            color: ranks[nextRankIndex].color,
-          };
-        }
-        return t;
-      }),
-    );
+    const newEmployeesList = employees.map((t) => {
+      if (t.id === profil.id) {
+        const indexRank = ranks.findIndex((t) => t.label === profil.rank);
+        const nextRankIndex = Math.min(indexRank + 1, ranks.length);
+        return {
+          ...t,
+          id: profil.id,
+          rank: ranks[nextRankIndex].label,
+          color: ranks[nextRankIndex].color,
+        };
+      }
+      return t;
+    });
+    setEmployees(newEmployeesList);
+    localStorage.setItem("employees", JSON.stringify(newEmployeesList));
   };
 
   return (
@@ -111,14 +110,14 @@ const BodyTable = ({ currentEmployees, setEmployees, setPage }) => {
             <div className="wrapper-type-actions">
               <ButtonActions
                 icon={trending}
-                onClick={() => handleIncrease(profil)}
+                onClick={() => handleIncrease(employee)}
                 alt="Bouton pour promouvoir l'employé"
                 title="Promouvoir"
               />
 
               <ButtonActions
                 icon={decrease}
-                onClick={() => handleDecrease(profil)}
+                onClick={() => handleDecrease(employee)}
                 alt="Bouton pour rétrograder l'employé"
                 title="Rétrograder"
               />
