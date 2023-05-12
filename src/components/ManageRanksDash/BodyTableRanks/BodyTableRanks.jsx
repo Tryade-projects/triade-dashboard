@@ -21,6 +21,7 @@ import {
   unincreaseRanks,
   undecreaseRanks,
 } from "../../../utils/unchangeableRanks";
+import { set } from "react-hook-form";
 
 const customStyles = {
   content: {
@@ -49,7 +50,7 @@ ReactModal.setAppElement("#root");
  * @param {array} props.ranks - all ranks
  * @returns {JSX.Element}
  */
-const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
+const BodyTableRanks = ({ currentRanks, setRanks, ranks, setPage }) => {
   const navigate = useNavigate();
   const [modalIsOpen, setIsOpen] = useState(false);
   const [currentRank, setCurrentRank] = useState({
@@ -91,6 +92,7 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
         openModal();
         setCurrentRank(rank);
         setNextRank(findNextElm(rank, "ranks"));
+        setPage(1);
       };
     } else if (action === "modify") {
       navigate(`/ranks/rank/${rank.id}`);

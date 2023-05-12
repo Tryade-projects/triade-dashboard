@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { usePagination, useIndexRange } from "../../utils/usePagination";
 import moment from "moment";
-import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
+import PaginationWrapper from "../PaginationWrapper/PaginationWrapper";
 import FormatIcon from "../FormatIcon/FormatIcon";
 
 //number of expenses per page
@@ -97,12 +97,12 @@ const TableExpense = ({ list }) => {
       <table className="tableExpense">
         <tbody>{displayRows(_DATA.currentData())}</tbody>
       </table>
-        <PaginationEmployee 
-          data={_DATA} 
-          list={list} 
-          type="dépense"
-          presentationText={false}
-           />
+      <PaginationWrapper
+        data={_DATA}
+        list={list}
+        type="dépense"
+        presentationText={false}
+      />
     </div>
   );
 };

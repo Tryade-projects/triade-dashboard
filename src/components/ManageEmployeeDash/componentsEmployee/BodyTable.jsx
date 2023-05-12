@@ -7,9 +7,8 @@ import trending from "../../../assets/trending.svg";
 import decrease from "../../../assets/decrease.svg";
 import fired from "../../../assets/fired.svg";
 import { deleteElmOnLocalStorage } from "../../../utils/arrayManager";
-import DataContext from "../../../contexts/DataContext";
 
-const BodyTable = ({ currentEmployees, setEmployees }) => {
+const BodyTable = ({ currentEmployees, setEmployees, setPage }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [firedEmployee, setFiredEmployee] = useState({
     id: "",
@@ -36,6 +35,7 @@ const BodyTable = ({ currentEmployees, setEmployees }) => {
       return fired;
     });
     setIsOpen(false);
+    setPage(1);
   };
 
   return (

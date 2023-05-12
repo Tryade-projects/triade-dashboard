@@ -4,9 +4,9 @@ import { usePagination } from "../../utils/usePagination";
 import HeaderTable from "./componentsEmployee/HeaderTable";
 import filteredData from "../../utils/filteredData";
 import DataContext from "../../contexts/DataContext";
-import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
+import PaginationWrapper from "../PaginationWrapper/PaginationWrapper";
 
-const INFO_PER_PAGE = 5;
+const INFO_PER_PAGE = 1;
 
 const ManageEmployeeDash = ({ search }) => {
   const { employees, setEmployees } = useContext(DataContext);
@@ -19,7 +19,7 @@ const ManageEmployeeDash = ({ search }) => {
   const _DATA = usePagination(displayProfilFiltered, INFO_PER_PAGE);
   useEffect(() => {
     _DATA.setCurrentPage(1);
-  }, [search]);
+  }, [search, employees]);
   return (
     <div className="container-dashboard-employee">
       <table>
@@ -27,14 +27,16 @@ const ManageEmployeeDash = ({ search }) => {
         <BodyTable
           currentEmployees={_DATA.currentData()}
           setEmployees={setEmployees}
+          setCurrentPage={_DATA.setCurrentPage}
+          setPage={_DATA.setPage}
         />
       </table>
-      <PaginationEmployee 
-        data={_DATA} 
-        list={employees} 
+      <PaginationWrapper
+        data={_DATA}
+        list={employees}
         type="employee"
         presentationText={true}
-        />
+      />
     </div>
   );
 };
