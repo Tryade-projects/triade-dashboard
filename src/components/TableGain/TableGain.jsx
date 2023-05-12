@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import { usePagination, useIndexRange } from "../../utils/usePagination";
-import PaginationEmployee from "../PaginationEmployee/PaginationEmployee";
+import PaginationWrapper from "../PaginationWrapper/PaginationWrapper";
 import FormatIcon from "../FormatIcon/FormatIcon";
 import user from "../../assets/User.svg";
-// import { EmployeesContext } from "../../App";
+// import DataContext from "../../contexts/DataContext";
 
 const INFO_PER_PAGE = 5;
 
@@ -14,7 +14,7 @@ const INFO_PER_PAGE = 5;
  * @returns {JSX.Element} - Le composant du tableau de gains
  */
 const TableGain = ({ list }) => {
-  // const { employees, setEmployees } = useContext(EmployeesContext);
+  // const { employees, setEmployees } = useContext(DataContext);
 
   const _DATA = usePagination(list, INFO_PER_PAGE);
   useEffect(() => {
@@ -22,7 +22,6 @@ const TableGain = ({ list }) => {
   }, []);
 
   const displayRows = (list) => {
-    console.log("list", list);
     //Vérification si list et employees ne sont pas vides
     if (list && list.length > 0) {
       return list.map((obj) => {
@@ -58,8 +57,13 @@ const TableGain = ({ list }) => {
       <table className="tableGain">
         <tbody>{displayRows(_DATA.currentData())}</tbody>
       </table>
-      {/* Utilisation du composant PaginationEmployee */}
-      <PaginationEmployee data={_DATA} list={list} type="gain" />
+      {/* Utilisation du composant PaginationWrapper */}
+      <PaginationWrapper
+        data={_DATA}
+        list={list}
+        type="gain"
+        presentationText={true}
+      />
     </div>
   );
 };

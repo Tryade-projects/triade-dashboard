@@ -3,7 +3,6 @@ import RoundButtonEmployee from "../RoundButtonEmployee/RoundButtonEmployee";
 import { Link } from "react-router-dom";
 
 const ShortEmployeeList = ({ employees }) => {
-  console.log(employees);
   //Séectionner les 5 premiers résultats
   employees = employees.slice(0, 5);
 

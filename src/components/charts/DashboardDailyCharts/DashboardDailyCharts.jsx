@@ -3,14 +3,6 @@ import Chart from "react-apexcharts";
 import moment from 'moment/moment';
 import 'moment/locale/fr'; // Importer la langue française
 
-/**
- * 
- * @param {object} props
- * @const {Array[array]} newData each table contains 3 data, first the time stamp at midnight, the expenses of the company and then the profit
- * @returns {JSX.Element}
- */
-
-
 const newData = [
   [1678834800, 0, 0],
   [1678921200, 26, 9],
@@ -28,8 +20,7 @@ const newData = [
   [moment().unix(), 20, 0]
 ];
 
-moment.locale('fr'); 
-
+moment.locale('fr');
 
 function processNewData(newData) {
   const dailyExpensesDatas = [];
@@ -56,7 +47,6 @@ function processNewData(newData) {
     }
   }
 
-
   return {
     categories: categories,
     series: [
@@ -72,12 +62,10 @@ function processNewData(newData) {
   };
 }
 
-
 function DashboardCharts() {
   const { categories, series } = processNewData(newData);
 
   const options = {
-
     colors: ['#FCC43E', '#FB7D5B'],
 
     chart: {
@@ -181,7 +169,6 @@ function DashboardCharts() {
       />
     </div>
   );
-
 };
 
-export default DashboardCharts
+export default DashboardCharts;

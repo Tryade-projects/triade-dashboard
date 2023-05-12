@@ -15,7 +15,13 @@ import {
   modifyArrayInLocalStorage,
 } from "../../../utils/arrayManager";
 import { useNavigate } from "react-router-dom";
-import { EmployeesContext } from "../../../App";
+import DataContext from "../../../contexts/DataContext";
+import {
+  unchangeableRanksBoolean,
+  unincreaseRanks,
+  undecreaseRanks,
+} from "../../../utils/unchangeableRanks";
+import { set } from "react-hook-form";
 
 const customStyles = {
   content: {
@@ -44,7 +50,7 @@ ReactModal.setAppElement("#root");
  * @param {array} props.ranks - all ranks
  * @returns {JSX.Element}
  */
-const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
+const BodyTableRanks = ({ currentRanks, setRanks, ranks, setPage }) => {
   const navigate = useNavigate();
   const [modalIsOpen, setIsOpen] = useState(false);
   const [currentRank, setCurrentRank] = useState({
@@ -56,7 +62,8 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
     color: "",
   });
 
-  const { setEmployees } = useContext(EmployeesContext);
+  const { setEmployees } = useContext(DataContext);
+  const { BEST_RANK, WORST_RANK } = useContext(DataContext).constants;
 
   const openModal = () => {
     setIsOpen(true);
@@ -65,11 +72,6 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
   const closeModal = () => {
     setIsOpen(false);
   };
-  const unchangeableGradesBoolean = (rank) =>
-    ["boss", "recrue"].includes(rank.name);
-  const unincreaseRanks = (rank, ranks) => ranks.indexOf(rank) === 1;
-  const undecreaseRanks = (rank, ranks) =>
-    ranks.indexOf(rank) === ranks.length - 2;
 
   /**
    *
@@ -78,8 +80,9 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
    * @param {array} ranks - all ranks
    * @returns {import("react").MouseEventHandler<HTMLButtonElement>|undefined}
    */
-  function actionClick(rank, action, ranks) {
-    if (unchangeableGradesBoolean(rank)) return undefined;
+  function btActionRank(rank, action, ranks) {
+    if (unchangeableRanksBoolean(rank, [BEST_RANK, WORST_RANK]))
+      return undefined;
     if (action === "decrease" && !undecreaseRanks(rank, ranks)) {
       return () => setRanks(decreaseElm(rank, "ranks"));
     } else if (action === "increase" && !unincreaseRanks(rank, ranks)) {
@@ -89,6 +92,7 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
         openModal();
         setCurrentRank(rank);
         setNextRank(findNextElm(rank, "ranks"));
+        setPage(1);
       };
     } else if (action === "modify") {
       navigate(`/ranks/rank/${rank.id}`);
@@ -163,9 +167,9 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
                 icon={trending}
                 alt="Bouton pour augmenter la hiérarchie du grade"
                 title={"Augmenter"}
-                onClick={actionClick(rank, "increase", ranks)}
+                onClick={btActionRank(rank, "increase", ranks)}
                 inactive={
-                  unchangeableGradesBoolean(rank) ||
+                  unchangeableRanksBoolean(rank, [BEST_RANK, WORST_RANK]) ||
                   unincreaseRanks(rank, ranks)
                 }
               />
@@ -173,9 +177,9 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
                 icon={decrease}
                 alt="Bouton pour diminuer la hiérarchie du grade"
                 title={"Diminuer"}
-                onClick={actionClick(rank, "decrease", ranks)}
+                onClick={btActionRank(rank, "decrease", ranks)}
                 inactive={
-                  unchangeableGradesBoolean(rank) ||
+                  unchangeableRanksBoolean(rank, [BEST_RANK, WORST_RANK]) ||
                   undecreaseRanks(rank, ranks)
                 }
               />
@@ -183,8 +187,11 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
                 icon={deleteIcon}
                 alt="Bouton pour supprimer le grade"
                 title={"Supprimer"}
-                onClick={actionClick(rank, "delete", ranks)}
-                inactive={unchangeableGradesBoolean(rank)}
+                onClick={btActionRank(rank, "delete", ranks)}
+                inactive={unchangeableRanksBoolean(rank, [
+                  BEST_RANK,
+                  WORST_RANK,
+                ])}
               />
             </div>
           </td>
@@ -195,9 +202,12 @@ const BodyTableRanks = ({ currentRanks, setRanks, ranks }) => {
                 alt={"Bouton pour voir les détails du grade"}
                 title={"Détails"}
                 onClick={() => {
-                  actionClick(rank, "modify", ranks);
+                  btActionRank(rank, "modify", ranks);
                 }}
-                inactive={unchangeableGradesBoolean(rank)}
+                inactive={unchangeableRanksBoolean(rank, [
+                  BEST_RANK,
+                  WORST_RANK,
+                ])}
               />
             </div>
           </td>
