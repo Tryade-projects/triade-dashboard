@@ -127,7 +127,7 @@ const BodyTable = ({
                 onClick={() => handleDecrease(employee)}
                 alt="Bouton pour rétrograder l'employé"
                 title="Rétrograder"
-                inactive={employee.rank === "Recrue" ? true : false}
+                inactive={employee.rank === "Recrue"}
               />
 
               <ButtonActions
