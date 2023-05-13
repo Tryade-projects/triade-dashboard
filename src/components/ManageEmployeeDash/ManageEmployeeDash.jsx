@@ -6,7 +6,7 @@ import filteredData from "../../utils/filteredData";
 import DataContext from "../../contexts/DataContext";
 import PaginationWrapper from "../PaginationWrapper/PaginationWrapper";
 
-const INFO_PER_PAGE = 1;
+const INFO_PER_PAGE = 5;
 
 const ManageEmployeeDash = ({ search }) => {
   const { employees, setEmployees } = useContext(DataContext);

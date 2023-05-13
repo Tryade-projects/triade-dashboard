@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import ButtonActions from "../../ButtonActions/ButtonActions";
 import ModalActions from "../../ModalActions/ModalActions";
 import { Link } from "react-router-dom";
@@ -16,7 +16,6 @@ const BodyTable = ({
   setCurrentPage,
 }) => {
   const { ranks, setRanks, employees } = useContext(DataContext);
-  console.log(ranks);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [firedEmployee, setFiredEmployee] = useState({
     id: "",
@@ -51,15 +50,16 @@ const BodyTable = ({
       if (t.id === profil.id) {
         const indexRank = ranks.findIndex((t) => t.label === profil.rank);
         const nextRankIndex = Math.max(indexRank - 1, 0);
+
         return {
           ...t,
-          id: profil.id,
           rank: ranks[nextRankIndex].label,
           color: ranks[nextRankIndex].color,
         };
       }
       return t;
     });
+
     setEmployees(newEmployeesList);
     localStorage.setItem("employees", JSON.stringify(newEmployeesList));
   };
@@ -68,12 +68,12 @@ const BodyTable = ({
     const newEmployeesList = employees.map((t) => {
       if (t.id === profil.id) {
         const indexRank = ranks.findIndex((t) => t.label === profil.rank);
-        const nextRankIndex = Math.min(indexRank + 1, ranks.length);
+        const previousRankIndex = Math.min(indexRank + 1, ranks.length - 1);
+        // if (previousRankIndex === ranks.length - 1)
         return {
           ...t,
-          id: profil.id,
-          rank: ranks[nextRankIndex].label,
-          color: ranks[nextRankIndex].color,
+          rank: ranks[previousRankIndex].label,
+          color: ranks[previousRankIndex].color,
         };
       }
       return t;
@@ -119,6 +119,7 @@ const BodyTable = ({
                 onClick={() => handleIncrease(employee)}
                 alt="Bouton pour promouvoir l'employé"
                 title="Promouvoir"
+                inactive={employee.rank === "Boss" ? true : false}
               />
 
               <ButtonActions
@@ -126,6 +127,7 @@ const BodyTable = ({
                 onClick={() => handleDecrease(employee)}
                 alt="Bouton pour rétrograder l'employé"
                 title="Rétrograder"
+                inactive={employee.rank === "Recrue" ? true : false}
               />
 
               <ButtonActions

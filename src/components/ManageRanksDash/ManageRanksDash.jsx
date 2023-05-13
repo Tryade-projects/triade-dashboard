@@ -6,7 +6,7 @@ import { usePagination } from "../../utils/usePagination";
 import filteredData from "../../utils/filteredData";
 import DataContext from "../../contexts/DataContext";
 
-const INFO_PER_PAGE = 1;
+const INFO_PER_PAGE = 5;
 
 const ManageRanksDash = ({ search }) => {
   const { ranks, setRanks } = useContext(DataContext);
