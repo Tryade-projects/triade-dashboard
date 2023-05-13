@@ -23,7 +23,7 @@ const BodyTable = ({
     lastName: "",
   });
 
-  // const { BEST_RANK, WORST_RANK } = useContext(DataContext).constants;
+  // console.log(employees[5]);
 
   const handleOpenModal = (employee) => {
     setIsOpen(true);
@@ -50,11 +50,12 @@ const BodyTable = ({
       if (t.id === profil.id) {
         const indexRank = ranks.findIndex((t) => t.label === profil.rank);
         const nextRankIndex = Math.max(indexRank - 1, 0);
-
+        console.log(nextRankIndex);
         return {
           ...t,
           rank: ranks[nextRankIndex].label,
           color: ranks[nextRankIndex].color,
+          indexRank: nextRankIndex,
         };
       }
       return t;
@@ -69,11 +70,12 @@ const BodyTable = ({
       if (t.id === profil.id) {
         const indexRank = ranks.findIndex((t) => t.label === profil.rank);
         const previousRankIndex = Math.min(indexRank + 1, ranks.length - 1);
-        // if (previousRankIndex === ranks.length - 1)
+        console.log(previousRankIndex);
         return {
           ...t,
           rank: ranks[previousRankIndex].label,
           color: ranks[previousRankIndex].color,
+          indexRank: previousRankIndex,
         };
       }
       return t;
@@ -119,7 +121,7 @@ const BodyTable = ({
                 onClick={() => handleIncrease(employee)}
                 alt="Bouton pour promouvoir l'employé"
                 title="Promouvoir"
-                inactive={employee.rank === "Boss" ? true : false}
+                inactive={employee.indexRank === 0}
               />
 
               <ButtonActions
@@ -127,7 +129,7 @@ const BodyTable = ({
                 onClick={() => handleDecrease(employee)}
                 alt="Bouton pour rétrograder l'employé"
                 title="Rétrograder"
-                inactive={employee.rank === "Recrue"}
+                inactive={employee.indexRank === ranks.length - 1}
               />
 
               <ButtonActions

@@ -67,6 +67,7 @@ const FormEmployee = () => {
       information: data.informations,
       employee_at: new Date().toLocaleDateString(),
       image: "/src/assets/fake-avatar.svg",
+      indexRank: null,
     };
 
     if (state) {
