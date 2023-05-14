@@ -23,8 +23,6 @@ const BodyTable = ({
     lastName: "",
   });
 
-  // console.log(employees[5]);
-
   const handleOpenModal = (employee) => {
     setIsOpen(true);
     setFiredEmployee({
@@ -46,19 +44,18 @@ const BodyTable = ({
   };
 
   const handleIncrease = (profil) => {
-    const newEmployeesList = employees.map((t) => {
-      if (t.id === profil.id) {
-        const indexRank = ranks.findIndex((t) => t.label === profil.rank);
+    const newEmployeesList = employees.map((employee) => {
+      if (employee.id === profil.id) {
+        const indexRank = ranks.findIndex((rank) => rank.label === profil.rank);
         const nextRankIndex = Math.max(indexRank - 1, 0);
-        console.log(nextRankIndex);
         return {
-          ...t,
+          ...employee,
           rank: ranks[nextRankIndex].label,
           color: ranks[nextRankIndex].color,
           indexRank: nextRankIndex,
         };
       }
-      return t;
+      return employee;
     });
 
     setEmployees(newEmployeesList);
@@ -70,7 +67,6 @@ const BodyTable = ({
       if (t.id === profil.id) {
         const indexRank = ranks.findIndex((t) => t.label === profil.rank);
         const previousRankIndex = Math.min(indexRank + 1, ranks.length - 1);
-        console.log(previousRankIndex);
         return {
           ...t,
           rank: ranks[previousRankIndex].label,

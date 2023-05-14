@@ -6,7 +6,6 @@ import address from "../../../assets/address.svg";
 import date from "../../../assets/Date.svg";
 
 const InfoEmployee = ({ profil }) => {
-  console.log({ profil });
   return (
     <>
       <div className={styles.wrapperNameRank}>

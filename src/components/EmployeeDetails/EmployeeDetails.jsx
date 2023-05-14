@@ -15,7 +15,7 @@ const EmployeeDetails = () => {
     <div className={styles.container}>
       <section className={styles.firstContainer}>
         <Cover />
-        <div className={styles.info}>
+        <div>
           <WrapperAvatarActions profil={profil} />
           <InfoEmployee profil={profil} />
         </div>
