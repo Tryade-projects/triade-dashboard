@@ -11,17 +11,21 @@
   }
 }
 
-html, body{
+html,
+body {
   height: 100%;
   width: 100%;
 }
 
-body{
+body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(53, 53, 53, 0.4)!important;
-  backdrop-filter: blur(5px)!important;
+  background-image: url("/src/assets/GTAVPC_7\ 1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(5px);
 }
 
 ul {
