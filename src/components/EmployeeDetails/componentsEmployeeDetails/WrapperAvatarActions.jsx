@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import ButtonTransaction from "../../ButtonActions/ButtonActions";
+import ButtonActions from "../../ButtonActions/ButtonActions";
 import { useNavigate } from "react-router-dom";
 import styles from "./_wrapperAvatarActions.module.scss";
 // import avatar from "../../../assets/fake-avatar.svg";
@@ -11,8 +11,9 @@ import gear from "../../../assets/gear.svg";
 import DataContext from "../../../contexts/DataContext";
 import ModalActions from "../../ModalActions/ModalActions";
 import { deleteElmOnLocalStorage } from "../../../utils/arrayManager";
+import { set } from "react-hook-form";
 
-const WrapperAvatarActions = ({ profil }) => {
+const WrapperAvatarActions = ({ profil, setProfil }) => {
   const navigate = useNavigate();
   const { employees, setEmployees, ranks } = useContext(DataContext);
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -27,6 +28,12 @@ console.log({profil})
       if (employee.id === profil.id) {
         const indexRank = ranks.findIndex((rank) => rank.label === profil.rank);
         const nextRankIndex = Math.max(indexRank - 1, 0);
+        setProfil({
+          ...profil,
+          rank: ranks[nextRankIndex].label,
+          color: ranks[nextRankIndex].color,
+          indexRank: nextRankIndex,
+        });
         return {
           ...employee,
           rank: ranks[nextRankIndex].label,
@@ -47,6 +54,12 @@ console.log({profil})
         const indexRank = ranks.findIndex((t) => t.label === profil.rank);
         const previousRankIndex = Math.min(indexRank + 1, ranks.length - 1);
         console.log(previousRankIndex);
+        setProfil({
+          ...profil,
+          rank: ranks[previousRankIndex].label,
+          color: ranks[previousRankIndex].color,
+          indexRank: previousRankIndex,
+        });
         return {
           ...t,
           rank: ranks[previousRankIndex].label,
@@ -94,7 +107,7 @@ console.log(styles);
       </div>
       <div className={styles.actions}>
         <div>
-          <ButtonTransaction
+          <ButtonActions
             icon={trending}
             alt={"Bouton pour promouvoir l'employé"}
             title={"Promouvoir"}
@@ -103,7 +116,7 @@ console.log(styles);
           />
         </div>
         <div>
-          <ButtonTransaction
+          <ButtonActions
             icon={decrease}
             alt={"Bouton pour rétrograder l'employé"}
             title={"Rétrograder"}
@@ -112,7 +125,7 @@ console.log(styles);
           />
         </div>
         <div>
-          <ButtonTransaction
+          <ButtonActions
             icon={fired}
             alt={"Bouton pour licensier l'employé"}
             title={"Licencier"}
@@ -121,7 +134,7 @@ console.log(styles);
         </div>
         <div>
           <Link to={`/employees/employee/add/${profil.id}`} state={profil}>
-            <ButtonTransaction
+            <ButtonActions
               icon={gear}
               alt={"Bouton pour voir les détails de l'employé"}
               title={"Modifier"}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./_employeeDetails.module.scss";
 import Cover from "./componentsEmployeeDetails/Cover";
 import WrapperAvatarActions from "./componentsEmployeeDetails/WrapperAvatarActions";
@@ -8,15 +8,21 @@ import ShortEmployeeListContainer from "../ShortEmployeeListContainer/ShortEmplo
 
 const EmployeeDetails = () => {
   const { state } = useLocation();
+  const [profil, setProfil] = useState(state);
 
-  const profil = state || [];
+  // const profil = state || [];
+  console.log({ profil });
+
+  useEffect(() => {
+    setProfil(state);
+  }, [state]);
 
   return (
     <div className={styles.container}>
       <section className={styles.firstContainer}>
         <Cover />
         <div>
-          <WrapperAvatarActions profil={profil} />
+          <WrapperAvatarActions profil={profil} setProfil={setProfil} />
           <InfoEmployee profil={profil} />
         </div>
       </section>
