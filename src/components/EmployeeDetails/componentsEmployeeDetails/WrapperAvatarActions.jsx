@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ButtonTransaction from "../../ButtonActions/ButtonActions";
 import { useNavigate } from "react-router-dom";
 import styles from "./_wrapperAvatarActions.module.scss";
-import avatar from "../../../assets/fake-avatar.svg";
+// import avatar from "../../../assets/fake-avatar.svg";
 import trending from "../../../assets/trending.svg";
 import decrease from "../../../assets/decrease.svg";
 import fired from "../../../assets/fired.svg";
@@ -21,7 +21,7 @@ const WrapperAvatarActions = ({ profil }) => {
     firstName: "",
     lastName: "",
   });
-
+console.log({profil})
   const handleIncrease = (profil) => {
     const newEmployeesList = employees.map((employee) => {
       if (employee.id === profil.id) {
@@ -78,7 +78,7 @@ const WrapperAvatarActions = ({ profil }) => {
       lastName: profil.lastName,
     });
   };
-
+console.log(styles);
   return (
     <div className={styles.wrapperAvatar}>
       <ModalActions
@@ -90,7 +90,7 @@ const WrapperAvatarActions = ({ profil }) => {
         handleClick={handleFired}
       />
       <div className={styles.avatar}>
-        <img src={avatar} alt="" />
+        <img src={profil.image} alt="" />
       </div>
       <div className={styles.actions}>
         <div>

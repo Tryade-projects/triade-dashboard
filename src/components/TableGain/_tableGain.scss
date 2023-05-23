@@ -30,6 +30,11 @@
                         border-bottom: none !important;
                         padding: 0!important;
                     }
+                    .avatar{
+                        border-radius: 50%;
+                        height: 4.903vh;
+                        width: 4.903vh;
+                    }
                     .tableGainName{
                         @include idTitle;
                         flex-grow:2;

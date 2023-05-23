@@ -10,6 +10,7 @@
     display: flex;
     justify-content: space-between;
     height: 20%;
+    min-height: 4.903vh;
     //Titles
     >:nth-child(1){
       width: 4.903vh;
@@ -21,17 +22,18 @@
       img{
         width: 4.903vh;
         height: 4.903vh;
+        border-radius: 50%;
       }
-
+      
     }
     > :nth-child(2) {
       flex-grow: 1;
-      // font-size: 14px;
       font-size: 0.7vw;
       margin-left: 5%;
       display: flex;
       flex-direction: column;
       align-items: baseline;
+      justify-content: center;
       //Name title
       :first-child {
         color: $colorText;

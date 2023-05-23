@@ -3,7 +3,7 @@
         "id": 1,
         "employee": {
             "id": "44569af4-465b-47eb-afcb-b4ab5898e9a5",
-            "image": "./src/assets/fake-avatar.svg",
+            "image": "/src/assets/images(1).jpeg",
             "firstName": "Samanta",
             "lastName": "William",
             "color": "#FB7D5B",
@@ -15,7 +15,7 @@
         "id": 2,
         "employee": {
             "id": "44569af4-465b-47eb-afcb-b4ab5898e9a6",
-            "image": "./src/assets/fake-avatar.svg",
+            "image": "/src/assets/images.png",
             "firstName": "Tony",
             "lastName": "Soap",
             "color": "#FCC43E",
@@ -27,7 +27,7 @@
         "id": 3,
         "employee": {
             "id": "44569af4-465b-47eb-afcb-b4ab5898e9a7",
-            "image": "./src/assets/fake-avatar.svg",
+            "image": "/src/assets/images(1).png",
             "firstName": "Karen",
             "lastName": "Hope",
             "color": "#4CBC9A",
@@ -39,7 +39,7 @@
         "id": 4,
         "employee": {
             "id": "44569af4-465b-47eb-afcb-b4ab5898e9a8",
-            "image": "./src/assets/fake-avatar.svg",
+            "image": "/src/assets/KoalaBear200x200.jpg",
             "firstName": "Jordan",
             "lastName": "Nico",
             "color": "#FCC43E",
