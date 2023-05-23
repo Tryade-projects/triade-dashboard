@@ -14,14 +14,24 @@ You will also have a global view of your economy and access to improvements.
 ![Home page of the project](https://github.com/DevWeb13/triade-dashboard/blob/master/Dashboard.jpg)
 
 
-## Deployment
+## Installation
 
-To deploy this project run
+### Use the application
+
+* You have to clone the project locally with either/or :
 
 ```bash
-  npm run deploy
+# HTTPS
+git clone https://github.com/DevWeb13/triade-dashboard.git
+# SSH
+git clone git@github.com:DevWeb13/triade-dashboard.git
 ```
 
+* Install dépendencies
+
+```bash
+pnpm install
+```
 
 ## Tech Stack
 
@@ -41,10 +51,6 @@ To deploy this project run
 
 **Backend :**
 - [@SAH COZY](https://github.com/SAH-COZY)
-
-
-
-
 
 ## License
 
