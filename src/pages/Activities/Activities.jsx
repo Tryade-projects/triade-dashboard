@@ -36,8 +36,6 @@ const Activities = () => {
     _DATA.setCurrentPage(1);
   }, [category]);
 
-  console.log({ activities });
-
   /**
    * Display a separator if the activity is the first of the day or if the date is different from the previous activity
    * @param {number} i - Index of the activity

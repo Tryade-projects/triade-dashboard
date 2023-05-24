@@ -10,9 +10,6 @@ const EmployeeDetails = () => {
   const { state } = useLocation();
   const [profil, setProfil] = useState(state);
 
-  // const profil = state || [];
-  console.log({ profil });
-
   useEffect(() => {
     setProfil(state);
   }, [state]);

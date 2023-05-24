@@ -2,10 +2,10 @@ import React, { useState, useContext, useRef } from "react";
 import ButtonActions from "../../ButtonActions/ButtonActions";
 import ModalActions from "../../ModalActions/ModalActions";
 import { Link } from "react-router-dom";
-import gear from "../../../assets/gear.svg";
-import trending from "../../../assets/trending.svg";
-import decrease from "../../../assets/decrease.svg";
-import fired from "../../../assets/fired.svg";
+import gear from "/assets/gear.svg";
+import trending from "/assets/trending.svg";
+import decrease from "/assets/decrease.svg";
+import fired from "/assets/fired.svg";
 import { deleteElmOnLocalStorage } from "../../../utils/arrayManager";
 import DataContext from "../../../contexts/DataContext";
 

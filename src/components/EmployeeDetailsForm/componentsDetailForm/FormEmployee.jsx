@@ -8,7 +8,7 @@ import { useStickyState } from "../../../utils/useStickyState";
 import LabelForm from "./LabelForm";
 import InputForm from "./InputForm";
 import { v4 as uuidv4 } from "uuid";
-import { firstLetterUpperCase } from "../../../utils/stringManager";
+
 import DataContext from "../../../contexts/DataContext";
 
 const NAME_KEY = "employees";
@@ -66,7 +66,7 @@ const FormEmployee = () => {
       place: data.place,
       information: data.informations,
       employee_at: new Date().toLocaleDateString(),
-      image: "/src/assets/fake-avatar.svg",
+      image: "/assets/fake-avatar.svg",
       indexRank: null,
     };
 

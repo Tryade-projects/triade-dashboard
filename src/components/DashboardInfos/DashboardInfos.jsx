@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import FormatIcon from "../FormatIcon/FormatIcon";
-import finance from "../../../src/assets/finance.svg";
-import stock from "../../../src/assets/stock.svg";
-import Car from "../../../src/assets/Car.svg";
-import teacher from "../../../src/assets/studentWhite.svg";
+import finance from "/assets/finance.svg";
+import stock from "/assets/stock.svg";
+import Car from "/assets/Car.svg";
+import teacher from "/assets/studentWhite.svg";
 import DataContext from "../../contexts/DataContext";
 
 const DashboardInfos = () => {

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { usePagination, useIndexRange } from "../../utils/usePagination";
 import PaginationWrapper from "../PaginationWrapper/PaginationWrapper";
 import FormatIcon from "../FormatIcon/FormatIcon";
-import user from "../../assets/User.svg";
+import user from "/assets/User.svg";
 // import DataContext from "../../contexts/DataContext";
 
 const INFO_PER_PAGE = 5;

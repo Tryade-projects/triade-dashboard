@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import Logo from "../../assets/logo.svg";
+import Logo from "/assets/logo.svg";
 // import PowerOff from "../../assets/power-off.svg";
 
 const colorPurple = "#4d44b5";

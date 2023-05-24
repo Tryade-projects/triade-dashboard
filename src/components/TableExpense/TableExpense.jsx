@@ -15,7 +15,6 @@ const INFO_PER_PAGE = 6;
  * @returns {JSX.Element} - Rendered component
  */
 const TableExpense = ({ list }) => {
-  // console.log("list", list);
   const _DATA = usePagination(list, INFO_PER_PAGE);
   useEffect(() => {
     _DATA.setCurrentPage(1);
@@ -26,7 +25,6 @@ const TableExpense = ({ list }) => {
 
   // set up rows of expense data for table based on current page of expenses
   const displayRows = (list) => {
-    // console.log({ list });
     if (list && list.length > 0) {
       return list.map((obj, indexObj) => {
         return (

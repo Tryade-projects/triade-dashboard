@@ -1,5 +1,5 @@
 import React from "react";
-import buttonPlus from "../../assets/buttonPlus.svg";
+import buttonPlus from "/assets/buttonPlus.svg";
 
 const ButtonAdd = () => {
   return (

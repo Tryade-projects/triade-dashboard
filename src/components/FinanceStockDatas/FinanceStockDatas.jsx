@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FormatIcon from "../FormatIcon/FormatIcon";
 import StatsData from "../StatsData/StatsData";
-import stock from "../../assets/stock.svg";
+import stock from "/assets/stock.svg";
 
 const FinanceStockDatas = ({ oldStockData, nowData }) => {
   return (

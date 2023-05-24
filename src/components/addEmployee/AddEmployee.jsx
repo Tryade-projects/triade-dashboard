@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 
 const addEmployee = () => {
   const { state } = useLocation();
-  console.log(state);
+
   return (
     <main className="main">
       <Header title={"Ajouter un Employé"} />

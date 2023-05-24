@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import FormatIcon from "../FormatIcon/FormatIcon";
 import StatsData from "../StatsData/StatsData";
-import studentWhite from "../../assets/studentWhite.svg";
+import studentWhite from "/assets/studentWhite.svg";
 import DataContext from "../../contexts/DataContext";
 
 const FinanceEmployeesDatas = ({ oldEmployeesData }) => {

@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
-import gear from "../../../assets/gear.svg";
-import trending from "../../../assets/trending.svg";
-import decrease from "../../../assets/decrease.svg";
-import deleteIcon from "../../../assets/deleteIcon.svg";
+import gear from "/assets/gear.svg";
+import trending from "/assets/trending.svg";
+import decrease from "/assets/decrease.svg";
+import deleteIcon from "/assets/deleteIcon.svg";
 import Label from "../../Label/Label";
 import ButtonActions from "../../ButtonActions/ButtonActions";
 import ReactModal from "react-modal";

@@ -147,7 +147,6 @@ const RanksForm = () => {
     event.preventDefault();
 
     const rankIndex = ranks.findIndex((rank) => rank.id === rankId);
-    console.log({ rankIndex });
     const newRanks = [...ranks];
 
     let oldLabel = "";

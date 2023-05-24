@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./_cover.module.scss";
-import cover from "../../../assets/cover.png";
+import cover from "/assets/cover.png";
 
 const Cover = () => {
   return (

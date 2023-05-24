@@ -95,11 +95,9 @@ const modifyArrayInLocalStorage = (
   valueDeleted,
   keysWithValue,
 ) => {
-  console.log({ keyOfLocalStorage, keyAtChecked, valueDeleted, keysWithValue });
   const currentData = JSON.parse(
     localStorage.getItem(keyOfLocalStorage) || "[]",
   );
-  console.log({ currentData });
   const updatedData = currentData.map((elm) => {
     if (elm[keyAtChecked] === valueDeleted) {
       const updatedElm = { ...elm };
@@ -111,7 +109,6 @@ const modifyArrayInLocalStorage = (
     return elm;
   });
 
-  console.log({ updatedData });
   // Mettre à jour les données de localStorage
   localStorage.setItem(keyOfLocalStorage, JSON.stringify(updatedData));
 };

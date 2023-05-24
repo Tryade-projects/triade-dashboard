@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import FormatIcon from "../FormatIcon/FormatIcon";
 import StatsData from "../StatsData/StatsData";
 import SmallChart from "../charts/SmallChart/SmallChart";
-import finance from "../../assets/finance.svg";
+import finance from "/assets/finance.svg";
 
 const FinanceFortuneDatas = ({ fortuneData, oldFortuneData }) => {
   return (

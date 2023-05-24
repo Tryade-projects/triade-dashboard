@@ -9,10 +9,10 @@ import { usePagination, useIndexRange } from "../../utils/usePagination";
 
 import PaginationWrapper from "../../components/PaginationWrapper/PaginationWrapper";
 
-import star from "../../assets/star.svg";
-import capacity from "../../assets/capacity.svg";
-import arrow from "../../assets/arrow.svg";
-import fakeDataCompany from "../../../fakeCompanyData.json";
+import star from "/assets/star.svg";
+import capacity from "/assets/capacity.svg";
+import arrow from "/assets/arrow.svg";
+import fakeDataCompany from "/fakeCompanyData.json";
 import ModalActions from "../../components/ModalActions/ModalActions";
 
 const INFO_PER_PAGE = 3;

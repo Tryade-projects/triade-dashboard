@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./_infoEmployee.module.scss";
-import number from "../../../assets/number.svg";
-import email from "../../../assets/emailPlayer.svg";
-import address from "../../../assets/address.svg";
-import date from "../../../assets/Date.svg";
+import number from "/assets/number.svg";
+import email from "/assets/emailPlayer.svg";
+import address from "/assets/address.svg";
+import date from "/assets/Date.svg";
 
 const InfoEmployee = ({ profil }) => {
   return (

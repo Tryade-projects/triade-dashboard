@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import ButtonActions from "../../ButtonActions/ButtonActions";
 import { useNavigate } from "react-router-dom";
 import styles from "./_wrapperAvatarActions.module.scss";
-// import avatar from "../../../assets/fake-avatar.svg";
-import trending from "../../../assets/trending.svg";
-import decrease from "../../../assets/decrease.svg";
-import fired from "../../../assets/fired.svg";
-import gear from "../../../assets/gear.svg";
+// import avatar from "/assets/fake-avatar.svg";
+import trending from "/assets/trending.svg";
+import decrease from "/assets/decrease.svg";
+import fired from "/assets/fired.svg";
+import gear from "/assets/gear.svg";
 import DataContext from "../../../contexts/DataContext";
 import ModalActions from "../../ModalActions/ModalActions";
 import { deleteElmOnLocalStorage } from "../../../utils/arrayManager";
@@ -22,7 +22,6 @@ const WrapperAvatarActions = ({ profil, setProfil }) => {
     firstName: "",
     lastName: "",
   });
-console.log({profil})
   const handleIncrease = (profil) => {
     const newEmployeesList = employees.map((employee) => {
       if (employee.id === profil.id) {
@@ -53,7 +52,6 @@ console.log({profil})
       if (t.id === profil.id) {
         const indexRank = ranks.findIndex((t) => t.label === profil.rank);
         const previousRankIndex = Math.min(indexRank + 1, ranks.length - 1);
-        console.log(previousRankIndex);
         setProfil({
           ...profil,
           rank: ranks[previousRankIndex].label,
@@ -91,7 +89,6 @@ console.log({profil})
       lastName: profil.lastName,
     });
   };
-console.log(styles);
   return (
     <div className={styles.wrapperAvatar}>
       <ModalActions

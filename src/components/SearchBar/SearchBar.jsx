@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import searchImg from "../../assets/Search.svg";
+import React from "react";
+import searchImg from "/assets/Search.svg";
 
 const SearchBar = ({ search, setSearch }) => {
   const handleSearch = (e) => {
