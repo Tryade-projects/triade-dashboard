@@ -1,13 +1,24 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from "react";
 import Chart from "react-apexcharts";
-import DataContext from '../../../contexts/DataContext';
-
-
+import DataContext from "../../../contexts/DataContext";
 
 //labels colors
-const firstLabelsColor = '#A098AE'
-const secondLabelColor = "#303972"
-let listLabelColor = [firstLabelsColor, firstLabelsColor, firstLabelsColor, firstLabelsColor, firstLabelsColor, firstLabelsColor, firstLabelsColor, firstLabelsColor, firstLabelsColor, firstLabelsColor, firstLabelsColor, firstLabelsColor]
+const firstLabelsColor = "#A098AE";
+const secondLabelColor = "#303972";
+let listLabelColor = [
+  firstLabelsColor,
+  firstLabelsColor,
+  firstLabelsColor,
+  firstLabelsColor,
+  firstLabelsColor,
+  firstLabelsColor,
+  firstLabelsColor,
+  firstLabelsColor,
+  firstLabelsColor,
+  firstLabelsColor,
+  firstLabelsColor,
+  firstLabelsColor,
+];
 
 function getTheMonth() {
   let today = Date.now();
@@ -18,33 +29,32 @@ function getTheMonth() {
 
 function changelabelsColor() {
   let value = getTheMonth();
-  listLabelColor.splice(value, 1, secondLabelColor)
-  return listLabelColor
+  listLabelColor.splice(value, 1, secondLabelColor);
+  return listLabelColor;
 }
-
 
 //ApexCharts
 const DashboardCharts = (props) => {
-
-  const {dataDashboardChart} = useContext(DataContext);
+  const { dataDashboardChart } = useContext(DataContext);
+  const [active, setActive] = useState(true);
 
   const [state, setState] = useState({
     series: [
       {
-        name: 'Dépenses',
+        name: "Dépenses",
         data: dataDashboardChart.monthlyExpenseDatas,
       },
       {
-        name: 'Revenus',
+        name: "Revenus",
         data: dataDashboardChart.monthlyGainDatas,
       },
     ],
 
     options: {
-      colors: ['#FCC43E', '#FB7D5B'],
+      colors: ["#FCC43E", "#FB7D5B"],
 
       chart: {
-        id: 'chart',
+        id: "chart",
         zoom: { enabled: false },
         toolbar: { show: false },
       },
@@ -53,18 +63,18 @@ const DashboardCharts = (props) => {
         enabled: true,
         x: { show: false },
         style: {
-          fontSize: '16px',
-          fontFamily: 'Poppins',
+          fontSize: "16px",
+          fontFamily: "Poppins",
         },
         marker: { show: true },
         fixed: {
           enabled: true,
-          position: 'topRight',
+          position: "topRight",
         },
       },
 
       fill: {
-        type: 'gradient',
+        type: "gradient",
         opacity: 0.2,
         gradient: {
           opacityFrom: 0.7,
@@ -76,22 +86,22 @@ const DashboardCharts = (props) => {
 
       legend: {
         show: false,
-        position: 'top',
-        horizontalAlign: 'right',
-        fontSize: '14px',
+        position: "top",
+        horizontalAlign: "right",
+        fontSize: "14px",
         markers: {
           width: 13,
           height: 13,
           strokeWidth: 1,
-          strokeColor: ['#FCC43E', '#FB7D5B'],
-          fillColors: ['transparent', 'transparent'],
+          strokeColor: ["#FCC43E", "#FB7D5B"],
+          fillColors: ["transparent", "transparent"],
           offsetX: -3,
           offsetY: 2,
         },
       },
 
       grid: {
-        borderColor: '#C1BBEB',
+        borderColor: "#C1BBEB",
         xaxis: {
           lines: { show: true },
         },
@@ -101,15 +111,28 @@ const DashboardCharts = (props) => {
       },
 
       xaxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        categories: [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+        ],
         axisBorder: { show: false },
         tooltip: { enabled: false },
         labels: {
-          show: true,
+          show: false,
           style: {
             colors: changelabelsColor(),
-            fontSize: '12px',
-            fontFamily: 'Poppins, sans-serif',
+            fontSize: "12px",
+            fontFamily: "Poppins, sans-serif",
           },
           offsetY: 5,
         },
@@ -118,31 +141,34 @@ const DashboardCharts = (props) => {
       yaxis: {
         labels: {
           style: {
-            colors: '#a098ae',
-            fontFamily: 'Poppins',
+            colors: "#a098ae",
+            fontFamily: "Poppins",
           },
           formatter: function (value) {
-            return value + 'k';
+            return value + "k";
           },
           offsetX: -10,
         },
       },
 
-      stroke: { curve: 'smooth' },
+      stroke: { curve: "smooth" },
     },
   });
-
 
   return (
     <div className="dashboardCharts">
       <h2>Finances de l'entreprise</h2>
-      <h4>Survolez le tableau pour plus d'informations</h4>
+      {active && <h4>Survolez le tableau pour plus d'informations</h4>}
+
       <Chart
         options={state.options}
         series={state.series}
         type="area"
         width="100%"
         height="93%"
+        onMouseEnter={() => {
+          setActive(false);
+        }}
       />
     </div>
   );

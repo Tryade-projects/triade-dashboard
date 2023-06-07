@@ -1,21 +1,23 @@
 .containerDashBoardRanks {
   font-size: 0.7vw;
-  .thNameGrade, .thHeaderNameGrade{
-    width: 16.406vw;
+  .thNameGrade,
+  .thHeaderNameGrade {
+    width: 10.406vw;
   }
-  .tdPermission, .thHeaderPermission{
+  .tdPermission,
+  .thHeaderPermission {
     flex-grow: 1;
     width: 1px;
+    margin-right: 1vw;
   }
-  .tdSalary, .thHeaderSalary{
+  .tdSalary,
+  .thHeaderSalary {
     width: 4.687vw;
     margin-right: 6vw;
   }
 
-  .tdAction div button:last-child img{
+  .tdAction div button:last-child img {
     width: 18px;
     height: 18px;
   }
 }
-
-
