@@ -2,15 +2,15 @@
     "improvement": [
         {
             "actualLvlImprovementStockage": 0,
-            "actualLvlImprovementPersonnel":0,
-            "actualLvlImprovementGarage":2
+            "actualLvlImprovementPersonnel": 0,
+            "actualLvlImprovementGarage": 2
         }
     ],
-    "actualCapacity":[
+    "actualCapacity": [
         {
-            "actualStockage":250,
-            "actualPersonnel":10,
-            "actualGarage":6
+            "actualStockage": 250,
+            "actualPersonnel": 10,
+            "actualGarage": 6
         }
     ]
 }

@@ -5,7 +5,7 @@ import ButtonsFilterWrapper from "../../components/ButtonsFilterWrapper/ButtonsF
 import filteredData from "../../utils/filteredData";
 import { fetchData } from "../../utils/fetchData";
 import ButtonBuy from "../../components/ButtonBuy/ButtonBuy";
-import { usePagination, useIndexRange } from "../../utils/usePagination";
+import { usePagination } from "../../utils/usePagination";
 
 import PaginationWrapper from "../../components/PaginationWrapper/PaginationWrapper";
 
@@ -16,18 +16,12 @@ import fakeDataCompany from "/fakeCompanyData.json";
 import ModalActions from "../../components/ModalActions/ModalActions";
 
 const INFO_PER_PAGE = 3;
-/**
- * Improvements page component.
- * Renders a container with a list of improvements.
- * Allows filtering the improvements by category and pagination.
- * Displays detailed information about each improvement and allows purchasing them.
- * @returns {JSX.Element} The Improvements component.
- */
 
 const Improvements = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [improvementData, setImprovementData] = useState({});
   const [improvements, setImprovements] = useState([]);
+  const [companyData, setCompanyData] = useState({});
 
   //******The ButtonsFilterWrapper informations */
   // State that holds the improvements data and the selected category for filtering
@@ -47,7 +41,6 @@ const Improvements = () => {
   const _DATA = usePagination(improvements, INFO_PER_PAGE);
 
   //******** Increase the datas *********//
-  const [companyData, setCompanyData] = useState({});
 
   useEffect(() => {
     setCompanyData(fakeDataCompany);
@@ -152,7 +145,9 @@ const Improvements = () => {
               {/* Map through the current improvements and render each one in a div */}
               {_DATA.currentData().map((improvement, id) => (
                 <div key={id} className="improvementContainMap">
-                  <div className="improvementImage">{improvement.image}</div>
+                  <div className="improvementImage">
+                    <img src={improvement.image} alt="improvement Image" />
+                  </div>
                   <div className="flexColumn">
                     <h2>{improvement.title}</h2>
                     <h4>{category}</h4>
