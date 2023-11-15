@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import avatar from "/assets/fake-avatar.svg";
-// import SearchBar from "../SearchBar/SearchBar";
 
 const Header = ({ title }) => {
   return (

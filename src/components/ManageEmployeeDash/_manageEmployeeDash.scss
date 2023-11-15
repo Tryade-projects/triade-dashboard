@@ -89,8 +89,6 @@
     .thFirstHeader {
       margin-left: 2.906vw;
     }
-
-    /*End of only for manaEmployeeDash*/
   }
 
   .footer-dashboard-employee {
@@ -155,50 +153,3 @@
 .MuiPagination-root .MuiButtonBase-root.Mui-selected:hover {
   background: #4d44b5;
 }
-
-//   @include transitionOutHover;
-
-// .left-arrow {
-//   margin-right: 16px;
-// }
-
-// .right-arrow {
-//   margin-left: 16px;
-// }
-
-// .left-arrow path:hover, .right-arrow path:hover{
-//   fill: $colorGrey3Darken;
-//   @include transitionInHover;
-// }
-
-// .pagination {
-//   display: flex;
-//   align-items: center;
-//   gap: 16px;
-
-//   li {
-//     width: 50px;
-//     height: 50px;
-//     color: $colorGrey3;
-//     border-radius: 50%;
-//     box-shadow: 0px 7px 16px rgba(0, 0, 0, 0.14);
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     cursor: pointer;
-//     border: 2px solid $colorGrey3;
-//     transition: all 0.2s ease-in-out;
-
-//   }
-//   li:hover{
-//     @include transitionInHover;
-//     border-color: $colorPurpleLight;
-//     color: $colorPurple;
-//   }
-
-//   li.active {
-//     background: $colorPurple;
-//     color: $colorWhite;
-//     border: none;
-//   }
-// }
