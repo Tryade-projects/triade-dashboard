@@ -11,6 +11,7 @@ import ErrorPath from "./components/ErrorPath/ErrorPath";
 import DataContext from "./contexts/DataContext";
 
 import { fetchData } from "./utils/fetchData";
+import { useMemo } from "react";
 
 function App() {
   const constants = {
@@ -35,6 +36,21 @@ function App() {
     monthlyGainDatas: [0, 0, 64, 42, 76, 98, 145, 65, 124, 43, 45, 87],
   });
 
+  const value = useMemo(
+    () => ({
+      constants,
+      ranks,
+      setRanks,
+      employees,
+      setEmployees,
+      dataDashboard,
+      setDataDashboard,
+      dataDashboardChart,
+      setDataDashboardChart,
+    }),
+    [constants, ranks, employees, dataDashboard, dataDashboardChart],
+  );
+
   useEffect(() => {
     if (localStorage.getItem("ranks")) {
       setRanks(JSON.parse(localStorage.getItem("ranks") || "[]"));
@@ -56,19 +72,7 @@ function App() {
   }, []);
   return (
     <div className="app">
-      <DataContext.Provider
-        value={{
-          constants,
-          ranks,
-          setRanks,
-          employees,
-          setEmployees,
-          dataDashboard,
-          setDataDashboard,
-          dataDashboardChart,
-          setDataDashboardChart,
-        }}
-      >
+      <DataContext.Provider value={value}>
         <BrowserRouter>
           <Sidebar />
           <Routes>
