@@ -3,7 +3,7 @@ import Details from "../Details/Details";
 import Header from "../Header/Header";
 import { useLocation } from "react-router-dom";
 
-const addEmployee = () => {
+const AddEmployee = () => {
   const { state } = useLocation();
 
   return (
@@ -14,4 +14,4 @@ const addEmployee = () => {
   );
 };
 
-export default addEmployee;
+export default AddEmployee;
