@@ -26,7 +26,7 @@ const FormEmployee = () => {
     formState: { errors },
   } = useForm();
 
-  const [ranksLocalStorage, setRanksLocalStorage] = useStickyState("ranks", []);
+  const [ranksLocalStorage] = useStickyState("ranks", []);
   const [displayRank, setDisplayRank] = useState(
     state ? state.rank : ranksLocalStorage[ranksLocalStorage.length - 1]?.label,
   );
@@ -136,7 +136,7 @@ const FormEmployee = () => {
             {...register("birth", {
               required: errorMessage,
               pattern: {
-                value: /^(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/\d{4}$/,
+                value: /^(0[1-9]|[1-2]\d|3[0-1])\/(0[1-9]|1[0-2])\/\d{4}$/,
                 message: "La date de naissance n'est pas valide",
               },
             })}
