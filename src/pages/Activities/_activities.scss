@@ -14,13 +14,13 @@
     height: 100%;
     width: 100%;
   }
-  
+
   .activitiesListWrapper {
     display: flex;
     flex-direction: column;
     // height: 92.62%;
     width: 120%;
-  
+
     /*-- GENERAL STYLES
       ------------------------------*/
     .timeline {
@@ -41,7 +41,7 @@
       //   max-width: 100%; /* Empêche les éléments de dépasser la largeur du conteneur */
       // }
     }
-  
+
     .timelineItemAndSeparatorWrapper {
       flex-shrink: 0; /* Empêche les éléments de rétrécir */
       flex-grow: 1; /* Permet aux éléments de s'agrandir */
@@ -49,7 +49,7 @@
       display: flex;
       flex-direction: column;
     }
-  
+
     .timelineItemWrapper {
       flex-shrink: 0; /* Empêche les éléments de rétrécir */
       flex-grow: 1; /* Permet aux éléments de s'agrandir */
@@ -58,9 +58,9 @@
         height: 100%;
       }
     }
-  
+
     /*----- TIMELINE ITEM -----*/
-  
+
     .timelineItem {
       // padding-left: 2.0625rem;
       padding-left: 2vw;
@@ -75,9 +75,9 @@
         padding-bottom: 0;
       }
     }
-  
+
     /*----- TIMELINE INFO -----*/
-  
+
     .timelineInfo {
       font-size: 14px;
       font-size: 0.75vw;
@@ -85,7 +85,7 @@
       color: $colorGrey3;
     }
     /*----- TIMELINE MARKER -----*/
-  
+
     .timelineMarker {
       position: absolute;
       top: 0;
@@ -94,7 +94,6 @@
       width: 1.625rem;
       &:before {
         background: $colorWhite;
-        border: 3px solid transparent;
         border-radius: 100%;
         border: 4px solid $colorPurple;
         content: "";
@@ -126,14 +125,14 @@
       background: transparent;
       border: 3px solid peru;
     }
-  
+
     .timelineMarkerWithoutAfter {
       &:after {
         content: none;
       }
     }
   }
-  
+
   .timelineTitle {
     // height: 3.5625rem;
     // height: 4vw;
@@ -146,7 +145,7 @@
     flex-grow: 1;
     max-width: 100%;
   }
-  
+
   // .activitiesPagination {
   //   display: flex;
   //   justify-content: space-between;
@@ -155,12 +154,12 @@
   //   width: 100%;
   // }
 
-  .footer-dashboard-employee{
+  .footer-dashboard-employee {
     // align-items: center;
     // justify-content: space-between;
     // background-color: blue;
     // width: 100%;
-    
+
     width: 100%;
     padding: 1.532vh 2.109vw;
     display: flex;
@@ -168,10 +167,8 @@
     align-items: center;
     height: 8.5vh;
     margin-bottom: 0.3vh;
-  
   }
-  
-  
+
   .timelineContent {
     color: $colorText;
     // font-size: 1.125rem;
@@ -184,7 +181,7 @@
     display: flex;
     align-items: center;
   }
-  
+
   .categoryColor {
     &Stockage {
       color: $colorOrange;
@@ -200,4 +197,3 @@
     }
   }
 }
-
