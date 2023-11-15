@@ -220,7 +220,16 @@ const FormEmployee = () => {
           label={"Grades *"}
           htmlFor={"ranks"}
         />
-        <div className={styles.select} onClick={handleDisplayRanks}>
+        <div
+          className={styles.select}
+          onClick={handleDisplayRanks}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              handleDisplayRanks();
+            }
+          }}
+          tabIndex={0} // Rend le div focusable
+        >
           <input value={displayRank} readOnly id="ranks" />
           <div className={styles.triangle}></div>
         </div>
