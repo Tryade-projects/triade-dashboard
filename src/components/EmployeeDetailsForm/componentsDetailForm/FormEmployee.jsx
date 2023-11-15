@@ -243,6 +243,12 @@ const FormEmployee = () => {
           {ranksLocalStorage.map((rank) => (
             <li
               onClick={() => handleRanks(rank)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  handleRanks(rank);
+                }
+              }}
+              tabIndex={0}
               className={styles.option}
               key={rank.id}
             >
