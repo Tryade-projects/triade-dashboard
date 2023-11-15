@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Home from "./pages/Home/Home";
@@ -11,7 +11,6 @@ import ErrorPath from "./components/ErrorPath/ErrorPath";
 import DataContext from "./contexts/DataContext";
 
 import { fetchData } from "./utils/fetchData";
-import { useMemo } from "react";
 
 function App() {
   const constants = {
