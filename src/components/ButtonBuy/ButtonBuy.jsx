@@ -5,22 +5,21 @@ import React from "react";
  * @param {object} props - The props object.
  * @param {number} props.level - The improvement level of the button.
  * @param {number} props.actualLvlImprovement - The actual improvement level of the related capacity.
- * @param {function} props.setIsOpen - A function to change the state of a modal open/close.
+ * @param {function} props.setModalIsOpen - A function to change the state of a modal open/close.
  * @param {function} props.getTheData - A function to get data to fill a modal.
  * @param {string} props.category - The category of the related capacity.
  * @param {object} props.capacityData - The data of the related capacity.
- * @returns {JSX.Element} - The Buy button JSX element. 
- */ 
+ * @returns {JSX.Element} - The Buy button JSX element.
+ */
 
 const ButtonBuy = ({
   level,
   actualLvlImprovement,
-  setIsOpen,
+  setModalIsOpen,
   getTheData,
   category,
-  capacityData
+  capacityData,
 }) => {
-
   /**
    * Handles the modal open/close and calls a function to get data to fill the modal.
    */
@@ -28,7 +27,7 @@ const ButtonBuy = ({
     // Calls a function to get data to fill the modal.
     getTheData(category, capacityData);
     // Changes the state of a modal open/close to open.
-    setIsOpen(true);
+    setModalIsOpen(true);
   };
 
   /**

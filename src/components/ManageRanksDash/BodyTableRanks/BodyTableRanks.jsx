@@ -59,7 +59,7 @@ const BodyTableRanks = ({
   setCurrentPage,
 }) => {
   const navigate = useNavigate();
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentRank, setCurrentRank] = useState({
     label: "",
     id: "",
@@ -73,11 +73,11 @@ const BodyTableRanks = ({
   const { BEST_RANK, WORST_RANK } = useContext(DataContext).constants;
 
   const openModal = () => {
-    setIsOpen(true);
+    setModalIsOpen(true);
   };
 
   const closeModal = () => {
-    setIsOpen(false);
+    setModalIsOpen(false);
   };
 
   /**

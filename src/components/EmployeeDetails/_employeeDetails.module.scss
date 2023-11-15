@@ -1,49 +1,30 @@
 @import "../../styles/variables";
 
-// .container {
-//   position: relative;
-//   display: flex;
-//   justify-content: space-between;
-//   height: calc(947px - 180px);
-//   border-radius: 20px;
-// }
-
 .firstContainer {
   width: 70%;
   background: $colorWhite;
   border-radius: 20px;
 }
-// }
 
-// .info {
-//   background: $colorWhite;
-// }
-
-// .showEmployee {
-//   width: 25%;
-//   height: 100%;
-// }
-
-.container{
+.container {
   width: 69.04vw;
   height: 70vh;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   column-gap: 2.062vw;
-  >section{
-      display: flex;
-      flex-direction: column;
-      width: 48.56vw;
-      height: 70vh;
-      row-gap:4.5vh;
-      >div>div{
-        padding-left: 1.406vw;
-        padding-right: 1.406vw;
-      }
-
+  > section {
+    display: flex;
+    flex-direction: column;
+    width: 48.56vw;
+    height: 70vh;
+    row-gap: 4.5vh;
+    > div > div {
+      padding-left: 1.406vw;
+      padding-right: 1.406vw;
+    }
   }
-  aside{
-      width: 18.51vw;
+  aside {
+    width: 18.51vw;
   }
 }

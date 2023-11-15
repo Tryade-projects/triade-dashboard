@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import FormatIcon from "../FormatIcon/FormatIcon";
 import finance from "/assets/finance.svg";
 import stock from "/assets/stock.svg";

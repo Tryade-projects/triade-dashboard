@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import ReactModal from "react-modal";
 import ButtonForm from "../ButtonForm/ButtonForm";
 
-const   ModalActions = ({
+const ModalActions = ({
   confirmText,
   action,
   span,
   modalIsOpen,
-  setIsOpen,
+  setModalIsOpen,
   handleClick,
 }) => {
   const closeModal = () => {
-    setIsOpen(false);
+    setModalIsOpen(false);
   };
 
   const customStyles = {
@@ -42,17 +42,17 @@ const   ModalActions = ({
       <div className="modalContainer">
         {span === "amélioration" ? (
           <p>
-          Voulez vous vraiment <span className="colorGreen">{action} </span> 
-           cette <span className="bold">{span}</span> pour votre entreprise
-          ?
-        </p>
-        ) : (<p>
-          Voulez vous vraiment <span className="colorRed">{action}</span>
-          <span></span> <span className="bold">{span}</span> de votre entreprise
-          ?
-        </p>)
-        }
-        
+            Voulez vous vraiment <span className="colorGreen">{action} </span>
+            cette <span className="bold">{span}</span> pour votre entreprise ?
+          </p>
+        ) : (
+          <p>
+            Voulez vous vraiment <span className="colorRed">{action}</span>
+            <span></span> <span className="bold">{span}</span> de votre
+            entreprise ?
+          </p>
+        )}
+
         <p>Cette action sera irréversible.</p>
         <p>{confirmText}</p>
         <div className="modalButtons">

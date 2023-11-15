@@ -16,7 +16,7 @@ const BodyTable = ({
   setCurrentPage,
 }) => {
   const { ranks, setRanks, employees } = useContext(DataContext);
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [firedEmployee, setFiredEmployee] = useState({
     id: "",
     firstName: "",
@@ -24,7 +24,7 @@ const BodyTable = ({
   });
 
   const handleOpenModal = (employee) => {
-    setIsOpen(true);
+    setModalIsOpen(true);
     setFiredEmployee({
       id: employee.id,
       firstName: employee.firstName,
@@ -38,7 +38,7 @@ const BodyTable = ({
       const fired = employee.filter((fired) => fired.id !== firedEmployee.id);
       return fired;
     });
-    setIsOpen(false);
+    setModalIsOpen(false);
     setPage(1);
     setCurrentPage(1);
   };
@@ -87,7 +87,7 @@ const BodyTable = ({
         action={"renvoyer"}
         span={`${firedEmployee.firstName} ${firedEmployee.lastName}  `}
         modalIsOpen={modalIsOpen}
-        setIsOpen={setIsOpen}
+        setModalIsOpen={setModalIsOpen}
         handleClick={handleFired}
       />
       {currentEmployees.map((employee) => (

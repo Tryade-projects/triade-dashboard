@@ -124,7 +124,7 @@ const Improvements = () => {
         action={"acheter"}
         span={"amélioration"}
         modalIsOpen={modalIsOpen}
-        setIsOpen={setModalIsOpen}
+        setModalIsOpen={setModalIsOpen}
         handleClick={increaseData}
       />
       <Header title="Améliorations" />
@@ -185,7 +185,7 @@ const Improvements = () => {
                   <ButtonBuy
                     level={improvement.level}
                     actualLvlImprovement={getActualLevel(category)}
-                    setIsOpen={setModalIsOpen}
+                    setModalIsOpen={setModalIsOpen}
                     getTheData={getTheData}
                     category={category}
                     capacityData={improvement.capacityData}

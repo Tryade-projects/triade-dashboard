@@ -1,9 +1,7 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ButtonActions from "../../ButtonActions/ButtonActions";
-import { useNavigate } from "react-router-dom";
 import styles from "./_wrapperAvatarActions.module.scss";
-// import avatar from "/assets/fake-avatar.svg";
 import trending from "/assets/trending.svg";
 import decrease from "/assets/decrease.svg";
 import fired from "/assets/fired.svg";
@@ -11,12 +9,11 @@ import gear from "/assets/gear.svg";
 import DataContext from "../../../contexts/DataContext";
 import ModalActions from "../../ModalActions/ModalActions";
 import { deleteElmOnLocalStorage } from "../../../utils/arrayManager";
-import { set } from "react-hook-form";
 
 const WrapperAvatarActions = ({ profil, setProfil }) => {
   const navigate = useNavigate();
   const { employees, setEmployees, ranks } = useContext(DataContext);
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [firedEmployee, setFiredEmployee] = useState({
     id: "",
     firstName: "",
@@ -77,12 +74,12 @@ const WrapperAvatarActions = ({ profil, setProfil }) => {
       const fired = employee.filter((fired) => fired.id !== firedEmployee.id);
       return fired;
     });
-    setIsOpen(false);
+    setModalIsOpen(false);
     navigate("/employees");
   };
 
   const handleOpenModal = (profil) => {
-    setIsOpen(true);
+    setModalIsOpen(true);
     setFiredEmployee({
       id: profil.id,
       firstName: profil.firstName,
@@ -96,7 +93,7 @@ const WrapperAvatarActions = ({ profil, setProfil }) => {
         action={"renvoyer"}
         span={`${firedEmployee.firstName} ${firedEmployee.lastName}  `}
         modalIsOpen={modalIsOpen}
-        setIsOpen={setIsOpen}
+        setModalIsOpen={setModalIsOpen}
         handleClick={handleFired}
       />
       <div className={styles.avatar}>
